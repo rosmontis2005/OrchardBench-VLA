@@ -1,10 +1,18 @@
 #!/usr/bin/env python
-"""Collect measured first-attempt AutoPicker trajectories; never train a model.
+"""Collect measured first-attempt fixed-base expert trajectories; never train a model.
 
 Canonical single-arm data is NOT directly compatible with XR-0's dual-arm
 JsonDataset. Targets are next measured state, not desired IK/CALVIN actions.
-Base is constrained at a single seed-independent workspace pose, authorized by
-the user. Expert code is unchanged; nonzero base velocity commands are masked.
+
+Expert = treesim.fixed_base_picker.FixedBaseAutoPicker: a privileged, physics-
+free, seed-deterministic RESET-TIME selection of the target fruit and the fixed
+chassis (x, y, yaw) (treesim.fixed_base_picker.plan_fixed_base_stance), then the
+official AutoPicker manipulation backend REACH -> GRASP -> PULL -> TRANSPORT ->
+DROP inside a clean t=0 episode.  The mobile SCAN/ALIGN/ORBIT/RECOVER states are
+not executed and no base command is ever issued (asserted every frame); the
+chassis is additionally welded to the world and its drift is audited every
+physics frame.  Fruit truth / target identity / IK residuals are recorded as
+debug metadata only, never as policy input.
 """
 from __future__ import annotations
 import argparse
@@ -31,9 +39,11 @@ import numpy as np
 from scipy.spatial.transform import Rotation
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_LOG = ROOT.parent / 'log/log0914_dataset.md'
+DEFAULT_LOG = ROOT.parent / 'log/log_fixed_base_expert.md'
 DECODER_DIR = ROOT.parent / 'log/dataset_video_tools'
 SCHEMA = 'orchard_xr0_single_arm_v0'
+BASE_POLICY = 'privileged_reset_stance_fixed_base_expert_v1_world_weld'
+EXPERT = 'FixedBaseAutoPicker(official AutoPicker REACH/GRASP/PULL/TRANSPORT/DROP backend)'
 DIMS = dict(ee_pos=3, ee_rotm=9, arm_joint=7, arm_joint_vel=7, gripper_pos=1)
 ACTION_KEYS = ('ee_pos', 'ee_rotm', 'arm_joint', 'gripper_pos')
 PROMPT = ('The following observations are captured from multiple views.\n'
@@ -146,6 +156,16 @@ def validate_arrays(traj):
     assert meta['first_attempt_success'] and all(meta[k] for k in ('grasped', 'detached', 'placed'))
     assert meta['attempt_count'] == 1 and meta['branch_break_count'] == 0
     assert meta['autopicker_grasp_semantics'] == 'official_autopicker_assist'
+    assert meta['base_policy'] == BASE_POLICY and meta['expert'] == EXPERT
+    fb = meta['fixed_base_expert']
+    assert fb['debug_usage'] == 'NOT POLICY INPUT' and fb['base_commands_issued'] == 0
+    assert fb['clean_start']['sim_time'] == 0 and fb['clean_start']['branch_break_count'] == 0
+    visited = [s['state'] for s in fb['state_trace']]
+    assert visited[0] == 'REACH' and visited[-1] == 'DONE', visited
+    assert not (set(visited) & {'SCAN', 'ALIGN', 'ORBIT', 'RECOVER'}), visited
+    assert [s for s in visited if s in ('REACH', 'GRASP', 'PULL', 'TRANSPORT', 'DROP')] == ['REACH', 'GRASP', 'PULL', 'TRANSPORT', 'DROP'], visited
+    # policy fields never carry the privileged target: keys are the fixed contract
+    assert set(traj['proprios']) == set(DIMS) and set(traj['actions']) == set(ACTION_KEYS)
     ts = np.asarray(meta['timestamps']); assert ts.shape == (n,) and ts[0] == 0 and np.allclose(np.diff(ts), 1/30, atol=1e-8)
     base = np.asarray(meta['base_pose']); assert base.shape == (n, 7) and np.isfinite(base).all()
     trans = np.linalg.norm(base[:, :3]-base[0, :3], axis=1).max()
@@ -198,53 +218,99 @@ def encode(path, frames):
         if p.poll() is None: p.terminate(); p.wait()
 
 
+def episode_config(seed):
+    """Episode world configuration (robot pose is filled in by the stance planner)."""
+    from treesim.config import TreeConfig
+    cfg = TreeConfig.compliant('apple'); cfg.seed = int(seed); cfg.device = 'cuda:0'
+    cfg.lsystem.shape_jitter = 0.; cfg.physics.dynamics_jitter = 0.
+    cfg.fruit.enabled = True; cfg.fruit.max_count = 40; cfg.foliage.set_density(.6)
+    cfg.breaking.enabled = True; cfg.robot.enabled = True; cfg.physics.terrain = False
+    return cfg
+
+
+_ARM_IK = None
+
+
+def shared_arm_ik():
+    """One Franka-only IK side model per process (stateless between solves)."""
+    global _ARM_IK
+    if _ARM_IK is None:
+        import warp as wp
+        from treesim import robot
+        from treesim.picker import ArmIK
+        with wp.ScopedDevice('cuda:0'):
+            _ARM_IK = ArmIK(list(robot._ARM_HOME.values()))
+    return _ARM_IK
+
+
+def compact_plan(report):
+    """Stance-planner report without the per-candidate table (manifest/metadata size)."""
+    keep = ('planner', 'seed', 'apple_count', 'reachable_height_count', 'candidate_count',
+            'feasible_count', 'rejection_reasons', 'privileged_information')
+    out = {k: report[k] for k in keep}
+    out['per_apple'] = [dict(apple_index=a['apple_index'], reason=a['reason'],
+                             furthest_stage=a.get('furthest_stage'), candidates=a['candidates'])
+                        for a in report['per_apple']]
+    return out
+
+
+def stance_metadata(st):
+    return dict(selected_apple_debug_index=st.apple_index, selected_apple_initial_world_pose=list(st.target_world),
+                selected_apple_radius=st.apple_radius, selected_base_pose_xy_yaw=[*st.base_xy, st.base_yaw],
+                standoff_m=st.standoff, standoff_band_m=list(st.standoff_band), azimuth_offset_rad=st.azimuth_offset,
+                pregrasp_ik_error_m=st.ik_pregrasp_err, grasp_ik_error_m=st.ik_grasp_err,
+                pull_ik_errors_m=list(st.ik_pull_err), transport_ik_error_m=st.ik_transport_err,
+                initial_safety=dict(min_clearance_chassis_m=st.min_clearance_chassis,
+                                    min_clearance_arm_home_m=st.min_clearance_arm_home,
+                                    pushable_twig_contacts=st.twig_contacts), planner_score=st.score)
+
+
+def sanitize_reason(reason):
+    return re.sub(r'[^a-z0-9]+', '_', str(reason).lower()).strip('_')
+
+
 def collect_episode(seed, raw_dir):
-    """Unmodified official control order; record independent sensors at 30Hz."""
+    """Privileged reset-time stance -> clean t=0 world -> fixed-base expert; record
+    independent sensors at 30Hz.  No base command is ever issued (asserted)."""
     import warp as wp
     import newton.viewer
-    from treesim.config import TreeConfig, preset
-    from treesim import builder, robot
-    from treesim.sim import Sim
-    from treesim.picker import AutoPicker, ArmIK
+    from treesim import robot
+    from treesim.fixed_base_picker import (plan_fixed_base_stance, build_fixed_base_world,
+                                           verify_clean_start, FixedBaseAutoPicker)
     from treesim.metrics import Metrics
     from treesim.vla_camera import StaticRGBCamera
-    started = time.monotonic(); sim = viewer = None
+    started = time.monotonic(); sim = viewer = None; traj = None; images = [[], []]
     result = dict(seed=seed, accepted=False, reject_reason=None, grasped=False, detached=False, placed=False,
                   frames=0, sim_duration_s=0., branch_break_count=0, incidental_detach_count=0)
-    states = {k: [] for k in DIMS}; bases = []; times = []; images = [[], []]
+    states = {k: [] for k in DIMS}; bases = []; times = []; state_trace = []
     max_trans = max_yaw = 0.; terminal_frame = None; first = None; frame = 0
     try:
-        cfg = TreeConfig.compliant('apple'); cfg.seed = seed; cfg.device = 'cuda:0'
-        cfg.lsystem.shape_jitter = 0.; cfg.physics.dynamics_jitter = 0.
-        cfg.fruit.enabled = True; cfg.fruit.max_count = 40; cfg.foliage.set_density(.6)
-        cfg.breaking.enabled = True; cfg.robot.enabled = True; cfg.physics.terrain = False
-        cfg.robot.position = (0.85, -0.3)  # one constant worksite, never seed-selected
-        cfg.robot.yaw = float(np.arctan2(.3, -.85))  # face fixed trunk center, not a fruit
+        cfg = episode_config(seed)
         with wp.ScopedDevice('cuda:0'):
-            # Scoped construction hook: add only the authorized base/world weld.
-            # Retain the planar coordinates required by the official picker.
-            original_build = robot.build_robot
-            def constrained_build(b, rp):
-                rb = original_build(b, rp)
-                b.add_equality_constraint_weld(body1=-1, body2=rb['chassis'],
-                    relpose=wp.transform(wp.vec3(*rp.position, 0.),
-                                         wp.quat_from_axis_angle(wp.vec3(0.,0.,1.),rp.yaw)),
-                    label='dataset_fixed_base')
-                return rb
-            robot.build_robot = constrained_build
-            try:
-                tm = builder.generate_and_build(cfg)
-            finally:
-                robot.build_robot = original_build
-            sim = Sim(tm, solver='mujoco', fps=60, substeps=3, enable_breaking=True, collisions=True)
+            ik = shared_arm_ik()
+            t_plan = time.monotonic()
+            plan = plan_fixed_base_stance(cfg, ik=ik)
+            result['plan_wall_s'] = time.monotonic()-t_plan
+            result['stance_plan'] = compact_plan(plan.report)
+            print('stance_plan_candidates ' + json.dumps(plan.report['candidates']), flush=True)
+            if not plan.feasible:
+                result['reject_reason'] = 'no_feasible_fixed_base_setup'
+                return result, None, images
+            st = plan.stance
+            result['stance'] = stance_metadata(st)
+            print('selected_stance ' + json.dumps(result['stance']), flush=True)
+            # clean rebuild at the selected pose: robot spawned directly at its
+            # final fixed pose (world weld), same seed geometry as the plan
+            tm, sim = build_fixed_base_world(cfg, st, fps=60, substeps=3)
             viewer = newton.viewer.ViewerNull(); sim.set_viewer(viewer)
             driver = robot.RobotDriver(sim, tm, cfg.robot)
-            expert_cam = robot.WristCamera(tm.model, viewer, tm, cfg.robot)
-            met = Metrics(None); arm_ik = ArmIK(list(robot._ARM_HOME.values()))
-            picker = AutoPicker(sim, tm, expert_cam, driver, cfg.robot, met, ik=arm_ik)
             recording_wrist = robot.WristCamera(tm.model, viewer, tm, cfg.robot, perceive=False)
             recording_static = StaticRGBCamera(tm.model, width=192, height=144)
-            assert recording_wrist is not expert_cam and recording_wrist.percept is None
+            assert recording_wrist.percept is None
+            result['clean_start'] = verify_clean_start(sim, tm, plan, driver)
+            met = Metrics(None)
+            picker = FixedBaseAutoPicker(sim, tm, driver, cfg.robot, st, met, ik=ik)
+            assert picker.state == 'REACH' and picker.cam is None
             names = [n.rsplit('/', 1)[-1] for n in tm.model.joint_label]
             starts = tm.model.joint_q_start.numpy()
             qidx = np.array([starts[names.index(n)] for n in robot._ARM_HOME], dtype=int)
@@ -252,10 +318,22 @@ def collect_episode(seed, raw_dir):
             tcp = next(i for i, n in enumerate(tm.model.body_label) if n.endswith('fr3_hand_tcp'))
             ch = int(tm.robot_data['chassis'][0]); initial = sim.body_q_np()[ch].copy()
             initial_yaw = Rotation.from_quat(initial[3:]).as_euler('xyz')[2]
+            ds = int(driver.planar_dof[0]); planar = [ds, ds+1, ds+3]
             home = np.asarray(tm.robot_data['arm_home'])
             assert np.allclose(sim.joint_q_np()[qidx], home, atol=1e-6)
             assert sim.sim_time == 0 and sim.apples.broken_count == sim.breaker.broken_count == 0
             result['gpu_after_build_mib'] = gpu_memory()
+            def snapshot(frame):
+                body = sim.body_q_np(); q = sim.joint_q_np()[qidx]; ik_last = picker.last_ik
+                return dict(frame=int(frame), sim_time=round(float(sim.sim_time), 4), state=picker.state,
+                            tcp_world=[round(float(v), 4) for v in body[tcp, :3]],
+                            target_world=(None if picker._target is None else [round(float(v), 4) for v in picker._target]),
+                            ik_target_world=(None if ik_last is None else [round(float(v), 4) for v in ik_last[0]]),
+                            ik_residual_m=(None if ik_last is None else round(ik_last[1], 5)),
+                            gripper_width_m=round(float(q[-2:].sum()), 5), target_apple=int(picker._target_apple),
+                            detached=bool(picker._target_apple >= 0 and sim.apples.detached[picker._target_apple]),
+                            apples_detached_total=int(sim.apples.broken_count),
+                            branch_break_count=int(sim.breaker.broken_count), fail_reason=picker.fail_reason)
             def record():
                 body = sim.body_q_np(); pose = body[tcp]; q = sim.joint_q_np()[qidx]
                 qd = sim.state_0.joint_qd.numpy()[didx]
@@ -264,31 +342,29 @@ def collect_episode(seed, raw_dir):
                 for key, value in vals.items():
                     a = np.asarray(value, dtype=float); assert np.isfinite(a).all(); states[key].append(a.tolist())
                 times.append(float(sim.sim_time)); bases.append(body[ch].astype(float).tolist())
-                before = expert_cam._frame
                 recording_wrist.update(sim.state_0, force=True)
                 images[0].append(recording_static.update(sim.state_0).copy())
                 images[1].append(recording_wrist.last_rgb.copy())
-                assert expert_cam._frame == before, 'Recording changed expert cadence'
                 for a in (images[0][-1], images[1][-1]):
                     assert a.dtype == np.uint8 and a.shape == (144, 192, 3) and a.var() > 1
-            record(); sim_start = time.monotonic(); last_state = picker.state
+            record(); state_trace.append(snapshot(0)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
+            sim_start = time.monotonic(); last_state = picker.state
             for frame in range(1, 1201):
                 sim.step(); met.frame()
-                expert_cam.update(sim.state_0)  # once/frame, no force: original 5Hz
                 if terminal_frame is None:
                     picker.update()
-                # Fixed-base actuator boundary; never overwrite physical state.
-                # Do not alter expert state/watchdogs or any arm/finger command.
-                ds = int(driver.planar_dof[0])
-                driver._target_host[[ds, ds+1, ds+3]] = 0.
-                sim.control.joint_target_qd.assign(driver._target_host)
+                # Fixed base: the expert has no locomotion action, so the planar
+                # velocity targets must still be exactly zero (never masked).
+                assert np.all(driver._target_host[planar] == 0.), 'expert issued a base command'
+                assert picker.state not in FixedBaseAutoPicker.MOBILE_STATES
                 b = sim.body_q_np()[ch]
                 trans = float(np.linalg.norm(b[:3]-initial[:3]))
                 y = Rotation.from_quat(b[3:]).as_euler('xyz')[2]-initial_yaw
                 yaw = float(abs(np.arctan2(np.sin(y), np.cos(y))))
                 max_trans = max(max_trans, trans); max_yaw = max(max_yaw, yaw)
                 if picker.state != last_state:
-                    print(f'seed={seed} frame={frame} state={picker.state}', flush=True); last_state = picker.state
+                    state_trace.append(snapshot(frame)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
+                    last_state = picker.state
                 if frame % 2 == 0: record()
                 if max_trans >= 1e-3 or max_yaw >= 1e-3:
                     result['reject_reason'] = 'base_drift_exceeded'; break
@@ -297,12 +373,10 @@ def collect_episode(seed, raw_dir):
                 if met.picks and terminal_frame is None:
                     first = met.picks[0]
                     if len(met.picks) != 1 or not all(first[k] for k in ('grasped', 'detached', 'placed')) or first['fail_reason']:
-                        result['reject_reason'] = 'first_attempt_' + (first['fail_reason'] or 'incomplete'); break
+                        result['reject_reason'] = 'first_attempt_' + sanitize_reason(first['fail_reason'] or 'incomplete'); break
                     terminal_frame = ((frame+1)//2)*2 + 4
-                if terminal_frame is None and (picker.state in ('RECOVER', 'ORBIT') or met.counters.get('pick_failures', 0)):
-                    result['reject_reason'] = 'first_attempt_recovery_or_failure'; break
-                if picker.done and terminal_frame is None:
-                    result['reject_reason'] = 'no_fruit'; break
+                if terminal_frame is None and picker.done:
+                    result['reject_reason'] = 'first_attempt_' + sanitize_reason(picker.fail_reason or 'expert_stopped'); break
                 if terminal_frame is not None and frame >= terminal_frame:
                     result['accepted'] = True; break
             else:
@@ -312,16 +386,24 @@ def collect_episode(seed, raw_dir):
             first = first or (met.picks[0] if met.picks else met._open_pick)
             if first:
                 result.update({k: bool(first[k]) for k in ('grasped', 'detached', 'placed')})
+                result['max_pull_N'] = float(first['max_pull_N'])
             result['branch_break_count'] = int(sim.breaker.broken_count)
             result['incidental_detach_count'] = max(0, int(sim.apples.broken_count)-int(result['detached']))
             result['max_base_translation_drift_m'] = max_trans; result['max_base_yaw_drift_rad'] = max_yaw
-            result['expert_camera_calls'] = expert_cam._frame
-            assert expert_cam._frame == frame
+            result['expert_final_state'] = picker.state; result['expert_fail_reason'] = picker.fail_reason
+            result['state_trace'] = state_trace
             metadata = dict(base_pose=bases, timestamps=times, debug_usage='NOT POLICY INPUT',
                 autopicker_grasp_semantics='official_autopicker_assist', first_attempt_success=result['accepted'],
                 attempt_count=len(met.picks)+(met._open_pick is not None), home_arm_joint=home[:7].tolist(),
                 max_base_translation_drift_m=max_trans, max_base_yaw_drift_rad=max_yaw,
                 branch_break_count=result['branch_break_count'], incidental_detach_count=result['incidental_detach_count'],
+                expert=EXPERT, base_policy=BASE_POLICY,
+                fixed_base_expert=dict(debug_usage='NOT POLICY INPUT', planner=plan.report['planner'],
+                    expert_perception='none: privileged reset-time target; GRASP servos on simulator fruit pose '
+                                      'exactly as the official backend does',
+                    **result['stance'], candidate_count=plan.report['candidate_count'],
+                    feasible_count=plan.report['feasible_count'], rejection_reasons=plan.report['rejection_reasons'],
+                    clean_start=result['clean_start'], state_trace=state_trace, base_commands_issued=0),
                 **{k: result[k] for k in ('grasped', 'detached', 'placed')})
             traj = dict(schema=SCHEMA, trajectory_type='success', seed=seed, num_frames=len(times), record_fps=30,
                 instruction={'general': [{'images': ['observations.ego', 'observations.wrist_left'],
@@ -415,7 +497,7 @@ def summarize(args, rows):
     section = 8 if args.pilot else 12
     update_log(args.log, section, f'Output: {args.output}\n```json\n'+json.dumps(summary, indent=2)+'\n```')
     if args.pilot:
-        gate = args.log.parent/'raw_dataset/pilot_gate.json'
+        gate = args.raw_dir/'pilot_gate.json'
         if passed:
             write_json(gate, dict(status='PASS',accepted=len(accepted),schema=SCHEMA,
                 config=json.loads((args.output/'collection_config.json').read_text()),
@@ -445,18 +527,21 @@ def main():
     ap.add_argument('--action-length', type=int, default=30)
     ap.add_argument('--resume', action='store_true')
     ap.add_argument('--pilot', action='store_true')
+    ap.add_argument('--raw-dir', type=Path, default=None,
+                    help='per-seed stdout captures, pilot gate and pilot checkpoint (default: <log dir>/raw_dataset)')
     args = ap.parse_args(); args.output = args.output.resolve(); args.log = args.log.resolve()
+    args.raw_dir = (args.raw_dir or args.log.parent/'raw_dataset').resolve()
     if args.record_fps != 30 or args.action_length != 30 or args.accepted < 1 or args.max_attempts < 1:
         ap.error('v0 requires30Hz,length30,positive counts')
     if args.pilot and args.accepted != 3: ap.error('Pilot requires exactly3 accepted episodes')
     if not args.pilot:
-        gate_path=args.log.parent/'raw_dataset/pilot_gate.json'
+        gate_path=args.raw_dir/'pilot_gate.json'
         if not gate_path.exists(): raise RuntimeError('Formal collection requires a completed3-episode pilot audit')
         gate=json.loads(gate_path.read_text())
         if gate['status']!='PASS' or gate['schema']!=SCHEMA or gate['accepted']!=3:
             raise RuntimeError('DATA FORMAT AUDIT FAIL: invalid pilot gate')
     decoder(); subprocess.run(['ffmpeg','-version'], stdout=subprocess.DEVNULL, check=True)
-    backup=args.log.parent/'raw_dataset/pilot_checkpoint'
+    backup=args.raw_dir/'pilot_checkpoint'
     if args.pilot and args.resume and not args.output.exists() and backup.exists():
         shutil.copytree(backup,args.output)
     if args.output.exists() and not args.resume: raise FileExistsError('Output exists; use --resume (never overwrite)')
@@ -465,7 +550,7 @@ def main():
     lock=(args.output/'.collection.lock').open('a')
     fcntl.flock(lock.fileno(), fcntl.LOCK_EX|fcntl.LOCK_NB)
     for sub in ('json/train','json/val','videos'): (args.output/sub).mkdir(parents=True,exist_ok=True)
-    raw = args.log.parent/'raw_dataset'; raw.mkdir(exist_ok=True)
+    raw = args.raw_dir; raw.mkdir(parents=True, exist_ok=True)
     manifest = args.output/'manifest.jsonl'
     checkpoint = raw/'pilot_checkpoint' if args.pilot else None
     def checkpoint_pilot():
@@ -473,11 +558,12 @@ def main():
             shutil.copytree(args.output, checkpoint, dirs_exist_ok=True, ignore=shutil.ignore_patterns('.collection.lock','*.writing'))
     rows = [json.loads(line) for line in manifest.read_text().splitlines()] if manifest.exists() else []
     config = dict(schema=SCHEMA, seed_start=args.seed_start, record_fps=30, action_length=30,
-                  base_policy='world_weld_velocity_mask_fixed_worksite_0.85_-0.3_face_trunk', terminal_control_frames=2,
+                  base_policy=BASE_POLICY, expert=EXPERT, stance_planner='fixed_base_stance_planner_v2',
+                  terminal_control_frames=2,
                   max_sim_seconds=20, split_rule='every10th accepted val', script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
     config_path = args.output/'collection_config.json'
     if not args.pilot:
-        for key in ('base_policy','record_fps','action_length','terminal_control_frames','max_sim_seconds'):
+        for key in ('base_policy','expert','stance_planner','record_fps','action_length','terminal_control_frames','max_sim_seconds'):
             if config[key]!=gate['config'][key]: raise RuntimeError(f'Pilot/config mismatch: {key}')
     if args.resume:
         old = json.loads(config_path.read_text())
@@ -551,7 +637,7 @@ def main():
             row.clear();row.update(result);manifest_write(manifest,rows)
             (args.output/'.pending_episode.json').unlink(missing_ok=True)
             checkpoint_pilot()
-            msg=f'seed={seed} accepted={result["accepted"]} total={count}/{args.accepted} attempts={len(rows)} reason={result["reject_reason"]} frames={result["frames"]} wall={result["episode_wall_s"]:.2f}s'
+            msg=f'seed={seed} accepted={result["accepted"]} total={count}/{args.accepted} attempts={len(rows)} reason={result["reject_reason"]} frames={result["frames"]} sim_s={result["sim_duration_s"]:.2f} states={[s["state"] for s in result.get("state_trace", [])]} breaks={result["branch_break_count"]} drift_m={result.get("max_base_translation_drift_m")} wall={result["episode_wall_s"]:.2f}s'
             journal(args.log,msg)
             if not args.pilot: update_log(args.log,11,msg)
             del traj,images;gc.collect();seed+=1

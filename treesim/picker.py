@@ -355,6 +355,15 @@ class AutoPicker:
         self._target_apple = -1
         self._set_arm(self.arm_home)
         self._fingers(self.FINGER_OPEN)
+        self._after_fail(reason)
+
+    # Hand-off hooks after a pick attempt ends.  The mobile picker looks for the
+    # next fruit (SCAN); a single-target fixed-base expert (see
+    # fixed_base_picker.py) overrides these to terminate instead.
+    def _after_fail(self, reason):
+        self._goto("SCAN")
+
+    def _after_drop(self):
         self._goto("SCAN")
 
     def update(self):
@@ -529,13 +538,15 @@ class AutoPicker:
             self._drive(0.0, 0.0)
             self.done = True
 
-    def _standoff_band(self, target_z: float):
+    @classmethod
+    def _standoff_band(cls, target_z: float):
         """Reach-aware stand-off: HIGH fruit needs the base CLOSER, or the arm
         tops out just short and the grasp stalls at its reach limit (this was
-        the dominant failure mode: every miss was at z >= 1.0)."""
-        dz = abs(float(target_z) - self.SHOULDER[1])
-        planar = math.sqrt(max(self.ARM_REACH ** 2 - dz ** 2, 0.05))
-        hi = min(self.STANDOFF[1], self.SHOULDER[0] + 0.92 * planar)
+        the dominant failure mode: every miss was at z >= 1.0).  A classmethod
+        so reset-time stance planning can evaluate the same band."""
+        dz = abs(float(target_z) - cls.SHOULDER[1])
+        planar = math.sqrt(max(cls.ARM_REACH ** 2 - dz ** 2, 0.05))
+        hi = min(cls.STANDOFF[1], cls.SHOULDER[0] + 0.92 * planar)
         lo = max(0.45, hi - 0.16)
         return lo, hi
 
@@ -759,4 +770,4 @@ class AutoPicker:
         self._target = None
         self._target_apple = -1
         self._set_arm(self.arm_home)
-        self._goto("SCAN")
+        self._after_drop()
