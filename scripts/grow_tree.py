@@ -338,7 +338,7 @@ def main():
                               yaw=float(math.degrees(math.atan2(d[1], d[0]))))
         else:
             viewer.set_camera(pos=wp.vec3(2.2 * h, 2.2 * h, 1.1 * h),
-                              pitch=-15.0, yaw=135.0)
+                              pitch=-15.0, yaw=-135.0)
     except Exception:
         pass
 

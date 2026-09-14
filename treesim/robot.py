@@ -479,6 +479,8 @@ class WristCamera:
             W, H, math.radians(float(rp.camera_fov)))
         self.depth = self.sensor.utils.create_depth_image_output(W, H, 1)
         self.color = self.sensor.utils.create_color_image_output(W, H, 1)
+        self._rgb_env = None
+        self._rgb_ready = False
         n = self.num_envs
         self.depth_rgba = wp.empty((n, H, W, 4), dtype=wp.uint8, device=self.depth.device)
 
@@ -511,6 +513,24 @@ class WristCamera:
     @property
     def detections(self):
         return self.dets_env[0]
+
+    @property
+    def rgb_env(self):
+        """Latest per-world uint8 HWC RGB, top row first (no depth overlay).
+
+        Newton packs RGBA in uint32. Decode lazily so existing depth-only
+        AutoPicker runs do not pay an additional host transfer.
+        """
+        if not self._rgb_ready:
+            return [None] * self.num_envs
+        if self._rgb_env is None:
+            rgba = self.sensor.utils.to_rgba_from_color(self.color).numpy()
+            self._rgb_env = [np.ascontiguousarray(im[..., :3]) for im in rgba]
+        return self._rgb_env
+
+    @property
+    def last_rgb(self):
+        return self.rgb_env[0]
 
     @property
     def last_depth(self):
@@ -546,10 +566,10 @@ class WristCamera:
         rgba[y0:min(y0 + 2, H), x0:x1, :3] = col
         rgba[max(y1 - 2, 0):y1, x0:x1, :3] = col
 
-    def update(self, state):
-        """Render the wrist depth view (host-driven; call from the render loop)."""
+    def update(self, state, *, force=False):
+        """Render RGB/depth; force refresh for a synchronous observation."""
         self._frame += 1
-        if (self._frame - 1) % self.every:
+        if not force and (self._frame - 1) % self.every:
             return
         # camera world pose from the wrist body pose (env 0..N-1)
         bq = state.body_q.numpy()
@@ -588,6 +608,8 @@ class WristCamera:
         self.sensor.update(state, cam, self.rays,
                            color_image=self.color, depth_image=self.depth,
                            clear_data=clear)
+        self._rgb_ready = True
+        self._rgb_env = None
         self.sensor.utils.to_rgba_from_depth(
             self.depth, depth_range=(0.0, float(self.rp.camera_range)),
             out_buffer=self.depth_rgba)
