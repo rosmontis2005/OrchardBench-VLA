@@ -43,10 +43,11 @@ class StaticRGBCamera:
             self.pose = wp.array([[look_at_transform(position, target)]], dtype=wp.transform)
         self.last_rgb = None
 
-    def update(self, state):
+    def update(self, state, *, debug_shape_index_image=None):
         with wp.ScopedDevice(self.model.device):
             self.model.bvh_refit_shapes(state)
-            self.sensor.update(state, self.pose, self.rays, color_image=self.color)
+            self.sensor.update(state, self.pose, self.rays, color_image=self.color,
+                               shape_index_image=debug_shape_index_image)
             rgba = self.sensor.utils.to_rgba_from_color(self.color).numpy()
         self.last_rgb = np.ascontiguousarray(rgba[0, ..., :3])
         return self.last_rgb

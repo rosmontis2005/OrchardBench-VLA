@@ -84,15 +84,12 @@ def place_apples(skel: TreeSkeleton, fp: FruitParams, seed: int = 0) -> list[App
 # apple's absolute velocity, and its reaction is not passive (it can pump
 # energy into the spur).
 #
-# Detachment is decided by how hard the USER pulls the fruit ITSELF: the kernel
-# runs after the mouse-pick / external pull is in ``body_f`` but before drag/
-# ground, so ``body_f[apple]`` at entry is exactly that pull.  Its magnitude is
-# recorded; when it exceeds the apple's ``detach_force`` (for a couple of frames)
-# the host flags the apple detached.  Branch motion applies no force to the
-# apple, so it is ignored — only a direct tug on the fruit snaps the stem.  A
-# detached apple stops being tethered and falls under gravity + the drag/
-# soft-ground kernel.  No model edit, notify or graph-recapture is involved,
-# so it is cheap and cannot destabilise the tree.
+# The kernel records direct pull = external body force + official hold spring,
+# and elastic stem tension. AppleField.update applies separate consecutive-frame
+# rupture tests to both signals. Contact-driven stretching or branch motion can
+# therefore detach fruit via tension even without a hold or external pull.
+# A detached fruit loses its tether but retains the official hold assist until
+# release. Flags change in place: no model edit, notify or graph recapture.
 # --------------------------------------------------------------------------- #
 @wp.kernel
 def _apple_tether(body_q: wp.array(dtype=wp.transform),
@@ -165,10 +162,10 @@ def _apple_tether(body_q: wp.array(dtype=wp.transform),
 
 
 class AppleField:
-    """Holds free-body apples on their spurs with a one-sided tether and detaches
-    an apple only when the USER pulls the fruit itself hard enough (a direct
-    pick/external force above its stem strength); it then free-falls.  Branch
-    motion never detaches it.  Pure forces + a flag: no model edit, no
+    """Holds free-body apples on their spurs with a spring tether and detaches
+    an apple after sustained direct pull OR elastic stem tension exceeds its
+    strength. Contact or branch motion can therefore trigger the tension path.
+    Pure forces + a flag: no model edit, no
     ``notify``, no graph recapture, so it is cheap and cannot destabilise the
     tree."""
 
@@ -183,7 +180,12 @@ class AppleField:
         self.parent_body = wp.array(np.asarray(d["parent_body"], dtype=np.int32), device=dev)
         self.offset = wp.array(np.asarray(d["offset"], dtype=np.float32), dtype=wp.vec3, device=dev)
         self.hang_drop = wp.array(np.asarray(d["hang_drop"], dtype=np.float32), device=dev)
-        self.detach_force = np.asarray(d["detach_force"], dtype=np.float64)
+        self.detach_force_multiplier = float(fr.detach_force_scale)
+        if not np.isfinite(self.detach_force_multiplier) or self.detach_force_multiplier <= 0:
+            raise ValueError("detach_force_scale must be finite and positive")
+        self.detach_force = np.asarray(d["detach_force"], dtype=np.float64) * self.detach_force_multiplier
+        # DEBUG ONLY: freeze the actual rupture decision before buffers change.
+        self.detach_events = [None] * self.n
 
         self.k = float(fr.tether_stiffness)
         # damping as a fraction of critical for a mass-spring (m = apple mass)
@@ -236,6 +238,10 @@ class AppleField:
         """Latest per-apple pull-force readings [N] (host copy)."""
         return self._pull.numpy()[:self.n]
 
+    def tensions(self) -> np.ndarray:
+        """DEBUG ONLY: latest elastic stem tensions [N], host copy."""
+        return self._tension.numpy()[:self.n]
+
     def apply(self, state):
         """Tether the still-attached apples and record each apple's pull force.
         Call each substep, AFTER the pick/external pull is in body_f but BEFORE
@@ -272,6 +278,13 @@ class AppleField:
             & (~self.detached)
         if not newly.any():
             return 0
+        for i in np.flatnonzero(newly):
+            direct = self._over[i] >= self._hyst
+            stem = self._over_t[i] >= self._hyst_t
+            self.detach_events[i] = dict(
+                direct_pull_force_at_detach_N=float(pull[i]),
+                stem_tension_at_detach_N=float(tension[i]),
+                detach_trigger="both" if direct and stem else "direct_pull" if direct else "stem_tension")
         self.detached[newly] = True
         self._flag_host[:self.n][newly] = 1
         self._flag.assign(self._flag_host)

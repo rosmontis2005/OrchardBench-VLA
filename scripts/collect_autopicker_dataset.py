@@ -153,6 +153,10 @@ def validate_arrays(traj):
         assert np.array_equal(a[:-1], p[1:]) and np.array_equal(a[-1], p[-1]), key
     meta = traj['orchardbench']
     assert meta['debug_usage'] == 'NOT POLICY INPUT'
+    assert meta['incidental_detach_count'] == 0
+    assert meta['target_visibility']['initial']['any_policy_view_visible']
+    assert meta['detach_diagnostics']['detach_frame'] is not None
+    assert meta['detach_force_multiplier'] == meta['detach_diagnostics']['detach_force_multiplier']
     assert meta['first_attempt_success'] and all(meta[k] for k in ('grasped', 'detached', 'placed'))
     assert meta['attempt_count'] == 1 and meta['branch_break_count'] == 0
     assert meta['autopicker_grasp_semantics'] == 'official_autopicker_assist'
@@ -160,6 +164,8 @@ def validate_arrays(traj):
     fb = meta['fixed_base_expert']
     assert fb['debug_usage'] == 'NOT POLICY INPUT' and fb['base_commands_issued'] == 0
     assert fb['clean_start']['sim_time'] == 0 and fb['clean_start']['branch_break_count'] == 0
+    assert all(s['target_apple'] == fb['selected_apple_debug_index']
+               for s in fb['state_trace'] if s['state'] == 'PULL')
     visited = [s['state'] for s in fb['state_trace']]
     assert visited[0] == 'REACH' and visited[-1] == 'DONE', visited
     assert not (set(visited) & {'SCAN', 'ALIGN', 'ORBIT', 'RECOVER'}), visited
@@ -269,7 +275,8 @@ def sanitize_reason(reason):
     return re.sub(r'[^a-z0-9]+', '_', str(reason).lower()).strip('_')
 
 
-def collect_episode(seed, raw_dir):
+def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
+                    initial_only=False, gallery_dir=None):
     """Privileged reset-time stance -> clean t=0 world -> fixed-base expert; record
     independent sensors at 30Hz.  No base command is ever issued (asserted)."""
     import warp as wp
@@ -279,6 +286,8 @@ def collect_episode(seed, raw_dir):
                                            verify_clean_start, FixedBaseAutoPicker)
     from treesim.metrics import Metrics
     from treesim.vla_camera import StaticRGBCamera
+    from treesim.expert_diagnostics import DetachDiagnostics
+    from treesim.target_visibility import TargetVisibility
     started = time.monotonic(); sim = viewer = None; traj = None; images = [[], []]
     result = dict(seed=seed, accepted=False, reject_reason=None, grasped=False, detached=False, placed=False,
                   frames=0, sim_duration_s=0., branch_break_count=0, incidental_detach_count=0)
@@ -286,6 +295,8 @@ def collect_episode(seed, raw_dir):
     max_trans = max_yaw = 0.; terminal_frame = None; first = None; frame = 0
     try:
         cfg = episode_config(seed)
+        cfg.fruit.detach_force_scale = detach_force_scale
+        result["detach_force_multiplier"] = detach_force_scale
         with wp.ScopedDevice('cuda:0'):
             ik = shared_arm_ik()
             t_plan = time.monotonic()
@@ -323,6 +334,17 @@ def collect_episode(seed, raw_dir):
             assert np.allclose(sim.joint_q_np()[qidx], home, atol=1e-6)
             assert sim.sim_time == 0 and sim.apples.broken_count == sim.breaker.broken_count == 0
             result['gpu_after_build_mib'] = gpu_memory()
+            diagnostics = DetachDiagnostics(sim, picker, tcp)
+            visibility = TargetVisibility(tm.model, int(tm.apple_bodies[st.apple_index]),
+                                          recording_static, recording_wrist)
+            visibility.check(sim.state_0, 'initial', sanity=initial_only)
+            result['target_visibility'] = visibility.data
+            result['detach_diagnostics'] = diagnostics.data
+            if gallery_dir is not None:
+                visibility.save_gallery(gallery_dir)
+            if initial_only:
+                result['episode_wall_s'] = time.monotonic()-started
+                return result, None, images
             def snapshot(frame):
                 body = sim.body_q_np(); q = sim.joint_q_np()[qidx]; ik_last = picker.last_ik
                 return dict(frame=int(frame), sim_time=round(float(sim.sim_time), 4), state=picker.state,
@@ -342,6 +364,7 @@ def collect_episode(seed, raw_dir):
                 for key, value in vals.items():
                     a = np.asarray(value, dtype=float); assert np.isfinite(a).all(); states[key].append(a.tolist())
                 times.append(float(sim.sim_time)); bases.append(body[ch].astype(float).tolist())
+                if not record_rgb: return
                 recording_wrist.update(sim.state_0, force=True)
                 images[0].append(recording_static.update(sim.state_0).copy())
                 images[1].append(recording_wrist.last_rgb.copy())
@@ -351,8 +374,12 @@ def collect_episode(seed, raw_dir):
             sim_start = time.monotonic(); last_state = picker.state
             for frame in range(1, 1201):
                 sim.step(); met.frame()
+                diagnostics.after_physics(frame)
                 if terminal_frame is None:
                     picker.update()
+                    diagnostics.after_command(frame)
+                    if picker.state == 'GRASP' and visibility.data['grasp_entry'] is None:
+                        visibility.check(sim.state_0, 'grasp_entry')
                 # Fixed base: the expert has no locomotion action, so the planar
                 # velocity targets must still be exactly zero (never masked).
                 assert np.all(driver._target_host[planar] == 0.), 'expert issued a base command'
@@ -388,11 +415,18 @@ def collect_episode(seed, raw_dir):
                 result.update({k: bool(first[k]) for k in ('grasped', 'detached', 'placed')})
                 result['max_pull_N'] = float(first['max_pull_N'])
             result['branch_break_count'] = int(sim.breaker.broken_count)
-            result['incidental_detach_count'] = max(0, int(sim.apples.broken_count)-int(result['detached']))
+            result['incidental_detach_count'] = int(sim.apples.broken_count)-int(sim.apples.detached[st.apple_index])
+            if result['accepted'] and diagnostics.data['grasped_apple_debug_index'] != st.apple_index:
+                result.update(accepted=False, reject_reason='planned_target_not_picked')
+            if result['accepted'] and result['incidental_detach_count']:
+                result.update(accepted=False, reject_reason='incidental_detach')
+            if result['accepted'] and not visibility.data['initial']['any_policy_view_visible']:
+                result.update(accepted=False, reject_reason='target_not_visible_in_policy_observation')
             result['max_base_translation_drift_m'] = max_trans; result['max_base_yaw_drift_rad'] = max_yaw
             result['expert_final_state'] = picker.state; result['expert_fail_reason'] = picker.fail_reason
             result['state_trace'] = state_trace
-            metadata = dict(base_pose=bases, timestamps=times, debug_usage='NOT POLICY INPUT',
+            metadata = dict(detach_force_multiplier=detach_force_scale,
+                detach_diagnostics=diagnostics.data, target_visibility=visibility.data, base_pose=bases, timestamps=times, debug_usage='NOT POLICY INPUT',
                 autopicker_grasp_semantics='official_autopicker_assist', first_attempt_success=result['accepted'],
                 attempt_count=len(met.picks)+(met._open_pick is not None), home_arm_joint=home[:7].tolist(),
                 max_base_translation_drift_m=max_trans, max_base_yaw_drift_rad=max_yaw,
@@ -413,7 +447,8 @@ def collect_episode(seed, raw_dir):
     finally:
         if sim is not None: wp.synchronize_device(sim.model.device)
         if viewer is not None: viewer.close()
-    result['episode_wall_s'] = time.monotonic()-started
+        # Include planner-infeasible / reset-only early returns too.
+        result['episode_wall_s'] = time.monotonic()-started
     return result, traj, images
 
 
@@ -503,7 +538,7 @@ def summarize(args, rows):
                 config=json.loads((args.output/'collection_config.json').read_text()),
                 audit=audit,script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()))
         update_log(args.log, 9, f'Accepted={len(accepted)}; roundtrip/video integrity: {json.dumps(audit)}. '+
-            ('PILOT PASS; formal collection eligible.' if passed else 'PILOT INCOMPLETE; formal collection gate remains closed.'))
+            ('PILOT PASS; formal collection and training were not started.' if passed else 'PILOT INCOMPLETE; formal collection gate remains closed.'))
     else:
         update_log(args.log, 13, json.dumps(reasons, indent=2))
         update_log(args.log, 14, json.dumps(summary['episode_statistics'], indent=2))
@@ -527,18 +562,20 @@ def main():
     ap.add_argument('--action-length', type=int, default=30)
     ap.add_argument('--resume', action='store_true')
     ap.add_argument('--pilot', action='store_true')
+    ap.add_argument('--detach-force-scale', type=float, default=1.0)
     ap.add_argument('--raw-dir', type=Path, default=None,
                     help='per-seed stdout captures, pilot gate and pilot checkpoint (default: <log dir>/raw_dataset)')
     args = ap.parse_args(); args.output = args.output.resolve(); args.log = args.log.resolve()
     args.raw_dir = (args.raw_dir or args.log.parent/'raw_dataset').resolve()
     if args.record_fps != 30 or args.action_length != 30 or args.accepted < 1 or args.max_attempts < 1:
         ap.error('v0 requires30Hz,length30,positive counts')
-    if args.pilot and args.accepted != 3: ap.error('Pilot requires exactly3 accepted episodes')
+    if not np.isfinite(args.detach_force_scale) or args.detach_force_scale <= 0:
+        ap.error('detach-force-scale must be finite and positive')
     if not args.pilot:
         gate_path=args.raw_dir/'pilot_gate.json'
-        if not gate_path.exists(): raise RuntimeError('Formal collection requires a completed3-episode pilot audit')
+        if not gate_path.exists(): raise RuntimeError('Formal collection requires a completed pilot audit (at least 3 episodes)')
         gate=json.loads(gate_path.read_text())
-        if gate['status']!='PASS' or gate['schema']!=SCHEMA or gate['accepted']!=3:
+        if gate['status']!='PASS' or gate['schema']!=SCHEMA or gate['accepted']<3:
             raise RuntimeError('DATA FORMAT AUDIT FAIL: invalid pilot gate')
     decoder(); subprocess.run(['ffmpeg','-version'], stdout=subprocess.DEVNULL, check=True)
     backup=args.raw_dir/'pilot_checkpoint'
@@ -557,14 +594,16 @@ def main():
         if checkpoint is not None:
             shutil.copytree(args.output, checkpoint, dirs_exist_ok=True, ignore=shutil.ignore_patterns('.collection.lock','*.writing'))
     rows = [json.loads(line) for line in manifest.read_text().splitlines()] if manifest.exists() else []
-    config = dict(schema=SCHEMA, seed_start=args.seed_start, record_fps=30, action_length=30,
+    from treesim.target_visibility import MIN_VISIBLE_PIXELS
+    config = dict(detach_force_multiplier=args.detach_force_scale, target_visibility_min_pixels=MIN_VISIBLE_PIXELS,
+                  schema=SCHEMA, seed_start=args.seed_start, record_fps=30, action_length=30,
                   base_policy=BASE_POLICY, expert=EXPERT, stance_planner='fixed_base_stance_planner_v2',
                   terminal_control_frames=2,
                   max_sim_seconds=20, split_rule='every10th accepted val', script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
     config_path = args.output/'collection_config.json'
     if not args.pilot:
-        for key in ('base_policy','expert','stance_planner','record_fps','action_length','terminal_control_frames','max_sim_seconds'):
-            if config[key]!=gate['config'][key]: raise RuntimeError(f'Pilot/config mismatch: {key}')
+        for key in ('detach_force_multiplier','target_visibility_min_pixels','base_policy','expert','stance_planner','record_fps','action_length','terminal_control_frames','max_sim_seconds'):
+            if config[key]!=gate['config'].get(key): raise RuntimeError(f'Pilot/config mismatch: {key}')
     if args.resume:
         old = json.loads(config_path.read_text())
         for key in config:
@@ -608,7 +647,7 @@ def main():
             rows.append(row); manifest_write(manifest, rows);checkpoint_pilot()
             with (raw/f'{"pilot" if args.pilot else "formal"}_{seed}.txt').open('a') as capture:
                 with redirect_stdout(capture), redirect_stderr(capture):
-                    result,traj,images = collect_episode(seed,raw)
+                    result,traj,images = collect_episode(seed,raw,args.detach_force_scale)
             result['status']='complete'; result['encoding_wall_s']=0.
             if result['accepted']:
                 eid = f'episode_{count+1:06d}'; split = 'val' if (count+1)%10==0 else 'train'

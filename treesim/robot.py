@@ -566,7 +566,7 @@ class WristCamera:
         rgba[y0:min(y0 + 2, H), x0:x1, :3] = col
         rgba[max(y1 - 2, 0):y1, x0:x1, :3] = col
 
-    def update(self, state, *, force=False):
+    def update(self, state, *, force=False, debug_shape_index_image=None):
         """Render RGB/depth; force refresh for a synchronous observation."""
         self._frame += 1
         if not force and (self._frame - 1) % self.every:
@@ -607,7 +607,7 @@ class WristCamera:
         clear = _S.ClearData(clear_depth=float(self.rp.camera_range))  # misses read FAR
         self.sensor.update(state, cam, self.rays,
                            color_image=self.color, depth_image=self.depth,
-                           clear_data=clear)
+                           clear_data=clear, shape_index_image=debug_shape_index_image)
         self._rgb_ready = True
         self._rgb_env = None
         self.sensor.utils.to_rgba_from_depth(

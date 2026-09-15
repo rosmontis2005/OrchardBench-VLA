@@ -705,6 +705,9 @@ class AutoPicker:
             self._fail("grasp stalled")
 
     # PULL: retract along the approach axis until the stem snaps
+    PULL_SETTLE_FRAMES = 25
+    PULL_RETRACT_STEP_M = 0.0022
+
     def _st_pull(self):
         base, _ = self._chassis_pose()
         away = base[:2] - self._retract_from[:2]
@@ -713,8 +716,8 @@ class AutoPicker:
         # yanking against half-closed fingers slipped the fruit out of the
         # pincer.  Then retract GENTLY (~0.13 m/s; 0.24 m/s tore the fruit
         # free of the grip before the stem gave).
-        if self._t_state > 25:
-            self._retract_dist = min(self._retract_dist + 0.0022, self.RETRACT)
+        if self._t_state > self.PULL_SETTLE_FRAMES:
+            self._retract_dist = min(self._retract_dist + self.PULL_RETRACT_STEP_M, self.RETRACT)
         goal = self._retract_from + np.array([away[0], away[1], 0.0]) * self._retract_dist
         if self._t_state % 10 == 1:
             q, err = self._ik_to(goal)

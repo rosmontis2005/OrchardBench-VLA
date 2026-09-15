@@ -414,6 +414,7 @@ class FruitParams:
     # below the ~20-25 N green-fruit numbers.  Upper bound stays under the
     # viewer pick clamp (pick_max_acceleration*g*mass = 16*9.81*0.16 = 25.1 N).
     detach_force: tuple = (14.0, 23.0)  # N of direct pull that snaps a ripe apple's stem
+    detach_force_scale: float = 1.0    # experimental runtime multiplier; default physics unchanged
     detach_hysteresis: int = 6          # consecutive over-threshold frames before it lets go
     # The stem also breaks under sustained TENSION in the stem itself (however
     # applied — e.g. the gripper pulling the fruit while holding it by contact

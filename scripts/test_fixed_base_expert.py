@@ -92,6 +92,7 @@ def run_init(args):
         ik = ArmIK(list(robot._ARM_HOME.values()))
         for seed in args.seeds:
             cfg = episode_config(seed)
+            cfg.fruit.detach_force_scale = args.detach_force_scale
             t0 = time.monotonic()
             plan = plan_fixed_base_stance(cfg, ik=ik)
             row = dict(seed=seed, plan_wall_s=round(time.monotonic() - t0, 3),
@@ -174,6 +175,7 @@ def run_trace(args):
     with wp.ScopedDevice("cuda:0"):
         ik = ArmIK(list(robot._ARM_HOME.values()))
         cfg = episode_config(args.seed)
+        cfg.fruit.detach_force_scale = args.detach_force_scale
         plan = plan_fixed_base_stance(cfg, ik=ik)
         result["plan"] = {k: v for k, v in plan.report.items() if k not in ("candidates", "per_apple", "params")}
         if not plan.feasible:
@@ -196,6 +198,8 @@ def run_trace(args):
         ds = int(driver.planar_dof[0])
         initial = sim.body_q_np()[ch].copy()
         apple0 = sim.body_q_np()[int(tm.apple_bodies[picker.planned_apple]), :3].copy()
+        from treesim.expert_diagnostics import DetachDiagnostics
+        diagnostics = DetachDiagnostics(sim, picker, tcp)
         trace = [snapshot(sim, tm, picker, qidx, tcp, 0, apple0)]
         print(json.dumps(trace[-1]), flush=True)
         last = picker.state
@@ -206,7 +210,9 @@ def run_trace(args):
         for frame in range(1, args.max_frames + 1):
             sim.step()
             met.frame()
+            diagnostics.after_physics(frame)
             picker.update()
+            diagnostics.after_command(frame)
             assert np.all(driver._target_host[[ds, ds + 1, ds + 3]] == 0.0), "expert issued a base command"
             t, y = base_drift(sim, ch, initial)
             max_t, max_y = max(max_t, t), max(max_y, y)
@@ -230,7 +236,7 @@ def run_trace(args):
         wall = time.monotonic() - t_wall
         trace.append(snapshot(sim, tm, picker, qidx, tcp, frame, apple0))
         pick = met.picks[0] if met.picks else met._open_pick
-        result.update(outcome=outcome, frames=frame, sim_time=float(sim.sim_time),
+        result.update(detach_diagnostics=diagnostics.data, outcome=outcome, frames=frame, sim_time=float(sim.sim_time),
                       sim_fps=round(frame / max(wall, 1e-9), 1),
                       pick_record=pick, branch_break_count=int(sim.breaker.broken_count),
                       apples_detached_total=int(sim.apples.broken_count),
@@ -263,6 +269,8 @@ def main():
     b.add_argument("--dense-every", type=int, default=0,
                    help="also record the planned apple's displacement every N frames (diagnostic)")
     b.add_argument("--output", default=None)
+    for parser in (a, b):
+        parser.add_argument('--detach-force-scale', type=float, default=1.0)
     args = ap.parse_args()
     return run_init(args) if args.cmd == "init" else run_trace(args)
 
