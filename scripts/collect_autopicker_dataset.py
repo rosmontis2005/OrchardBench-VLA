@@ -156,6 +156,7 @@ def validate_arrays(traj):
     assert meta['incidental_detach_count'] == 0
     assert meta['target_visibility']['initial']['any_policy_view_visible']
     assert meta['detach_diagnostics']['detach_frame'] is not None
+    assert meta['detach_diagnostics']['premature_detach'] is False
     assert meta['detach_force_multiplier'] == meta['detach_diagnostics']['detach_force_multiplier']
     assert meta['first_attempt_success'] and all(meta[k] for k in ('grasped', 'detached', 'placed'))
     assert meta['attempt_count'] == 1 and meta['branch_break_count'] == 0
@@ -422,6 +423,12 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
                 result.update(accepted=False, reject_reason='incidental_detach')
             if result['accepted'] and not visibility.data['initial']['any_policy_view_visible']:
                 result.update(accepted=False, reject_reason='target_not_visible_in_policy_observation')
+            if result['accepted']:
+                premature = diagnostics.data.get('premature_detach')
+                if premature is True:
+                    result.update(accepted=False, reject_reason='premature_detach')
+                elif premature is not False or diagnostics.data.get('detach_frame') is None:
+                    result.update(accepted=False, reject_reason='invalid_detach_diagnostics')
             result['max_base_translation_drift_m'] = max_trans; result['max_base_yaw_drift_rad'] = max_yaw
             result['expert_final_state'] = picker.state; result['expert_fail_reason'] = picker.fail_reason
             result['state_trace'] = state_trace
@@ -491,6 +498,11 @@ def statistics(output, rows, length):
 
 def final_audit(output, rows):
     accepted = [r for r in rows if r['accepted']]
+    accepted_premature_detach_count = sum(
+        r.get('detach_diagnostics', {}).get('premature_detach') is True for r in accepted)
+    assert accepted_premature_detach_count == 0
+    assert all(r.get('detach_diagnostics', {}).get('premature_detach') is False for r in accepted)
+
     assert len({r['seed'] for r in rows}) == len(rows)
     assert len({r['episode_id'] for r in accepted}) == len(accepted)
     assert len(list((output/'json').glob('*/*.json'))) == len(accepted)
@@ -505,7 +517,8 @@ def final_audit(output, rows):
         for info in t['observations'].values(): assert Path(info[0]['path']).is_file()
         errors = validate_arrays(t); maxima = np.maximum(maxima, list(errors.values()))
         if i in sampled: validate_videos(t)
-    return dict(accepted=len(accepted), train=sum(r['split']=='train' for r in accepted),
+    return dict(accepted_premature_detach_count=accepted_premature_detach_count,
+        accepted=len(accepted), train=sum(r['split']=='train' for r in accepted),
         val=sum(r['split']=='val' for r in accepted), duplicate_seed=0, duplicate_episode=0,
         all_json_arrays_and_roundtrips='PASS' if accepted else 'NOT RUN: no accepted episodes',
         redecoded_episodes=len(sampled), roundtrip_max_errors=maxima.tolist() if accepted else None)
@@ -523,6 +536,7 @@ def summarize(args, rows):
     passed = len(accepted) == args.accepted
     summary = dict(status='DATASET COLLECTION PASS' if passed else 'DATASET COLLECTION PARTIAL',
         requested_accepted=args.accepted, attempted=len(rows), accepted=len(accepted),
+        accepted_premature_detach_count=audit['accepted_premature_detach_count'],
         acceptance_rate=len(accepted)/max(1,len(rows)), rejection_reasons=reasons, integrity=audit,
         episode_statistics={k:distribution(k) for k in ('frames','sim_duration_s','episode_wall_s','encoding_wall_s','simulation_fps')},
         incidental_detach_count=sum(r['incidental_detach_count'] for r in accepted), disk_bytes=size,
