@@ -1,0 +1,31 @@
+ARM RETIME PILOT: FAIL
+
+Legacy regression:
+    Numerical tests 6/6 passed; canonical regression 2/3 passed.
+    All 3 episodes accepted; phase chains/timing identical.
+    Seed 1000074 exceeded tolerances: joint 0.055475 rad,
+    orientation 0.050753 rad, TCP coordinate 0.003909 m,
+    max pull force 37.089 -> 37.992 N.
+
+Profiles:
+    legacy          success 3/3  transport P95 3.749 m/s  transition accel 16.043 m/s^2
+    v2.0            NOT RUN: legacy gate failed
+    v1.5            NOT RUN: legacy gate failed
+    va1.5_a20       NOT RUN: legacy gate failed
+    va1.5_a10       NOT RUN: legacy gate failed
+    va1.2_a10       NOT RUN: legacy gate failed
+    Transition accel = median episode post-window mean; gate seeds only.
+
+PULL preservation:
+    Legacy detach 3/3; premature detach 0. Retimed PULL not evaluated.
+
+Primary observed tradeoff:
+    Not evaluated; stopped at mandatory legacy regression gate.
+    Command traces confirm q_goal jumps followed by saturated legacy slew.
+
+Artifacts:
+    /home/rosmontis/Projects/orchardbench/artifacts/arm_retime_pilot/arm_retime_pilot.md
+    /home/rosmontis/Projects/orchardbench/artifacts/arm_retime_pilot
+
+Recommended profiles for HUMAN REVIEW:
+    None on performance evidence; review legacy regression discrepancy first.

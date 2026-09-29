@@ -1,0 +1,147 @@
+{
+  "created_utc": "2026-09-21T15:33:56Z",
+  "smoke": [
+    {
+      "episode_id": "episode_000040",
+      "seed": 1000106,
+      "split": "val",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000040.json",
+      "p95_tcp_speed": 1.8526352832094077,
+      "transport_path_m": 1.3042222678881195,
+      "selection_reason": "short_transport_path",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000106",
+      "seed": 1000268,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000106.json",
+      "p95_tcp_speed": 1.7047556444651744,
+      "transport_path_m": 1.6232154797672171,
+      "selection_reason": "lowest_episode_p95_speed",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000222",
+      "seed": 1000576,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000222.json",
+      "p95_tcp_speed": 2.4023756498073467,
+      "transport_path_m": 1.4459201311563057,
+      "selection_reason": "median_speed",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000090",
+      "seed": 1000235,
+      "split": "val",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000090.json",
+      "p95_tcp_speed": 2.7239475307029073,
+      "transport_path_m": 2.1415191282359363,
+      "selection_reason": "longest_transport_path",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000134",
+      "seed": 1000356,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000134.json",
+      "p95_tcp_speed": 2.6773003952374848,
+      "transport_path_m": 1.7090988305870698,
+      "selection_reason": "high_speed_p90",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000029",
+      "seed": 1000074,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000029.json",
+      "p95_tcp_speed": 3.556723474334187,
+      "transport_path_m": 2.0246166176840314,
+      "selection_reason": "known_extreme",
+      "case_type": "stress",
+      "case_reason": "Historical contact/IK trajectory sensitivity and extreme transport speed"
+    },
+    {
+      "episode_id": "episode_000088",
+      "seed": 1000232,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000088.json",
+      "p95_tcp_speed": 2.0705295239002006,
+      "transport_path_m": 1.3918840377795365,
+      "selection_reason": "speed_p25",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000171",
+      "seed": 1000441,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000171.json",
+      "p95_tcp_speed": 2.5786513556570583,
+      "transport_path_m": 1.706092114260113,
+      "selection_reason": "speed_p75",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    }
+  ],
+  "source_hashes": {
+    "treesim/arm_motion.py": "7639d6effcbbb827fad6201f4d46df78ced934072e4fdda233fd58cfae6672d9",
+    "treesim/picker.py": "5d82766a3db6919829a06bb581ccd4891318b34328de53f2df1963fab4c5e7be",
+    "treesim/fixed_base_picker.py": "0318d6ef9c72b30d36b0b308e0229017eb10d88e4cb21a037a7b217548860b55",
+    "treesim/vla_env.py": "2a616e024f105ddc5a84626ef0efead977cc72b399e8a752ab98dea6f702937e",
+    "treesim/orchard_action.py": "ea196e805795b05dc11a486f35e25221c2bbefb7d4c3a0373f25b28489e8d889",
+    "treesim/xr0_adapter.py": "93ed63c5df0dc73cd565e6200e4612e1258c672f6d9957a247d3a5a19775acb7",
+    "scripts/collect_autopicker_dataset.py": "a5936512d8a5f1c3bb849aa69293b976b397a911776aefe2587a0bedcf84d6ee",
+    "scripts/run_arm_retime_pilot.py": "782b7bdb845bfea6599b2d968b255fffaf878caec8e1d1ccf2de54894cbe9626",
+    "scripts/analyze_arm_retime_pilot.py": "920fb34d0787df8aa8090adc574f76bdad06f12c5566a65b1f8fe9314d2c02aa"
+  },
+  "historical_selection": "/home/rosmontis/Projects/orchardbench/artifacts/arm_retime_pilot/pilot_seed_selection.json",
+  "profiles": {
+    "legacy": {
+      "mode": "legacy",
+      "vmax_rad_s": 2.7,
+      "amax_rad_s2": null
+    },
+    "v2.0": {
+      "mode": "velocity",
+      "vmax_rad_s": 2.0,
+      "amax_rad_s2": null
+    },
+    "v1.5": {
+      "mode": "velocity",
+      "vmax_rad_s": 1.5,
+      "amax_rad_s2": null
+    },
+    "va1.5_a20": {
+      "mode": "velocity_accel",
+      "vmax_rad_s": 1.5,
+      "amax_rad_s2": 20
+    },
+    "va1.5_a10": {
+      "mode": "velocity_accel",
+      "vmax_rad_s": 1.5,
+      "amax_rad_s2": 10
+    },
+    "va1.2_a10": {
+      "mode": "velocity_accel",
+      "vmax_rad_s": 1.2,
+      "amax_rad_s2": 10
+    }
+  },
+  "pairing": "Round 0 fresh legacy; each later round runs a new legacy immediately before its same-seed candidate in separate subprocesses.",
+  "historical_trajectory_gate": false,
+  "simulation_hz": 60,
+  "substeps": 3,
+  "record_hz": 30,
+  "detach_force_scale": 1.5,
+  "record_rgb": false,
+  "max_candidate_rounds": 3,
+  "stress_policy": "Retain all seeds; no numerical trajectory or all-seeds-success veto. Class changes require recorded baseline/geometry evidence; candidate failure alone does not reclassify normal cases.",
+  "metric_policy": "Reuse pilot raw measured 30Hz finite differences and SO(3); interval-start phase labels. Command traces at 60Hz after update. Report pooled frames plus paired seed ratios and cohort counts."
+}

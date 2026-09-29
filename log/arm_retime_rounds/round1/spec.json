@@ -1,0 +1,15 @@
+{
+  "round": 1,
+  "profile": "v2.0",
+  "reason": "Round0 all 8 accepted, including stress 1000074, no branch break/premature detach. Test existing mild velocity-only 2.0 rad/s profile to reduce saturated transport commands, preserving the phase-independent limiter.",
+  "seeds": [
+    1000106,
+    1000268,
+    1000576,
+    1000235,
+    1000356,
+    1000074,
+    1000232,
+    1000441
+  ]
+}

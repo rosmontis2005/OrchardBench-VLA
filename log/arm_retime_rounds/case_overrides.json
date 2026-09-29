@@ -1,0 +1,45 @@
+{
+  "1000268": {
+    "case_type": "stress",
+    "initial_case_type": "normal",
+    "reason": "Fresh legacy itself changed GRASP entry-to-PULL timing by 44 frames and DROP by 86 frames; episode duration 5.100 -> 6.533 s, both accepted, identical setup. Reclassified using legacy-only evidence; candidate failure was not the criterion.",
+    "evidence": {
+      "seed": 1000268,
+      "case_type": "normal",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        44,
+        45,
+        86,
+        86
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.8960647583007812,
+      "same_timestamp_joint_max_error_rad": 1.995562493801117,
+      "same_timestamp_rotation_max_error_rad": 3.1371853652245507,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 1.4333333333333282
+    }
+  }
+}

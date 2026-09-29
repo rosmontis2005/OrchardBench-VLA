@@ -1,0 +1,11 @@
+test_acceleration_ramp_stop_and_reversal (__main__.ArmMotionTests.test_acceleration_ramp_stop_and_reversal) ... ok
+test_legacy_exact_random_goals_and_custom_rate (__main__.ArmMotionTests.test_legacy_exact_random_goals_and_custom_rate) ... ok
+test_picker_finger_and_legacy_integration_exact (__main__.ArmMotionTests.test_picker_finger_and_legacy_integration_exact) ... ok
+test_target_inside_stopping_distance_is_explicit (__main__.ArmMotionTests.test_target_inside_stopping_distance_is_explicit) ... ok
+test_validation_and_copy (__main__.ArmMotionTests.test_validation_and_copy) ... ok
+test_velocity_bound_and_landing (__main__.ArmMotionTests.test_velocity_bound_and_landing) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.129s
+
+OK

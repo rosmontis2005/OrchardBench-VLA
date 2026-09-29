@@ -1,0 +1,4 @@
+legacy       episode_000222 seed=1000576 accepted=True reason=None wall=15.9s
+legacy       episode_000134 seed=1000356 accepted=True reason=None wall=19.5s
+legacy       episode_000029 seed=1000074 accepted=True reason=None wall=28.1s
+LEGACY REGRESSION FAIL

@@ -1,0 +1,993 @@
+{
+  "reference": "Fresh round0; no canonical or numerical gate; no time warping.",
+  "pairs": [
+    {
+      "seed": 1000106,
+      "case_type": "normal",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 3.516674041748047e-06,
+      "same_timestamp_joint_max_error_rad": 2.1658139303326607e-05,
+      "same_timestamp_rotation_max_error_rad": 2.0571785297226898e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000106,
+      "case_type": "normal",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 2.4318695068359375e-05,
+      "same_timestamp_joint_max_error_rad": 0.00019752979278564453,
+      "same_timestamp_rotation_max_error_rad": 0.00017245078370277294,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000106,
+      "case_type": "normal",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 2.2172927856445312e-05,
+      "same_timestamp_joint_max_error_rad": 0.0002219080924987793,
+      "same_timestamp_rotation_max_error_rad": 0.0001877142774156828,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000268,
+      "case_type": "stress",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        44,
+        45,
+        86,
+        86
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.8960647583007812,
+      "same_timestamp_joint_max_error_rad": 1.995562493801117,
+      "same_timestamp_rotation_max_error_rad": 3.1371853652245507,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 1.4333333333333282
+    },
+    {
+      "seed": 1000268,
+      "case_type": "stress",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": false,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        46,
+        47,
+        74,
+        74
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.8999021649360657,
+      "same_timestamp_joint_max_error_rad": 2.0283778309822083,
+      "same_timestamp_rotation_max_error_rad": 3.1367408166310047,
+      "repeat_failure_reason": "first_attempt_missed_bucket",
+      "duration_difference_s": 1.1666666666666625
+    },
+    {
+      "seed": 1000268,
+      "case_type": "stress",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        44,
+        45,
+        86,
+        86
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.8960641026496887,
+      "same_timestamp_joint_max_error_rad": 1.9955459237098694,
+      "same_timestamp_rotation_max_error_rad": 3.1371864693698224,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 1.4333333333333282
+    },
+    {
+      "seed": 1000576,
+      "case_type": "normal",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 6.67572021484375e-06,
+      "same_timestamp_joint_max_error_rad": 2.8967857360839844e-05,
+      "same_timestamp_rotation_max_error_rad": 3.083596021986661e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000576,
+      "case_type": "normal",
+      "repeat": "round1_confirm",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 1.633167266845703e-05,
+      "same_timestamp_joint_max_error_rad": 7.05718994140625e-05,
+      "same_timestamp_rotation_max_error_rad": 6.83293696426138e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000576,
+      "case_type": "normal",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 1.850724220275879e-05,
+      "same_timestamp_joint_max_error_rad": 7.963180541992188e-05,
+      "same_timestamp_rotation_max_error_rad": 7.964526849561506e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000576,
+      "case_type": "normal",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 5.0067901611328125e-06,
+      "same_timestamp_joint_max_error_rad": 3.1054019927978516e-05,
+      "same_timestamp_rotation_max_error_rad": 3.140004065246135e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000235,
+      "case_type": "normal",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 2.7418136596679688e-05,
+      "same_timestamp_joint_max_error_rad": 0.00013387203216552734,
+      "same_timestamp_rotation_max_error_rad": 0.0001330353009501986,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000235,
+      "case_type": "normal",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.0012664794921875,
+      "same_timestamp_joint_max_error_rad": 0.006539702415466309,
+      "same_timestamp_rotation_max_error_rad": 0.006441724419723128,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000235,
+      "case_type": "normal",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 1.055002212524414e-05,
+      "same_timestamp_joint_max_error_rad": 0.00011050701141357422,
+      "same_timestamp_rotation_max_error_rad": 8.753739397666493e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000356,
+      "case_type": "normal",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 8.285045623779297e-06,
+      "same_timestamp_joint_max_error_rad": 4.0590763092041016e-05,
+      "same_timestamp_rotation_max_error_rad": 3.340523442623611e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000356,
+      "case_type": "normal",
+      "repeat": "round1_confirm",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 8.52346420288086e-06,
+      "same_timestamp_joint_max_error_rad": 6.306171417236328e-05,
+      "same_timestamp_rotation_max_error_rad": 4.707225992108317e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000356,
+      "case_type": "normal",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 1.1324882507324219e-05,
+      "same_timestamp_joint_max_error_rad": 7.510185241699219e-05,
+      "same_timestamp_rotation_max_error_rad": 6.310407541660251e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000356,
+      "case_type": "normal",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 2.7477741241455078e-05,
+      "same_timestamp_joint_max_error_rad": 0.00015020370483398438,
+      "same_timestamp_rotation_max_error_rad": 0.00012217605999042267,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000074,
+      "case_type": "stress",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        -2,
+        11,
+        3,
+        3
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.5727443695068359,
+      "same_timestamp_joint_max_error_rad": 0.5430811792612076,
+      "same_timestamp_rotation_max_error_rad": 1.5418141261782554,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.06666666666666643
+    },
+    {
+      "seed": 1000074,
+      "case_type": "stress",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": false,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        -2,
+        65,
+        112,
+        112
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.843228816986084,
+      "same_timestamp_joint_max_error_rad": 2.4973628520965576,
+      "same_timestamp_rotation_max_error_rad": 3.126813129836797,
+      "repeat_failure_reason": "incidental_detach",
+      "duration_difference_s": 1.8666666666666605
+    },
+    {
+      "seed": 1000074,
+      "case_type": "stress",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.001550912857055664,
+      "same_timestamp_joint_max_error_rad": 0.006952762603759766,
+      "same_timestamp_rotation_max_error_rad": 0.00798679644555423,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000232,
+      "case_type": "normal",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.0002842545509338379,
+      "same_timestamp_joint_max_error_rad": 0.003577113151550293,
+      "same_timestamp_rotation_max_error_rad": 0.0034441978318750705,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000232,
+      "case_type": "normal",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.0002549290657043457,
+      "same_timestamp_joint_max_error_rad": 0.004408478736877441,
+      "same_timestamp_rotation_max_error_rad": 0.004218025562867867,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000232,
+      "case_type": "normal",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.00010102987289428711,
+      "same_timestamp_joint_max_error_rad": 0.003494083881378174,
+      "same_timestamp_rotation_max_error_rad": 0.003358864011510285,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    },
+    {
+      "seed": 1000441,
+      "case_type": "normal",
+      "repeat": "round1",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.004546761512756348,
+      "same_timestamp_joint_max_error_rad": 0.009954571723937988,
+      "same_timestamp_rotation_max_error_rad": 0.01281301969702435,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.033333333333333215
+    },
+    {
+      "seed": 1000441,
+      "case_type": "normal",
+      "repeat": "round2",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        2
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 0.0045468807220458984,
+      "same_timestamp_joint_max_error_rad": 0.009946882724761963,
+      "same_timestamp_rotation_max_error_rad": 0.012812853041069522,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.033333333333333215
+    },
+    {
+      "seed": 1000441,
+      "case_type": "normal",
+      "repeat": "round3",
+      "baseline_success": true,
+      "repeat_success": true,
+      "pair_setup": {
+        "valid": true,
+        "checks": {
+          "selected_apple_debug_index": true,
+          "selected_apple_initial_world_pose": true,
+          "selected_apple_radius": true,
+          "selected_base_pose_xy_yaw": true,
+          "standoff_m": true,
+          "azimuth_offset_rad": true,
+          "initial_ee_pos": true,
+          "initial_ee_rotm": true,
+          "initial_arm_joint": true,
+          "initial_gripper_pos": true,
+          "seed": true,
+          "detach_force_multiplier": true
+        }
+      },
+      "phase_chain_equal": true,
+      "phase_frame_differences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_timestamp_tcp_max_coordinate_error_m": 3.516674041748047e-06,
+      "same_timestamp_joint_max_error_rad": 4.8100948333740234e-05,
+      "same_timestamp_rotation_max_error_rad": 4.7495139338419036e-05,
+      "repeat_failure_reason": null,
+      "duration_difference_s": 0.0
+    }
+  ]
+}

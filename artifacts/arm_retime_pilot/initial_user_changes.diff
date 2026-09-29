@@ -1,0 +1,57 @@
+diff --git a/treesim/vla_env.py b/treesim/vla_env.py
+index 58c90d9..d7020b2 100644
+--- a/treesim/vla_env.py
++++ b/treesim/vla_env.py
+@@ -121,6 +121,8 @@ class OrchardVLAEnv:
+     translation (metres), extrinsic xyz rotation delta (radians), Rnew=Rdelta*R.
+     Zero Cartesian action holds the last accepted Cartesian setpoint (avoids
+     integrating servo sag). Positive grip opens, negative closes, zero holds.
++    Optional step(..., gripper_width=metres) sets continuous total finger opening
++    (bounded to [0, .08]) instead of the signed grip component.
+     One action runs two 60Hz physics frames by default. No base motion action.
+ 
+     Success/reward: first observed detached fruit; evaluator truth stays in info.
+@@ -287,12 +289,15 @@ class OrchardVLAEnv:
+             grasp_assist_triggered=False,grasped_apple_id_debug=self._held,
+             sim_hz=self.config.sim_hz,control_hz=self.config.control_hz,action_repeat=self.config.action_repeat)
+ 
+-    def step(self, action):
++    def step(self, action, *, gripper_width=None):
+         if self._done:
+             raise RuntimeError('Episode finished or not initialized; call reset')
+         a = np.asarray(action,dtype=float)
+         if a.shape != (7,) or not np.isfinite(a).all():
+             raise ValueError('Action must be finite shape (7,); rejected before physics/control mutation')
++        # Continuous total finger opening for the Orchard post-training contract.
++        if gripper_width is not None and not np.isfinite(float(gripper_width)):
++            raise ValueError('Nonfinite gripper width')
+         c = self.config
+         limits = np.array([c.max_translation]*3+[c.max_rotation]*3+[1.])
+         clipped = np.clip(a,-limits,limits)
+@@ -319,7 +324,14 @@ class OrchardVLAEnv:
+             self._target_rotation = rotation
+         if clipped[6] != 0:
+             self._gripper = float(np.sign(clipped[6]))
+-        q[-2:] = .04 if self._gripper>0 else (0. if self._gripper<0 else self._joint_command[-2:])
++        if gripper_width is None:
++            q[-2:] = .04 if self._gripper>0 else (0. if self._gripper<0 else self._joint_command[-2:])
++        else:
++            width = float(np.clip(gripper_width, 0., .08))
++            action_clipped |= width != float(gripper_width)
++            if abs(width - obs['gripper_width']) > 1e-6:
++                self._gripper = float(np.sign(width - obs['gripper_width']))
++            q[-2:] = width / 2.
+         triggered = False
+         for _ in range(c.action_repeat):
+             self._joint_command += np.clip(q-self._joint_command,-c.max_joint_step,c.max_joint_step)
+diff --git a/treesim/xr0_adapter.py b/treesim/xr0_adapter.py
+index f1ff3a4..6aaa2ca 100644
+--- a/treesim/xr0_adapter.py
++++ b/treesim/xr0_adapter.py
+@@ -72,3 +72,6 @@ class CalvinActionAdapter:
+         current=Rotation.from_quat(obs['tcp_quat_world'])
+         delta=(target*current.inv()).as_euler('xyz')
+         return np.r_[self.target_position-obs['tcp_pos_world'],delta,d[6]]
++
++# Fine-tuned Orchard checkpoints use this explicit contract, never CalvinActionAdapter.
++from .orchard_action import OrchardActionAdapter

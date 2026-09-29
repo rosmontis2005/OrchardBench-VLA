@@ -1,0 +1,664 @@
+{
+  "legacy": {
+    "watchdogs": {
+      "REACH": {
+        "runs": [
+          {
+            "seed": 1000074,
+            "accepted": true,
+            "phase_frames": 9,
+            "frame_timeout_threshold": 300,
+            "margin_frames": 291,
+            "max_observed_stall": 1
+          },
+          {
+            "seed": 1000356,
+            "accepted": true,
+            "phase_frames": 12,
+            "frame_timeout_threshold": 300,
+            "margin_frames": 288,
+            "max_observed_stall": 1
+          },
+          {
+            "seed": 1000576,
+            "accepted": true,
+            "phase_frames": 39,
+            "frame_timeout_threshold": 300,
+            "margin_frames": 261,
+            "max_observed_stall": 11
+          }
+        ],
+        "accepted_margin_frames": {
+          "count": 3,
+          "mean": 280.0,
+          "P50": 288.0,
+          "P90": 290.4,
+          "P95": 290.7,
+          "P99": 290.94,
+          "max": 291.0,
+          "min": 261.0
+        }
+      },
+      "GRASP": {
+        "runs": [
+          {
+            "seed": 1000074,
+            "accepted": true,
+            "phase_frames": 60,
+            "frame_timeout_threshold": 240,
+            "margin_frames": 180,
+            "max_observed_stall": 36
+          },
+          {
+            "seed": 1000356,
+            "accepted": true,
+            "phase_frames": 16,
+            "frame_timeout_threshold": 240,
+            "margin_frames": 224,
+            "max_observed_stall": 0
+          },
+          {
+            "seed": 1000576,
+            "accepted": true,
+            "phase_frames": 20,
+            "frame_timeout_threshold": 240,
+            "margin_frames": 220,
+            "max_observed_stall": 3
+          }
+        ],
+        "accepted_margin_frames": {
+          "count": 3,
+          "mean": 208.0,
+          "P50": 220.0,
+          "P90": 223.2,
+          "P95": 223.6,
+          "P99": 223.92,
+          "max": 224.0,
+          "min": 180.0
+        }
+      },
+      "PULL": {
+        "runs": [
+          {
+            "seed": 1000074,
+            "accepted": true,
+            "phase_frames": 32,
+            "frame_timeout_threshold": 360,
+            "margin_frames": 328,
+            "max_observed_stall": 0
+          },
+          {
+            "seed": 1000356,
+            "accepted": true,
+            "phase_frames": 97,
+            "frame_timeout_threshold": 360,
+            "margin_frames": 263,
+            "max_observed_stall": 0
+          },
+          {
+            "seed": 1000576,
+            "accepted": true,
+            "phase_frames": 84,
+            "frame_timeout_threshold": 360,
+            "margin_frames": 276,
+            "max_observed_stall": 0
+          }
+        ],
+        "accepted_margin_frames": {
+          "count": 3,
+          "mean": 289.0,
+          "P50": 276.0,
+          "P90": 317.6,
+          "P95": 322.8,
+          "P99": 326.96,
+          "max": 328.0,
+          "min": 263.0
+        }
+      },
+      "TRANSPORT": {
+        "runs": [
+          {
+            "seed": 1000074,
+            "accepted": true,
+            "phase_frames": 59,
+            "frame_timeout_threshold": 420,
+            "margin_frames": 361,
+            "max_observed_stall": 2
+          },
+          {
+            "seed": 1000356,
+            "accepted": true,
+            "phase_frames": 54,
+            "frame_timeout_threshold": 420,
+            "margin_frames": 366,
+            "max_observed_stall": 4
+          },
+          {
+            "seed": 1000576,
+            "accepted": true,
+            "phase_frames": 62,
+            "frame_timeout_threshold": 420,
+            "margin_frames": 358,
+            "max_observed_stall": 4
+          }
+        ],
+        "accepted_margin_frames": {
+          "count": 3,
+          "mean": 361.6666666666667,
+          "P50": 361.0,
+          "P90": 365.0,
+          "P95": 365.5,
+          "P99": 365.9,
+          "max": 366.0,
+          "min": 358.0
+        }
+      },
+      "transport_correlations": {
+        "n": 3,
+        "path_vs_duration": -0.5,
+        "path_vs_mean_speed": 1.0,
+        "duration_s": {
+          "count": 3,
+          "mean": 0.972222222222222,
+          "P50": 0.9833333333333332,
+          "P90": 1.0233333333333332,
+          "P95": 1.028333333333333,
+          "P99": 1.032333333333333,
+          "max": 1.0333333333333332,
+          "min": 0.8999999999999999
+        },
+        "path_length_m": {
+          "count": 3,
+          "mean": 1.72715596506652,
+          "P50": 1.7090984323237426,
+          "P90": 1.9629793209369961,
+          "P95": 1.9947144320136527,
+          "P99": 2.0201025208749783,
+          "max": 2.0264495430903096,
+          "min": 1.4459199197855086
+        }
+      }
+    },
+    "command_diagnostics": [
+      {
+        "seed": 1000074,
+        "crossing_count": 0,
+        "max_actual_cmd_velocity": 2.700000000000012,
+        "max_internal_velocity": 2.6999999999999997,
+        "max_internal_acceleration": 324.00000000000006,
+        "acceleration_bound_exceptions": null,
+        "exceptions_without_landing": null,
+        "final_failure_sample_time_s": 3.733333333333325,
+        "last_recorded_time_s": 3.733333333333325,
+        "pt_qgoal_jump_max_rad": 2.736622544832471,
+        "pt_initial_goal_command_gap_rad": 2.6370006185825408,
+        "pt_first_10_cmd_speed": {
+          "count": 10,
+          "mean": 2.6999999999999997,
+          "P50": 2.6999999999999997,
+          "P90": 2.6999999999999997,
+          "P95": 2.6999999999999997,
+          "P99": 2.6999999999999997,
+          "max": 2.6999999999999997,
+          "min": 2.6999999999999997
+        }
+      },
+      {
+        "seed": 1000356,
+        "crossing_count": 0,
+        "max_actual_cmd_velocity": 2.700000000000019,
+        "max_internal_velocity": 2.6999999999999997,
+        "max_internal_acceleration": 324.00000000000006,
+        "acceleration_bound_exceptions": null,
+        "exceptions_without_landing": null,
+        "final_failure_sample_time_s": 4.0666666666666575,
+        "last_recorded_time_s": 4.0666666666666575,
+        "pt_qgoal_jump_max_rad": 2.466311219336637,
+        "pt_initial_goal_command_gap_rad": 2.3666630984213293,
+        "pt_first_10_cmd_speed": {
+          "count": 10,
+          "mean": 2.6999999999999997,
+          "P50": 2.6999999999999997,
+          "P90": 2.6999999999999997,
+          "P95": 2.6999999999999997,
+          "P99": 2.6999999999999997,
+          "max": 2.6999999999999997,
+          "min": 2.6999999999999997
+        }
+      },
+      {
+        "seed": 1000576,
+        "crossing_count": 0,
+        "max_actual_cmd_velocity": 2.700000000000023,
+        "max_internal_velocity": 2.6999999999999997,
+        "max_internal_acceleration": 162.00000000000057,
+        "acceleration_bound_exceptions": null,
+        "exceptions_without_landing": null,
+        "final_failure_sample_time_s": 4.499999999999989,
+        "last_recorded_time_s": 4.499999999999989,
+        "pt_qgoal_jump_max_rad": 2.2829733260292433,
+        "pt_initial_goal_command_gap_rad": 2.18814504807413,
+        "pt_first_10_cmd_speed": {
+          "count": 10,
+          "mean": 2.6999999999999997,
+          "P50": 2.6999999999999997,
+          "P90": 2.6999999999999997,
+          "P95": 2.6999999999999997,
+          "P99": 2.6999999999999997,
+          "max": 2.6999999999999997,
+          "min": 2.6999999999999997
+        }
+      }
+    ]
+  },
+  "v2.0": {
+    "watchdogs": {
+      "REACH": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "GRASP": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "PULL": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "TRANSPORT": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "transport_correlations": {
+        "n": 0,
+        "path_vs_duration": null,
+        "path_vs_mean_speed": null,
+        "duration_s": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "path_length_m": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "command_diagnostics": []
+  },
+  "v1.5": {
+    "watchdogs": {
+      "REACH": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "GRASP": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "PULL": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "TRANSPORT": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "transport_correlations": {
+        "n": 0,
+        "path_vs_duration": null,
+        "path_vs_mean_speed": null,
+        "duration_s": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "path_length_m": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "command_diagnostics": []
+  },
+  "va1.5_a20": {
+    "watchdogs": {
+      "REACH": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "GRASP": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "PULL": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "TRANSPORT": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "transport_correlations": {
+        "n": 0,
+        "path_vs_duration": null,
+        "path_vs_mean_speed": null,
+        "duration_s": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "path_length_m": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "command_diagnostics": []
+  },
+  "va1.5_a10": {
+    "watchdogs": {
+      "REACH": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "GRASP": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "PULL": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "TRANSPORT": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "transport_correlations": {
+        "n": 0,
+        "path_vs_duration": null,
+        "path_vs_mean_speed": null,
+        "duration_s": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "path_length_m": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "command_diagnostics": []
+  },
+  "va1.2_a10": {
+    "watchdogs": {
+      "REACH": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "GRASP": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "PULL": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "TRANSPORT": {
+        "runs": [],
+        "accepted_margin_frames": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "transport_correlations": {
+        "n": 0,
+        "path_vs_duration": null,
+        "path_vs_mean_speed": null,
+        "duration_s": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "path_length_m": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "command_diagnostics": []
+  }
+}

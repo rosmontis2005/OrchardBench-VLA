@@ -610,9 +610,11 @@ class FixedBaseAutoPicker(AutoPicker):
     TERMINAL_STATES = ("DONE", "FAILED")
 
     def __init__(self, sim, tm, driver, rp, stance: FixedBaseStance, metrics=None,
-                 env: int = 0, ik: "ArmIK | None" = None, pose_tol: float = 1e-3):
+                 env: int = 0, ik: "ArmIK | None" = None, pose_tol: float = 1e-3, *,
+                 arm_motion_profile=None):
         # cam=None: this expert has no perception; the target is privileged
-        super().__init__(sim, tm, None, driver, rp, metrics, env, ik)
+        super().__init__(sim, tm, None, driver, rp, metrics, env, ik,
+                         arm_motion_profile=arm_motion_profile)
         self.stance = stance
         gj = int(stance.apple_index) + self.env * self.n_env_apples
         if gj not in set(int(v) for v in self._apple_glob):

@@ -14,9 +14,9 @@ import newton
 import newton.ik as ik
 import newton.viewer
 
-from . import builder, robot
+from . import robot
 from .config import TreeConfig
-from .sim import Sim
+from .fixed_base_picker import plan_fixed_base_stance, build_fixed_base_world
 from .vla_camera import StaticRGBCamera
 
 
@@ -30,7 +30,7 @@ class VLAEnvConfig:
     height: int = 144
     apple_count: int = 40
     foliage_density: float = .6
-    grasp_mode: str = "contact"
+    grasp_mode: str = "benchmark_assist"
     max_translation: float = .02       # per-axis metres/control action
     max_rotation: float = .05          # per-axis radians/control action
     max_joint_step: float = .045       # rad / physics frame
@@ -121,10 +121,12 @@ class OrchardVLAEnv:
     translation (metres), extrinsic xyz rotation delta (radians), Rnew=Rdelta*R.
     Zero Cartesian action holds the last accepted Cartesian setpoint (avoids
     integrating servo sag). Positive grip opens, negative closes, zero holds.
+    Optional step(..., gripper_width=metres) sets continuous total finger opening
+    (bounded to [0, .08]) instead of the signed grip component.
     One action runs two 60Hz physics frames by default. No base motion action.
 
-    Success/reward: first observed detached fruit; evaluator truth stays in info.
-    This is an interface task, not a validated harvest-success benchmark.
+    Success/reward: a detached apple physically inside the bucket. Detachment
+    alone continues the episode. Reset planner truth stays in evaluator info.
     """
     def __init__(self, config=None):
         self.config = config or VLAEnvConfig()
@@ -138,7 +140,11 @@ class OrchardVLAEnv:
         self.seed = int(seed)
         c = TreeConfig.compliant('apple')
         c.seed = self.seed
-        c.lsystem.shape_jitter = 0.0  # same as official CLI default
+        c.device = 'cuda:0'
+        # Match the fixed-base collector's reset distribution.
+        c.lsystem.shape_jitter = 0.0
+        c.physics.dynamics_jitter = 0.0
+        c.physics.terrain = False
         c.fruit.enabled = True
         c.fruit.max_count = self.config.apple_count
         c.foliage.set_density(self.config.foliage_density)
@@ -146,9 +152,13 @@ class OrchardVLAEnv:
         c.robot.enabled = True
         c.robot.camera_width, c.robot.camera_height = self.config.width, self.config.height
         with wp.ScopedDevice('cuda:0'):
-            self.tm = builder.generate_and_build(c)
-            self.sim = Sim(self.tm,solver='mujoco',fps=self.config.sim_hz,
-                substeps=self.config.substeps,enable_breaking=True,collisions=True)
+            plan = plan_fixed_base_stance(c)
+            if not plan.feasible:
+                raise RuntimeError(f'No feasible fixed-base stance for seed={self.seed}: '
+                                   f'{plan.report["rejection_reasons"]}')
+            self._reset_stance = plan.report['selected']
+            self.tm, self.sim = build_fixed_base_world(
+                c, plan.stance, fps=self.config.sim_hz, substeps=self.config.substeps)
             self.viewer = newton.viewer.ViewerNull()
             self.sim.set_viewer(self.viewer)
             self.driver = robot.RobotDriver(self.sim,self.tm,c.robot)
@@ -174,6 +184,7 @@ class OrchardVLAEnv:
             self.static_camera = StaticRGBCamera(self.tm.model,width=self.config.width,height=self.config.height)
             self._joint_command = np.asarray(rb['arm_home'],dtype=float).copy()
             self._gripper = 0.0  # home width .04m; first explicit grip chooses direction
+            self._gripper_width_command = float(self._joint_command[-2:].sum())
             self._held = None
             self.control_steps = 0
             self._success = False
@@ -236,12 +247,12 @@ class OrchardVLAEnv:
         """
         if self.config.grasp_mode == 'contact':
             return False
-        if self._gripper >= 0:
+        if self._gripper > 0:
             if self._held is not None:
                 self.sim.apples.release(self._held)
                 self._held = None
             return False
-        if self._held is not None:
+        if self._held is not None or self._gripper == 0:
             return False
         contacts = self.sim.contacts
         n = int(contacts.rigid_contact_count.numpy()[0])
@@ -282,17 +293,23 @@ class OrchardVLAEnv:
                   & np.asarray(apples.detached,dtype=bool))
         return dict(seed=self.seed,control_steps=self.control_steps,
             apple_detached_count=int(apples.broken_count),branch_break_count=int(self.sim.breaker.broken_count),
-            apple_in_bucket_count=int(bucket.sum()),success=bool(apples.broken_count>0),
-            success_definition='at least one physically detached apple',grasp_mode=self.config.grasp_mode,
-            grasp_assist_triggered=False,grasped_apple_id_debug=self._held,
+            apple_in_bucket_count=int(bucket.sum()),success=bool(bucket.any()),
+            success_definition='at least one detached apple physically inside the bucket',
+            grasp_mode=self.config.grasp_mode,
+            grasp_assist_triggered=False,held_apple_id_debug=self._held,
+            grasped_apple_id_debug=self._held,  # compatibility alias
+            reset_stance_debug=dict(self._reset_stance),
             sim_hz=self.config.sim_hz,control_hz=self.config.control_hz,action_repeat=self.config.action_repeat)
 
-    def step(self, action):
+    def step(self, action, *, gripper_width=None):
         if self._done:
             raise RuntimeError('Episode finished or not initialized; call reset')
         a = np.asarray(action,dtype=float)
         if a.shape != (7,) or not np.isfinite(a).all():
             raise ValueError('Action must be finite shape (7,); rejected before physics/control mutation')
+        # Continuous total finger opening for the Orchard post-training contract.
+        if gripper_width is not None and not np.isfinite(float(gripper_width)):
+            raise ValueError('Nonfinite gripper width')
         c = self.config
         limits = np.array([c.max_translation]*3+[c.max_rotation]*3+[1.])
         clipped = np.clip(a,-limits,limits)
@@ -317,9 +334,19 @@ class OrchardVLAEnv:
         else:
             self._target_position = target.copy()
             self._target_rotation = rotation
-        if clipped[6] != 0:
-            self._gripper = float(np.sign(clipped[6]))
-        q[-2:] = .04 if self._gripper>0 else (0. if self._gripper<0 else self._joint_command[-2:])
+        if gripper_width is None:
+            if clipped[6] != 0:
+                self._gripper = float(np.sign(clipped[6]))
+            q[-2:] = .04 if self._gripper>0 else (0. if self._gripper<0 else self._joint_command[-2:])
+        else:
+            width = float(np.clip(gripper_width, 0., .08))
+            action_clipped |= width != float(gripper_width)
+            # A repeated width holds the grasp. Measured finger deflection must
+            # not turn a steady command into an unintended open/release.
+            if abs(width - self._gripper_width_command) > 1e-6:
+                self._gripper = float(np.sign(width - self._gripper_width_command))
+            q[-2:] = width / 2.
+        self._gripper_width_command = float(q[-2:].sum())
         triggered = False
         for _ in range(c.action_repeat):
             self._joint_command += np.clip(q-self._joint_command,-c.max_joint_step,c.max_joint_step)

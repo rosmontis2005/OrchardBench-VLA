@@ -1,0 +1,92 @@
+--- before/treesim/arm_motion.py
++++ after/treesim/arm_motion.py
+@@ -1,4 +1,4 @@
+-"""Phase-independent, opt-in command time parameterization for seven arm joints.
++"""Opt-in command time parameterization for seven arm joints.
+ 
+ No physics, gripper, IK, expert-state or simulator dependencies. These are command
+ limits, not guarantees on measured actuator response. Default picker remains legacy.
+@@ -12,8 +12,12 @@
+     mode: str = 'legacy'
+     vmax_rad_s: float = 2.7
+     amax_rad_s2: float | None = None
++    active_phases: tuple[str, ...] | None = None
+ 
+     def __post_init__(self):
++        if self.active_phases is not None and (not isinstance(self.active_phases, tuple) or not self.active_phases or
++                any(p not in ('REACH', 'GRASP', 'PULL', 'TRANSPORT', 'DROP') for p in self.active_phases)):
++            raise ValueError('active_phases must be a nonempty tuple of manipulation phases')
+         if self.mode not in ('legacy', 'velocity', 'velocity_accel'):
+             raise ValueError('unknown arm motion mode')
+         if not np.isfinite(self.vmax_rad_s) or self.vmax_rad_s <= 0:
+@@ -57,12 +61,14 @@
+         self.last_landed = np.zeros(7, dtype=bool)
+         self.crossing_count = 0
+ 
+-    def step(self, q_goal, *, legacy_step=0.045):
++    def step(self, q_goal, *, legacy_step=0.045, active=True):
+         goal = self._vector(q_goal)
+         error = goal - self.q_cmd
+         self.last_landed[:] = False
+-        if self.profile.mode in ('legacy', 'velocity'):
+-            rate = legacy_step if self.profile.mode == 'legacy' else self.profile.vmax_rad_s * self.dt
++        if not active or self.profile.mode in ('legacy', 'velocity'):
++            # Inactive scope follows legacy arithmetic while keeping command state
++            # synchronized. Entering the retimed scope never resets position/velocity.
++            rate = legacy_step if not active or self.profile.mode == 'legacy' else self.profile.vmax_rad_s * self.dt
+             if not np.isfinite(rate) or rate <= 0:
+                 raise ValueError('legacy_step must be positive and finite')
+             # Preserve original operations exactly, including the addition (not +=).
+--- before/treesim/picker.py
++++ after/treesim/picker.py
+@@ -253,7 +253,9 @@
+         self._q_cmd = self._q_cmd + d
+         if self.arm_motion is not None:
+             # Fingers retain the exact legacy path; only seven arm joints opt in.
+-            self._q_cmd[:7] = self.arm_motion.step(self._q_goal[:7], legacy_step=rate)
++            phases = self.arm_motion.profile.active_phases
++            active = phases is None or self.state in phases
++            self._q_cmd[:7] = self.arm_motion.step(self._q_goal[:7], legacy_step=rate, active=active)
+         # write through the driver's host mirror (no device download; N
+         # pickers share the one mirror)
+         self.drv._tq_host[self.arm_tq] = self._q_cmd
+--- before/scripts/test_arm_motion.py
++++ after/scripts/test_arm_motion.py
+@@ -56,6 +56,37 @@
+         q=np.zeros(7);lim=JointMotionLimiter(q);q[:]=5;self.assertEqual(lim.q_cmd.max(),0)
+         result=lim.step(np.ones(7));result[:]=100;self.assertLess(lim.q_cmd.max(),1)
+ 
++    def test_transport_scope_preserves_legacy_until_detach(self):
++        from treesim.picker import AutoPicker
++        class Sink:
++            def assign(self, values):self.values=values.copy()
++        def picker(profile):
++            p=AutoPicker.__new__(AutoPicker);p._q_cmd=np.zeros(9);p._q_goal=np.zeros(9)
++            p.arm_motion=None if profile is None else JointMotionLimiter(np.zeros(7),profile)
++            p.arm_tq=np.arange(9);p.drv=SimpleNamespace(_tq_host=np.zeros(9))
++            p.sim=SimpleNamespace(control=SimpleNamespace(joint_target_q=Sink()))
++            return p
++        old=picker(None)
++        scoped=picker(ArmMotionProfile('velocity',2.0,active_phases=('TRANSPORT',)))
++        rng=np.random.default_rng(321)
++        for phase in ['REACH','GRASP','PULL']:
++            old.state=scoped.state=phase
++            for _ in range(80):
++                goal=rng.normal(size=9)
++                for p in [old,scoped]:
++                    p._set_arm(goal.copy());p._fingers(.016);p._slew_arm()
++                np.testing.assert_array_equal(old._q_cmd,scoped._q_cmd)
++                np.testing.assert_array_equal(scoped.arm_motion.q_cmd,scoped._q_cmd[:7])
++        scoped.state='TRANSPORT'
++        for _ in range(80):
++            previous=scoped._q_cmd.copy();scoped._set_arm(np.ones(9));scoped._slew_arm()
++            self.assertLessEqual(np.max(np.abs(scoped._q_cmd[:7]-previous[:7])),2/60+1e-12)
++        scoped.state='DROP';previous=scoped._q_cmd.copy();scoped._set_arm(-np.ones(9))
++        scoped._slew_arm()
++        np.testing.assert_array_equal(scoped._q_cmd,previous+np.clip(-np.ones(9)-previous,-.045,.045))
++        for phases in [(),('BOGUS',),['TRANSPORT']]:
++            with self.assertRaises(ValueError):ArmMotionProfile(active_phases=phases)
++
+     def test_picker_finger_and_legacy_integration_exact(self):
+         # Use actual methods with a minimal driver, no physics or IK instantiation.
+         from treesim.picker import AutoPicker

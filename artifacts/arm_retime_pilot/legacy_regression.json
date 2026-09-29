@@ -1,0 +1,387 @@
+{
+  "status": "FAIL",
+  "tolerances": {
+    "phase_frame_difference": 1,
+    "tcp_position_max_m": 0.001,
+    "arm_joint_max_rad": 0.002,
+    "orientation_max_rad": 0.002,
+    "gripper_max_m": 0.001,
+    "detach_frame_difference": 1,
+    "pull_retract_difference_m": 0.00221,
+    "pull_displacement_difference_m": 0.001,
+    "max_pull_force_abs_N": 0.1,
+    "max_pull_force_relative": 0.01
+  },
+  "explanation": "Predeclared numerical tolerances; no time warping. Compare samples at identical 30Hz timestamps, and separately check phase frame and trajectory lengths. Exact agreement reported where obtained.",
+  "episodes": [
+    {
+      "episode_id": "episode_000222",
+      "seed": 1000576,
+      "pass_gate": true,
+      "checks": {
+        "accepted": true,
+        "placed": true,
+        "branch_break_count": true,
+        "phase_chain": true,
+        "phase_timing": true,
+        "length": true,
+        "ee_pos": true,
+        "arm_joint": true,
+        "gripper_pos": true,
+        "orientation": true,
+        "detach_diagnostics": true,
+        "max_pull_N": true
+      },
+      "metrics": {
+        "phase_frame_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "frame_count_difference": 0,
+        "ee_pos_max_abs_error": 2.950429916381836e-06,
+        "ee_pos_rms_error": 8.702650295556084e-07,
+        "arm_joint_max_abs_error": 1.5735626220703125e-05,
+        "arm_joint_rms_error": 2.600949667540853e-06,
+        "gripper_pos_max_abs_error": 1.1514872312545776e-05,
+        "gripper_pos_rms_error": 1.6456657266645297e-06,
+        "orientation_max_error_rad": 1.4406563509826355e-05,
+        "detach_diagnostics": {
+          "debug_usage": {
+            "canonical": "DEBUG / DATASET GATE ONLY; NOT POLICY INPUT",
+            "pilot": "DEBUG / DATASET GATE ONLY; NOT POLICY INPUT"
+          },
+          "settle_frames": {
+            "canonical": 25,
+            "pilot": 25
+          },
+          "premature_epsilon_m": {
+            "canonical": 0.001,
+            "pilot": 0.001
+          },
+          "detach_force_N": {
+            "canonical": 21.06960153579712,
+            "pilot": 21.06960153579712
+          },
+          "detach_force_multiplier": {
+            "canonical": 1.5,
+            "pilot": 1.5
+          },
+          "planned_apple_debug_index": {
+            "canonical": 34,
+            "pilot": 34
+          },
+          "grasped_apple_debug_index": {
+            "canonical": 34,
+            "pilot": 34
+          },
+          "pull_enter_frame": {
+            "canonical": 59,
+            "pilot": 59
+          },
+          "pull_enter_sim_time": {
+            "canonical": 0.9833333333333347,
+            "pilot": 0.9833333333333347
+          },
+          "detach_frame": {
+            "canonical": 143,
+            "pilot": 143
+          },
+          "detach_sim_time": {
+            "canonical": 2.3833333333333298,
+            "pilot": 2.3833333333333298
+          },
+          "pull_frames_before_detach": {
+            "canonical": 84,
+            "pilot": 84
+          },
+          "retract_distance_at_detach_m": {
+            "canonical": 0.12759999999999985,
+            "pilot": 0.12759999999999985
+          },
+          "direct_pull_force_at_detach_N": {
+            "canonical": 24.131305694580078,
+            "pilot": 24.131301879882812
+          },
+          "stem_tension_at_detach_N": {
+            "canonical": 22.20612335205078,
+            "pilot": 22.206130981445312
+          },
+          "detach_trigger": {
+            "canonical": "direct_pull",
+            "pilot": "direct_pull"
+          },
+          "premature_detach": {
+            "canonical": false,
+            "pilot": false
+          },
+          "meaningful_pull": {
+            "canonical": true,
+            "pilot": true
+          },
+          "strong_meaningful_pull": {
+            "canonical": true,
+            "pilot": true
+          },
+          "tcp_displacement_since_pull_enter_m": {
+            "canonical": 0.09853418171405792,
+            "pilot": 0.09853225946426392
+          }
+        },
+        "max_pull_N": {
+          "canonical": 24.131305694580078,
+          "pilot": 24.131301879882812
+        }
+      }
+    },
+    {
+      "episode_id": "episode_000134",
+      "seed": 1000356,
+      "pass_gate": true,
+      "checks": {
+        "accepted": true,
+        "placed": true,
+        "branch_break_count": true,
+        "phase_chain": true,
+        "phase_timing": true,
+        "length": true,
+        "ee_pos": true,
+        "arm_joint": true,
+        "gripper_pos": true,
+        "orientation": true,
+        "detach_diagnostics": true,
+        "max_pull_N": true
+      },
+      "metrics": {
+        "phase_frame_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "frame_count_difference": 0,
+        "ee_pos_max_abs_error": 6.854534149169922e-06,
+        "ee_pos_rms_error": 1.1880335952088753e-06,
+        "arm_joint_max_abs_error": 3.826618194580078e-05,
+        "arm_joint_rms_error": 6.296517444829845e-06,
+        "gripper_pos_max_abs_error": 5.3532421588897705e-06,
+        "gripper_pos_rms_error": 1.6160061505417353e-06,
+        "orientation_max_error_rad": 2.663452246755536e-05,
+        "detach_diagnostics": {
+          "debug_usage": {
+            "canonical": "DEBUG / DATASET GATE ONLY; NOT POLICY INPUT",
+            "pilot": "DEBUG / DATASET GATE ONLY; NOT POLICY INPUT"
+          },
+          "settle_frames": {
+            "canonical": 25,
+            "pilot": 25
+          },
+          "premature_epsilon_m": {
+            "canonical": 0.001,
+            "pilot": 0.001
+          },
+          "detach_force_N": {
+            "canonical": 22.41081476211548,
+            "pilot": 22.41081476211548
+          },
+          "detach_force_multiplier": {
+            "canonical": 1.5,
+            "pilot": 1.5
+          },
+          "planned_apple_debug_index": {
+            "canonical": 10,
+            "pilot": 10
+          },
+          "grasped_apple_debug_index": {
+            "canonical": 10,
+            "pilot": 10
+          },
+          "pull_enter_frame": {
+            "canonical": 28,
+            "pilot": 28
+          },
+          "pull_enter_sim_time": {
+            "canonical": 0.4666666666666666,
+            "pilot": 0.4666666666666666
+          },
+          "detach_frame": {
+            "canonical": 125,
+            "pilot": 125
+          },
+          "detach_sim_time": {
+            "canonical": 2.083333333333331,
+            "pilot": 2.083333333333331
+          },
+          "pull_frames_before_detach": {
+            "canonical": 97,
+            "pilot": 97
+          },
+          "retract_distance_at_detach_m": {
+            "canonical": 0.15619999999999995,
+            "pilot": 0.15619999999999995
+          },
+          "direct_pull_force_at_detach_N": {
+            "canonical": 25.6937255859375,
+            "pilot": 25.693925857543945
+          },
+          "stem_tension_at_detach_N": {
+            "canonical": 24.091815948486328,
+            "pilot": 24.091773986816406
+          },
+          "detach_trigger": {
+            "canonical": "direct_pull",
+            "pilot": "direct_pull"
+          },
+          "premature_detach": {
+            "canonical": false,
+            "pilot": false
+          },
+          "meaningful_pull": {
+            "canonical": true,
+            "pilot": true
+          },
+          "strong_meaningful_pull": {
+            "canonical": true,
+            "pilot": true
+          },
+          "tcp_displacement_since_pull_enter_m": {
+            "canonical": 0.12037473917007446,
+            "pilot": 0.1203744113445282
+          }
+        },
+        "max_pull_N": {
+          "canonical": 25.6937255859375,
+          "pilot": 25.693925857543945
+        }
+      }
+    },
+    {
+      "episode_id": "episode_000029",
+      "seed": 1000074,
+      "pass_gate": false,
+      "checks": {
+        "accepted": true,
+        "placed": true,
+        "branch_break_count": true,
+        "phase_chain": true,
+        "phase_timing": true,
+        "length": true,
+        "ee_pos": false,
+        "arm_joint": false,
+        "gripper_pos": true,
+        "orientation": false,
+        "detach_diagnostics": true,
+        "max_pull_N": false
+      },
+      "metrics": {
+        "phase_frame_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "frame_count_difference": 0,
+        "ee_pos_max_abs_error": 0.003908991813659668,
+        "ee_pos_rms_error": 0.0006357124458868291,
+        "arm_joint_max_abs_error": 0.05547475814819336,
+        "arm_joint_rms_error": 0.006592345045300962,
+        "gripper_pos_max_abs_error": 0.0008968785405158997,
+        "gripper_pos_rms_error": 0.00019137863312008833,
+        "orientation_max_error_rad": 0.050752564223233855,
+        "detach_diagnostics": {
+          "debug_usage": {
+            "canonical": "DEBUG / DATASET GATE ONLY; NOT POLICY INPUT",
+            "pilot": "DEBUG / DATASET GATE ONLY; NOT POLICY INPUT"
+          },
+          "settle_frames": {
+            "canonical": 25,
+            "pilot": 25
+          },
+          "premature_epsilon_m": {
+            "canonical": 0.001,
+            "pilot": 0.001
+          },
+          "detach_force_N": {
+            "canonical": 29.432201385498047,
+            "pilot": 29.432201385498047
+          },
+          "detach_force_multiplier": {
+            "canonical": 1.5,
+            "pilot": 1.5
+          },
+          "planned_apple_debug_index": {
+            "canonical": 2,
+            "pilot": 2
+          },
+          "grasped_apple_debug_index": {
+            "canonical": 2,
+            "pilot": 2
+          },
+          "pull_enter_frame": {
+            "canonical": 69,
+            "pilot": 69
+          },
+          "pull_enter_sim_time": {
+            "canonical": 1.1500000000000008,
+            "pilot": 1.1500000000000008
+          },
+          "detach_frame": {
+            "canonical": 101,
+            "pilot": 101
+          },
+          "detach_sim_time": {
+            "canonical": 1.6833333333333322,
+            "pilot": 1.6833333333333322
+          },
+          "pull_frames_before_detach": {
+            "canonical": 32,
+            "pilot": 32
+          },
+          "retract_distance_at_detach_m": {
+            "canonical": 0.013200000000000002,
+            "pilot": 0.013200000000000002
+          },
+          "direct_pull_force_at_detach_N": {
+            "canonical": 33.382469177246094,
+            "pilot": 33.43269348144531
+          },
+          "stem_tension_at_detach_N": {
+            "canonical": 32.50387954711914,
+            "pilot": 32.5963020324707
+          },
+          "detach_trigger": {
+            "canonical": "direct_pull",
+            "pilot": "direct_pull"
+          },
+          "premature_detach": {
+            "canonical": false,
+            "pilot": false
+          },
+          "meaningful_pull": {
+            "canonical": false,
+            "pilot": false
+          },
+          "strong_meaningful_pull": {
+            "canonical": false,
+            "pilot": false
+          },
+          "tcp_displacement_since_pull_enter_m": {
+            "canonical": 0.12872157990932465,
+            "pilot": 0.128849595785141
+          }
+        },
+        "max_pull_N": {
+          "canonical": 37.0893669128418,
+          "pilot": 37.991764068603516
+        }
+      }
+    }
+  ]
+}

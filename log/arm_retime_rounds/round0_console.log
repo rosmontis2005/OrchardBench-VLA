@@ -1,0 +1,76 @@
+round0 legacy seed=1000106 success=True placed=True reason=None sim=5.200s wall=21.5s
+round0 legacy seed=1000268 success=True placed=True reason=None sim=5.100s wall=19.6s
+round0 legacy seed=1000576 success=True placed=True reason=None sim=4.500s wall=14.9s
+round0 legacy seed=1000235 success=True placed=True reason=None sim=4.533s wall=20.5s
+round0 legacy seed=1000356 success=True placed=True reason=None sim=4.067s wall=19.5s
+round0 legacy seed=1000074 success=True placed=True reason=None sim=3.733s wall=28.5s
+round0 legacy seed=1000232 success=True placed=True reason=None sim=4.100s wall=14.2s
+round0 legacy seed=1000441 success=True placed=True reason=None sim=4.100s wall=13.1s
+{
+  "normal": {
+    "legacy": {
+      "N": 7,
+      "success_count": 7,
+      "success_rate": 1.0,
+      "placed": 7,
+      "detached": 7,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 7,
+      "success_count": 7,
+      "success_rate": 1.0,
+      "placed": 7,
+      "detached": 7,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    }
+  },
+  "stress": {
+    "legacy": {
+      "N": 1,
+      "success_count": 1,
+      "success_rate": 1.0,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 1,
+      "success_count": 1,
+      "success_rate": 1.0,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    }
+  },
+  "all": {
+    "legacy": {
+      "N": 8,
+      "success_count": 8,
+      "success_rate": 1.0,
+      "placed": 8,
+      "detached": 8,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 8,
+      "success_count": 8,
+      "success_rate": 1.0,
+      "placed": 8,
+      "detached": 8,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    }
+  }
+}

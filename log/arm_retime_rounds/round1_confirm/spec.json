@@ -1,0 +1,9 @@
+{
+  "round": 1,
+  "profile": "v2.0",
+  "reason": "Round1 global v2.0 accepted only 1/8 vs fresh legacy 8/8; seven pre-PULL no-fruit failures, six premature detach diagnostics. Repeat two originally normal failures to distinguish stable retime regression from contact nondeterminism before changing limiter scope.",
+  "seeds": [
+    1000576,
+    1000356
+  ]
+}

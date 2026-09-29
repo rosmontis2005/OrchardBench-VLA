@@ -1,0 +1,15 @@
+{
+  "round": 2,
+  "profile": "transport_v2.0",
+  "reason": "Round1 global v2.0 failed 7/8 before PULL; two fresh confirmation pairs reproduce identical GRASP failure/premature detach while legacy succeeds. Change only limiter scope to TRANSPORT at unchanged 2.0 rad/s, retaining legacy motion in contact-sensitive pre-detach phases; optional scope does not alter state transitions or reset command state.",
+  "seeds": [
+    1000106,
+    1000268,
+    1000576,
+    1000235,
+    1000356,
+    1000074,
+    1000232,
+    1000441
+  ]
+}

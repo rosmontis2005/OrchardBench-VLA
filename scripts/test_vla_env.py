@@ -24,7 +24,7 @@ def valid(obs):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--output',default='output/vla_env_tests.json');args=ap.parse_args()
-    result={};env=OrchardVLAEnv(VLAEnvConfig(max_control_steps=300))
+    result={};env=OrchardVLAEnv(VLAEnvConfig(grasp_mode='contact',max_control_steps=300))
     try:
         first,info=env.reset(seed=42);valid(first)
         tree=env.sim.state_0.body_q.numpy().copy()

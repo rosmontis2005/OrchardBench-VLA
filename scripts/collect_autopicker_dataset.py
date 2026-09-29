@@ -277,9 +277,13 @@ def sanitize_reason(reason):
 
 
 def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
-                    initial_only=False, gallery_dir=None):
+                    initial_only=False, gallery_dir=None, arm_motion_profile=None, frame_observer=None):
     """Privileged reset-time stance -> clean t=0 world -> fixed-base expert; record
-    independent sensors at 30Hz.  No base command is ever issued (asserted)."""
+    independent sensors at 30Hz.  No base command is ever issued (asserted).
+
+    arm_motion_profile is explicitly opt-in; None preserves legacy commands.
+    frame_observer is a diagnostic callback after commands, including frame zero;
+    observers must only read state. Neither option changes recording/acceptance."""
     import warp as wp
     import newton.viewer
     from treesim import robot
@@ -321,7 +325,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
             assert recording_wrist.percept is None
             result['clean_start'] = verify_clean_start(sim, tm, plan, driver)
             met = Metrics(None)
-            picker = FixedBaseAutoPicker(sim, tm, driver, cfg.robot, st, met, ik=ik)
+            picker = FixedBaseAutoPicker(sim, tm, driver, cfg.robot, st, met, ik=ik,
+                                         arm_motion_profile=arm_motion_profile)
             assert picker.state == 'REACH' and picker.cam is None
             names = [n.rsplit('/', 1)[-1] for n in tm.model.joint_label]
             starts = tm.model.joint_q_start.numpy()
@@ -372,6 +377,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
                 for a in (images[0][-1], images[1][-1]):
                     assert a.dtype == np.uint8 and a.shape == (144, 192, 3) and a.var() > 1
             record(); state_trace.append(snapshot(0)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
+            if frame_observer is not None:
+                frame_observer(0, sim, picker, tcp, qidx)
             sim_start = time.monotonic(); last_state = picker.state
             for frame in range(1, 1201):
                 sim.step(); met.frame()
@@ -394,6 +401,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
                     state_trace.append(snapshot(frame)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
                     last_state = picker.state
                 if frame % 2 == 0: record()
+                if frame_observer is not None:
+                    frame_observer(frame, sim, picker, tcp, qidx)
                 if max_trans >= 1e-3 or max_yaw >= 1e-3:
                     result['reject_reason'] = 'base_drift_exceeded'; break
                 if sim.breaker.broken_count:

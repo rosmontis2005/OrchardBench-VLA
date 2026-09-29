@@ -1,0 +1,510 @@
+{
+  "status": "PASS",
+  "summary_checks": [
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_summary.json",
+      "seed_count": 8,
+      "all_pairs_same_setup": true
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2_summary.json",
+      "seed_count": 8,
+      "all_pairs_same_setup": true
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3_summary.json",
+      "seed_count": 8,
+      "all_pairs_same_setup": true
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0_legacy_summary.json",
+      "seed_count": 8,
+      "all_pairs_same_setup": true
+    }
+  ],
+  "command_checks": [
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000074/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000012,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000106/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000232/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000235/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000268/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000441/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/runs/legacy/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000074/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000012,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000106/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000232/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000235/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000268/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000441/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/legacy/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000074/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000106/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000232/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000067,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000235/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000067,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000268/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000067,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000441/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/runs/v2.0/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_confirm/runs/legacy/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_confirm/runs/legacy/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_confirm/runs/v2.0/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000067,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_confirm/runs/v2.0/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000074/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000012,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000106/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000232/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000235/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000268/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000441/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/legacy/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000074/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000106/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000232/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000235/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000268/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000441/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/runs/transport_v2.0/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.0000000000000133,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000074/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000012,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000106/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000232/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000235/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000268/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000441/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000019,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/legacy/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.700000000000023,
+      "active_internal_acceleration_max": 0.0,
+      "acceleration_landing_exceptions": 0,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000074/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 1.5000000000000266,
+      "active_internal_acceleration_max": 137.3836040496831,
+      "acceleration_landing_exceptions": 11,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000106/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 2.137249517440801,
+      "active_internal_acceleration_max": 162.00000000000057,
+      "acceleration_landing_exceptions": 13,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000232/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 1.5000000000000266,
+      "active_internal_acceleration_max": 86.23672771453873,
+      "acceleration_landing_exceptions": 10,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000235/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 1.5000000000000266,
+      "active_internal_acceleration_max": 36.92669105936465,
+      "acceleration_landing_exceptions": 11,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000268/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 1.5000000000000266,
+      "active_internal_acceleration_max": 33.84448742337969,
+      "acceleration_landing_exceptions": 8,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000356/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 1.5000000000000266,
+      "active_internal_acceleration_max": 38.272062920752155,
+      "acceleration_landing_exceptions": 13,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000441/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 1.5000000000000266,
+      "active_internal_acceleration_max": 40.60848775754813,
+      "acceleration_landing_exceptions": 14,
+      "unexplained_acceleration_exceptions": 0
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/runs/transport_va1.5_a20/1000576/run.json",
+      "max_legacy_or_velocity_command_arithmetic_error": 0.0,
+      "active_actual_command_velocity_max": 1.5000000000000266,
+      "active_internal_acceleration_max": 37.54347927095596,
+      "acceleration_landing_exceptions": 16,
+      "unexplained_acceleration_exceptions": 0
+    }
+  ],
+  "total_runs": 60,
+  "paired_csv_rows": 32,
+  "required_csv_columns_present": true
+}

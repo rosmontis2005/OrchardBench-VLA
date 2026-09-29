@@ -1,0 +1,16 @@
+ M scripts/collect_autopicker_dataset.py
+ M treesim/fixed_base_picker.py
+ M treesim/picker.py
+ M treesim/vla_env.py
+ M treesim/xr0_adapter.py
+?? TRAINING_NOTES.md
+?? artifacts/
+?? log/
+?? scripts/analyze_arm_retime_pilot.py
+?? scripts/analyze_arm_retime_rounds.py
+?? scripts/run_arm_retime_pilot.py
+?? scripts/run_arm_retime_rounds.py
+?? scripts/test_arm_motion.py
+?? scripts/test_orchard_action_env.py
+?? treesim/arm_motion.py
+?? treesim/orchard_action.py

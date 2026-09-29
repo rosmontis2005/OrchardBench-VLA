@@ -1,0 +1,136 @@
+{
+  "legacy": {
+    "attempted": 3,
+    "accepted": 3,
+    "placed": 3,
+    "smoke_accepted": 3,
+    "smoke_attempted": 3,
+    "reasons": {
+      "accepted": 3
+    },
+    "categories": {
+      "grasp_failures": 0,
+      "no_fruit": 0,
+      "reach_stalled": 0,
+      "grasp_stalled": 0,
+      "transport_stalled": 0,
+      "timeout": 0,
+      "branch_break": 0,
+      "premature_detach": 0,
+      "missed_bucket": 0,
+      "other_rejection": 0,
+      "execution_error": 0
+    },
+    "failed_episodes": []
+  },
+  "v2.0": {
+    "attempted": 0,
+    "accepted": 0,
+    "placed": 0,
+    "smoke_accepted": 0,
+    "smoke_attempted": 0,
+    "reasons": {},
+    "categories": {
+      "grasp_failures": 0,
+      "no_fruit": 0,
+      "reach_stalled": 0,
+      "grasp_stalled": 0,
+      "transport_stalled": 0,
+      "timeout": 0,
+      "branch_break": 0,
+      "premature_detach": 0,
+      "missed_bucket": 0,
+      "other_rejection": 0,
+      "execution_error": 0
+    },
+    "failed_episodes": []
+  },
+  "v1.5": {
+    "attempted": 0,
+    "accepted": 0,
+    "placed": 0,
+    "smoke_accepted": 0,
+    "smoke_attempted": 0,
+    "reasons": {},
+    "categories": {
+      "grasp_failures": 0,
+      "no_fruit": 0,
+      "reach_stalled": 0,
+      "grasp_stalled": 0,
+      "transport_stalled": 0,
+      "timeout": 0,
+      "branch_break": 0,
+      "premature_detach": 0,
+      "missed_bucket": 0,
+      "other_rejection": 0,
+      "execution_error": 0
+    },
+    "failed_episodes": []
+  },
+  "va1.5_a20": {
+    "attempted": 0,
+    "accepted": 0,
+    "placed": 0,
+    "smoke_accepted": 0,
+    "smoke_attempted": 0,
+    "reasons": {},
+    "categories": {
+      "grasp_failures": 0,
+      "no_fruit": 0,
+      "reach_stalled": 0,
+      "grasp_stalled": 0,
+      "transport_stalled": 0,
+      "timeout": 0,
+      "branch_break": 0,
+      "premature_detach": 0,
+      "missed_bucket": 0,
+      "other_rejection": 0,
+      "execution_error": 0
+    },
+    "failed_episodes": []
+  },
+  "va1.5_a10": {
+    "attempted": 0,
+    "accepted": 0,
+    "placed": 0,
+    "smoke_accepted": 0,
+    "smoke_attempted": 0,
+    "reasons": {},
+    "categories": {
+      "grasp_failures": 0,
+      "no_fruit": 0,
+      "reach_stalled": 0,
+      "grasp_stalled": 0,
+      "transport_stalled": 0,
+      "timeout": 0,
+      "branch_break": 0,
+      "premature_detach": 0,
+      "missed_bucket": 0,
+      "other_rejection": 0,
+      "execution_error": 0
+    },
+    "failed_episodes": []
+  },
+  "va1.2_a10": {
+    "attempted": 0,
+    "accepted": 0,
+    "placed": 0,
+    "smoke_accepted": 0,
+    "smoke_attempted": 0,
+    "reasons": {},
+    "categories": {
+      "grasp_failures": 0,
+      "no_fruit": 0,
+      "reach_stalled": 0,
+      "grasp_stalled": 0,
+      "transport_stalled": 0,
+      "timeout": 0,
+      "branch_break": 0,
+      "premature_detach": 0,
+      "missed_bucket": 0,
+      "other_rejection": 0,
+      "execution_error": 0
+    },
+    "failed_episodes": []
+  }
+}

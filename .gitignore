@@ -31,3 +31,5 @@ metric*.json
 .vscode/
 .idea/
 .DS_Store
+.artifacts/
+

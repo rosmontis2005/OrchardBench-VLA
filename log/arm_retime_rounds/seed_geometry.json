@@ -1,0 +1,338 @@
+[
+  {
+    "seed": 1000074,
+    "apple_index": 2,
+    "apple_world_position": [
+      -1.1579075395026208,
+      -0.030734425084744856,
+      1.1735685843316694
+    ],
+    "base_pose": [
+      -1.7905556223374897,
+      -0.3182325394090362,
+      0.4265368427637611
+    ],
+    "radius": 0.032,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.42280596355447714,
+      "min_clearance_arm_home_m": 0.056780662291204875,
+      "pushable_twig_contacts": 7
+    },
+    "initial_tcp": [
+      -1.3394609689712524,
+      -0.11323896795511246,
+      1.2734748125076294
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 1.1328562976586909e-07,
+      "target_apple_radius_built": 0.03200000151991844,
+      "base_pose_built": [
+        -1.7905555963516235,
+        -0.31823253631591797,
+        0.0,
+        0.0,
+        0.0,
+        0.211655393242836,
+        0.9773443341255188
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  },
+  {
+    "seed": 1000106,
+    "apple_index": 16,
+    "apple_world_position": [
+      0.17674014672860058,
+      1.0384372212743083,
+      0.8592038376485284
+    ],
+    "base_pose": [
+      0.30425704579696455,
+      1.7876631146838449,
+      -1.739379111340822
+    ],
+    "radius": 0.028,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.23178196745241325,
+      "min_clearance_arm_home_m": 0.24187894295334328,
+      "pushable_twig_contacts": 1
+    },
+    "initial_tcp": [
+      0.2211211621761322,
+      1.299199104309082,
+      1.2734748125076294
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 1.1442708780506905e-07,
+      "target_apple_radius_built": 0.02800000086426735,
+      "base_pose_built": [
+        0.30425703525543213,
+        1.7876631021499634,
+        0.0,
+        0.0,
+        0.0,
+        -0.7641287446022034,
+        0.6450637578964233
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  },
+  {
+    "seed": 1000232,
+    "apple_index": 34,
+    "apple_world_position": [
+      0.49748806627151526,
+      0.3417761356101216,
+      1.0430259707678382
+    ],
+    "base_pose": [
+      1.1239050332582445,
+      0.7721269013317874,
+      -2.539642404669041
+    ],
+    "radius": 0.032,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.7526827850252623,
+      "min_clearance_arm_home_m": 0.2488179367039451,
+      "pushable_twig_contacts": 1
+    },
+    "initial_tcp": [
+      0.7155073881149292,
+      0.49155616760253906,
+      1.273474931716919
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 6.844300637354195e-08,
+      "target_apple_radius_built": 0.03200000151991844,
+      "base_pose_built": [
+        1.123905062675476,
+        0.7721269130706787,
+        0.0,
+        0.0,
+        0.0,
+        -0.9550478458404541,
+        0.2964516878128052
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  },
+  {
+    "seed": 1000235,
+    "apple_index": 37,
+    "apple_world_position": [
+      0.627278187638987,
+      -0.3526677812390131,
+      1.0954352747410194
+    ],
+    "base_pose": [
+      1.2796224546426596,
+      -0.7194281911842426,
+      2.629416599069872
+    ],
+    "radius": 0.028,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.8020205455512274,
+      "min_clearance_arm_home_m": 0.0835497915783133,
+      "pushable_twig_contacts": 1
+    },
+    "initial_tcp": [
+      0.8477151989936829,
+      -0.4766017198562622,
+      1.2734746932983398
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 1.0819521589766623e-07,
+      "target_apple_radius_built": 0.02800000086426735,
+      "base_pose_built": [
+        1.2796224355697632,
+        -0.7194281816482544,
+        0.0,
+        0.0,
+        0.0,
+        0.9673882722854614,
+        0.2532980740070343
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  },
+  {
+    "seed": 1000268,
+    "apple_index": 4,
+    "apple_world_position": [
+      0.8188818617159852,
+      -0.6426355033792417,
+      1.0675044931754318
+    ],
+    "base_pose": [
+      1.5522752098345665,
+      -0.8419698853248739,
+      2.87620633501129
+    ],
+    "radius": 0.03,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.3415992596015264,
+      "min_clearance_arm_home_m": 0.23524665115019255,
+      "pushable_twig_contacts": 4
+    },
+    "initial_tcp": [
+      1.0741333961486816,
+      -0.7120122909545898,
+      1.273474931716919
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 5.7410535214685865e-08,
+      "target_apple_radius_built": 0.029999999329447746,
+      "base_pose_built": [
+        1.5522751808166504,
+        -0.841969907283783,
+        0.0,
+        0.0,
+        0.0,
+        0.9912091493606567,
+        0.13230407238006592
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  },
+  {
+    "seed": 1000356,
+    "apple_index": 10,
+    "apple_world_position": [
+      -1.0288077311225483,
+      -0.451208574344996,
+      1.0919440060597583
+    ],
+    "base_pose": [
+      -1.716087129301795,
+      -0.7526316177845926,
+      0.4133117475266475
+    ],
+    "radius": 0.03,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.323409319051881,
+      "min_clearance_arm_home_m": 0.20945648609511774,
+      "pushable_twig_contacts": 1
+    },
+    "initial_tcp": [
+      -1.2623209953308105,
+      -0.5536215305328369,
+      1.273474931716919
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 5.715167605835347e-08,
+      "target_apple_radius_built": 0.029999999329447746,
+      "base_pose_built": [
+        -1.7160871028900146,
+        -0.7526316046714783,
+        0.0,
+        0.0,
+        0.0,
+        0.2051880806684494,
+        0.9787225723266602
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  },
+  {
+    "seed": 1000441,
+    "apple_index": 20,
+    "apple_world_position": [
+      -1.1893675612030512,
+      -1.0120790218375866,
+      1.0185674919812122
+    ],
+    "base_pose": [
+      -1.7681732099982452,
+      -1.5046072141099343,
+      0.7050388416546589
+    ],
+    "radius": 0.026000000000000002,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.24236005979593042,
+      "min_clearance_arm_home_m": 0.27134766935880617,
+      "pushable_twig_contacts": 3
+    },
+    "initial_tcp": [
+      -1.3908162117004395,
+      -1.1834994554519653,
+      1.273474931716919
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 7.113218813969979e-08,
+      "target_apple_radius_built": 0.026000000536441803,
+      "base_pose_built": [
+        -1.7681732177734375,
+        -1.5046072006225586,
+        0.0,
+        0.0,
+        0.0,
+        0.34526339173316956,
+        0.9385058283805847
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  },
+  {
+    "seed": 1000576,
+    "apple_index": 34,
+    "apple_world_position": [
+      1.1365804667740367,
+      -0.2655119488410029,
+      0.8143329572195975
+    ],
+    "base_pose": [
+      1.8766551165343737,
+      -0.43839778340352453,
+      2.9121022043985265
+    ],
+    "radius": 0.032,
+    "initial_safety": {
+      "min_clearance_chassis_m": 0.5205798034432416,
+      "min_clearance_arm_home_m": 0.4278848070121661,
+      "pushable_twig_contacts": 1
+    },
+    "initial_tcp": [
+      1.3941574096679688,
+      -0.3256833851337433,
+      1.273474931716919
+    ],
+    "setup_clean_start": {
+      "max_skeleton_dev_m": 0.0,
+      "max_apple_dev_m": 1.0827978291771956e-07,
+      "target_apple_radius_built": 0.03200000151991844,
+      "base_pose_built": [
+        1.876655101776123,
+        -0.4383977949619293,
+        0.0,
+        0.0,
+        0.0,
+        0.9934239983558655,
+        0.11449357867240906
+      ],
+      "sim_time": 0.0,
+      "branch_break_count": 0,
+      "apple_detached_count": 0
+    }
+  }
+]

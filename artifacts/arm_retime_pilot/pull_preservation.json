@@ -1,0 +1,3252 @@
+{
+  "legacy": {
+    "attempted": 3,
+    "reached_pull": 3,
+    "completed_pull": 3,
+    "detached": 3,
+    "premature_detach": 0,
+    "all_attempts_pilot_motion": {
+      "episodes_with_phase": 3,
+      "metrics": {
+        "tcp_speed": {
+          "count": 107,
+          "mean": 0.15755092693984618,
+          "P50": 0.12466765655016492,
+          "P90": 0.26106879477956185,
+          "P95": 0.35834007570363297,
+          "P99": 0.7058313345345697,
+          "max": 0.7321039523394438,
+          "min": 0.019163580713152537
+        },
+        "angular_speed": {
+          "count": 107,
+          "mean": 0.4450770514084354,
+          "P50": 0.08799558898327918,
+          "P90": 1.4279899648948509,
+          "P95": 1.9752034060025028,
+          "P99": 3.3750990555796005,
+          "max": 3.6336976470832796,
+          "min": 0.003323216083431326
+        },
+        "joint_speed": {
+          "count": 107,
+          "mean": 0.7060649789103859,
+          "P50": 0.3966879844665541,
+          "P90": 1.9034171104431232,
+          "P95": 2.7844669818878254,
+          "P99": 3.1685879230499374,
+          "max": 3.278868198394787,
+          "min": 0.06567478179931664
+        },
+        "linear_acceleration": {
+          "count": 107,
+          "mean": 2.1286878757316496,
+          "P50": 1.286678362374656,
+          "P90": 5.709710530557608,
+          "P95": 6.791332927580068,
+          "P99": 9.697899429787489,
+          "max": 10.29101116540527,
+          "min": 0.06978170257606053
+        },
+        "angular_acceleration": {
+          "count": 107,
+          "mean": 3.1313348671694152,
+          "P50": 1.3501064068006807,
+          "P90": 8.531294653807576,
+          "P95": 14.23503143613874,
+          "P99": 20.37761528067311,
+          "max": 21.438933650872134,
+          "min": 0.024303874031610682
+        },
+        "joint_acceleration": {
+          "count": 107,
+          "mean": 6.781488258356836,
+          "P50": 5.147695541381874,
+          "P90": 13.670296669006412,
+          "P95": 20.687170028686648,
+          "P99": 33.53806257247928,
+          "max": 38.25666904449468,
+          "min": 0.664758682250981
+        }
+      }
+    },
+    "same_seeds_canonical_motion": {
+      "episodes_with_phase": 3,
+      "metrics": {
+        "tcp_speed": {
+          "count": 107,
+          "mean": 0.1569019043465792,
+          "P50": 0.12466841301161652,
+          "P90": 0.26144100379442403,
+          "P95": 0.3536399316021661,
+          "P99": 0.6900819457027646,
+          "max": 0.7335655154364163,
+          "min": 0.019146637599622165
+        },
+        "angular_speed": {
+          "count": 107,
+          "mean": 0.44458704585729103,
+          "P50": 0.08799966302511315,
+          "P90": 1.444868611268387,
+          "P95": 1.9410396900965816,
+          "P99": 3.3571857666970124,
+          "max": 3.577155156153149,
+          "min": 0.0033147449935880344
+        },
+        "joint_speed": {
+          "count": 107,
+          "mean": 0.705504117307264,
+          "P50": 0.3966879844665541,
+          "P90": 1.9012527465820392,
+          "P95": 2.7683608531951984,
+          "P99": 3.1493817329406846,
+          "max": 3.270034790039074,
+          "min": 0.06567478179931664
+        },
+        "linear_acceleration": {
+          "count": 107,
+          "mean": 2.116390570128599,
+          "P50": 1.2869930711175859,
+          "P90": 5.757180445661241,
+          "P95": 6.791876163478452,
+          "P99": 9.84141069846578,
+          "max": 10.290850568863727,
+          "min": 0.07085713957228978
+        },
+        "angular_acceleration": {
+          "count": 107,
+          "mean": 3.094560595844087,
+          "P50": 1.3285598546525776,
+          "P90": 8.576706496270562,
+          "P95": 13.729554030482168,
+          "P99": 20.578124239553926,
+          "max": 21.43797201829937,
+          "min": 0.024343090395068226
+        },
+        "joint_acceleration": {
+          "count": 107,
+          "mean": 6.7776427038501685,
+          "P50": 5.14554977416996,
+          "P90": 13.669524192810123,
+          "P95": 20.573036670684935,
+          "P99": 33.53715705871585,
+          "max": 38.256990909576466,
+          "min": 0.6643295288085982
+        }
+      }
+    },
+    "completed_pull_pilot_motion": {
+      "episodes_with_phase": 3,
+      "metrics": {
+        "tcp_speed": {
+          "count": 107,
+          "mean": 0.15755092693984618,
+          "P50": 0.12466765655016492,
+          "P90": 0.26106879477956185,
+          "P95": 0.35834007570363297,
+          "P99": 0.7058313345345697,
+          "max": 0.7321039523394438,
+          "min": 0.019163580713152537
+        },
+        "angular_speed": {
+          "count": 107,
+          "mean": 0.4450770514084354,
+          "P50": 0.08799558898327918,
+          "P90": 1.4279899648948509,
+          "P95": 1.9752034060025028,
+          "P99": 3.3750990555796005,
+          "max": 3.6336976470832796,
+          "min": 0.003323216083431326
+        },
+        "joint_speed": {
+          "count": 107,
+          "mean": 0.7060649789103859,
+          "P50": 0.3966879844665541,
+          "P90": 1.9034171104431232,
+          "P95": 2.7844669818878254,
+          "P99": 3.1685879230499374,
+          "max": 3.278868198394787,
+          "min": 0.06567478179931664
+        },
+        "linear_acceleration": {
+          "count": 107,
+          "mean": 2.1286878757316496,
+          "P50": 1.286678362374656,
+          "P90": 5.709710530557608,
+          "P95": 6.791332927580068,
+          "P99": 9.697899429787489,
+          "max": 10.29101116540527,
+          "min": 0.06978170257606053
+        },
+        "angular_acceleration": {
+          "count": 107,
+          "mean": 3.1313348671694152,
+          "P50": 1.3501064068006807,
+          "P90": 8.531294653807576,
+          "P95": 14.23503143613874,
+          "P99": 20.37761528067311,
+          "max": 21.438933650872134,
+          "min": 0.024303874031610682
+        },
+        "joint_acceleration": {
+          "count": 107,
+          "mean": 6.781488258356836,
+          "P50": 5.147695541381874,
+          "P90": 13.670296669006412,
+          "P95": 20.687170028686648,
+          "P99": 33.53806257247928,
+          "max": 38.25666904449468,
+          "min": 0.664758682250981
+        }
+      }
+    },
+    "completed_pull_same_seeds_canonical_motion": {
+      "episodes_with_phase": 3,
+      "metrics": {
+        "tcp_speed": {
+          "count": 107,
+          "mean": 0.1569019043465792,
+          "P50": 0.12466841301161652,
+          "P90": 0.26144100379442403,
+          "P95": 0.3536399316021661,
+          "P99": 0.6900819457027646,
+          "max": 0.7335655154364163,
+          "min": 0.019146637599622165
+        },
+        "angular_speed": {
+          "count": 107,
+          "mean": 0.44458704585729103,
+          "P50": 0.08799966302511315,
+          "P90": 1.444868611268387,
+          "P95": 1.9410396900965816,
+          "P99": 3.3571857666970124,
+          "max": 3.577155156153149,
+          "min": 0.0033147449935880344
+        },
+        "joint_speed": {
+          "count": 107,
+          "mean": 0.705504117307264,
+          "P50": 0.3966879844665541,
+          "P90": 1.9012527465820392,
+          "P95": 2.7683608531951984,
+          "P99": 3.1493817329406846,
+          "max": 3.270034790039074,
+          "min": 0.06567478179931664
+        },
+        "linear_acceleration": {
+          "count": 107,
+          "mean": 2.116390570128599,
+          "P50": 1.2869930711175859,
+          "P90": 5.757180445661241,
+          "P95": 6.791876163478452,
+          "P99": 9.84141069846578,
+          "max": 10.290850568863727,
+          "min": 0.07085713957228978
+        },
+        "angular_acceleration": {
+          "count": 107,
+          "mean": 3.094560595844087,
+          "P50": 1.3285598546525776,
+          "P90": 8.576706496270562,
+          "P95": 13.729554030482168,
+          "P99": 20.578124239553926,
+          "max": 21.43797201829937,
+          "min": 0.024343090395068226
+        },
+        "joint_acceleration": {
+          "count": 107,
+          "mean": 6.7776427038501685,
+          "P50": 5.14554977416996,
+          "P90": 13.669524192810123,
+          "P95": 20.573036670684935,
+          "P99": 33.53715705871585,
+          "max": 38.256990909576466,
+          "min": 0.6643295288085982
+        }
+      }
+    },
+    "paired_scalars": {
+      "pull_duration_s": {
+        "paired_count": 3,
+        "canonical": {
+          "count": 3,
+          "mean": 1.1833333333333333,
+          "P50": 1.4,
+          "P90": 1.5733333333333333,
+          "P95": 1.595,
+          "P99": 1.6123333333333334,
+          "max": 1.6166666666666667,
+          "min": 0.5333333333333334
+        },
+        "pilot": {
+          "count": 3,
+          "mean": 1.1833333333333333,
+          "P50": 1.4,
+          "P90": 1.5733333333333333,
+          "P95": 1.595,
+          "P99": 1.6123333333333334,
+          "max": 1.6166666666666667,
+          "min": 0.5333333333333334
+        },
+        "paired_difference": {
+          "count": 3,
+          "mean": 0.0,
+          "P50": 0.0,
+          "P90": 0.0,
+          "P95": 0.0,
+          "P99": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "paired_ratio": {
+          "count": 3,
+          "mean": 1.0,
+          "P50": 1.0,
+          "P90": 1.0,
+          "P95": 1.0,
+          "P99": 1.0,
+          "max": 1.0,
+          "min": 1.0
+        }
+      },
+      "retract_distance_at_detach_m": {
+        "paired_count": 3,
+        "canonical": {
+          "count": 3,
+          "mean": 0.09899999999999994,
+          "P50": 0.12759999999999985,
+          "P90": 0.15047999999999992,
+          "P95": 0.15333999999999995,
+          "P99": 0.15562799999999996,
+          "max": 0.15619999999999995,
+          "min": 0.013200000000000002
+        },
+        "pilot": {
+          "count": 3,
+          "mean": 0.09899999999999994,
+          "P50": 0.12759999999999985,
+          "P90": 0.15047999999999992,
+          "P95": 0.15333999999999995,
+          "P99": 0.15562799999999996,
+          "max": 0.15619999999999995,
+          "min": 0.013200000000000002
+        },
+        "paired_difference": {
+          "count": 3,
+          "mean": 0.0,
+          "P50": 0.0,
+          "P90": 0.0,
+          "P95": 0.0,
+          "P99": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "paired_ratio": {
+          "count": 3,
+          "mean": 1.0,
+          "P50": 1.0,
+          "P90": 1.0,
+          "P95": 1.0,
+          "P99": 1.0,
+          "max": 1.0,
+          "min": 1.0
+        }
+      },
+      "tcp_displacement_since_pull_enter_m": {
+        "paired_count": 3,
+        "canonical": {
+          "count": 3,
+          "mean": 0.11587683359781902,
+          "P50": 0.12037473917007446,
+          "P90": 0.1270522117614746,
+          "P95": 0.12788689583539964,
+          "P99": 0.12855464309453965,
+          "max": 0.12872157990932465,
+          "min": 0.09853418171405792
+        },
+        "pilot": {
+          "count": 3,
+          "mean": 0.11591875553131104,
+          "P50": 0.1203744113445282,
+          "P90": 0.12715455889701843,
+          "P95": 0.1280020773410797,
+          "P99": 0.12868009209632875,
+          "max": 0.128849595785141,
+          "min": 0.09853225946426392
+        },
+        "paired_difference": {
+          "count": 3,
+          "mean": 4.192193349202474e-05,
+          "P50": -3.2782554626464844e-07,
+          "P90": 0.00010234713554382325,
+          "P95": 0.00011518150568008421,
+          "P99": 0.00012544900178909301,
+          "max": 0.00012801587581634521,
+          "min": -1.9222497940063477e-06
+        },
+        "paired_ratio": {
+          "count": 3,
+          "mean": 1.000324095253865,
+          "P50": 0.999997276625075,
+          "P90": 1.0007950693994012,
+          "P95": 1.0008947934961918,
+          "P99": 1.0009745727736246,
+          "max": 1.0009945175929826,
+          "min": 0.9999804915435379
+        }
+      },
+      "detach_frame": {
+        "paired_count": 3,
+        "canonical": {
+          "count": 3,
+          "mean": 123.0,
+          "P50": 125.0,
+          "P90": 139.4,
+          "P95": 141.2,
+          "P99": 142.64,
+          "max": 143.0,
+          "min": 101.0
+        },
+        "pilot": {
+          "count": 3,
+          "mean": 123.0,
+          "P50": 125.0,
+          "P90": 139.4,
+          "P95": 141.2,
+          "P99": 142.64,
+          "max": 143.0,
+          "min": 101.0
+        },
+        "paired_difference": {
+          "count": 3,
+          "mean": 0.0,
+          "P50": 0.0,
+          "P90": 0.0,
+          "P95": 0.0,
+          "P99": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "paired_ratio": {
+          "count": 3,
+          "mean": 1.0,
+          "P50": 1.0,
+          "P90": 1.0,
+          "P95": 1.0,
+          "P99": 1.0,
+          "max": 1.0,
+          "min": 1.0
+        }
+      },
+      "pull_frames_before_detach": {
+        "paired_count": 3,
+        "canonical": {
+          "count": 3,
+          "mean": 71.0,
+          "P50": 84.0,
+          "P90": 94.4,
+          "P95": 95.7,
+          "P99": 96.74,
+          "max": 97.0,
+          "min": 32.0
+        },
+        "pilot": {
+          "count": 3,
+          "mean": 71.0,
+          "P50": 84.0,
+          "P90": 94.4,
+          "P95": 95.7,
+          "P99": 96.74,
+          "max": 97.0,
+          "min": 32.0
+        },
+        "paired_difference": {
+          "count": 3,
+          "mean": 0.0,
+          "P50": 0.0,
+          "P90": 0.0,
+          "P95": 0.0,
+          "P99": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "paired_ratio": {
+          "count": 3,
+          "mean": 1.0,
+          "P50": 1.0,
+          "P90": 1.0,
+          "P95": 1.0,
+          "P99": 1.0,
+          "max": 1.0,
+          "min": 1.0
+        }
+      },
+      "max_pull_N": {
+        "paired_count": 3,
+        "canonical": {
+          "count": 3,
+          "mean": 28.971466064453125,
+          "P50": 25.6937255859375,
+          "P90": 34.810238647460935,
+          "P95": 35.949802780151366,
+          "P99": 36.86145408630371,
+          "max": 37.0893669128418,
+          "min": 24.131305694580078
+        },
+        "pilot": {
+          "count": 3,
+          "mean": 29.27233060201009,
+          "P50": 25.693925857543945,
+          "P90": 35.5321964263916,
+          "P95": 36.761980247497554,
+          "P99": 37.745807304382325,
+          "max": 37.991764068603516,
+          "min": 24.131301879882812
+        },
+        "paired_difference": {
+          "count": 3,
+          "mean": 0.3008645375569661,
+          "P50": 0.0002002716064453125,
+          "P90": 0.7219577789306642,
+          "P95": 0.8121774673461913,
+          "P99": 0.8843532180786132,
+          "max": 0.9023971557617188,
+          "min": -3.814697265625e-06
+        },
+        "paired_ratio": {
+          "count": 3,
+          "mean": 1.0081126610628788,
+          "P50": 1.0000077945724832,
+          "P90": 1.0194658362720974,
+          "P95": 1.0218980914845492,
+          "P99": 1.0238438956545106,
+          "max": 1.024330346697001,
+          "min": 0.999999841919152
+        }
+      }
+    },
+    "episode_pairs": [
+      {
+        "seed": 1000074,
+        "episode_id": "episode_000029",
+        "accepted": true,
+        "canonical": {
+          "pull_duration_s": 0.5333333333333334,
+          "pull_phase_completed": true,
+          "max_pull_N": 37.0893669128418,
+          "detached": true,
+          "retract_distance_at_detach_m": 0.013200000000000002,
+          "tcp_displacement_since_pull_enter_m": 0.12872157990932465,
+          "detach_frame": 101,
+          "pull_frames_before_detach": 32,
+          "premature_detach": false
+        },
+        "pilot": {
+          "pull_duration_s": 0.5333333333333334,
+          "pull_phase_completed": true,
+          "max_pull_N": 37.991764068603516,
+          "detached": true,
+          "retract_distance_at_detach_m": 0.013200000000000002,
+          "tcp_displacement_since_pull_enter_m": 0.128849595785141,
+          "detach_frame": 101,
+          "pull_frames_before_detach": 32,
+          "premature_detach": false
+        }
+      },
+      {
+        "seed": 1000356,
+        "episode_id": "episode_000134",
+        "accepted": true,
+        "canonical": {
+          "pull_duration_s": 1.6166666666666667,
+          "pull_phase_completed": true,
+          "max_pull_N": 25.6937255859375,
+          "detached": true,
+          "retract_distance_at_detach_m": 0.15619999999999995,
+          "tcp_displacement_since_pull_enter_m": 0.12037473917007446,
+          "detach_frame": 125,
+          "pull_frames_before_detach": 97,
+          "premature_detach": false
+        },
+        "pilot": {
+          "pull_duration_s": 1.6166666666666667,
+          "pull_phase_completed": true,
+          "max_pull_N": 25.693925857543945,
+          "detached": true,
+          "retract_distance_at_detach_m": 0.15619999999999995,
+          "tcp_displacement_since_pull_enter_m": 0.1203744113445282,
+          "detach_frame": 125,
+          "pull_frames_before_detach": 97,
+          "premature_detach": false
+        }
+      },
+      {
+        "seed": 1000576,
+        "episode_id": "episode_000222",
+        "accepted": true,
+        "canonical": {
+          "pull_duration_s": 1.4,
+          "pull_phase_completed": true,
+          "max_pull_N": 24.131305694580078,
+          "detached": true,
+          "retract_distance_at_detach_m": 0.12759999999999985,
+          "tcp_displacement_since_pull_enter_m": 0.09853418171405792,
+          "detach_frame": 143,
+          "pull_frames_before_detach": 84,
+          "premature_detach": false
+        },
+        "pilot": {
+          "pull_duration_s": 1.4,
+          "pull_phase_completed": true,
+          "max_pull_N": 24.131301879882812,
+          "detached": true,
+          "retract_distance_at_detach_m": 0.12759999999999985,
+          "tcp_displacement_since_pull_enter_m": 0.09853225946426392,
+          "detach_frame": 143,
+          "pull_frames_before_detach": 84,
+          "premature_detach": false
+        }
+      }
+    ]
+  },
+  "v2.0": {
+    "attempted": 0,
+    "reached_pull": 0,
+    "completed_pull": 0,
+    "detached": 0,
+    "premature_detach": 0,
+    "all_attempts_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "paired_scalars": {
+      "pull_duration_s": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "retract_distance_at_detach_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "tcp_displacement_since_pull_enter_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "detach_frame": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "pull_frames_before_detach": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "max_pull_N": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "episode_pairs": []
+  },
+  "v1.5": {
+    "attempted": 0,
+    "reached_pull": 0,
+    "completed_pull": 0,
+    "detached": 0,
+    "premature_detach": 0,
+    "all_attempts_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "paired_scalars": {
+      "pull_duration_s": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "retract_distance_at_detach_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "tcp_displacement_since_pull_enter_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "detach_frame": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "pull_frames_before_detach": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "max_pull_N": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "episode_pairs": []
+  },
+  "va1.5_a20": {
+    "attempted": 0,
+    "reached_pull": 0,
+    "completed_pull": 0,
+    "detached": 0,
+    "premature_detach": 0,
+    "all_attempts_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "paired_scalars": {
+      "pull_duration_s": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "retract_distance_at_detach_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "tcp_displacement_since_pull_enter_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "detach_frame": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "pull_frames_before_detach": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "max_pull_N": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "episode_pairs": []
+  },
+  "va1.5_a10": {
+    "attempted": 0,
+    "reached_pull": 0,
+    "completed_pull": 0,
+    "detached": 0,
+    "premature_detach": 0,
+    "all_attempts_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "paired_scalars": {
+      "pull_duration_s": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "retract_distance_at_detach_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "tcp_displacement_since_pull_enter_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "detach_frame": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "pull_frames_before_detach": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "max_pull_N": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "episode_pairs": []
+  },
+  "va1.2_a10": {
+    "attempted": 0,
+    "reached_pull": 0,
+    "completed_pull": 0,
+    "detached": 0,
+    "premature_detach": 0,
+    "all_attempts_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_pilot_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "completed_pull_same_seeds_canonical_motion": {
+      "episodes_with_phase": 0,
+      "metrics": {
+        "tcp_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_speed": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "linear_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "angular_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "joint_acceleration": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "paired_scalars": {
+      "pull_duration_s": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "retract_distance_at_detach_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "tcp_displacement_since_pull_enter_m": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "detach_frame": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "pull_frames_before_detach": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      },
+      "max_pull_N": {
+        "paired_count": 0,
+        "canonical": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "pilot": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_difference": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        },
+        "paired_ratio": {
+          "count": 0,
+          "mean": null,
+          "P50": null,
+          "P90": null,
+          "P95": null,
+          "P99": null,
+          "max": null,
+          "min": null
+        }
+      }
+    },
+    "episode_pairs": []
+  }
+}
