@@ -17,7 +17,7 @@ output/
 *.usd
 metric*.json
 log/gate0_speed_30seed/
-
+log/gate1_gt_oracle/
 
 # Videos (kept out of the repo)
 *.mp4

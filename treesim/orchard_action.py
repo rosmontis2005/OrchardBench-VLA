@@ -82,6 +82,10 @@ def prepare_rgb(image):
 class OrchardActionAdapter:
     def set_chunk(self, normalized, mean, std, obs):
         action = np.asarray(normalized) * (np.asarray(std) + EPS) + np.asarray(mean)
+        self.set_denormalized_chunk(action, obs)
+
+    def set_denormalized_chunk(self, action, obs):
+        """Load physical contract values, using the supplied chunk anchor pose."""
         self.targets = decode_targets(action, obs['tcp_pos_world'],
                                       Rotation.from_quat(obs['tcp_quat_world']).as_matrix())
 
