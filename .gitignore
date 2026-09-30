@@ -16,7 +16,7 @@ output/
 *.usda
 *.usd
 metric*.json
-
+log/gate0_speed_30seed/
 
 
 # Videos (kept out of the repo)
