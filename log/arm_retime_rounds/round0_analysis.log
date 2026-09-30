@@ -1,0 +1,68 @@
+{
+  "normal": {
+    "legacy": {
+      "N": 7,
+      "success_count": 7,
+      "success_rate": 1.0,
+      "placed": 7,
+      "detached": 7,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 7,
+      "success_count": 7,
+      "success_rate": 1.0,
+      "placed": 7,
+      "detached": 7,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    }
+  },
+  "stress": {
+    "legacy": {
+      "N": 1,
+      "success_count": 1,
+      "success_rate": 1.0,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 1,
+      "success_count": 1,
+      "success_rate": 1.0,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    }
+  },
+  "all": {
+    "legacy": {
+      "N": 8,
+      "success_count": 8,
+      "success_rate": 1.0,
+      "placed": 8,
+      "detached": 8,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 8,
+      "success_count": 8,
+      "success_rate": 1.0,
+      "placed": 8,
+      "detached": 8,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    }
+  }
+}

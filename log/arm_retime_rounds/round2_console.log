@@ -1,0 +1,114 @@
+round2 legacy seed=1000106 success=True placed=True reason=None sim=5.200s wall=20.6s
+round2 transport_v2.0 seed=1000106 success=True placed=True reason=None sim=5.500s wall=20.7s
+round2 legacy seed=1000268 success=False placed=False reason=first_attempt_missed_bucket sim=6.267s wall=20.6s
+round2 transport_v2.0 seed=1000268 success=True placed=True reason=None sim=6.400s wall=20.9s
+round2 legacy seed=1000576 success=True placed=True reason=None sim=4.500s wall=14.9s
+round2 transport_v2.0 seed=1000576 success=True placed=True reason=None sim=4.500s wall=15.1s
+round2 legacy seed=1000235 success=True placed=True reason=None sim=4.533s wall=20.5s
+round2 transport_v2.0 seed=1000235 success=True placed=True reason=None sim=4.333s wall=20.3s
+round2 legacy seed=1000356 success=True placed=True reason=None sim=4.067s wall=19.5s
+round2 transport_v2.0 seed=1000356 success=True placed=True reason=None sim=4.433s wall=20.1s
+round2 legacy seed=1000074 success=False placed=True reason=incidental_detach sim=5.600s wall=30.5s
+round2 transport_v2.0 seed=1000074 success=True placed=True reason=None sim=3.867s wall=28.5s
+round2 legacy seed=1000232 success=True placed=True reason=None sim=4.100s wall=14.2s
+round2 transport_v2.0 seed=1000232 success=True placed=True reason=None sim=4.400s wall=14.4s
+round2 legacy seed=1000441 success=True placed=True reason=None sim=4.133s wall=13.1s
+round2 transport_v2.0 seed=1000441 success=True placed=True reason=None sim=4.267s wall=13.3s
+{
+  "normal": {
+    "legacy": {
+      "N": 6,
+      "success_count": 6,
+      "success_rate": 1.0,
+      "placed": 6,
+      "detached": 6,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 6,
+      "success_count": 6,
+      "success_rate": 1.0,
+      "placed": 6,
+      "detached": 6,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "legacy_success_preservation": {
+      "N": 6,
+      "candidate_success": 6,
+      "regressions": [],
+      "recoveries": []
+    }
+  },
+  "stress": {
+    "legacy": {
+      "N": 2,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "placed": 1,
+      "detached": 2,
+      "failure_types": {
+        "first_attempt_missed_bucket": 1,
+        "incidental_detach": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 2,
+      "success_count": 2,
+      "success_rate": 1.0,
+      "placed": 2,
+      "detached": 2,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "legacy_success_preservation": {
+      "N": 0,
+      "candidate_success": 0,
+      "regressions": [],
+      "recoveries": [
+        1000268,
+        1000074
+      ]
+    }
+  },
+  "all": {
+    "legacy": {
+      "N": 8,
+      "success_count": 6,
+      "success_rate": 0.75,
+      "placed": 7,
+      "detached": 8,
+      "failure_types": {
+        "first_attempt_missed_bucket": 1,
+        "incidental_detach": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 8,
+      "success_count": 8,
+      "success_rate": 1.0,
+      "placed": 8,
+      "detached": 8,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "legacy_success_preservation": {
+      "N": 6,
+      "candidate_success": 6,
+      "regressions": [],
+      "recoveries": [
+        1000268,
+        1000074
+      ]
+    }
+  }
+}

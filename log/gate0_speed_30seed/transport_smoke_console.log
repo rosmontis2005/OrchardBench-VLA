@@ -1,0 +1,8 @@
+transport_va1.0_a20 episode_000040 seed=1000106 accepted=True reason=None wall=22.4s
+transport_va1.0_a20 episode_000106 seed=1000268 accepted=True reason=None wall=20.9s
+transport_va1.0_a20 episode_000222 seed=1000576 accepted=True reason=None wall=14.7s
+transport_va1.0_a20 episode_000090 seed=1000235 accepted=True reason=None wall=20.8s
+transport_va1.0_a20 episode_000134 seed=1000356 accepted=True reason=None wall=20.3s
+transport_va1.0_a20 episode_000029 seed=1000074 accepted=False reason=premature_detach wall=28.4s
+transport_va1.0_a20 episode_000088 seed=1000232 accepted=True reason=None wall=14.4s
+transport_va1.0_a20 episode_000171 seed=1000441 accepted=True reason=None wall=12.8s

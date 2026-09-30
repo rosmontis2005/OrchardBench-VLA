@@ -1,0 +1,14 @@
+ARM RETIME ITERATIVE TEST: GO_TO_30_SEED_VALIDATION
+
+Best profile: transport_va1.5_a20
+Normal cases: 6/6
+Stress cases: 2/2
+TRANSPORT speed change: pooled TCP P95 -32.1% (2.793 -> 1.896 m/s)
+TRANSPORT acceleration change: pooled TCP acceleration P95 -48.8% (19.731 -> 10.107 m/s^2)
+Episode duration change: median paired +9.4% (4.300 -> 4.783 s cohort medians)
+New failure modes: None in recommended profile; global v2.0 rejected for recurrent pre-PULL failures.
+Recommended next action: Validate transport_va1.5_a20 on the existing 30 seeds with fresh pairs; stop tuning now.
+
+Report:
+/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/arm_retime_rounds.md
+

@@ -1,0 +1,95 @@
+{
+  "profile": "reach1.5_transport0.5_a20",
+  "counts": {
+    "normal": {
+      "N": 6,
+      "success_count": 2,
+      "success_rate": 0.3333333333333333,
+      "placed": 2,
+      "detached": 2,
+      "failure_types": {
+        "first_attempt_no_fruit_at_detection": 4
+      },
+      "branch_breaks": 0,
+      "premature_detach": 3,
+      "vla_success_equivalent": 2
+    },
+    "stress": {
+      "N": 2,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "placed": 0,
+      "detached": 0,
+      "failure_types": {
+        "branch_break": 1,
+        "first_attempt_no_fruit_at_detection": 1
+      },
+      "branch_breaks": 1,
+      "premature_detach": 0,
+      "vla_success_equivalent": 0
+    },
+    "unclassified": {
+      "N": 0,
+      "success_count": 0,
+      "success_rate": null,
+      "placed": 0,
+      "detached": 0,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0,
+      "vla_success_equivalent": 0
+    },
+    "all": {
+      "N": 8,
+      "success_count": 2,
+      "success_rate": 0.25,
+      "placed": 2,
+      "detached": 2,
+      "failure_types": {
+        "branch_break": 1,
+        "first_attempt_no_fruit_at_detection": 5
+      },
+      "branch_breaks": 1,
+      "premature_detach": 3,
+      "vla_success_equivalent": 2
+    }
+  },
+  "envelope": {
+    "ALL": {
+      "intervals": 653,
+      "translation": 0.11026033690658499,
+      "rotation": 0.06891271056661562,
+      "either": 0.17457886676875958
+    },
+    "REACH": {
+      "intervals": 126,
+      "translation": 0.4444444444444444,
+      "rotation": 0.023809523809523808,
+      "either": 0.4444444444444444
+    },
+    "GRASP": {
+      "intervals": 138,
+      "translation": 0.10869565217391304,
+      "rotation": 0.10144927536231885,
+      "either": 0.21014492753623187
+    },
+    "PULL": {
+      "intervals": 103,
+      "translation": 0.009708737864077669,
+      "rotation": 0.0,
+      "either": 0.009708737864077669
+    },
+    "TRANSPORT": {
+      "intervals": 222,
+      "translation": 0.0,
+      "rotation": 0.12612612612612611,
+      "either": 0.12612612612612611
+    },
+    "DROP": {
+      "intervals": 60,
+      "translation": 0.0,
+      "rotation": 0.0,
+      "either": 0.0
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "profile": "reach_transport_va0.5_a20",
+  "counts": {
+    "normal": {
+      "N": 6,
+      "success_count": 1,
+      "success_rate": 0.16666666666666666,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {
+        "first_attempt_no_fruit_at_detection": 4,
+        "first_attempt_reach_stalled": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 3,
+      "vla_success_equivalent": 1
+    },
+    "stress": {
+      "N": 2,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {
+        "incidental_detach": 1,
+        "first_attempt_no_fruit_at_detection": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 0,
+      "vla_success_equivalent": 1
+    },
+    "all": {
+      "N": 8,
+      "success_count": 1,
+      "success_rate": 0.125,
+      "placed": 2,
+      "detached": 2,
+      "failure_types": {
+        "incidental_detach": 1,
+        "first_attempt_no_fruit_at_detection": 5,
+        "first_attempt_reach_stalled": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 3,
+      "vla_success_equivalent": 2
+    }
+  },
+  "envelope": {
+    "ALL": {
+      "intervals": 791,
+      "translation": 0.0493046776232617,
+      "rotation": 0.10366624525916561,
+      "either": 0.1390644753476612
+    },
+    "REACH": {
+      "intervals": 269,
+      "translation": 0.0,
+      "rotation": 0.0,
+      "either": 0.0
+    },
+    "GRASP": {
+      "intervals": 160,
+      "translation": 0.15,
+      "rotation": 0.1375,
+      "either": 0.28125
+    },
+    "PULL": {
+      "intervals": 94,
+      "translation": 0.0,
+      "rotation": 0.0,
+      "either": 0.0
+    },
+    "TRANSPORT": {
+      "intervals": 204,
+      "translation": 0.07352941176470588,
+      "rotation": 0.28431372549019607,
+      "either": 0.3088235294117647
+    },
+    "DROP": {
+      "intervals": 60,
+      "translation": 0.0,
+      "rotation": 0.03333333333333333,
+      "either": 0.03333333333333333
+    }
+  }
+}

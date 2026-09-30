@@ -1,0 +1,15 @@
+{
+  "round": 3,
+  "profile": "transport_va1.5_a20",
+  "reason": "Round2 transport_v2.0 preserved all 8 candidates and improved normal TCP P95 by 22.2%, but PT command derivative median maximum remains 120 rad/s^2 and measured acceleration rises 1.495 -> 11.550 m/s^2 (~7.7x). Case B: final bounded test of existing mild 1.5 rad/s + 20 rad/s^2 combo, same TRANSPORT-only scope; no further tuning. Combined velocity/acceleration change cannot identify acceleration-only causality.",
+  "seeds": [
+    1000106,
+    1000268,
+    1000576,
+    1000235,
+    1000356,
+    1000074,
+    1000232,
+    1000441
+  ]
+}

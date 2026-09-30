@@ -1,0 +1,42 @@
+{
+  "legacy": {
+    "config": {
+      "mode": "legacy",
+      "vmax_rad_s": 2.7,
+      "amax_rad_s2": null,
+      "active_phases": null
+    },
+    "smoke_round": 0
+  },
+  "v2.0": {
+    "config": {
+      "mode": "velocity",
+      "vmax_rad_s": 2.0,
+      "amax_rad_s2": null,
+      "active_phases": null
+    },
+    "smoke_round": 1
+  },
+  "transport_v2.0": {
+    "config": {
+      "mode": "velocity",
+      "vmax_rad_s": 2.0,
+      "amax_rad_s2": null,
+      "active_phases": [
+        "TRANSPORT"
+      ]
+    },
+    "smoke_round": 2
+  },
+  "transport_va1.5_a20": {
+    "config": {
+      "mode": "velocity_accel",
+      "vmax_rad_s": 1.5,
+      "amax_rad_s2": 20,
+      "active_phases": [
+        "TRANSPORT"
+      ]
+    },
+    "smoke_round": 3
+  }
+}

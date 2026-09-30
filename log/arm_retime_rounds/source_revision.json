@@ -1,0 +1,14 @@
+{
+  "reason": "Round1 plus two confirmation pairs show stable pre-PULL global velocity regression. Add optional active_phases scope, use existing 2.0 velocity only in TRANSPORT; inactive phases synchronize limiter with unchanged legacy arithmetic. No task/phase transitions/physics change.",
+  "source_hashes": {
+    "treesim/arm_motion.py": "78d43b5944d24f513b9aec2ee77610075f91416d0b513155c2ea56e26d02799a",
+    "treesim/picker.py": "c7f8b494175f308178b1779a17a9721a78a7de124552d31c8d9ddf7344c6d4d6",
+    "treesim/fixed_base_picker.py": "0318d6ef9c72b30d36b0b308e0229017eb10d88e4cb21a037a7b217548860b55",
+    "treesim/vla_env.py": "2a616e024f105ddc5a84626ef0efead977cc72b399e8a752ab98dea6f702937e",
+    "treesim/orchard_action.py": "ea196e805795b05dc11a486f35e25221c2bbefb7d4c3a0373f25b28489e8d889",
+    "treesim/xr0_adapter.py": "93ed63c5df0dc73cd565e6200e4612e1258c672f6d9957a247d3a5a19775acb7",
+    "scripts/collect_autopicker_dataset.py": "a5936512d8a5f1c3bb849aa69293b976b397a911776aefe2587a0bedcf84d6ee",
+    "scripts/run_arm_retime_pilot.py": "782b7bdb845bfea6599b2d968b255fffaf878caec8e1d1ccf2de54894cbe9626",
+    "scripts/analyze_arm_retime_pilot.py": "920fb34d0787df8aa8090adc574f76bdad06f12c5566a65b1f8fe9314d2c02aa"
+  }
+}

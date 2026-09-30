@@ -1,0 +1,36 @@
+{
+  "head": "36bf3659dcba3820901f21c26ae52a641725f164",
+  "selection": "artifacts/arm_retime_pilot/pilot_seed_selection.json",
+  "selection_reused": true,
+  "decisions": [
+    {
+      "profile": "transport_va1.0_a20",
+      "reason": "Baseline TRANSPORT vmax1.5 still systematically exceeds native per-axis bounds; test1.0 at fixed a20.",
+      "normal": "6/6",
+      "stress": "1/2",
+      "next": "TRANSPORT0.5 because exceed remains widespread"
+    },
+    {
+      "profile": "transport_va0.5_a20",
+      "reason": "One targeted reduction based on measured envelope, no acceleration sweep.",
+      "normal": "6/6",
+      "stress": "1/2",
+      "next": "Keep TRANSPORT0.5 and scope REACH separately"
+    },
+    {
+      "profile": "reach_transport_va0.5_a20",
+      "reason": "TRANSPORT convergence; now isolate effect of adding REACH. GRASP/PULL unchanged.",
+      "result": "1/8 accepted; no-fruit failures dominate, one reach stall; rejected"
+    },
+    {
+      "profile": "reach1.5_transport0.5_a20",
+      "reason": "One bounded REACH correction; preserve converged TRANSPORT0.5 and increase REACH to1.5 to reduce altered fruit interaction timing.",
+      "result": "2/8 accepted (normal2/6 stress0/2); systematic no-fruit regression remains",
+      "next": "Do not expand under user smoke prerequisite; finish diagnostic A/B oracle and report BLOCKED_BEFORE_V2."
+    }
+  ],
+  "watchdogs_changed": false,
+  "physics_changed": false,
+  "legacy_reruns": false,
+  "source_revision_note": "Optional per-phase vmax support was added during the tail of reach_transport_va0.5_a20; no override was supplied in that round, preserving its limiter arithmetic. The final tested profile has a frozen source snapshot."
+}

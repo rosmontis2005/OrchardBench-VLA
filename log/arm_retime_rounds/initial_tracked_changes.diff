@@ -1,0 +1,164 @@
+diff --git a/scripts/collect_autopicker_dataset.py b/scripts/collect_autopicker_dataset.py
+index 4407806..07f904d 100644
+--- a/scripts/collect_autopicker_dataset.py
++++ b/scripts/collect_autopicker_dataset.py
+@@ -277,9 +277,13 @@ def sanitize_reason(reason):
+ 
+ 
+ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
+-                    initial_only=False, gallery_dir=None):
++                    initial_only=False, gallery_dir=None, arm_motion_profile=None, frame_observer=None):
+     """Privileged reset-time stance -> clean t=0 world -> fixed-base expert; record
+-    independent sensors at 30Hz.  No base command is ever issued (asserted)."""
++    independent sensors at 30Hz.  No base command is ever issued (asserted).
++
++    arm_motion_profile is explicitly opt-in; None preserves legacy commands.
++    frame_observer is a diagnostic callback after commands, including frame zero;
++    observers must only read state. Neither option changes recording/acceptance."""
+     import warp as wp
+     import newton.viewer
+     from treesim import robot
+@@ -321,7 +325,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
+             assert recording_wrist.percept is None
+             result['clean_start'] = verify_clean_start(sim, tm, plan, driver)
+             met = Metrics(None)
+-            picker = FixedBaseAutoPicker(sim, tm, driver, cfg.robot, st, met, ik=ik)
++            picker = FixedBaseAutoPicker(sim, tm, driver, cfg.robot, st, met, ik=ik,
++                                         arm_motion_profile=arm_motion_profile)
+             assert picker.state == 'REACH' and picker.cam is None
+             names = [n.rsplit('/', 1)[-1] for n in tm.model.joint_label]
+             starts = tm.model.joint_q_start.numpy()
+@@ -372,6 +377,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
+                 for a in (images[0][-1], images[1][-1]):
+                     assert a.dtype == np.uint8 and a.shape == (144, 192, 3) and a.var() > 1
+             record(); state_trace.append(snapshot(0)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
++            if frame_observer is not None:
++                frame_observer(0, sim, picker, tcp, qidx)
+             sim_start = time.monotonic(); last_state = picker.state
+             for frame in range(1, 1201):
+                 sim.step(); met.frame()
+@@ -394,6 +401,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
+                     state_trace.append(snapshot(frame)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
+                     last_state = picker.state
+                 if frame % 2 == 0: record()
++                if frame_observer is not None:
++                    frame_observer(frame, sim, picker, tcp, qidx)
+                 if max_trans >= 1e-3 or max_yaw >= 1e-3:
+                     result['reject_reason'] = 'base_drift_exceeded'; break
+                 if sim.breaker.broken_count:
+diff --git a/treesim/fixed_base_picker.py b/treesim/fixed_base_picker.py
+index 31542aa..ce22970 100644
+--- a/treesim/fixed_base_picker.py
++++ b/treesim/fixed_base_picker.py
+@@ -610,9 +610,11 @@ class FixedBaseAutoPicker(AutoPicker):
+     TERMINAL_STATES = ("DONE", "FAILED")
+ 
+     def __init__(self, sim, tm, driver, rp, stance: FixedBaseStance, metrics=None,
+-                 env: int = 0, ik: "ArmIK | None" = None, pose_tol: float = 1e-3):
++                 env: int = 0, ik: "ArmIK | None" = None, pose_tol: float = 1e-3, *,
++                 arm_motion_profile=None):
+         # cam=None: this expert has no perception; the target is privileged
+-        super().__init__(sim, tm, None, driver, rp, metrics, env, ik)
++        super().__init__(sim, tm, None, driver, rp, metrics, env, ik,
++                         arm_motion_profile=arm_motion_profile)
+         self.stance = stance
+         gj = int(stance.apple_index) + self.env * self.n_env_apples
+         if gj not in set(int(v) for v in self._apple_glob):
+diff --git a/treesim/picker.py b/treesim/picker.py
+index 5a7d07a..9710070 100644
+--- a/treesim/picker.py
++++ b/treesim/picker.py
+@@ -34,6 +34,7 @@ import warp as wp
+ import newton
+ 
+ from . import robot as _robot
++from .arm_motion import ArmMotionProfile, JointMotionLimiter
+ 
+ 
+ # --------------------------------------------------------------------------- #
+@@ -133,7 +134,8 @@ class AutoPicker:
+                                   # too: a wedged gripper fails in ~0.9 s)
+ 
+     def __init__(self, sim, tm, cam, driver, rp, metrics=None, env: int = 0,
+-                 ik: "ArmIK | None" = None):
++                 ik: "ArmIK | None" = None, *,
++                 arm_motion_profile: ArmMotionProfile | None = None):
+         self.sim = sim
+         self.tm = tm
+         self.cam = cam
+@@ -197,6 +199,8 @@ class AutoPicker:
+                 self.met.set_apple_census(census)
+         self._q_goal = self.arm_home.copy()
+         self._q_cmd = self.arm_home.copy()
++        self.arm_motion = (None if arm_motion_profile is None else
++                           JointMotionLimiter(self._q_cmd[:7], arm_motion_profile, sim.frame_dt))
+         self.state = "SCAN"
+         self._t_state = 0
+         self._target = None            # world xyz of the committed fruit
+@@ -247,6 +251,9 @@ class AutoPicker:
+     def _slew_arm(self, rate=0.045):
+         d = np.clip(self._q_goal - self._q_cmd, -rate, rate)
+         self._q_cmd = self._q_cmd + d
++        if self.arm_motion is not None:
++            # Fingers retain the exact legacy path; only seven arm joints opt in.
++            self._q_cmd[:7] = self.arm_motion.step(self._q_goal[:7], legacy_step=rate)
+         # write through the driver's host mirror (no device download; N
+         # pickers share the one mirror)
+         self.drv._tq_host[self.arm_tq] = self._q_cmd
+diff --git a/treesim/vla_env.py b/treesim/vla_env.py
+index 58c90d9..d7020b2 100644
+--- a/treesim/vla_env.py
++++ b/treesim/vla_env.py
+@@ -121,6 +121,8 @@ class OrchardVLAEnv:
+     translation (metres), extrinsic xyz rotation delta (radians), Rnew=Rdelta*R.
+     Zero Cartesian action holds the last accepted Cartesian setpoint (avoids
+     integrating servo sag). Positive grip opens, negative closes, zero holds.
++    Optional step(..., gripper_width=metres) sets continuous total finger opening
++    (bounded to [0, .08]) instead of the signed grip component.
+     One action runs two 60Hz physics frames by default. No base motion action.
+ 
+     Success/reward: first observed detached fruit; evaluator truth stays in info.
+@@ -287,12 +289,15 @@ class OrchardVLAEnv:
+             grasp_assist_triggered=False,grasped_apple_id_debug=self._held,
+             sim_hz=self.config.sim_hz,control_hz=self.config.control_hz,action_repeat=self.config.action_repeat)
+ 
+-    def step(self, action):
++    def step(self, action, *, gripper_width=None):
+         if self._done:
+             raise RuntimeError('Episode finished or not initialized; call reset')
+         a = np.asarray(action,dtype=float)
+         if a.shape != (7,) or not np.isfinite(a).all():
+             raise ValueError('Action must be finite shape (7,); rejected before physics/control mutation')
++        # Continuous total finger opening for the Orchard post-training contract.
++        if gripper_width is not None and not np.isfinite(float(gripper_width)):
++            raise ValueError('Nonfinite gripper width')
+         c = self.config
+         limits = np.array([c.max_translation]*3+[c.max_rotation]*3+[1.])
+         clipped = np.clip(a,-limits,limits)
+@@ -319,7 +324,14 @@ class OrchardVLAEnv:
+             self._target_rotation = rotation
+         if clipped[6] != 0:
+             self._gripper = float(np.sign(clipped[6]))
+-        q[-2:] = .04 if self._gripper>0 else (0. if self._gripper<0 else self._joint_command[-2:])
++        if gripper_width is None:
++            q[-2:] = .04 if self._gripper>0 else (0. if self._gripper<0 else self._joint_command[-2:])
++        else:
++            width = float(np.clip(gripper_width, 0., .08))
++            action_clipped |= width != float(gripper_width)
++            if abs(width - obs['gripper_width']) > 1e-6:
++                self._gripper = float(np.sign(width - obs['gripper_width']))
++            q[-2:] = width / 2.
+         triggered = False
+         for _ in range(c.action_repeat):
+             self._joint_command += np.clip(q-self._joint_command,-c.max_joint_step,c.max_joint_step)
+diff --git a/treesim/xr0_adapter.py b/treesim/xr0_adapter.py
+index f1ff3a4..6aaa2ca 100644
+--- a/treesim/xr0_adapter.py
++++ b/treesim/xr0_adapter.py
+@@ -72,3 +72,6 @@ class CalvinActionAdapter:
+         current=Rotation.from_quat(obs['tcp_quat_world'])
+         delta=(target*current.inv()).as_euler('xyz')
+         return np.r_[self.target_position-obs['tcp_pos_world'],delta,d[6]]
++
++# Fine-tuned Orchard checkpoints use this explicit contract, never CalvinActionAdapter.
++from .orchard_action import OrchardActionAdapter

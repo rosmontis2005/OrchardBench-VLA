@@ -72,3 +72,6 @@ class CalvinActionAdapter:
         current=Rotation.from_quat(obs['tcp_quat_world'])
         delta=(target*current.inv()).as_euler('xyz')
         return np.r_[self.target_position-obs['tcp_pos_world'],delta,d[6]]
+
+# Fine-tuned Orchard checkpoints use this explicit contract, never CalvinActionAdapter.
+from .orchard_action import OrchardActionAdapter

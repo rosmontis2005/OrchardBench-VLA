@@ -16,6 +16,7 @@ debug metadata only, never as policy input.
 """
 from __future__ import annotations
 import argparse
+from dataclasses import asdict
 from collections import Counter
 from contextlib import redirect_stdout, redirect_stderr
 import datetime
@@ -37,6 +38,7 @@ import traceback
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 from scipy.spatial.transform import Rotation
+from treesim.arm_motion import ArmMotionProfile
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LOG = ROOT.parent / 'log/log_fixed_base_expert.md'
@@ -277,9 +279,13 @@ def sanitize_reason(reason):
 
 
 def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
-                    initial_only=False, gallery_dir=None):
+                    initial_only=False, gallery_dir=None, arm_motion_profile=None, frame_observer=None):
     """Privileged reset-time stance -> clean t=0 world -> fixed-base expert; record
-    independent sensors at 30Hz.  No base command is ever issued (asserted)."""
+    independent sensors at 30Hz.  No base command is ever issued (asserted).
+
+    arm_motion_profile is explicitly opt-in; None preserves legacy commands.
+    frame_observer is a diagnostic callback after commands, including frame zero;
+    observers must only read state. Neither option changes recording/acceptance."""
     import warp as wp
     import newton.viewer
     from treesim import robot
@@ -292,6 +298,7 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
     started = time.monotonic(); sim = viewer = None; traj = None; images = [[], []]
     result = dict(seed=seed, accepted=False, reject_reason=None, grasped=False, detached=False, placed=False,
                   frames=0, sim_duration_s=0., branch_break_count=0, incidental_detach_count=0)
+    result["arm_motion_profile"] = asdict(arm_motion_profile or ArmMotionProfile())
     states = {k: [] for k in DIMS}; bases = []; times = []; state_trace = []
     max_trans = max_yaw = 0.; terminal_frame = None; first = None; frame = 0
     try:
@@ -321,7 +328,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
             assert recording_wrist.percept is None
             result['clean_start'] = verify_clean_start(sim, tm, plan, driver)
             met = Metrics(None)
-            picker = FixedBaseAutoPicker(sim, tm, driver, cfg.robot, st, met, ik=ik)
+            picker = FixedBaseAutoPicker(sim, tm, driver, cfg.robot, st, met, ik=ik,
+                                         arm_motion_profile=arm_motion_profile)
             assert picker.state == 'REACH' and picker.cam is None
             names = [n.rsplit('/', 1)[-1] for n in tm.model.joint_label]
             starts = tm.model.joint_q_start.numpy()
@@ -372,6 +380,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
                 for a in (images[0][-1], images[1][-1]):
                     assert a.dtype == np.uint8 and a.shape == (144, 192, 3) and a.var() > 1
             record(); state_trace.append(snapshot(0)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
+            if frame_observer is not None:
+                frame_observer(0, sim, picker, tcp, qidx)
             sim_start = time.monotonic(); last_state = picker.state
             for frame in range(1, 1201):
                 sim.step(); met.frame()
@@ -394,6 +404,8 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
                     state_trace.append(snapshot(frame)); print('trace ' + json.dumps(state_trace[-1]), flush=True)
                     last_state = picker.state
                 if frame % 2 == 0: record()
+                if frame_observer is not None:
+                    frame_observer(frame, sim, picker, tcp, qidx)
                 if max_trans >= 1e-3 or max_yaw >= 1e-3:
                     result['reject_reason'] = 'base_drift_exceeded'; break
                 if sim.breaker.broken_count:
@@ -433,6 +445,7 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
             result['expert_final_state'] = picker.state; result['expert_fail_reason'] = picker.fail_reason
             result['state_trace'] = state_trace
             metadata = dict(detach_force_multiplier=detach_force_scale,
+                arm_motion_profile=result["arm_motion_profile"],
                 detach_diagnostics=diagnostics.data, target_visibility=visibility.data, base_pose=bases, timestamps=times, debug_usage='NOT POLICY INPUT',
                 autopicker_grasp_semantics='official_autopicker_assist', first_attempt_success=result['accepted'],
                 attempt_count=len(met.picks)+(met._open_pick is not None), home_arm_joint=home[:7].tolist(),
@@ -577,9 +590,17 @@ def main():
     ap.add_argument('--resume', action='store_true')
     ap.add_argument('--pilot', action='store_true')
     ap.add_argument('--detach-force-scale', type=float, default=1.0)
+    ap.add_argument('--arm-motion-mode', choices=['legacy','velocity','velocity_accel'], default='legacy')
+    ap.add_argument('--arm-vmax', type=float, default=2.7)
+    ap.add_argument('--arm-amax', type=float)
+    ap.add_argument('--arm-phase-vmax', type=json.loads, help='JSON phase overrides, e.g. {"REACH":1.5}')
+    ap.add_argument('--arm-active-phases', nargs='+', choices=['REACH','GRASP','PULL','TRANSPORT','DROP'])
     ap.add_argument('--raw-dir', type=Path, default=None,
                     help='per-seed stdout captures, pilot gate and pilot checkpoint (default: <log dir>/raw_dataset)')
     args = ap.parse_args(); args.output = args.output.resolve(); args.log = args.log.resolve()
+    profile = ArmMotionProfile(args.arm_motion_mode, args.arm_vmax, args.arm_amax,
+                               tuple(args.arm_active_phases) if args.arm_active_phases else None, args.arm_phase_vmax)
+    profile_config = json.loads(json.dumps(asdict(profile)))
     args.raw_dir = (args.raw_dir or args.log.parent/'raw_dataset').resolve()
     if args.record_fps != 30 or args.action_length != 30 or args.accepted < 1 or args.max_attempts < 1:
         ap.error('v0 requires30Hz,length30,positive counts')
@@ -609,17 +630,23 @@ def main():
             shutil.copytree(args.output, checkpoint, dirs_exist_ok=True, ignore=shutil.ignore_patterns('.collection.lock','*.writing'))
     rows = [json.loads(line) for line in manifest.read_text().splitlines()] if manifest.exists() else []
     from treesim.target_visibility import MIN_VISIBLE_PIXELS
-    config = dict(detach_force_multiplier=args.detach_force_scale, target_visibility_min_pixels=MIN_VISIBLE_PIXELS,
+    config = dict(arm_motion_profile=profile_config, detach_force_multiplier=args.detach_force_scale, target_visibility_min_pixels=MIN_VISIBLE_PIXELS,
                   schema=SCHEMA, seed_start=args.seed_start, record_fps=30, action_length=30,
                   base_policy=BASE_POLICY, expert=EXPERT, stance_planner='fixed_base_stance_planner_v2',
                   terminal_control_frames=2,
                   max_sim_seconds=20, split_rule='every10th accepted val', script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
     config_path = args.output/'collection_config.json'
     if not args.pilot:
+        gate_profile=gate['config'].get('arm_motion_profile', json.loads(json.dumps(asdict(ArmMotionProfile())))).copy()
+        gate_profile.setdefault('phase_vmax_rad_s', None)
+        if gate_profile != profile_config:
+            raise RuntimeError('Pilot/config mismatch: arm_motion_profile')
         for key in ('detach_force_multiplier','target_visibility_min_pixels','base_policy','expert','stance_planner','record_fps','action_length','terminal_control_frames','max_sim_seconds'):
             if config[key]!=gate['config'].get(key): raise RuntimeError(f'Pilot/config mismatch: {key}')
     if args.resume:
         old = json.loads(config_path.read_text())
+        old.setdefault('arm_motion_profile', json.loads(json.dumps(asdict(ArmMotionProfile()))))
+        old['arm_motion_profile'].setdefault('phase_vmax_rad_s', None)
         for key in config:
             if key != 'script_sha256': assert config[key] == old[key], ('Resume config mismatch',key)
         pending_path=args.output/'.pending_episode.json'
@@ -661,7 +688,7 @@ def main():
             rows.append(row); manifest_write(manifest, rows);checkpoint_pilot()
             with (raw/f'{"pilot" if args.pilot else "formal"}_{seed}.txt').open('a') as capture:
                 with redirect_stdout(capture), redirect_stderr(capture):
-                    result,traj,images = collect_episode(seed,raw,args.detach_force_scale)
+                    result,traj,images = collect_episode(seed,raw,args.detach_force_scale, arm_motion_profile=profile)
             result['status']='complete'; result['encoding_wall_s']=0.
             if result['accepted']:
                 eid = f'episode_{count+1:06d}'; split = 'val' if (count+1)%10==0 else 'train'

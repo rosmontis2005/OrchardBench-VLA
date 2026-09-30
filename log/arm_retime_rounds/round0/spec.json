@@ -1,0 +1,15 @@
+{
+  "round": 0,
+  "profile": "legacy",
+  "reason": "Establish fresh task and dynamics baseline on all eight original smoke seeds; historical trajectory agreement is diagnostic only.",
+  "seeds": [
+    1000106,
+    1000268,
+    1000576,
+    1000235,
+    1000356,
+    1000074,
+    1000232,
+    1000441
+  ]
+}

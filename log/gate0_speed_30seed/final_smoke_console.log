@@ -1,0 +1,8 @@
+reach1.5_transport0.5_a20 episode_000040 seed=1000106 accepted=True reason=None wall=23.6s
+reach1.5_transport0.5_a20 episode_000106 seed=1000268 accepted=False reason=first_attempt_no_fruit_at_detection wall=14.0s
+reach1.5_transport0.5_a20 episode_000222 seed=1000576 accepted=True reason=None wall=16.6s
+reach1.5_transport0.5_a20 episode_000090 seed=1000235 accepted=False reason=first_attempt_no_fruit_at_detection wall=15.7s
+reach1.5_transport0.5_a20 episode_000134 seed=1000356 accepted=False reason=first_attempt_no_fruit_at_detection wall=15.3s
+reach1.5_transport0.5_a20 episode_000029 seed=1000074 accepted=False reason=branch_break wall=23.5s
+reach1.5_transport0.5_a20 episode_000088 seed=1000232 accepted=False reason=first_attempt_no_fruit_at_detection wall=11.0s
+reach1.5_transport0.5_a20 episode_000171 seed=1000441 accepted=False reason=first_attempt_no_fruit_at_detection wall=10.1s

@@ -1,0 +1,49 @@
+usage: collect_autopicker_dataset.py [-h] [--output OUTPUT] [--log LOG]
+                                     [--accepted ACCEPTED]
+                                     [--seed-start SEED_START]
+                                     [--max-attempts MAX_ATTEMPTS]
+                                     [--record-fps RECORD_FPS]
+                                     [--action-length ACTION_LENGTH]
+                                     [--resume] [--pilot]
+                                     [--detach-force-scale DETACH_FORCE_SCALE]
+                                     [--arm-motion-mode {legacy,velocity,velocity_accel}]
+                                     [--arm-vmax ARM_VMAX]
+                                     [--arm-amax ARM_AMAX]
+                                     [--arm-phase-vmax ARM_PHASE_VMAX]
+                                     [--arm-active-phases {REACH,GRASP,PULL,TRANSPORT,DROP} [{REACH,GRASP,PULL,TRANSPORT,DROP} ...]]
+                                     [--raw-dir RAW_DIR]
+
+Collect measured first-attempt fixed-base expert trajectories; never train a
+model. Canonical single-arm data is NOT directly compatible with XR-0's dual-
+arm JsonDataset. Targets are next measured state, not desired IK/CALVIN
+actions. Expert = treesim.fixed_base_picker.FixedBaseAutoPicker: a privileged,
+physics- free, seed-deterministic RESET-TIME selection of the target fruit and
+the fixed chassis (x, y, yaw)
+(treesim.fixed_base_picker.plan_fixed_base_stance), then the official
+AutoPicker manipulation backend REACH -> GRASP -> PULL -> TRANSPORT -> DROP
+inside a clean t=0 episode. The mobile SCAN/ALIGN/ORBIT/RECOVER states are not
+executed and no base command is ever issued (asserted every frame); the
+chassis is additionally welded to the world and its drift is audited every
+physics frame. Fruit truth / target identity / IK residuals are recorded as
+debug metadata only, never as policy input.
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT
+  --log LOG
+  --accepted ACCEPTED
+  --seed-start SEED_START
+  --max-attempts MAX_ATTEMPTS
+  --record-fps RECORD_FPS
+  --action-length ACTION_LENGTH
+  --resume
+  --pilot
+  --detach-force-scale DETACH_FORCE_SCALE
+  --arm-motion-mode {legacy,velocity,velocity_accel}
+  --arm-vmax ARM_VMAX
+  --arm-amax ARM_AMAX
+  --arm-phase-vmax ARM_PHASE_VMAX
+                        JSON phase overrides, e.g. {"REACH":1.5}
+  --arm-active-phases {REACH,GRASP,PULL,TRANSPORT,DROP} [{REACH,GRASP,PULL,TRANSPORT,DROP} ...]
+  --raw-dir RAW_DIR     per-seed stdout captures, pilot gate and pilot
+                        checkpoint (default: <log dir>/raw_dataset)

@@ -1,0 +1,90 @@
+round1 legacy seed=1000106 success=True placed=True reason=None sim=5.200s wall=20.4s
+round1 v2.0 seed=1000106 success=True placed=True reason=None sim=5.500s wall=20.8s
+round1 legacy seed=1000268 success=True placed=True reason=None sim=6.533s wall=20.8s
+round1 v2.0 seed=1000268 success=False placed=False reason=first_attempt_no_fruit_at_detection sim=1.167s wall=15.5s
+round1 legacy seed=1000576 success=True placed=True reason=None sim=4.500s wall=14.9s
+round1 v2.0 seed=1000576 success=False placed=False reason=first_attempt_no_fruit_at_detection sim=1.850s wall=13.1s
+round1 legacy seed=1000235 success=True placed=True reason=None sim=4.533s wall=20.6s
+round1 v2.0 seed=1000235 success=False placed=False reason=first_attempt_no_fruit_at_detection sim=0.900s wall=16.9s
+round1 legacy seed=1000356 success=True placed=True reason=None sim=4.067s wall=19.3s
+round1 v2.0 seed=1000356 success=False placed=False reason=first_attempt_no_fruit_at_detection sim=0.900s wall=16.6s
+round1 legacy seed=1000074 success=True placed=True reason=None sim=3.800s wall=28.4s
+round1 v2.0 seed=1000074 success=False placed=False reason=first_attempt_no_fruit_at_detection sim=1.033s wall=24.6s
+round1 legacy seed=1000232 success=True placed=True reason=None sim=4.100s wall=14.1s
+round1 v2.0 seed=1000232 success=False placed=False reason=first_attempt_no_fruit_at_detection sim=0.950s wall=12.0s
+round1 legacy seed=1000441 success=True placed=True reason=None sim=4.133s wall=13.1s
+round1 v2.0 seed=1000441 success=False placed=False reason=first_attempt_no_fruit_at_detection sim=1.000s wall=11.3s
+{
+  "normal": {
+    "legacy": {
+      "N": 7,
+      "success_count": 7,
+      "success_rate": 1.0,
+      "placed": 7,
+      "detached": 7,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 7,
+      "success_count": 1,
+      "success_rate": 0.14285714285714285,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {
+        "first_attempt_no_fruit_at_detection": 6
+      },
+      "branch_breaks": 0,
+      "premature_detach": 5
+    }
+  },
+  "stress": {
+    "legacy": {
+      "N": 1,
+      "success_count": 1,
+      "success_rate": 1.0,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 1,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "placed": 0,
+      "detached": 0,
+      "failure_types": {
+        "first_attempt_no_fruit_at_detection": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 1
+    }
+  },
+  "all": {
+    "legacy": {
+      "N": 8,
+      "success_count": 8,
+      "success_rate": 1.0,
+      "placed": 8,
+      "detached": 8,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0
+    },
+    "candidate": {
+      "N": 8,
+      "success_count": 1,
+      "success_rate": 0.125,
+      "placed": 1,
+      "detached": 1,
+      "failure_types": {
+        "first_attempt_no_fruit_at_detection": 7
+      },
+      "branch_breaks": 0,
+      "premature_detach": 6
+    }
+  }
+}

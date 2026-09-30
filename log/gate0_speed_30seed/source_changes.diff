@@ -1,0 +1,368 @@
+diff --git a/scripts/analyze_arm_retime_rounds.py b/scripts/analyze_arm_retime_rounds.py
+index a9f8be4..da48d83 100644
+--- a/scripts/analyze_arm_retime_rounds.py
++++ b/scripts/analyze_arm_retime_rounds.py
+@@ -61,6 +61,7 @@ def per_run(r):
+         out['command_actual_acceleration_max']=float(np.max(np.abs(a)))
+         profile=PROFILES[r['profile']];vmax=profile.vmax_rad_s
+         for ph in ['REACH','GRASP','PULL','TRANSPORT','DROP']:
++            vmax=(profile.phase_vmax_rad_s or {}).get(ph,profile.vmax_rad_s)
+             mask=np.array([x['phase']==ph for x in cmd[1:]])
+             active=profile.active_phases is None or ph in profile.active_phases
+             out[ph+'_limiter_active']=active
+diff --git a/scripts/collect_autopicker_dataset.py b/scripts/collect_autopicker_dataset.py
+index 07f904d..a12a47b 100644
+--- a/scripts/collect_autopicker_dataset.py
++++ b/scripts/collect_autopicker_dataset.py
+@@ -16,6 +16,7 @@ debug metadata only, never as policy input.
+ """
+ from __future__ import annotations
+ import argparse
++from dataclasses import asdict
+ from collections import Counter
+ from contextlib import redirect_stdout, redirect_stderr
+ import datetime
+@@ -37,6 +38,7 @@ import traceback
+ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+ import numpy as np
+ from scipy.spatial.transform import Rotation
++from treesim.arm_motion import ArmMotionProfile
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ DEFAULT_LOG = ROOT.parent / 'log/log_fixed_base_expert.md'
+@@ -296,6 +298,7 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
+     started = time.monotonic(); sim = viewer = None; traj = None; images = [[], []]
+     result = dict(seed=seed, accepted=False, reject_reason=None, grasped=False, detached=False, placed=False,
+                   frames=0, sim_duration_s=0., branch_break_count=0, incidental_detach_count=0)
++    result["arm_motion_profile"] = asdict(arm_motion_profile or ArmMotionProfile())
+     states = {k: [] for k in DIMS}; bases = []; times = []; state_trace = []
+     max_trans = max_yaw = 0.; terminal_frame = None; first = None; frame = 0
+     try:
+@@ -442,6 +445,7 @@ def collect_episode(seed, raw_dir, detach_force_scale=1.0, *, record_rgb=True,
+             result['expert_final_state'] = picker.state; result['expert_fail_reason'] = picker.fail_reason
+             result['state_trace'] = state_trace
+             metadata = dict(detach_force_multiplier=detach_force_scale,
++                arm_motion_profile=result["arm_motion_profile"],
+                 detach_diagnostics=diagnostics.data, target_visibility=visibility.data, base_pose=bases, timestamps=times, debug_usage='NOT POLICY INPUT',
+                 autopicker_grasp_semantics='official_autopicker_assist', first_attempt_success=result['accepted'],
+                 attempt_count=len(met.picks)+(met._open_pick is not None), home_arm_joint=home[:7].tolist(),
+@@ -586,9 +590,17 @@ def main():
+     ap.add_argument('--resume', action='store_true')
+     ap.add_argument('--pilot', action='store_true')
+     ap.add_argument('--detach-force-scale', type=float, default=1.0)
++    ap.add_argument('--arm-motion-mode', choices=['legacy','velocity','velocity_accel'], default='legacy')
++    ap.add_argument('--arm-vmax', type=float, default=2.7)
++    ap.add_argument('--arm-amax', type=float)
++    ap.add_argument('--arm-phase-vmax', type=json.loads, help='JSON phase overrides, e.g. {"REACH":1.5}')
++    ap.add_argument('--arm-active-phases', nargs='+', choices=['REACH','GRASP','PULL','TRANSPORT','DROP'])
+     ap.add_argument('--raw-dir', type=Path, default=None,
+                     help='per-seed stdout captures, pilot gate and pilot checkpoint (default: <log dir>/raw_dataset)')
+     args = ap.parse_args(); args.output = args.output.resolve(); args.log = args.log.resolve()
++    profile = ArmMotionProfile(args.arm_motion_mode, args.arm_vmax, args.arm_amax,
++                               tuple(args.arm_active_phases) if args.arm_active_phases else None, args.arm_phase_vmax)
++    profile_config = json.loads(json.dumps(asdict(profile)))
+     args.raw_dir = (args.raw_dir or args.log.parent/'raw_dataset').resolve()
+     if args.record_fps != 30 or args.action_length != 30 or args.accepted < 1 or args.max_attempts < 1:
+         ap.error('v0 requires30Hz,length30,positive counts')
+@@ -618,17 +630,23 @@ def main():
+             shutil.copytree(args.output, checkpoint, dirs_exist_ok=True, ignore=shutil.ignore_patterns('.collection.lock','*.writing'))
+     rows = [json.loads(line) for line in manifest.read_text().splitlines()] if manifest.exists() else []
+     from treesim.target_visibility import MIN_VISIBLE_PIXELS
+-    config = dict(detach_force_multiplier=args.detach_force_scale, target_visibility_min_pixels=MIN_VISIBLE_PIXELS,
++    config = dict(arm_motion_profile=profile_config, detach_force_multiplier=args.detach_force_scale, target_visibility_min_pixels=MIN_VISIBLE_PIXELS,
+                   schema=SCHEMA, seed_start=args.seed_start, record_fps=30, action_length=30,
+                   base_policy=BASE_POLICY, expert=EXPERT, stance_planner='fixed_base_stance_planner_v2',
+                   terminal_control_frames=2,
+                   max_sim_seconds=20, split_rule='every10th accepted val', script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
+     config_path = args.output/'collection_config.json'
+     if not args.pilot:
++        gate_profile=gate['config'].get('arm_motion_profile', json.loads(json.dumps(asdict(ArmMotionProfile())))).copy()
++        gate_profile.setdefault('phase_vmax_rad_s', None)
++        if gate_profile != profile_config:
++            raise RuntimeError('Pilot/config mismatch: arm_motion_profile')
+         for key in ('detach_force_multiplier','target_visibility_min_pixels','base_policy','expert','stance_planner','record_fps','action_length','terminal_control_frames','max_sim_seconds'):
+             if config[key]!=gate['config'].get(key): raise RuntimeError(f'Pilot/config mismatch: {key}')
+     if args.resume:
+         old = json.loads(config_path.read_text())
++        old.setdefault('arm_motion_profile', json.loads(json.dumps(asdict(ArmMotionProfile()))))
++        old['arm_motion_profile'].setdefault('phase_vmax_rad_s', None)
+         for key in config:
+             if key != 'script_sha256': assert config[key] == old[key], ('Resume config mismatch',key)
+         pending_path=args.output/'.pending_episode.json'
+@@ -670,7 +688,7 @@ def main():
+             rows.append(row); manifest_write(manifest, rows);checkpoint_pilot()
+             with (raw/f'{"pilot" if args.pilot else "formal"}_{seed}.txt').open('a') as capture:
+                 with redirect_stdout(capture), redirect_stderr(capture):
+-                    result,traj,images = collect_episode(seed,raw,args.detach_force_scale)
++                    result,traj,images = collect_episode(seed,raw,args.detach_force_scale, arm_motion_profile=profile)
+             result['status']='complete'; result['encoding_wall_s']=0.
+             if result['accepted']:
+                 eid = f'episode_{count+1:06d}'; split = 'val' if (count+1)%10==0 else 'train'
+diff --git a/scripts/run_arm_retime_pilot.py b/scripts/run_arm_retime_pilot.py
+index f16280b..b5c2fee 100644
+--- a/scripts/run_arm_retime_pilot.py
++++ b/scripts/run_arm_retime_pilot.py
+@@ -92,9 +92,18 @@ def one(profile_name,seed):
+     selection=json.loads((OUT/'pilot_seed_selection.json').read_text());row=next(r for r in selection['all_candidates'] if r['seed']==seed)
+     directory=OUT/'runs'/profile_name/str(seed);directory.mkdir(parents=True,exist_ok=True)
+     commands=[]
++    from treesim import robot
+     def observe(frame,sim,picker,tcp,qidx):
+         body=sim.body_q_np()[tcp].copy();q=sim.joint_q_np()[qidx].copy();lim=picker.arm_motion
+-        commands.append(dict(frame=frame,sim_time=float(sim.sim_time),phase=picker.state,
++        cp = sim.body_q_np()[picker.chassis]
++        fruit = sim.body_q_np()[np.asarray(picker.tm.apple_bodies), :3]
++        local = Rotation.from_quat(cp[3:]).inv().apply(fruit-cp[:3])
++        floor = robot._CHASSIS_Z + robot._CHASSIS[2]
++        bucket = ((np.abs(local[:,0]-robot._BUCKET_CENTER_X)<robot._BUCKET_HALF)
++                  & (np.abs(local[:,1])<robot._BUCKET_HALF)
++                  & (local[:,2]>floor) & (local[:,2]<floor+robot._BUCKET_WALL_H)
++                  & np.asarray(sim.apples.detached,dtype=bool))
++        commands.append(dict(vla_success_equivalent=bool(bucket.any()),frame=frame,sim_time=float(sim.sim_time),phase=picker.state,
+             q_goal=picker._q_goal[:7].tolist(),q_cmd=picker._q_cmd[:7].tolist(),qd_cmd=lim.qd_cmd.tolist(),
+             landing=lim.last_landed.tolist(),crossing_count=lim.crossing_count,
+             measured_q=q[:7].tolist(),tcp_position=body[:3].tolist(),tcp_quat=body[3:].tolist(),
+@@ -121,10 +130,13 @@ def run_set(profiles,rows):
+     for profile in profiles:
+         for row in rows:
+             directory=OUT/'runs'/profile/str(row['seed']);path=directory/'run.json'
+-            if path.exists():continue
++            if path.exists():
++                previous=json.loads(path.read_text())
++                assert previous['profile_config']==json.loads(json.dumps(asdict(PROFILES[profile]))), 'Resume profile mismatch'
++                continue
+             directory.mkdir(parents=True,exist_ok=True)
+             with (directory/'stdout.log').open('w') as log:
+-                done=subprocess.run([sys.executable,str(Path(__file__).resolve()),'one','--profile',profile,'--seed',str(row['seed'])],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
++                done=subprocess.run([sys.executable,str(Path(__file__).resolve()),'one','--profile',profile,'--seed',str(row['seed']), '--out', str(OUT), '--profile-config', json.dumps(asdict(PROFILES[profile]))],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
+             if path.exists():
+                 p=json.loads(path.read_text());r=p['result']
+                 print(f"{profile:12s} {row['episode_id']} seed={row['seed']} accepted={r['accepted']} reason={r.get('reject_reason')} wall={p['wall_time_s']:.1f}s",flush=True)
+@@ -180,8 +192,24 @@ def regression(selection):
+ 
+ 
+ def main():
+-    ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['prepare','one','regression','smoke','expand','all']);ap.add_argument('--profile',choices=list(PROFILES));ap.add_argument('--seed',type=int)
+-    args=ap.parse_args();OUT.mkdir(parents=True,exist_ok=True)
++    global OUT
++    ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['prepare','one','regression','smoke','expand','all','candidate']);ap.add_argument('--profile');ap.add_argument('--seed',type=int)
++    ap.add_argument('--out',type=Path);ap.add_argument('--profile-config');ap.add_argument('--cohort',choices=['smoke','expanded'],default='smoke')
++    args=ap.parse_args()
++    if args.out: OUT=args.out.resolve()
++    if args.profile_config:
++        cfg=json.loads(args.profile_config)
++        if cfg.get('active_phases') is not None: cfg['active_phases']=tuple(cfg['active_phases'])
++        PROFILES[args.profile]=ArmMotionProfile(**cfg)
++    OUT.mkdir(parents=True,exist_ok=True)
++    if args.stage=='candidate':
++        if args.profile not in PROFILES: ap.error('candidate requires a known --profile or --profile-config')
++        selection=json.loads((OUT/'pilot_seed_selection.json').read_text())
++        snapshot=OUT/(args.profile+'_source_snapshot.json')
++        hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in list((ROOT/'treesim').glob('*.py'))+[Path(__file__),ROOT/'scripts/collect_autopicker_dataset.py']}
++        if snapshot.exists(): assert json.loads(snapshot.read_text())==hashes, 'Candidate sources changed during resume'
++        else: write(snapshot,hashes)
++        run_set([args.profile],selection[args.cohort]);return
+     if args.stage=='one':raise SystemExit(one(args.profile,args.seed))
+     if args.stage=='prepare':prepare();return
+     selection=json.loads((OUT/'pilot_seed_selection.json').read_text()) if (OUT/'pilot_seed_selection.json').exists() else prepare()
+diff --git a/scripts/test_arm_motion.py b/scripts/test_arm_motion.py
+index 2e94d16..37bc62e 100644
+--- a/scripts/test_arm_motion.py
++++ b/scripts/test_arm_motion.py
+@@ -48,6 +48,21 @@ class ArmMotionTests(unittest.TestCase):
+         self.assertEqual(lim.crossing_count,7)
+         lim.reset(np.ones(7));self.assertEqual(lim.crossing_count,0)
+ 
++    def test_phase_velocity_override_keeps_state(self):
++        p=ArmMotionProfile('velocity_accel', .5, 20., ('REACH','TRANSPORT'), {'REACH':1.5})
++        lim=JointMotionLimiter(np.zeros(7),p)
++        for _ in range(20):lim.step(np.ones(7)*3, vmax_rad_s=p.phase_vmax_rad_s['REACH'])
++        self.assertAlmostEqual(lim.qd_cmd[0],1.5)
++        previous=lim.q_cmd.copy()
++        lim.step(np.ones(7)*3, vmax_rad_s=.5)
++        # Entry decelerates at the existing acceleration bound, without resetting.
++        np.testing.assert_allclose(lim.qd_cmd,1.5-20/60)
++        np.testing.assert_allclose(lim.q_cmd-previous,lim.qd_cmd/60)
++        for _ in range(4):lim.step(np.ones(7)*3,vmax_rad_s=.5)
++        np.testing.assert_allclose(lim.qd_cmd,.5)
++        with self.assertRaises(ValueError):
++            ArmMotionProfile(phase_vmax_rad_s={'REACH':-1})
++
+     def test_validation_and_copy(self):
+         for kwargs in [dict(mode='x'),dict(vmax_rad_s=0),dict(vmax_rad_s=np.inf),dict(mode='velocity_accel'),dict(amax_rad_s2=-1)]:
+             with self.assertRaises(ValueError):ArmMotionProfile(**kwargs)
+diff --git a/scripts/test_gate0_abc.py b/scripts/test_gate0_abc.py
+index 1c32597..390bf58 100644
+--- a/scripts/test_gate0_abc.py
++++ b/scripts/test_gate0_abc.py
+@@ -118,10 +118,13 @@ def assist_smoke():
+         local = Rotation.from_quat(poses[env.wrist, 3:]).inv().apply(
+             poses[apple_body, :3] - poses[env.wrist, :3])
+         assert np.linalg.norm(local - [0., 0., .1]) < .06, local
+-        _, _, _, _, info = env.step(np.zeros(7), gripper_width=.08)
++        for i in range(env.config.gripper_open_steps):
++            _, _, _, _, info = env.step(np.zeros(7), gripper_width=.08)
++            if i < env.config.gripper_open_steps - 1:
++                assert info['held_apple_id_debug'] == 0 and env.sim.apples._held.numpy()[0] == 1
+         assert info['held_apple_id_debug'] is None and env.sim.apples._held.numpy()[0] == 0
+         print(f'B PASS real contacts={len(fingers)} -> close/attach -> hold 6 physics frames '
+-              f'(hand-local={local.tolist()}) -> open/release', flush=True)
++              f'(hand-local={local.tolist()}) -> sustained open/release', flush=True)
+     finally:
+         env.close()
+ 
+diff --git a/treesim/arm_motion.py b/treesim/arm_motion.py
+index f3f516a..057ef9a 100644
+--- a/treesim/arm_motion.py
++++ b/treesim/arm_motion.py
+@@ -13,11 +13,18 @@ class ArmMotionProfile:
+     vmax_rad_s: float = 2.7
+     amax_rad_s2: float | None = None
+     active_phases: tuple[str, ...] | None = None
++    phase_vmax_rad_s: dict[str, float] | None = None
+ 
+     def __post_init__(self):
+         if self.active_phases is not None and (not isinstance(self.active_phases, tuple) or not self.active_phases or
+                 any(p not in ('REACH', 'GRASP', 'PULL', 'TRANSPORT', 'DROP') for p in self.active_phases)):
+             raise ValueError('active_phases must be a nonempty tuple of manipulation phases')
++        if self.phase_vmax_rad_s is not None:
++            for phase, vmax in self.phase_vmax_rad_s.items():
++                if phase not in ('REACH', 'GRASP', 'PULL', 'TRANSPORT', 'DROP') or not np.isfinite(vmax) or vmax <= 0:
++                    raise ValueError('phase vmax requires manipulation phases and positive finite rates')
++                if self.active_phases is not None and phase not in self.active_phases:
++                    raise ValueError('phase vmax override must be in active_phases')
+         if self.mode not in ('legacy', 'velocity', 'velocity_accel'):
+             raise ValueError('unknown arm motion mode')
+         if not np.isfinite(self.vmax_rad_s) or self.vmax_rad_s <= 0:
+@@ -61,14 +68,17 @@ class JointMotionLimiter:
+         self.last_landed = np.zeros(7, dtype=bool)
+         self.crossing_count = 0
+ 
+-    def step(self, q_goal, *, legacy_step=0.045, active=True):
++    def step(self, q_goal, *, legacy_step=0.045, active=True, vmax_rad_s=None):
++        vmax = self.profile.vmax_rad_s if vmax_rad_s is None else vmax_rad_s
++        if not np.isfinite(vmax) or vmax <= 0:
++            raise ValueError('vmax_rad_s must be positive and finite')
+         goal = self._vector(q_goal)
+         error = goal - self.q_cmd
+         self.last_landed[:] = False
+         if not active or self.profile.mode in ('legacy', 'velocity'):
+             # Inactive scope follows legacy arithmetic while keeping command state
+             # synchronized. Entering the retimed scope never resets position/velocity.
+-            rate = legacy_step if not active or self.profile.mode == 'legacy' else self.profile.vmax_rad_s * self.dt
++            rate = legacy_step if not active or self.profile.mode == 'legacy' else vmax * self.dt
+             if not np.isfinite(rate) or rate <= 0:
+                 raise ValueError('legacy_step must be positive and finite')
+             # Preserve original operations exactly, including the addition (not +=).
+@@ -78,7 +88,7 @@ class JointMotionLimiter:
+         else:
+             a = self.profile.amax_rad_s2
+             v_stop = np.sqrt((a*self.dt/2)**2 + 2*a*np.abs(error)) - a*self.dt/2
+-            desired = np.sign(error) * np.minimum(self.profile.vmax_rad_s, v_stop)
++            desired = np.sign(error) * np.minimum(vmax, v_stop)
+             self.qd_cmd = self.qd_cmd + np.clip(desired-self.qd_cmd, -a*self.dt, a*self.dt)
+             displacement = self.qd_cmd * self.dt
+             # A zero error with residual velocity must also hold the target.
+diff --git a/treesim/picker.py b/treesim/picker.py
+index e25a4b4..bd24d37 100644
+--- a/treesim/picker.py
++++ b/treesim/picker.py
+@@ -255,7 +255,10 @@ class AutoPicker:
+             # Fingers retain the exact legacy path; only seven arm joints opt in.
+             phases = self.arm_motion.profile.active_phases
+             active = phases is None or self.state in phases
+-            self._q_cmd[:7] = self.arm_motion.step(self._q_goal[:7], legacy_step=rate, active=active)
++            self._q_cmd[:7] = self.arm_motion.step(
++                self._q_goal[:7], legacy_step=rate, active=active,
++                vmax_rad_s=(self.arm_motion.profile.phase_vmax_rad_s.get(self.state)
++                            if self.arm_motion.profile.phase_vmax_rad_s else None))
+         # write through the driver's host mirror (no device download; N
+         # pickers share the one mirror)
+         self.drv._tq_host[self.arm_tq] = self._q_cmd
+diff --git a/treesim/vla_env.py b/treesim/vla_env.py
+index f9b7c4d..c0c8cda 100644
+--- a/treesim/vla_env.py
++++ b/treesim/vla_env.py
+@@ -24,7 +24,11 @@ from .vla_camera import StaticRGBCamera
+ class VLAEnvConfig:
+     sim_hz: int = 60
+     action_repeat: int = 2
+-    max_control_steps: int = 300
++    max_control_steps: int = 600
++    detach_force_scale: float = 1.5
++    gripper_open_width: float = .075
++    gripper_open_steps: int = 5
++    gripper_close_deadband: float = .001
+     substeps: int = 3
+     width: int = 192
+     height: int = 144
+@@ -47,6 +51,10 @@ class VLAEnvConfig:
+     def __post_init__(self):
+         if self.sim_hz != 60 or self.action_repeat < 1 or self.max_control_steps < 1:
+             raise ValueError("Use 60Hz physics and positive repeat/episode length")
++        if not np.isfinite(self.detach_force_scale) or self.detach_force_scale <= 0:
++            raise ValueError("detach_force_scale must be positive and finite")
++        if not 0 < self.gripper_open_width <= .08 or self.gripper_open_steps < 1:
++            raise ValueError("Invalid gripper opening hysteresis")
+         if self.grasp_mode not in ("contact", "benchmark_assist"):
+             raise ValueError("Unknown grasp_mode")
+ 
+@@ -146,6 +154,8 @@ class OrchardVLAEnv:
+         c.physics.dynamics_jitter = 0.0
+         c.physics.terrain = False
+         c.fruit.enabled = True
++        c.fruit.detach_force_scale = self.config.detach_force_scale
++        self._detach_force_scale = c.fruit.detach_force_scale
+         c.fruit.max_count = self.config.apple_count
+         c.foliage.set_density(self.config.foliage_density)
+         c.breaking.enabled = True
+@@ -185,6 +195,7 @@ class OrchardVLAEnv:
+             self._joint_command = np.asarray(rb['arm_home'],dtype=float).copy()
+             self._gripper = 0.0  # home width .04m; first explicit grip chooses direction
+             self._gripper_width_command = float(self._joint_command[-2:].sum())
++            self._width_open_steps = 0
+             self._held = None
+             self.control_steps = 0
+             self._success = False
+@@ -296,11 +307,22 @@ class OrchardVLAEnv:
+             apple_in_bucket_count=int(bucket.sum()),success=bool(bucket.any()),
+             success_definition='at least one detached apple physically inside the bucket',
+             grasp_mode=self.config.grasp_mode,
++            detach_force_scale=self._detach_force_scale,
+             grasp_assist_triggered=False,held_apple_id_debug=self._held,
+             grasped_apple_id_debug=self._held,  # compatibility alias
+             reset_stance_debug=dict(self._reset_stance),
+             sim_hz=self.config.sim_hz,control_hz=self.config.control_hz,action_repeat=self.config.action_repeat)
+ 
++    def _update_width_intent(self, width):
++        # Physical width can rebound by centimetres while the expert holds fruit.
++        # Require sustained near-full opening; keep physical width continuous.
++        # Five 30Hz samples exceed the longest (four) observed in v1 hold data.
++        self._width_open_steps = self._width_open_steps + 1 if width >= self.config.gripper_open_width else 0
++        if self._width_open_steps >= self.config.gripper_open_steps:
++            self._gripper = 1.
++        elif width < self._gripper_width_command - self.config.gripper_close_deadband:
++            self._gripper = -1.
++
+     def step(self, action, *, gripper_width=None):
+         if self._done:
+             raise RuntimeError('Episode finished or not initialized; call reset')
+@@ -335,16 +357,14 @@ class OrchardVLAEnv:
+             self._target_position = target.copy()
+             self._target_rotation = rotation
+         if gripper_width is None:
++            self._width_open_steps = 0
+             if clipped[6] != 0:
+                 self._gripper = float(np.sign(clipped[6]))
+             q[-2:] = .04 if self._gripper>0 else (0. if self._gripper<0 else self._joint_command[-2:])
+         else:
+             width = float(np.clip(gripper_width, 0., .08))
+             action_clipped |= width != float(gripper_width)
+-            # A repeated width holds the grasp. Measured finger deflection must
+-            # not turn a steady command into an unintended open/release.
+-            if abs(width - self._gripper_width_command) > 1e-6:
+-                self._gripper = float(np.sign(width - self._gripper_width_command))
++            self._update_width_intent(width)
+             q[-2:] = width / 2.
+         self._gripper_width_command = float(q[-2:].sum())
+         triggered = False

@@ -1,0 +1,80 @@
+{
+  "profile": "transport_va1.0_a20",
+  "counts": {
+    "normal": {
+      "N": 6,
+      "success_count": 6,
+      "success_rate": 1.0,
+      "placed": 6,
+      "detached": 6,
+      "failure_types": {},
+      "branch_breaks": 0,
+      "premature_detach": 0,
+      "vla_success_equivalent": 6
+    },
+    "stress": {
+      "N": 2,
+      "success_count": 1,
+      "success_rate": 0.5,
+      "placed": 2,
+      "detached": 2,
+      "failure_types": {
+        "premature_detach": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 1,
+      "vla_success_equivalent": 2
+    },
+    "all": {
+      "N": 8,
+      "success_count": 7,
+      "success_rate": 0.875,
+      "placed": 8,
+      "detached": 8,
+      "failure_types": {
+        "premature_detach": 1
+      },
+      "branch_breaks": 0,
+      "premature_detach": 1,
+      "vla_success_equivalent": 8
+    }
+  },
+  "envelope": {
+    "ALL": {
+      "intervals": 1332,
+      "translation": 0.22897897897897898,
+      "rotation": 0.27927927927927926,
+      "either": 0.3325825825825826
+    },
+    "REACH": {
+      "intervals": 77,
+      "translation": 0.6103896103896104,
+      "rotation": 0.23376623376623376,
+      "either": 0.7402597402597403
+    },
+    "GRASP": {
+      "intervals": 137,
+      "translation": 0.0948905109489051,
+      "rotation": 0.30656934306569344,
+      "either": 0.40145985401459855
+    },
+    "PULL": {
+      "intervals": 353,
+      "translation": 0.0,
+      "rotation": 0.019830028328611898,
+      "either": 0.019830028328611898
+    },
+    "TRANSPORT": {
+      "intervals": 509,
+      "translation": 0.4793713163064833,
+      "rotation": 0.5893909626719057,
+      "either": 0.6267190569744597
+    },
+    "DROP": {
+      "intervals": 240,
+      "translation": 0.004166666666666667,
+      "rotation": 0.020833333333333332,
+      "either": 0.020833333333333332
+    }
+  }
+}

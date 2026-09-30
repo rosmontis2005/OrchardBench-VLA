@@ -34,6 +34,7 @@ import warp as wp
 import newton
 
 from . import robot as _robot
+from .arm_motion import ArmMotionProfile, JointMotionLimiter
 
 
 # --------------------------------------------------------------------------- #
@@ -133,7 +134,8 @@ class AutoPicker:
                                   # too: a wedged gripper fails in ~0.9 s)
 
     def __init__(self, sim, tm, cam, driver, rp, metrics=None, env: int = 0,
-                 ik: "ArmIK | None" = None):
+                 ik: "ArmIK | None" = None, *,
+                 arm_motion_profile: ArmMotionProfile | None = None):
         self.sim = sim
         self.tm = tm
         self.cam = cam
@@ -197,6 +199,8 @@ class AutoPicker:
                 self.met.set_apple_census(census)
         self._q_goal = self.arm_home.copy()
         self._q_cmd = self.arm_home.copy()
+        self.arm_motion = (None if arm_motion_profile is None else
+                           JointMotionLimiter(self._q_cmd[:7], arm_motion_profile, sim.frame_dt))
         self.state = "SCAN"
         self._t_state = 0
         self._target = None            # world xyz of the committed fruit
@@ -247,6 +251,14 @@ class AutoPicker:
     def _slew_arm(self, rate=0.045):
         d = np.clip(self._q_goal - self._q_cmd, -rate, rate)
         self._q_cmd = self._q_cmd + d
+        if self.arm_motion is not None:
+            # Fingers retain the exact legacy path; only seven arm joints opt in.
+            phases = self.arm_motion.profile.active_phases
+            active = phases is None or self.state in phases
+            self._q_cmd[:7] = self.arm_motion.step(
+                self._q_goal[:7], legacy_step=rate, active=active,
+                vmax_rad_s=(self.arm_motion.profile.phase_vmax_rad_s.get(self.state)
+                            if self.arm_motion.profile.phase_vmax_rad_s else None))
         # write through the driver's host mirror (no device download; N
         # pickers share the one mirror)
         self.drv._tq_host[self.arm_tq] = self._q_cmd

@@ -17,6 +17,8 @@ output/
 *.usd
 metric*.json
 
+
+
 # Videos (kept out of the repo)
 *.mp4
 *.mov
@@ -31,3 +33,7 @@ metric*.json
 .vscode/
 .idea/
 .DS_Store
+.artifacts/
+
+#artifacts
+artifacts/arm_retime_pilot/

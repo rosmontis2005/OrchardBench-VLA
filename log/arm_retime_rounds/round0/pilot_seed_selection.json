@@ -1,0 +1,92 @@
+{
+  "all_candidates": [
+    {
+      "episode_id": "episode_000040",
+      "seed": 1000106,
+      "split": "val",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000040.json",
+      "p95_tcp_speed": 1.8526352832094077,
+      "transport_path_m": 1.3042222678881195,
+      "selection_reason": "short_transport_path",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000106",
+      "seed": 1000268,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000106.json",
+      "p95_tcp_speed": 1.7047556444651744,
+      "transport_path_m": 1.6232154797672171,
+      "selection_reason": "lowest_episode_p95_speed",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000222",
+      "seed": 1000576,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000222.json",
+      "p95_tcp_speed": 2.4023756498073467,
+      "transport_path_m": 1.4459201311563057,
+      "selection_reason": "median_speed",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000090",
+      "seed": 1000235,
+      "split": "val",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000090.json",
+      "p95_tcp_speed": 2.7239475307029073,
+      "transport_path_m": 2.1415191282359363,
+      "selection_reason": "longest_transport_path",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000134",
+      "seed": 1000356,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000134.json",
+      "p95_tcp_speed": 2.6773003952374848,
+      "transport_path_m": 1.7090988305870698,
+      "selection_reason": "high_speed_p90",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000029",
+      "seed": 1000074,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000029.json",
+      "p95_tcp_speed": 3.556723474334187,
+      "transport_path_m": 2.0246166176840314,
+      "selection_reason": "known_extreme",
+      "case_type": "stress",
+      "case_reason": "Historical contact/IK trajectory sensitivity and extreme transport speed"
+    },
+    {
+      "episode_id": "episode_000088",
+      "seed": 1000232,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000088.json",
+      "p95_tcp_speed": 2.0705295239002006,
+      "transport_path_m": 1.3918840377795365,
+      "selection_reason": "speed_p25",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    },
+    {
+      "episode_id": "episode_000171",
+      "seed": 1000441,
+      "split": "train",
+      "canonical_path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/train/episode_000171.json",
+      "p95_tcp_speed": 2.5786513556570583,
+      "transport_path_m": 1.706092114260113,
+      "selection_reason": "speed_p75",
+      "case_type": "normal",
+      "case_reason": "Canonical accepted smoke anchor; provisional normal, checked against fresh legacy"
+    }
+  ]
+}
