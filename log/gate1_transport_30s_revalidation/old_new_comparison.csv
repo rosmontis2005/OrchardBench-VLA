@@ -1,0 +1,61 @@
+seed,episode_id,mode,expert_accepted,old_success,new_success,change,old_final_phase,new_final_phase,old_transport_budget_failure,new_transport_budget_failure,new_failure_reasons
+1000025,episode_000010,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000056,episode_000020,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000079,episode_000030,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000106,episode_000040,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000136,episode_000050,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000164,episode_000060,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000192,episode_000070,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000214,episode_000080,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000235,episode_000090,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000250,episode_000100,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000274,episode_000110,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000294,episode_000120,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000345,episode_000130,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""DROP_bucket_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000371,episode_000140,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000394,episode_000150,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""DROP_bucket_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000420,episode_000160,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000440,episode_000170,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000465,episode_000180,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000486,episode_000190,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000510,episode_000200,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000542,episode_000210,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000572,episode_000220,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000593,episode_000230,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000626,episode_000240,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000646,episode_000250,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000676,episode_000260,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000702,episode_000270,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""DROP_bucket_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000731,episode_000280,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000750,episode_000290,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000779,episode_000300,time-indexed,True,False,False,unchanged_FAIL,DONE,DONE,False,False,"[""grasp_failure"", ""target_sequence_exhausted"", ""IK_failure_observed"", ""clipping_observed"", ""tracking_lag_observed""]"
+1000025,episode_000010,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000056,episode_000020,reach-conditioned,True,False,False,unchanged_FAIL,TRANSPORT,TRANSPORT,True,True,"[""DROP_bucket_failure"", ""episode_budget"", ""IK_failure_observed"", ""clipping_observed"", ""dwell_timeout"", ""tracking_lag_observed""]"
+1000079,episode_000030,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,DONE,DROP,False,False,[]
+1000106,episode_000040,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000136,episode_000050,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,TRANSPORT,DROP,True,False,[]
+1000164,episode_000060,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000192,episode_000070,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000214,episode_000080,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,TRANSPORT,DROP,True,False,[]
+1000235,episode_000090,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,TRANSPORT,DROP,True,False,[]
+1000250,episode_000100,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000274,episode_000110,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,DONE,DROP,False,False,[]
+1000294,episode_000120,reach-conditioned,True,False,False,unchanged_FAIL,TRANSPORT,TRANSPORT,True,True,"[""DROP_bucket_failure"", ""episode_budget"", ""clipping_observed"", ""dwell_timeout"", ""tracking_lag_observed""]"
+1000345,episode_000130,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,DROP,DROP,False,False,[]
+1000371,episode_000140,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,TRANSPORT,DROP,True,False,[]
+1000394,episode_000150,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,TRANSPORT,DROP,True,False,[]
+1000420,episode_000160,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000440,episode_000170,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000465,episode_000180,reach-conditioned,True,False,False,unchanged_FAIL,PULL,TRANSPORT,False,True,"[""DROP_bucket_failure"", ""episode_budget"", ""IK_failure_observed"", ""clipping_observed"", ""dwell_timeout"", ""tracking_lag_observed""]"
+1000486,episode_000190,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000510,episode_000200,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000542,episode_000210,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000572,episode_000220,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000593,episode_000230,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000626,episode_000240,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000646,episode_000250,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000676,episode_000260,reach-conditioned,True,False,False,unchanged_FAIL,PULL,TRANSPORT,False,True,"[""DROP_bucket_failure"", ""episode_budget"", ""IK_failure_observed"", ""clipping_observed"", ""dwell_timeout"", ""tracking_lag_observed""]"
+1000702,episode_000270,reach-conditioned,True,False,True,old_FAIL_to_new_PASS,TRANSPORT,DROP,True,False,[]
+1000731,episode_000280,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000750,episode_000290,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]
+1000779,episode_000300,reach-conditioned,True,True,True,unchanged_PASS,DROP,DROP,False,False,[]

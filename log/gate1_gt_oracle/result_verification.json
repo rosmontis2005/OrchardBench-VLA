@@ -1,0 +1,11 @@
+{
+  "episode_result_count": 60,
+  "csv_row_count": 60,
+  "paired_count": 30,
+  "paired_target_step_checks": 16095,
+  "paired_initial_state_equal": true,
+  "targets_equal": true,
+  "dwell_bounds_verified": true,
+  "advancement_verified": true,
+  "input_and_execution_source_hashes_unchanged": true
+}

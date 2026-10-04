@@ -1,0 +1,72 @@
+{
+  "baseline": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation",
+  "baseline_protocol_sha256": "29b3cd5826bfcbf95c4e534b98572e09e60d172402555712c20901917594a058",
+  "baseline_counts": {
+    "episodes": 30,
+    "success": 26,
+    "grasped": 30,
+    "detached": 30
+  },
+  "frozen_replay_sha256": "6142e7a9c1b84168f804c0567e99271470fbfd27b90cb81ff05efe42ca54acbb",
+  "all_other_source_hashes_match": {
+    "/home/rosmontis/Projects/orchardbench/treesim/__init__.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/arm_motion.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/breaking.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/builder.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/config.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/domainrand.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/domainrand_gpu.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/expert_diagnostics.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/fixed_base_picker.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/foliage.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/fruit.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/lsystem.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/metrics.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/orchard_action.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/perception.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/physics.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/picker.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/robot.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/sim.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/skeleton.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/springs.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/target_visibility.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/viz.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/vla_camera.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/vla_env.py": true,
+    "/home/rosmontis/Projects/orchardbench/treesim/xr0_adapter.py": true,
+    "/home/rosmontis/Projects/orchardbench/scripts/revalidate_gate1_transport.py": true,
+    "/home/rosmontis/Projects/orchardbench/scripts/collect_autopicker_dataset.py": true
+  },
+  "env_config": {
+    "sim_hz": 60,
+    "action_repeat": 2,
+    "max_control_steps": 900,
+    "detach_force_scale": 1.5,
+    "gripper_open_width": 0.075,
+    "gripper_open_steps": 5,
+    "gripper_close_deadband": 0.001,
+    "substeps": 3,
+    "width": 192,
+    "height": 144,
+    "apple_count": 40,
+    "foliage_density": 0.6,
+    "grasp_mode": "benchmark_assist",
+    "max_translation": 0.02,
+    "max_rotation": 0.05,
+    "max_joint_step": 0.045,
+    "ik_position_tolerance": 0.01,
+    "ik_rotation_tolerance": 0.08,
+    "workspace_lower": [
+      -0.65,
+      -0.85,
+      0.35
+    ],
+    "workspace_upper": [
+      1.0,
+      0.85,
+      1.55
+    ]
+  },
+  "maximum_dwell": 30
+}

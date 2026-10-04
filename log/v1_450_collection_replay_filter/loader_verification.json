@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "no_model_loaded": true,
+  "no_gradient_updates": true,
+  "splits": {
+    "train": {
+      "episodes": 362,
+      "full_windows": 65675,
+      "decoded_samples": 3
+    },
+    "val": {
+      "episodes": 39,
+      "full_windows": 7228,
+      "decoded_samples": 3
+    }
+  }
+}

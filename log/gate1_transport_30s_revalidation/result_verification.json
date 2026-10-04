@@ -1,0 +1,16 @@
+{
+  "expert_attempts": 30,
+  "accepted_experts": 30,
+  "replay_json_count": 60,
+  "result_csv_rows": 60,
+  "old_new_comparison_rows": 60,
+  "protected_artifact_and_source_hashes_unchanged": true,
+  "paired_reset_and_targets_verified": true,
+  "only_env_config_change": {
+    "max_control_steps": [
+      600,
+      900
+    ]
+  },
+  "no_new_simulations_for_prefix_diagnostic": true
+}

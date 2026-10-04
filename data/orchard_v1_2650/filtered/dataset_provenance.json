@@ -1,0 +1,10 @@
+{
+  "protocol": "/home/rosmontis/Projects/orchardbench/log/v1_2650_collection_replay_filter/protocol.json",
+  "raw_dataset": "/home/rosmontis/Projects/orchardbench/data/orchard_v1_2650/raw",
+  "filtering": "collector accepted AND strict replay success AND basic integrity valid",
+  "manifest_sha256": "b62fe02c26e0e9a1f293ca2809a580bff45bd6f3c2621a0a6e1a56a95c6462ad",
+  "preserved_raw_episode_ids_and_splits": true,
+  "loader": "mibot.data.datasets.orchardbench_dataset.OrchardBenchDataset",
+  "loader_stats": "action_stats.json",
+  "collector_preview_stats": "action_stats_30x32.json"
+}

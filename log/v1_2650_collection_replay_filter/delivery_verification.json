@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "time": 1790905450.923192,
+  "batches": [
+    {
+      "batch": 450,
+      "status": "PASS",
+      "attempts": 1144,
+      "accepted": 450,
+      "rejected": 681,
+      "overflow": 13,
+      "strict_PASS": 401,
+      "strict_FAIL": 49,
+      "raw": {
+        "train": 405,
+        "val": 45
+      },
+      "filtered": {
+        "train": 362,
+        "val": 39
+      },
+      "integrity_invalid": 0,
+      "workers": {
+        "collection_worker_count": 24,
+        "replay_worker_count": 24,
+        "infrastructure_retry_count": 0,
+        "collection_elapsed_seconds": 5736.8924906253815,
+        "replay_elapsed_seconds": 8096.444680690765
+      },
+      "stats_train_only": true,
+      "loader_status": "PASS",
+      "manifest_hashes": {
+        "raw_450_manifest.jsonl": "e29bd3598e6165d243f5f843a0d5c08454298eba533da5d77091db6d872d6d42",
+        "replay_results.jsonl": "7505631eaf02b5d5106278db3d4296a8d904dda4206eb827e041ed71d4037698",
+        "v1_trainable_manifest.jsonl": "325adf2ef07a8b1044d2e4fb1461e73027de955d1ac6dae86badd67c295154dc",
+        "v1_excluded_manifest.jsonl": "128c20d27c18ce21451c17c6db528b2524110040ebd5174a060b4deccfb9c968"
+      }
+    },
+    {
+      "batch": 2650,
+      "status": "PASS",
+      "attempts": 6593,
+      "accepted": 2650,
+      "rejected": 3933,
+      "overflow": 10,
+      "strict_PASS": 2374,
+      "strict_FAIL": 276,
+      "raw": {
+        "train": 2385,
+        "val": 265
+      },
+      "filtered": {
+        "train": 2144,
+        "val": 230
+      },
+      "integrity_invalid": 0,
+      "workers": {
+        "collection_worker_count": 32,
+        "replay_worker_count": 32,
+        "infrastructure_retry_count": 0,
+        "collection_elapsed_seconds": 11012.048837184906,
+        "replay_elapsed_seconds": 7654.688596010208
+      },
+      "stats_train_only": true,
+      "loader_status": "PASS",
+      "manifest_hashes": {
+        "raw_2650_manifest.jsonl": "26de340ce6a0bb043504b21602d3ad4bcc524af27980d754404e1ee68627cf40",
+        "replay_results.jsonl": "908b5bd3db57b46115689660160def37a0040295d70e7abcc62ecb6e900072f3",
+        "v1_trainable_manifest.jsonl": "b62fe02c26e0e9a1f293ca2809a580bff45bd6f3c2621a0a6e1a56a95c6462ad",
+        "v1_excluded_manifest.jsonl": "4e388924013620575a15bc764f3121c225e9f4c77d3d8209eb32eb816f9ebecd"
+      }
+    }
+  ],
+  "disjoint_attempt_seed_sets": true,
+  "first_summary_unchanged": true,
+  "same_frozen_scientific_sources": true,
+  "all_required_artifacts_accessible": true,
+  "no_training_performed": true,
+  "all_pipeline_processes_exited": true,
+  "private_mps_service_stopped": true,
+  "final_checked_unix": 1790905534.1986384
+}

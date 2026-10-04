@@ -1,0 +1,2117 @@
+{
+  "stage": "regression",
+  "episodes": 30,
+  "aggregate": {
+    "old": {
+      "success": 26,
+      "grasped": 30,
+      "detached": 30,
+      "timeout": 4,
+      "control_steps": 17966,
+      "dwell_timeout_count": 67,
+      "skip_count": 67,
+      "IK_failed_steps": 576,
+      "clipped_steps": 8026,
+      "passed_waypoint_count": 0
+    },
+    "new": {
+      "success": 26,
+      "grasped": 30,
+      "detached": 30,
+      "timeout": 4,
+      "control_steps": 17969,
+      "dwell_timeout_count": 66,
+      "skip_count": 66,
+      "IK_failed_steps": 576,
+      "clipped_steps": 8016,
+      "passed_waypoint_count": 0
+    }
+  },
+  "per_seed": [
+    {
+      "episode_id": "episode_000010",
+      "seed": 1000025,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 497,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 206,
+        "seed": 1000025,
+        "final_target_index": 166,
+        "total_targets": 193,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 52,
+          "GRASP": 38,
+          "PULL": 59,
+          "TRANSPORT": 334,
+          "DROP": 14
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 497,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 206,
+        "seed": 1000025,
+        "final_target_index": 166,
+        "total_targets": 193,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 52,
+          "GRASP": 38,
+          "PULL": 59,
+          "TRANSPORT": 334,
+          "DROP": 14
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000020",
+      "seed": 1000056,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 14,
+        "skip_count": 14,
+        "IK_failed_steps": 90,
+        "clipped_steps": 621,
+        "seed": 1000056,
+        "final_target_index": 168,
+        "total_targets": 207,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 391,
+          "GRASP": 126,
+          "PULL": 77,
+          "TRANSPORT": 306
+        },
+        "dwell_by_phase": {
+          "REACH": 11,
+          "GRASP": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 90
+        }
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 14,
+        "skip_count": 14,
+        "IK_failed_steps": 90,
+        "clipped_steps": 620,
+        "seed": 1000056,
+        "final_target_index": 169,
+        "total_targets": 207,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 391,
+          "GRASP": 125,
+          "PULL": 77,
+          "TRANSPORT": 307
+        },
+        "dwell_by_phase": {
+          "REACH": 11,
+          "GRASP": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 90
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000030",
+      "seed": 1000079,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 486,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 186,
+        "seed": 1000079,
+        "final_target_index": 169,
+        "total_targets": 195,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 24,
+          "GRASP": 43,
+          "PULL": 64,
+          "TRANSPORT": 339,
+          "DROP": 16
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 486,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 186,
+        "seed": 1000079,
+        "final_target_index": 169,
+        "total_targets": 195,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 24,
+          "GRASP": 43,
+          "PULL": 64,
+          "TRANSPORT": 339,
+          "DROP": 16
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000040",
+      "seed": 1000106,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 620,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 284,
+        "seed": 1000106,
+        "final_target_index": 230,
+        "total_targets": 251,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 118,
+          "GRASP": 60,
+          "PULL": 93,
+          "TRANSPORT": 325,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 620,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 284,
+        "seed": 1000106,
+        "final_target_index": 230,
+        "total_targets": 251,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 118,
+          "GRASP": 60,
+          "PULL": 93,
+          "TRANSPORT": 325,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000050",
+      "seed": 1000136,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 642,
+        "dwell_timeout_count": 2,
+        "skip_count": 2,
+        "IK_failed_steps": 60,
+        "clipped_steps": 366,
+        "seed": 1000136,
+        "final_target_index": 178,
+        "total_targets": 205,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 171,
+          "GRASP": 78,
+          "PULL": 81,
+          "TRANSPORT": 295,
+          "DROP": 17
+        },
+        "dwell_by_phase": {
+          "GRASP": 2
+        },
+        "ik_by_phase": {
+          "GRASP": 60
+        }
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 644,
+        "dwell_timeout_count": 2,
+        "skip_count": 2,
+        "IK_failed_steps": 60,
+        "clipped_steps": 358,
+        "seed": 1000136,
+        "final_target_index": 178,
+        "total_targets": 205,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 171,
+          "GRASP": 78,
+          "PULL": 82,
+          "TRANSPORT": 296,
+          "DROP": 17
+        },
+        "dwell_by_phase": {
+          "GRASP": 2
+        },
+        "ik_by_phase": {
+          "GRASP": 60
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000060",
+      "seed": 1000164,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 508,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 188,
+        "seed": 1000164,
+        "final_target_index": 200,
+        "total_targets": 223,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 43,
+          "GRASP": 42,
+          "PULL": 75,
+          "TRANSPORT": 326,
+          "DROP": 22
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 508,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 187,
+        "seed": 1000164,
+        "final_target_index": 200,
+        "total_targets": 223,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 43,
+          "GRASP": 42,
+          "PULL": 75,
+          "TRANSPORT": 326,
+          "DROP": 22
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000070",
+      "seed": 1000192,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 493,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 195,
+        "seed": 1000192,
+        "final_target_index": 173,
+        "total_targets": 199,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 52,
+          "GRASP": 36,
+          "PULL": 65,
+          "TRANSPORT": 323,
+          "DROP": 17
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 493,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 195,
+        "seed": 1000192,
+        "final_target_index": 173,
+        "total_targets": 199,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 52,
+          "GRASP": 36,
+          "PULL": 65,
+          "TRANSPORT": 323,
+          "DROP": 17
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000080",
+      "seed": 1000214,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 705,
+        "dwell_timeout_count": 4,
+        "skip_count": 4,
+        "IK_failed_steps": 122,
+        "clipped_steps": 418,
+        "seed": 1000214,
+        "final_target_index": 179,
+        "total_targets": 203,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 162,
+          "GRASP": 87,
+          "PULL": 131,
+          "TRANSPORT": 304,
+          "DROP": 21
+        },
+        "dwell_by_phase": {
+          "GRASP": 2,
+          "PULL": 2
+        },
+        "ik_by_phase": {
+          "GRASP": 62,
+          "PULL": 60
+        }
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 705,
+        "dwell_timeout_count": 4,
+        "skip_count": 4,
+        "IK_failed_steps": 122,
+        "clipped_steps": 418,
+        "seed": 1000214,
+        "final_target_index": 179,
+        "total_targets": 203,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 162,
+          "GRASP": 87,
+          "PULL": 131,
+          "TRANSPORT": 304,
+          "DROP": 21
+        },
+        "dwell_by_phase": {
+          "GRASP": 2,
+          "PULL": 2
+        },
+        "ik_by_phase": {
+          "GRASP": 62,
+          "PULL": 60
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000090",
+      "seed": 1000235,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 507,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 130,
+        "seed": 1000235,
+        "final_target_index": 195,
+        "total_targets": 216,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 23,
+          "GRASP": 39,
+          "PULL": 63,
+          "TRANSPORT": 358,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 507,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 130,
+        "seed": 1000235,
+        "final_target_index": 195,
+        "total_targets": 216,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 23,
+          "GRASP": 39,
+          "PULL": 63,
+          "TRANSPORT": 358,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000100",
+      "seed": 1000250,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 503,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 230,
+        "seed": 1000250,
+        "final_target_index": 171,
+        "total_targets": 199,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 62,
+          "GRASP": 33,
+          "PULL": 70,
+          "TRANSPORT": 320,
+          "DROP": 18
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 505,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 233,
+        "seed": 1000250,
+        "final_target_index": 172,
+        "total_targets": 199,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 62,
+          "GRASP": 33,
+          "PULL": 70,
+          "TRANSPORT": 320,
+          "DROP": 20
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000110",
+      "seed": 1000274,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 493,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 184,
+        "seed": 1000274,
+        "final_target_index": 175,
+        "total_targets": 201,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 42,
+          "GRASP": 37,
+          "PULL": 71,
+          "TRANSPORT": 327,
+          "DROP": 16
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 493,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 184,
+        "seed": 1000274,
+        "final_target_index": 175,
+        "total_targets": 201,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 42,
+          "GRASP": 37,
+          "PULL": 71,
+          "TRANSPORT": 327,
+          "DROP": 16
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000120",
+      "seed": 1000294,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 10,
+        "skip_count": 10,
+        "IK_failed_steps": 0,
+        "clipped_steps": 390,
+        "seed": 1000294,
+        "final_target_index": 182,
+        "total_targets": 228,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 21,
+          "GRASP": 386,
+          "PULL": 158,
+          "TRANSPORT": 335
+        },
+        "dwell_by_phase": {
+          "GRASP": 10
+        },
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 10,
+        "skip_count": 10,
+        "IK_failed_steps": 0,
+        "clipped_steps": 390,
+        "seed": 1000294,
+        "final_target_index": 182,
+        "total_targets": 228,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 21,
+          "GRASP": 386,
+          "PULL": 158,
+          "TRANSPORT": 335
+        },
+        "dwell_by_phase": {
+          "GRASP": 10
+        },
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000130",
+      "seed": 1000345,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 635,
+        "dwell_timeout_count": 1,
+        "skip_count": 1,
+        "IK_failed_steps": 0,
+        "clipped_steps": 191,
+        "seed": 1000345,
+        "final_target_index": 181,
+        "total_targets": 206,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 23,
+          "GRASP": 166,
+          "PULL": 83,
+          "TRANSPORT": 347,
+          "DROP": 16
+        },
+        "dwell_by_phase": {
+          "GRASP": 1
+        },
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 634,
+        "dwell_timeout_count": 1,
+        "skip_count": 1,
+        "IK_failed_steps": 0,
+        "clipped_steps": 191,
+        "seed": 1000345,
+        "final_target_index": 181,
+        "total_targets": 206,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 23,
+          "GRASP": 166,
+          "PULL": 82,
+          "TRANSPORT": 347,
+          "DROP": 16
+        },
+        "dwell_by_phase": {
+          "GRASP": 1
+        },
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000140",
+      "seed": 1000371,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 721,
+        "dwell_timeout_count": 5,
+        "skip_count": 5,
+        "IK_failed_steps": 150,
+        "clipped_steps": 421,
+        "seed": 1000371,
+        "final_target_index": 179,
+        "total_targets": 204,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 146,
+          "GRASP": 91,
+          "PULL": 153,
+          "TRANSPORT": 312,
+          "DROP": 19
+        },
+        "dwell_by_phase": {
+          "GRASP": 2,
+          "PULL": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 60,
+          "PULL": 90
+        }
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 721,
+        "dwell_timeout_count": 5,
+        "skip_count": 5,
+        "IK_failed_steps": 150,
+        "clipped_steps": 421,
+        "seed": 1000371,
+        "final_target_index": 179,
+        "total_targets": 204,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 146,
+          "GRASP": 91,
+          "PULL": 153,
+          "TRANSPORT": 312,
+          "DROP": 19
+        },
+        "dwell_by_phase": {
+          "GRASP": 2,
+          "PULL": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 60,
+          "PULL": 90
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000150",
+      "seed": 1000394,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 771,
+        "dwell_timeout_count": 4,
+        "skip_count": 4,
+        "IK_failed_steps": 0,
+        "clipped_steps": 221,
+        "seed": 1000394,
+        "final_target_index": 228,
+        "total_targets": 250,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 14,
+          "GRASP": 269,
+          "PULL": 127,
+          "TRANSPORT": 338,
+          "DROP": 23
+        },
+        "dwell_by_phase": {
+          "GRASP": 4
+        },
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 771,
+        "dwell_timeout_count": 4,
+        "skip_count": 4,
+        "IK_failed_steps": 0,
+        "clipped_steps": 222,
+        "seed": 1000394,
+        "final_target_index": 228,
+        "total_targets": 250,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 14,
+          "GRASP": 269,
+          "PULL": 127,
+          "TRANSPORT": 338,
+          "DROP": 23
+        },
+        "dwell_by_phase": {
+          "GRASP": 4
+        },
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000160",
+      "seed": 1000420,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 503,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 208,
+        "seed": 1000420,
+        "final_target_index": 177,
+        "total_targets": 202,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 43,
+          "GRASP": 41,
+          "PULL": 69,
+          "TRANSPORT": 334,
+          "DROP": 16
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 503,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 208,
+        "seed": 1000420,
+        "final_target_index": 177,
+        "total_targets": 202,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 43,
+          "GRASP": 41,
+          "PULL": 69,
+          "TRANSPORT": 334,
+          "DROP": 16
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000170",
+      "seed": 1000440,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 487,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 216,
+        "seed": 1000440,
+        "final_target_index": 167,
+        "total_targets": 194,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 43,
+          "PULL": 60,
+          "TRANSPORT": 333,
+          "DROP": 18
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 487,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 216,
+        "seed": 1000440,
+        "final_target_index": 167,
+        "total_targets": 194,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 43,
+          "PULL": 60,
+          "TRANSPORT": 333,
+          "DROP": 18
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000180",
+      "seed": 1000465,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 12,
+        "skip_count": 12,
+        "IK_failed_steps": 1,
+        "clipped_steps": 653,
+        "seed": 1000465,
+        "final_target_index": 159,
+        "total_targets": 218,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 87,
+          "GRASP": 412,
+          "PULL": 120,
+          "TRANSPORT": 281
+        },
+        "dwell_by_phase": {
+          "GRASP": 11,
+          "PULL": 1
+        },
+        "ik_by_phase": {
+          "GRASP": 1
+        }
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 11,
+        "skip_count": 11,
+        "IK_failed_steps": 1,
+        "clipped_steps": 652,
+        "seed": 1000465,
+        "final_target_index": 161,
+        "total_targets": 218,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 87,
+          "GRASP": 439,
+          "PULL": 90,
+          "TRANSPORT": 284
+        },
+        "dwell_by_phase": {
+          "GRASP": 11
+        },
+        "ik_by_phase": {
+          "GRASP": 1
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000190",
+      "seed": 1000486,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 531,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 158,
+        "seed": 1000486,
+        "final_target_index": 194,
+        "total_targets": 216,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 41,
+          "PULL": 100,
+          "TRANSPORT": 333,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 531,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 158,
+        "seed": 1000486,
+        "final_target_index": 194,
+        "total_targets": 216,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 41,
+          "PULL": 100,
+          "TRANSPORT": 333,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000200",
+      "seed": 1000510,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 629,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 238,
+        "seed": 1000510,
+        "final_target_index": 220,
+        "total_targets": 241,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 147,
+          "GRASP": 40,
+          "PULL": 76,
+          "TRANSPORT": 342,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 629,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 238,
+        "seed": 1000510,
+        "final_target_index": 220,
+        "total_targets": 241,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 147,
+          "GRASP": 40,
+          "PULL": 76,
+          "TRANSPORT": 342,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000210",
+      "seed": 1000542,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 566,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 298,
+        "seed": 1000542,
+        "final_target_index": 175,
+        "total_targets": 202,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 134,
+          "GRASP": 47,
+          "PULL": 58,
+          "TRANSPORT": 310,
+          "DROP": 17
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 566,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 296,
+        "seed": 1000542,
+        "final_target_index": 175,
+        "total_targets": 202,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 134,
+          "GRASP": 47,
+          "PULL": 58,
+          "TRANSPORT": 310,
+          "DROP": 17
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000220",
+      "seed": 1000572,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 492,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 206,
+        "seed": 1000572,
+        "final_target_index": 172,
+        "total_targets": 198,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 43,
+          "GRASP": 40,
+          "PULL": 66,
+          "TRANSPORT": 326,
+          "DROP": 17
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 492,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 206,
+        "seed": 1000572,
+        "final_target_index": 172,
+        "total_targets": 198,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 43,
+          "GRASP": 40,
+          "PULL": 66,
+          "TRANSPORT": 326,
+          "DROP": 17
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000230",
+      "seed": 1000593,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 489,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 145,
+        "seed": 1000593,
+        "final_target_index": 197,
+        "total_targets": 218,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 35,
+          "PULL": 66,
+          "TRANSPORT": 331,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 489,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 145,
+        "seed": 1000593,
+        "final_target_index": 197,
+        "total_targets": 218,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 35,
+          "PULL": 66,
+          "TRANSPORT": 331,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000240",
+      "seed": 1000626,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 486,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 162,
+        "seed": 1000626,
+        "final_target_index": 199,
+        "total_targets": 221,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 37,
+          "PULL": 68,
+          "TRANSPORT": 324,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 486,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 162,
+        "seed": 1000626,
+        "final_target_index": 199,
+        "total_targets": 221,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 37,
+          "PULL": 68,
+          "TRANSPORT": 324,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000250",
+      "seed": 1000646,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 505,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 179,
+        "seed": 1000646,
+        "final_target_index": 172,
+        "total_targets": 198,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 42,
+          "GRASP": 38,
+          "PULL": 65,
+          "TRANSPORT": 345,
+          "DROP": 15
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 505,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 179,
+        "seed": 1000646,
+        "final_target_index": 172,
+        "total_targets": 198,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 42,
+          "GRASP": 38,
+          "PULL": 65,
+          "TRANSPORT": 345,
+          "DROP": 15
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000260",
+      "seed": 1000676,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 15,
+        "skip_count": 15,
+        "IK_failed_steps": 153,
+        "clipped_steps": 675,
+        "seed": 1000676,
+        "final_target_index": 162,
+        "total_targets": 210,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 363,
+          "GRASP": 95,
+          "PULL": 161,
+          "TRANSPORT": 281
+        },
+        "dwell_by_phase": {
+          "REACH": 10,
+          "GRASP": 2,
+          "PULL": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 63,
+          "PULL": 90
+        }
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 15,
+        "skip_count": 15,
+        "IK_failed_steps": 153,
+        "clipped_steps": 674,
+        "seed": 1000676,
+        "final_target_index": 163,
+        "total_targets": 210,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 361,
+          "GRASP": 95,
+          "PULL": 161,
+          "TRANSPORT": 283
+        },
+        "dwell_by_phase": {
+          "REACH": 10,
+          "GRASP": 2,
+          "PULL": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 63,
+          "PULL": 90
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000270",
+      "seed": 1000702,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 628,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 221,
+        "seed": 1000702,
+        "final_target_index": 202,
+        "total_targets": 228,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 12,
+          "GRASP": 183,
+          "PULL": 71,
+          "TRANSPORT": 347,
+          "DROP": 15
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 628,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 221,
+        "seed": 1000702,
+        "final_target_index": 202,
+        "total_targets": 228,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 12,
+          "GRASP": 183,
+          "PULL": 71,
+          "TRANSPORT": 347,
+          "DROP": 15
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000280",
+      "seed": 1000731,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 486,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 149,
+        "seed": 1000731,
+        "final_target_index": 197,
+        "total_targets": 218,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 36,
+          "PULL": 65,
+          "TRANSPORT": 328,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 486,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 149,
+        "seed": 1000731,
+        "final_target_index": 197,
+        "total_targets": 218,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 36,
+          "PULL": 65,
+          "TRANSPORT": 328,
+          "DROP": 24
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000290",
+      "seed": 1000750,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 489,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 141,
+        "seed": 1000750,
+        "final_target_index": 193,
+        "total_targets": 215,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 38,
+          "PULL": 58,
+          "TRANSPORT": 337,
+          "DROP": 23
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 489,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 141,
+        "seed": 1000750,
+        "final_target_index": 193,
+        "total_targets": 215,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 38,
+          "PULL": 58,
+          "TRANSPORT": 337,
+          "DROP": 23
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000300",
+      "seed": 1000779,
+      "old": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 494,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 146,
+        "seed": 1000779,
+        "final_target_index": 191,
+        "total_targets": 214,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 39,
+          "PULL": 62,
+          "TRANSPORT": 338,
+          "DROP": 22
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": true,
+        "grasped": true,
+        "detached": true,
+        "timeout": false,
+        "control_steps": 494,
+        "dwell_timeout_count": 0,
+        "skip_count": 0,
+        "IK_failed_steps": 0,
+        "clipped_steps": 146,
+        "seed": 1000779,
+        "final_target_index": 191,
+        "total_targets": 214,
+        "final_phase": "DROP",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 33,
+          "GRASP": 39,
+          "PULL": 62,
+          "TRANSPORT": 338,
+          "DROP": 22
+        },
+        "dwell_by_phase": {},
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    }
+  ],
+  "regression_seeds": [],
+  "resolved_seeds": [],
+  "bounded_lookahead": false,
+  "incorrect_pass_events": 0,
+  "conclusion": "FAIL",
+  "expert_accepted": 30,
+  "baseline": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation",
+  "four_seed_results": [
+    {
+      "episode_id": "episode_000020",
+      "seed": 1000056,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 14,
+        "skip_count": 14,
+        "IK_failed_steps": 90,
+        "clipped_steps": 621,
+        "seed": 1000056,
+        "final_target_index": 168,
+        "total_targets": 207,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 391,
+          "GRASP": 126,
+          "PULL": 77,
+          "TRANSPORT": 306
+        },
+        "dwell_by_phase": {
+          "REACH": 11,
+          "GRASP": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 90
+        }
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 14,
+        "skip_count": 14,
+        "IK_failed_steps": 90,
+        "clipped_steps": 620,
+        "seed": 1000056,
+        "final_target_index": 169,
+        "total_targets": 207,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 391,
+          "GRASP": 125,
+          "PULL": 77,
+          "TRANSPORT": 307
+        },
+        "dwell_by_phase": {
+          "REACH": 11,
+          "GRASP": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 90
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000120",
+      "seed": 1000294,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 10,
+        "skip_count": 10,
+        "IK_failed_steps": 0,
+        "clipped_steps": 390,
+        "seed": 1000294,
+        "final_target_index": 182,
+        "total_targets": 228,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 21,
+          "GRASP": 386,
+          "PULL": 158,
+          "TRANSPORT": 335
+        },
+        "dwell_by_phase": {
+          "GRASP": 10
+        },
+        "ik_by_phase": {}
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 10,
+        "skip_count": 10,
+        "IK_failed_steps": 0,
+        "clipped_steps": 390,
+        "seed": 1000294,
+        "final_target_index": 182,
+        "total_targets": 228,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 21,
+          "GRASP": 386,
+          "PULL": 158,
+          "TRANSPORT": 335
+        },
+        "dwell_by_phase": {
+          "GRASP": 10
+        },
+        "ik_by_phase": {}
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000180",
+      "seed": 1000465,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 12,
+        "skip_count": 12,
+        "IK_failed_steps": 1,
+        "clipped_steps": 653,
+        "seed": 1000465,
+        "final_target_index": 159,
+        "total_targets": 218,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 87,
+          "GRASP": 412,
+          "PULL": 120,
+          "TRANSPORT": 281
+        },
+        "dwell_by_phase": {
+          "GRASP": 11,
+          "PULL": 1
+        },
+        "ik_by_phase": {
+          "GRASP": 1
+        }
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 11,
+        "skip_count": 11,
+        "IK_failed_steps": 1,
+        "clipped_steps": 652,
+        "seed": 1000465,
+        "final_target_index": 161,
+        "total_targets": 218,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 87,
+          "GRASP": 439,
+          "PULL": 90,
+          "TRANSPORT": 284
+        },
+        "dwell_by_phase": {
+          "GRASP": 11
+        },
+        "ik_by_phase": {
+          "GRASP": 1
+        }
+      },
+      "exact_baseline_step_match": false
+    },
+    {
+      "episode_id": "episode_000260",
+      "seed": 1000676,
+      "old": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 15,
+        "skip_count": 15,
+        "IK_failed_steps": 153,
+        "clipped_steps": 675,
+        "seed": 1000676,
+        "final_target_index": 162,
+        "total_targets": 210,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 363,
+          "GRASP": 95,
+          "PULL": 161,
+          "TRANSPORT": 281
+        },
+        "dwell_by_phase": {
+          "REACH": 10,
+          "GRASP": 2,
+          "PULL": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 63,
+          "PULL": 90
+        }
+      },
+      "new": {
+        "success": false,
+        "grasped": true,
+        "detached": true,
+        "timeout": true,
+        "control_steps": 900,
+        "dwell_timeout_count": 15,
+        "skip_count": 15,
+        "IK_failed_steps": 153,
+        "clipped_steps": 674,
+        "seed": 1000676,
+        "final_target_index": 163,
+        "total_targets": 210,
+        "final_phase": "TRANSPORT",
+        "passed_waypoint_count": 0,
+        "phase_steps": {
+          "REACH": 361,
+          "GRASP": 95,
+          "PULL": 161,
+          "TRANSPORT": 283
+        },
+        "dwell_by_phase": {
+          "REACH": 10,
+          "GRASP": 2,
+          "PULL": 3
+        },
+        "ik_by_phase": {
+          "GRASP": 63,
+          "PULL": 90
+        }
+      },
+      "exact_baseline_step_match": false
+    }
+  ],
+  "phase_totals": {
+    "old": {
+      "steps": {
+        "REACH": 2446,
+        "GRASP": 2696,
+        "PULL": 2535,
+        "TRANSPORT": 9779,
+        "DROP": 510
+      },
+      "dwell_timeout": {
+        "REACH": 21,
+        "GRASP": 37,
+        "PULL": 9,
+        "TRANSPORT": 0,
+        "DROP": 0
+      },
+      "forced_advancement": {
+        "REACH": 21,
+        "GRASP": 37,
+        "PULL": 9
+      },
+      "ik_failed": {
+        "REACH": 0,
+        "GRASP": 336,
+        "PULL": 240,
+        "TRANSPORT": 0,
+        "DROP": 0
+      },
+      "clipped": {
+        "REACH": 1831,
+        "GRASP": 1597,
+        "PULL": 761,
+        "TRANSPORT": 3715,
+        "DROP": 122
+      },
+      "passed": {
+        "REACH": 0,
+        "GRASP": 0,
+        "PULL": 0,
+        "TRANSPORT": 0,
+        "DROP": 0
+      }
+    },
+    "new": {
+      "steps": {
+        "REACH": 2444,
+        "GRASP": 2722,
+        "PULL": 2505,
+        "TRANSPORT": 9786,
+        "DROP": 512
+      },
+      "dwell_timeout": {
+        "REACH": 21,
+        "GRASP": 37,
+        "PULL": 8,
+        "TRANSPORT": 0,
+        "DROP": 0
+      },
+      "forced_advancement": {
+        "REACH": 21,
+        "GRASP": 37,
+        "PULL": 8
+      },
+      "ik_failed": {
+        "REACH": 0,
+        "GRASP": 336,
+        "PULL": 240,
+        "TRANSPORT": 0,
+        "DROP": 0
+      },
+      "clipped": {
+        "REACH": 1829,
+        "GRASP": 1623,
+        "PULL": 734,
+        "TRANSPORT": 3706,
+        "DROP": 124
+      },
+      "passed": {
+        "REACH": 0,
+        "GRASP": 0,
+        "PULL": 0,
+        "TRANSPORT": 0,
+        "DROP": 0
+      }
+    }
+  },
+  "source_files": [
+    "scripts/check_gate1_oracle.py"
+  ],
+  "test_files": [
+    "scripts/test_gate1_transport_advancement.py"
+  ],
+  "bounded_lookahead_reason": "All four failures have zero TRANSPORT IK failure; the necessary evidence is absent.",
+  "diagnosis": "Four seeds enter TRANSPORT after 18.9\u201320.7 s. All old/new dwell timeouts and IK failures of these seeds occur before TRANSPORT. Unmet TRANSPORT targets are ahead of the TCP, not geometrically passed. The proposed passage mechanism does not address these failures.",
+  "no_parameter_tuning": true,
+  "no_time_indexed_runs": true,
+  "no_training_dataset_or_training": true,
+  "fixed_budget_seconds": 30,
+  "fixed_budget_steps": 900,
+  "regression_reuses_four_unchanged_build_runs": true,
+  "checks": {
+    "geometry_unittests": 4,
+    "source_and_expert_hashes": true,
+    "paired_reset": true,
+    "index_increments_zero_or_one": true,
+    "pass_event_guards": true
+  },
+  "outcome_scope": "FAIL: the requested strict-success improvement and dwell reduction were not achieved; conservative passage implemented and regression completed."
+}

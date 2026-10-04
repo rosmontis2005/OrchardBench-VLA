@@ -1,0 +1,368 @@
+{
+  "method": "Lightweight manifests / seed tables / Gate protocols and summaries; no trajectory/video audit",
+  "files": [
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_advancement_fix/four_summary.json",
+      "count": 4,
+      "max_seed": 1000676,
+      "sha256": "626e27fd4a87ffdf240c41df5c12ec165f2c8effe9c7e9e2f687711efddbae9d"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_advancement_fix/summary.json",
+      "count": 30,
+      "max_seed": 1000779,
+      "sha256": "6040bc74777157da8b03a8723930aec0892bc6aa07685973daa214462821aa1c"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_revalidation/frozen_protocol.json",
+      "count": 31,
+      "max_seed": 1000779,
+      "sha256": "96cbca5c96fb5628ac76649c1df2382b6dee219b0745211540372d6d37cec41f"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_advancement_fix/regression_summary.json",
+      "count": 30,
+      "max_seed": 1000779,
+      "sha256": "9ff059cdb958088a45813fd3b5231137cef554af060cefe257ba0f36ee4d9e8c"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_advancement_fix/frozen_protocol.json",
+      "count": 30,
+      "max_seed": 1000779,
+      "sha256": "c482b2a45067dd85212ee9ca81800930d06bee653d311ae4578149243e45544f"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/gate1_summary.json",
+      "count": 32,
+      "max_seed": 1000779,
+      "sha256": "32960b4098cc54d16bd9f49cb99f8a61907e056ef12d8e20e636d16b131e51a0"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_fixed_base/pilot_checkpoint_v1_planner/manifest.jsonl",
+      "count": 8,
+      "max_seed": 920007,
+      "sha256": "03dc8e1e3d37b10bf8c5d5d997c59346fa6b84e02bca6b3d228e2c8f8d1bb0fc"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_fixed_base/pilot_checkpoint_v1_planner/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "7e1aee44c1782c5697c1d80f0575e223cd4bb9f3704743d659bb62d748d3c9a5"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_fixed_base/pilot_checkpoint/manifest.jsonl",
+      "count": 8,
+      "max_seed": 920007,
+      "sha256": "1757c5496924c71c93e24b5d5edfeb993857de95f6106aff08c0614269c3fa9b"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_dataset/final_pilot_collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "bb9b1f6c08f813cdd9d3a09dfef70dfe123e6474c903eded7b33310a1bb7c815"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_dataset/worksite_1p3_calibration_manifest.jsonl",
+      "count": 55,
+      "max_seed": 100054,
+      "sha256": "28f9a079d49d6ce0dd2f04319248e4a1438e9549d2716505ed024dc3196fefee"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_fixed_base/pilot_checkpoint/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "4b036ba6e16c3995fc21710cda500c53b312632e64a6408434f624b11cfc3e13"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_dataset/final_pilot_manifest.jsonl",
+      "count": 100,
+      "max_seed": 910099,
+      "sha256": "176666cd560b85b8c8955c85aa1f951f95becb436f2fb9f80efa0716f2c284d2"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_dataset/worksite2_calibration_manifest.jsonl",
+      "count": 59,
+      "max_seed": 900058,
+      "sha256": "6ea866d6b2744e8796b1ccbadeef7757cfbb10c5b0250897bbedbe94b1dd3a22"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_dataset/all_prior_calibration_attempts.jsonl",
+      "count": 127,
+      "max_seed": 900058,
+      "sha256": "75ba2cace1943a6e0a198e56d3f8cb30bdc383ff1350abccb324e318c15bb89c"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/pilot_dataset_detach_summary.json",
+      "count": 0,
+      "max_seed": null,
+      "sha256": "a407b4026ab5d37330d9e1bdc39c4e8a4c5e31eea397a3f551550bc9b9e8d683"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/pilot_dataset/manifest.jsonl",
+      "count": 26,
+      "max_seed": 930025,
+      "sha256": "67af7fbb13a584b3482ebd7f7b8b20db1b32f267f27dc01a2e09bad1eb24321c"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/pilot_dataset/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "bd5eb58cdd7ac6c594212bb49bca9072c1c5763fe64c2f3ed5f7c24abc401efa"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/negative_raw/pilot_checkpoint/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "c6479aeda2c63deb01e1b2b96d12c22e0cd29208e68fbd6bab31e38999e3d3b7"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/negative_raw/pilot_checkpoint/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "7e9e5945b5d676af6a613efeadc01c6ff4ae3142212bd3d16e44d4764b565f9a"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/final_pilot_dataset/manifest.jsonl",
+      "count": 29,
+      "max_seed": 950028,
+      "sha256": "5c0ba71e6ad41e28f27f5bd7b612e8ec623e5a5527bfa854856efa11f49e506b"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/final_pilot_dataset/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "b06087a74b6e652972a5bff3fbb69735ccb9c06fada0f47d977cab0d4bcd8d5e"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/stem/summary.json",
+      "count": 0,
+      "max_seed": null,
+      "sha256": "896f023d45c41eb91d8151100433ee8ecd465010d11c4d8e4348ce0549527542"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/final_pilot_dataset_detach_summary.json",
+      "count": 0,
+      "max_seed": null,
+      "sha256": "2023e1d291a330d01c8c8169d6330cfd0aef4392c22a108a3002d507dea535e6"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/positive_raw/pilot_checkpoint/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "1e2eab86944ded493a398f53a99f87375e573c1105ed089fdb0be9115995fc62"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/negative_raw/pilot_checkpoint/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "c60181fd81cfda77327c041023c237b643b8dfa90918184110fcfddf97347a84"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/positive_raw/pilot_checkpoint/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "259f6eb1fb54ce21f3bdd3c981397f52cc6ef7c58d07e1734fa59a82d5f6ebb2"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/negative_raw/pilot_checkpoint/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "a3d96a923e2c76f9115448392a0c5dba60aa4235815796bc1bad50c0cb14fc3f"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/visibility/summary.json",
+      "count": 40,
+      "max_seed": 940040,
+      "sha256": "dc3b140f7fa3981c7a658f4233462b0681b5158dc0f0434a959127ab6522e74a"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/negative/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "c6479aeda2c63deb01e1b2b96d12c22e0cd29208e68fbd6bab31e38999e3d3b7"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/negative/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "7e9e5945b5d676af6a613efeadc01c6ff4ae3142212bd3d16e44d4764b565f9a"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/positive_raw/pilot_checkpoint/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "8bd0822d3e2d308837df2553dfd11fe64940ed515b0f199c81904e816cd2bff0"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/positive_raw/pilot_checkpoint/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "5889704aa548397b740e35cfb64e6959ff40b1f17a1a75d62281dbc4e98c0de0"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/pilot_raw/pilot_checkpoint/manifest.jsonl",
+      "count": 26,
+      "max_seed": 930025,
+      "sha256": "67af7fbb13a584b3482ebd7f7b8b20db1b32f267f27dc01a2e09bad1eb24321c"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/negative/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "a3d96a923e2c76f9115448392a0c5dba60aa4235815796bc1bad50c0cb14fc3f"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/positive/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "1e2eab86944ded493a398f53a99f87375e573c1105ed089fdb0be9115995fc62"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/pilot_raw/pilot_checkpoint/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "bd5eb58cdd7ac6c594212bb49bca9072c1c5763fe64c2f3ed5f7c24abc401efa"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/formal_collection_v1/preflight/positive/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "259f6eb1fb54ce21f3bdd3c981397f52cc6ef7c58d07e1734fa59a82d5f6ebb2"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/negative/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "c60181fd81cfda77327c041023c237b643b8dfa90918184110fcfddf97347a84"
+    },
+    {
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "d2ebcb3c23c97f73e1fd2d797504797ff1be9e8826a6cddb65747706a6336c45"
+    },
+    {
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/manifest.jsonl",
+      "count": 780,
+      "max_seed": 1000779,
+      "sha256": "00f35c9385558f2397b683c53c43a649db04d49b81edf8c041fff9de8ddfe367"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/frozen_protocol.json",
+      "count": 31,
+      "max_seed": 1000779,
+      "sha256": "29b3cd5826bfcbf95c4e534b98572e09e60d172402555712c20901917594a058"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/positive/manifest.jsonl",
+      "count": 1,
+      "max_seed": 910001,
+      "sha256": "8bd0822d3e2d308837df2553dfd11fe64940ed515b0f199c81904e816cd2bff0"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/premature_gate/positive/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "5889704aa548397b740e35cfb64e6959ff40b1f17a1a75d62281dbc4e98c0de0"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_summary.json",
+      "count": 9,
+      "max_seed": 1000576,
+      "sha256": "dd84119d67e197b00ca94d7018a0bc38553c3d4d522d288ca295736628e85204"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/paired_seed_results.csv",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "015d1476a8e37aa4a75513be858f0b31adc686e1dbbf4e6bd655d69c384bc8e3"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0_legacy_summary.json",
+      "count": 9,
+      "max_seed": 1000576,
+      "sha256": "03c51009f2bc642f98d1a259a2d67e1e6588d59fc0a76eca3cd9cf0074915712"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3_summary.json",
+      "count": 9,
+      "max_seed": 1000576,
+      "sha256": "6eeb3c31463f450222adb12ea0505a2a8dce8e9250d541b0d92f754338d7a084"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_confirm_summary.json",
+      "count": 3,
+      "max_seed": 1000576,
+      "sha256": "f66391cfce88325fe4e8dffde4deccfc3b809b48bdc24c9e6cdd64c4bc796d0d"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/protocol.json",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "67ab5bb26df5c920be0287204ce48b99c4f2619a645f21b09de6d3f98a8c243a"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/final_pilot_raw/pilot_checkpoint/manifest.jsonl",
+      "count": 29,
+      "max_seed": 950028,
+      "sha256": "5c0ba71e6ad41e28f27f5bd7b612e8ec623e5a5527bfa854856efa11f49e506b"
+    },
+    {
+      "path": "/home/rosmontis/Projects/log/raw_stem_visibility/final_pilot_raw/pilot_checkpoint/collection_summary.json",
+      "count": 1,
+      "max_seed": 0,
+      "sha256": "b06087a74b6e652972a5bff3fbb69735ccb9c06fada0f47d977cab0d4bcd8d5e"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round0/pilot_seed_selection.json",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "3e757e293efe542a9101241ad7e15e40a80841bc03f1f3c80604aedf7da6a725"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2_summary.json",
+      "count": 9,
+      "max_seed": 1000576,
+      "sha256": "5510ad3ca3a304275a94cacce669894ea1b2bd81d29f52d971af21252d8a91a9"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round3/pilot_seed_selection.json",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "c4818ca48dd1f5ca0064814bf0d0e8f35d34e97969e521b1422c1eae524b934e"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/seed_geometry.json",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "4ca6b239500e78dfb7671482634b8bfccd694e4cea6687da0b31336adaf726aa"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round2/pilot_seed_selection.json",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "c4818ca48dd1f5ca0064814bf0d0e8f35d34e97969e521b1422c1eae524b934e"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1/pilot_seed_selection.json",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "3e757e293efe542a9101241ad7e15e40a80841bc03f1f3c80604aedf7da6a725"
+    },
+    {
+      "path": "/home/rosmontis/Projects/orchardbench/log/arm_retime_rounds/round1_confirm/pilot_seed_selection.json",
+      "count": 8,
+      "max_seed": 1000576,
+      "sha256": "3e757e293efe542a9101241ad7e15e40a80841bc03f1f3c80604aedf7da6a725"
+    }
+  ],
+  "unique_seeds": 1113,
+  "max_existing_seed": 1000779,
+  "pilot_seed_start": 1010000,
+  "formal_seed_start": 1020000,
+  "formal_seed_range": [
+    1020000,
+    2009999
+  ],
+  "no_overlap": true
+}

@@ -1,0 +1,18 @@
+{
+  "method": "Reuse initial manifest scan plus completed 450 attempts; choose above previous reserved range",
+  "original_scan": "/home/rosmontis/Projects/orchardbench/log/v1_450_collection_replay_filter/seed_scan.json",
+  "original_scan_sha256": "582497d71855a11f868f63e4167fe0f94ea0a2e426ca2235841b4bf79a0006db",
+  "preceding_attempts_sha256": "fa9d62f1f9464beef958655e323fa28ad59d283e5ab3ea734a1a4e56e519d2ca",
+  "max_existing_seed": 1021143,
+  "previous_reserved_seed_range": [
+    1020000,
+    2009999
+  ],
+  "formal_seed_start": 2010000,
+  "formal_seed_range": [
+    2010000,
+    3009999
+  ],
+  "no_overlap": true,
+  "pilot_reused": true
+}

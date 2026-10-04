@@ -88,43 +88,10 @@ def phase_at(traj, index):
     return next(r['state'] for r in reversed(trace) if r['frame'] / CONFIG.sim_hz <= timestamp + 1e-8)
 
 
-
-def transport_pass_progress(positions, phases, index, tcp, rotation_error):
-    """Bounded geometric passage of an ordinary TRANSPORT sample, never a timer.
-
-    Protect the first/last two samples of each phase. The TCP must be beyond
-    both the incoming plane and the outgoing plane, within the next segment,
-    and within the existing position tube and current rotation tolerance.
-    Degenerate segments, sharp turns and large spatial gaps remain strict.
-    """
-    if (index < 2 or index + 2 >= len(phases)
-            or any(p != 'TRANSPORT' for p in phases[index - 2:index + 3])):
-        return dict(eligible=False, passed=False)
-    previous, target, following = positions[index - 1:index + 2]
-    incoming, outgoing = target - previous, following - target
-    a, b = float(np.linalg.norm(incoming)), float(np.linalg.norm(outgoing))
-    if min(a, b) < 1e-6 or max(a, b) > 2 * CONFIG.ik_position_tolerance:
-        return dict(eligible=False, passed=False)
-    incoming, outgoing = incoming / a, outgoing / b
-    offset = np.asarray(tcp) - target
-    progress = float(offset @ outgoing)
-    incoming_progress = float(offset @ incoming)
-    lateral = float(np.linalg.norm(offset - progress * outgoing))
-    eligible = float(incoming @ outgoing) >= 0.5
-    passed = (eligible and incoming_progress >= 0 and 0 <= progress <= b
-              and lateral <= CONFIG.ik_position_tolerance
-              and rotation_error <= CONFIG.ik_rotation_tolerance)
-    return dict(eligible=eligible, passed=bool(passed), progress_m=progress,
-                incoming_progress_m=incoming_progress, lateral_error_m=lateral,
-                next_segment_length_m=b)
-
-
 def replay(path, mode, output, protocol_hash):
     traj = json.loads(path.read_text())
     n = traj['num_frames']
     all_chunks = list(chunks(traj))
-    positions = np.asarray(traj['actions']['ee_pos'])
-    phases = [phase_at(traj, i) for i in range(n)]
     env = OrchardVLAEnv(CONFIG)
     rows, events = [], []
     dwell = np.zeros(n, dtype=int)
@@ -151,10 +118,7 @@ def replay(path, mode, output, protocol_hash):
             reached[index] |= in_tolerance
             consecutive_ik = consecutive_ik + 1 if info['ik_failed'] else 0
             max_consecutive_ik = max(max_consecutive_ik, consecutive_ik)
-            passage = (transport_pass_progress(positions, phases, index, obs['tcp_pos_world'], re)
-                       if mode == 'reach-conditioned' else dict(eligible=False, passed=False))
-            passed = passage['passed'] and not in_tolerance
-            expired = mode == 'reach-conditioned' and not (in_tolerance or passed) and dwell[index] >= MAX_DWELL
+            expired = mode == 'reach-conditioned' and not in_tolerance and dwell[index] >= MAX_DWELL
             if expired:
                 recent = rows[-(MAX_DWELL - 1):]
                 failures = sum(r['info']['ik_failed'] for r in recent) + int(info['ik_failed'])
@@ -163,17 +127,12 @@ def replay(path, mode, output, protocol_hash):
                                    position_error_m=pe, rotation_error_rad=re,
                                    ik_failed_steps=failures, next_target_index=index + 1,
                                    action='advance_one_waypoint' if not (done or truncated) else 'episode_ended'))
-            advance = mode == 'time-indexed' or in_tolerance or passed or expired
+            advance = mode == 'time-indexed' or in_tolerance or expired
             rows.append(dict(step=len(rows), target_index=index, chunk_anchor_index=anchor,
                              phase=phase_at(traj, index), sim_time=obs['sim_time'],
                              position_error_m=pe, rotation_error_rad=re,
                              within_tolerance=bool(in_tolerance), dwell_steps=int(dwell[index]),
-                             dwell_timeout=bool(expired), passed_waypoint=bool(passed),
-                             transport_progress=passage,
-                             advancement_reason=('time_indexed' if mode == 'time-indexed' else
-                                                 'reached' if in_tolerance else 'passed' if passed else
-                                                 'maximum_dwell' if expired else 'hold'),
-                             requested_action=cmd['action'],
+                             dwell_timeout=bool(expired), requested_action=cmd['action'],
                              target_position=xyz[local], target_rotation=rot[local],
                              target_width=width[local], measured_position=obs['tcp_pos_world'],
                              measured_quaternion=obs['tcp_quat_world'], measured_width=obs['gripper_width'],
@@ -218,7 +177,6 @@ def replay(path, mode, output, protocol_hash):
                       rotation_error=stats([r['rotation_error_rad'] for r in rows]),
                       waypoint_dwell_steps=dwell, max_dwell=int(dwell.max()), maximum_dwell_limit=MAX_DWELL if mode == MODES[1] else 1,
                       dwell_timeout_count=len(events), replan_count=0,
-                      passed_waypoint_count=sum(r['passed_waypoint'] for r in rows),
                       skip_count=sum(e['action'] == 'advance_one_waypoint' for e in events),
                       replan_reason='No replan; dwell timeout abandons only the current unmet target.',
                       dwell_timeout_events=events, failure_reasons=failure, final_phase=rows[-1]['phase'],

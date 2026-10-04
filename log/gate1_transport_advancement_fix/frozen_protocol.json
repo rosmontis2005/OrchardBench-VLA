@@ -1,0 +1,287 @@
+{
+  "baseline": "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation",
+  "episodes": [
+    {
+      "episode_id": "episode_000010",
+      "seed": 1000025,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000010.json",
+      "sha256": "0a9d998bc386e4f49e05061e8c591cc96deb8529a33317d38575ccfa17a17a40"
+    },
+    {
+      "episode_id": "episode_000020",
+      "seed": 1000056,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000020.json",
+      "sha256": "6a966252928f535d192e8b8c3f3870727e807f5b3aa6f89b84d4a871ff0419f9"
+    },
+    {
+      "episode_id": "episode_000030",
+      "seed": 1000079,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000030.json",
+      "sha256": "2d160080021b68dcf7136ee8f2ba40ea0b78f2f536db02e8d0897f95e28b3711"
+    },
+    {
+      "episode_id": "episode_000040",
+      "seed": 1000106,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000040.json",
+      "sha256": "972d475d0836d3cb7ff1767d1a68cccf2d5b06f2311db3864cd7dd92db5e1256"
+    },
+    {
+      "episode_id": "episode_000050",
+      "seed": 1000136,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000050.json",
+      "sha256": "2ff1e3f7a86f3eb0d62694959e952b032960354aa08b2ddef9bf5c72620c4cb1"
+    },
+    {
+      "episode_id": "episode_000060",
+      "seed": 1000164,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000060.json",
+      "sha256": "54ded35b7c3d5497440abf9771a7d6e8528ad2e912eda1195a761ad4fca34ee2"
+    },
+    {
+      "episode_id": "episode_000070",
+      "seed": 1000192,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000070.json",
+      "sha256": "89d5f577483bed780d61f50c9162ab93284f2bc8f42ee2ad384c886d852daab5"
+    },
+    {
+      "episode_id": "episode_000080",
+      "seed": 1000214,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000080.json",
+      "sha256": "e9f620b7e18313681bb95569e2c11164b5bdd1d92af536838eef6f388ad73ab6"
+    },
+    {
+      "episode_id": "episode_000090",
+      "seed": 1000235,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000090.json",
+      "sha256": "45aaadf9e298d2261a6fedd5c2d94edee3ee471c7eeca8974fbaead75b0940ec"
+    },
+    {
+      "episode_id": "episode_000100",
+      "seed": 1000250,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000100.json",
+      "sha256": "f1a4ffa8f16338c29d4335af80f3f2cd40caa0713ac6efc3496e33af87ec2b4f"
+    },
+    {
+      "episode_id": "episode_000110",
+      "seed": 1000274,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000110.json",
+      "sha256": "fa18de28c26cd5f016bda0d1821b5f18e948e4ecbe3dd92001058159e26a6608"
+    },
+    {
+      "episode_id": "episode_000120",
+      "seed": 1000294,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000120.json",
+      "sha256": "01b57fe2373118bc653c887c5cdddb92982841de7dc64e7fe2bafb947b20217e"
+    },
+    {
+      "episode_id": "episode_000130",
+      "seed": 1000345,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000130.json",
+      "sha256": "209f9a7dfa3a31accfabe4f167fc08c7948f864ff2ed1b61120c519668af3f69"
+    },
+    {
+      "episode_id": "episode_000140",
+      "seed": 1000371,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000140.json",
+      "sha256": "906288f1e14ce358908e152fb91ce46b409d24f1ef86ca1e3466a1eb16c7465d"
+    },
+    {
+      "episode_id": "episode_000150",
+      "seed": 1000394,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000150.json",
+      "sha256": "4b2fc7380f8ea550492dfa7feaa429ab9f9024ecc2cc70a7a06d8055f32bedd8"
+    },
+    {
+      "episode_id": "episode_000160",
+      "seed": 1000420,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000160.json",
+      "sha256": "2e909d4ab6c9d055983fadddf4978660dc647a66092822bb6f2bbbd9d12fb0aa"
+    },
+    {
+      "episode_id": "episode_000170",
+      "seed": 1000440,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000170.json",
+      "sha256": "e9a29b601d1636d2e685d6a35881f51f767de9e6e4cad16d6c05791fa5a1d8e6"
+    },
+    {
+      "episode_id": "episode_000180",
+      "seed": 1000465,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000180.json",
+      "sha256": "6554fc3c557707d99f910e30bfa946595077451d8bc107429f5609734742e1ed"
+    },
+    {
+      "episode_id": "episode_000190",
+      "seed": 1000486,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000190.json",
+      "sha256": "cac504c7370e5ded8564e7bd62a21c9b67f41eaa4a1163467a99aee17608f736"
+    },
+    {
+      "episode_id": "episode_000200",
+      "seed": 1000510,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000200.json",
+      "sha256": "1916c36f2b1166bc3d796ece8a8f72c6a3f191cb3f83db24f70946f124f064f6"
+    },
+    {
+      "episode_id": "episode_000210",
+      "seed": 1000542,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000210.json",
+      "sha256": "88cbeaab2456e02ab4fd49fbc241cb46c02ec6c60ee6ab008bf9a637cf42a96c"
+    },
+    {
+      "episode_id": "episode_000220",
+      "seed": 1000572,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000220.json",
+      "sha256": "7f104dcd6ce5b87d84812c0683b8ef62528125b7ec8188da71f773412c53f17d"
+    },
+    {
+      "episode_id": "episode_000230",
+      "seed": 1000593,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000230.json",
+      "sha256": "a75bd9ff9183745a63f2122fe5325b7315b5e13a520dda457afd42fbc4f6cab3"
+    },
+    {
+      "episode_id": "episode_000240",
+      "seed": 1000626,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000240.json",
+      "sha256": "3454b94fd91340ca39f2843b75152bedc0dea53dea807f28f020be9ca8f1f330"
+    },
+    {
+      "episode_id": "episode_000250",
+      "seed": 1000646,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000250.json",
+      "sha256": "9db17e4a84bcdd137ba9e81d5a3ecb80ffd6f38168c54b8f52b0c80633a40261"
+    },
+    {
+      "episode_id": "episode_000260",
+      "seed": 1000676,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000260.json",
+      "sha256": "d286367688f250c89bdef4197021b42642f200cbea1fda183f53820cccf38bce"
+    },
+    {
+      "episode_id": "episode_000270",
+      "seed": 1000702,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000270.json",
+      "sha256": "82742e994ffb0d349ac92532a8954a38b5ad582acaaafd2d7b77b884cdb8e4db"
+    },
+    {
+      "episode_id": "episode_000280",
+      "seed": 1000731,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000280.json",
+      "sha256": "48a99f187b7f67306df68b4aa7556888a9279b612ea39201a5325eb3978651e3"
+    },
+    {
+      "episode_id": "episode_000290",
+      "seed": 1000750,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000290.json",
+      "sha256": "42453fab61208306ecf2b524aa27e19a4154116bc7536cfe4a0890ed462f1afd"
+    },
+    {
+      "episode_id": "episode_000300",
+      "seed": 1000779,
+      "path": "/home/rosmontis/Projects/data/orchard_autopicker_v1/json/val/episode_000300.json",
+      "sha256": "ddc7450d9903ef59a9f291281374722b0c37a90b2d9b91f57648d7e38602ae5f"
+    }
+  ],
+  "env_config": {
+    "sim_hz": 60,
+    "action_repeat": 2,
+    "max_control_steps": 900,
+    "detach_force_scale": 1.5,
+    "gripper_open_width": 0.075,
+    "gripper_open_steps": 5,
+    "gripper_close_deadband": 0.001,
+    "substeps": 3,
+    "width": 192,
+    "height": 144,
+    "apple_count": 40,
+    "foliage_density": 0.6,
+    "grasp_mode": "benchmark_assist",
+    "max_translation": 0.02,
+    "max_rotation": 0.05,
+    "max_joint_step": 0.045,
+    "ik_position_tolerance": 0.01,
+    "ik_rotation_tolerance": 0.08,
+    "workspace_lower": [
+      -0.65,
+      -0.85,
+      0.35
+    ],
+    "workspace_upper": [
+      1.0,
+      0.85,
+      1.55
+    ]
+  },
+  "maximum_dwell": 30,
+  "source_hashes": {
+    "/home/rosmontis/Projects/orchardbench/scripts/check_gate1_oracle.py": "cbd9822a9c11786d20c0765228b3e800c4551fa58724242df21b3334ef048893",
+    "/home/rosmontis/Projects/orchardbench/treesim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/rosmontis/Projects/orchardbench/treesim/arm_motion.py": "2ea7a9820ad8e6a11567b2d3ad09673f01bdc37e3ec09c9a110f0fb7254e3315",
+    "/home/rosmontis/Projects/orchardbench/treesim/breaking.py": "6abdd97795a9b22527979a2bbadee09e40724f6448b3d72e22416a66c4394732",
+    "/home/rosmontis/Projects/orchardbench/treesim/builder.py": "534710afdb6ebe95b5f668bb55af25045603e8e6f6293b70596f57e439ee93f9",
+    "/home/rosmontis/Projects/orchardbench/treesim/config.py": "35c8806a1c4a19a359283fd5fdc8cbf356e3751e6249f43eb598c14fae1e5870",
+    "/home/rosmontis/Projects/orchardbench/treesim/domainrand.py": "5a98c2720f39ba7a50cf801650018c57039dc4baa9f7321afb9729c865f3e3f8",
+    "/home/rosmontis/Projects/orchardbench/treesim/domainrand_gpu.py": "0301a8f37635f06de2de5ec7f0cf871352da1e376269dd165eba69594b89aa48",
+    "/home/rosmontis/Projects/orchardbench/treesim/expert_diagnostics.py": "9d7a25064b5bfeb710aed328dbd41fdddf2f21c20e58e954814163c425682cec",
+    "/home/rosmontis/Projects/orchardbench/treesim/fixed_base_picker.py": "0318d6ef9c72b30d36b0b308e0229017eb10d88e4cb21a037a7b217548860b55",
+    "/home/rosmontis/Projects/orchardbench/treesim/foliage.py": "c63f5a3eb59571a14ab6ce2ad2110d1016739e5a2b4444b6f8d80d4f63cfb948",
+    "/home/rosmontis/Projects/orchardbench/treesim/fruit.py": "0e20750ec3035a2b44edf034231bebaa2d4b4e8aecc9c3975c4d501936892855",
+    "/home/rosmontis/Projects/orchardbench/treesim/lsystem.py": "e889397b7f7b6fbfcb6e3cce74b1acc5c588c41eeb93b6d043f8db12ee3d59fb",
+    "/home/rosmontis/Projects/orchardbench/treesim/metrics.py": "47779af24f9b5d6ce6b3818bf3feeaeef910c7075e4560275aade0c4714a44b9",
+    "/home/rosmontis/Projects/orchardbench/treesim/orchard_action.py": "1e54d88994d9f001b2a3db82526561a9eaee38da5a43d51db7edd952d7df3866",
+    "/home/rosmontis/Projects/orchardbench/treesim/perception.py": "a854776fcf675340363e249703f53473a037e036a73c070a0ba0892dc4e96878",
+    "/home/rosmontis/Projects/orchardbench/treesim/physics.py": "b499c99e9e332e63231147fe823b88d52d20659dd1d2e4dd7e1fcbab8396b4d8",
+    "/home/rosmontis/Projects/orchardbench/treesim/picker.py": "9f4474ba688fa0c415ce91f3a626605830a2800b45ed4ba40972e6c0f3d855eb",
+    "/home/rosmontis/Projects/orchardbench/treesim/robot.py": "eedd2615210a76c15021dc215dd48042792e302e01493b299ab41f2a38a59dfb",
+    "/home/rosmontis/Projects/orchardbench/treesim/sim.py": "e45258c4d9563bf0e587c2b874c85913fbe0ac22f01d9aee59672c2c895a8348",
+    "/home/rosmontis/Projects/orchardbench/treesim/skeleton.py": "9a7a47a15b50bf628a4d370b9cd2f394f3972bb64910fe012f081e658d4d3856",
+    "/home/rosmontis/Projects/orchardbench/treesim/springs.py": "b59f1715b21fc862497da88836a48a0b7d9de12e3fea0779bc16a531554529c0",
+    "/home/rosmontis/Projects/orchardbench/treesim/target_visibility.py": "e7434aaf751a0546ff309276b9cc2535d178fbda31813b3b3f0d9c500b908b0b",
+    "/home/rosmontis/Projects/orchardbench/treesim/viz.py": "b4eb7f0b555b36bc587c4c15e6b631b318cd4e48dbb1a06f9bc83e146e19fa88",
+    "/home/rosmontis/Projects/orchardbench/treesim/vla_camera.py": "890e88d8e5fd8da800621e53fe85ce1954c55fa9c0f761b36f102494f60976fd",
+    "/home/rosmontis/Projects/orchardbench/treesim/vla_env.py": "2731a4d747d9c6fbecd37db8ce2c8367b94f2b1a5c196bd0243c65a4a0635c57",
+    "/home/rosmontis/Projects/orchardbench/treesim/xr0_adapter.py": "93ed63c5df0dc73cd565e6200e4612e1258c672f6d9957a247d3a5a19775acb7",
+    "/home/rosmontis/Projects/orchardbench/scripts/revalidate_gate1_transport.py": "01534b02d357dce815fbd638421611a342cbbc5507e156222cb6eee8566ef3cd",
+    "/home/rosmontis/Projects/orchardbench/scripts/collect_autopicker_dataset.py": "8d1ecbe15023664aa1bd4aa05d190ab664d1ee934f5a074a03f59806e773420d"
+  },
+  "expert_hashes": {
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000010/trajectory.json": "307503b81a8d5126768e4181012f033ad599faef17bb8c0b3e691622e0da208c",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000020/trajectory.json": "0286c204ccf705026905b439d96c9b61579e3c6cb4f606a1be797d57923d891d",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000030/trajectory.json": "fdd93737075d35783615191106a52f4df47ed76b4a77546834fa3a080340e8ac",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000040/trajectory.json": "b6d4a1d6c72742d806d7962c01adab62f95469464cf48036d9f3024b043ba36d",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000050/trajectory.json": "186924e2939a709b94fb976855d73a48268de15fc06b6de0ec1f9fdbd3704778",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000060/trajectory.json": "83ee0b7054ba8d17825584e9b901f6b4a8af8feebb7d049ab4834f294b6359dd",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000070/trajectory.json": "0bfa417e7dd5aa337a095b1b25cfc456bd577ca275c923fabc439841a14928f7",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000080/trajectory.json": "502a32c458a03e4be0db1df26426c6f343ee98a9cb9192e07984109f36a61f96",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000090/trajectory.json": "ab50402925d6360a15568e6ce6e5a0f5f4f68ef548772e81680fd7d345b8e755",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000100/trajectory.json": "c8f664f84b805080bc97bb42fb2f74df1492013af7500a372e3ed88e1bfcda6a",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000110/trajectory.json": "a37f9a17b744e91e05d9222504bb6cedb3d9e148ee2186ea56a180a6ea41f229",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000120/trajectory.json": "89bc387ab0ee12d11128cef25d18e5db29b3a3977513fef24ec86b37501b3412",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000130/trajectory.json": "807303e92f23a7a14d06b67d5f88872f051683958208509dfa39ff349c6051bb",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000140/trajectory.json": "fdee2e3e822f6d413063eda3f2fd134e0573cb9859dfd82df8292f07e7d828bc",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000150/trajectory.json": "d87770c7e2c51980fd530ccbe0c8bd99f130639be89ac6c66eafdc50d4895bfd",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000160/trajectory.json": "93377fd9574ff3cadf4d0f62eefa4d2577c4465453565a99599953605ba46816",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000170/trajectory.json": "9f86a3df48481fb549e964dfee54c5dafb0a92e391a6976a1878cf3bd618a623",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000180/trajectory.json": "174f6e5c77ba7f9164134317c44d294be79a0af761faf49c356dac4e96c301aa",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000190/trajectory.json": "349b39c75c5a0d6b2990a30ed2a9f67e77683707e22c296122b3dae6fd52ea6b",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000200/trajectory.json": "042268708f9a992779fe07d851118e858fe307d0ffff44043eae9c75151152ff",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000210/trajectory.json": "fd20739e58638f4c9b9f10311a916984bd153cb8c2cdc11b6d0b1fbe3ce18113",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000220/trajectory.json": "52d2ed68972019971a6ee21aeccafa9f52c08855b2dba300e9d231fca5af9a8c",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000230/trajectory.json": "42f4f662fd32e0c859fdf93103c66b56e80cda51326974478d6fe06feddffb24",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000240/trajectory.json": "86a3cfd7cefa89fbfe64f294d9704c53f77c05e3e7935c622ba1c618862c74d5",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000250/trajectory.json": "fbc175d309af5afbccb351a04f18dce859f7c3f2a380b788339f21ab61ae42ec",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000260/trajectory.json": "5d0ad1c0ff44a62cd6a1e46d60d423b8e9a06ed80059bcb7f6be9d3e3023d263",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000270/trajectory.json": "b7349866eb2e561e0419616918505872c71bd2565fe6bee151fc0632e9a0f093",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000280/trajectory.json": "89ed8fc03a8472b86e4088062f3b8eccad4bea0fb345e777a96ab23cf7bf72e5",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000290/trajectory.json": "7aa2b2ca624601342d766633874d34876c99296d3396289eeb6d8659ac1c84b8",
+    "/home/rosmontis/Projects/orchardbench/log/gate1_transport_30s_revalidation/expert/episode_000300/trajectory.json": "52a1e687709a9fccf55cf68396444a72e36d889a06b7badf37d7ba3b184739ed"
+  },
+  "expert_accepted": 30,
+  "mode": "reach-conditioned",
+  "bounded_lookahead": false,
+  "first_last_protected_samples": 2,
+  "path_tube_m": 0.01,
+  "max_adjacent_segment_m": 0.02,
+  "max_turn_degrees": 60,
+  "max_advance_per_step": 1
+}

@@ -1,39 +1,149 @@
-# Pixi (the environment dir is generated; the lock file IS committed for reproducibility)
-.pixi/
+# Generated outputs
+output/
+outputs/
+.artifacts/
+metric*.json
 
-# Python
+# Dataset samples stay local; keep small configuration and normalization metadata.
+/data/**
+!/data/**/
+!/data/**/collection_config.json
+!/data/**/action_stats.json
+!/data/**/action_stats_30x32.json
+!/data/**/dataset_provenance.json
+/data/**/json/
+/data/**/videos/
+/data/**/artifacts
+
+# Keep experiment-level reports and protocols, not per-episode logs or snapshots.
+/log/**
+!/log/*/
+!/log/*/*.md
+!/log/*/*summary.json
+!/log/*/*protocol.json
+!/log/*/*config.json
+!/log/*/*verification.json
+!/log/*/normalization_provenance.json
+!/log/*/old_new_comparison.csv
+!/log/gate1_transport_advancement_fix/run_experiment.py
+!/log/gate1_transport_advancement_fix/write_report.py
+!/log/v1_450_collection_replay_filter/continue_after_collection.py
+!/log/v1_*_collection_replay_filter/seed_scan.json
+!/log/v1_*_collection_replay_filter/pilot_raw/
+!/log/v1_*_collection_replay_filter/pilot_raw/pilot_gate.json
+# The worker imports this frozen oracle; it is required source, not a spare copy.
+!/log/v1_*_collection_replay_filter/sources/
+!/log/v1_*_collection_replay_filter/sources/frozen_gate1_oracle.py
+# Superseded 20-second run; the completed 30-second revalidation is kept above.
+/log/gate1_transport_revalidation/
+
+# Retain written artifact reports, excluding generated assets.
+/artifacts/**
+!/artifacts/**/
+!/artifacts/**/*.md
+/artifacts/arm_retime_pilot/
+
+# Manifests from a local npm tool installation; Python dependencies use pixi.lock.
+/package.json
+/package-lock.json
+
+# Python, environments and build caches
 __pycache__/
 *.py[cod]
 *.egg-info/
+.pixi/
+.venv*/
+venv/
 build/
 dist/
-.venv/
-venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+node_modules/
+.cache/
+cache/
+wandb/
 
-# Outputs (renders, metrics, experiment results)
-output/
-*.png
-*.usda
-*.usd
-metric*.json
-log/gate0_speed_30seed/
-log/gate1_gt_oracle/
-
-# Videos (kept out of the repo)
-*.mp4
-*.mov
-*.webm
-*.mkv
-
-# ...but keep committed documentation images
-!assets/
-!assets/*.png
-
-# Editor / OS
+# Local editor, assistant and OS state
 .vscode/
 .idea/
+.claude/
+.codex/
 .DS_Store
-.artifacts/
+Thumbs.db
+.env
+.env.*
+!.env.example
+!.env.sample
 
-#artifacts
-artifacts/arm_retime_pilot/
+# Runtime logs and transient files (keep dependency lock files)
+*.log
+*.log.*
+*.jsonl
+*.pid
+*.tmp
+*.swp
+*.swo
+events.out.tfevents.*
+
+# Model weights, binary datasets, archives and simulation exports
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.onnx
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.parquet
+*.arrow
+*.zip
+*.tar
+*.tar.*
+*.gz
+*.bz2
+*.xz
+*.7z
+*.usd
+*.usda
+*.usdc
+
+# Images and videos, including documentation images (case-insensitive).
+# Already tracked files stay tracked; review staged file sizes before committing.
+*.[pP][nN][gG]
+*.[jJ][pP][gG]
+*.[jJ][pP][eE][gG]
+*.[gG][iI][fF]
+*.[bB][mM][pP]
+*.[tT][iI][fF]
+*.[tT][iI][fF][fF]
+*.[wW][eE][bB][pP]
+*.[sS][vV][gG]
+*.[sS][vV][gG][zZ]
+*.[iI][cC][oO]
+*.[aA][vV][iI][fF]
+*.[hH][eE][iI][cC]
+*.[hH][eE][iI][fF]
+*.[eE][xX][rR]
+*.[pP][pP][mM]
+*.[pP][gG][mM]
+*.[pP][bB][mM]
+*.[pP][nN][mM]
+*.[aA][pP][nN][gG]
+*.[mM][pP]4
+*.[mM][oO][vV]
+*.[wW][eE][bB][mM]
+*.[mM][kK][vV]
+*.[aA][vV][iI]
+*.[mM]4[vV]
+*.[mM][pP][eE][gG]
+*.[mM][pP][gG]

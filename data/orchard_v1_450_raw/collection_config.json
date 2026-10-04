@@ -1,0 +1,27 @@
+{
+  "arm_motion_profile": {
+    "mode": "velocity_accel",
+    "vmax_rad_s": 0.5,
+    "amax_rad_s2": 20.0,
+    "active_phases": [
+      "TRANSPORT"
+    ],
+    "phase_vmax_rad_s": null
+  },
+  "detach_force_multiplier": 1.5,
+  "target_visibility_min_pixels": 1,
+  "schema": "orchard_xr0_single_arm_v0",
+  "seed_start": 1020000,
+  "record_fps": 30,
+  "action_length": 30,
+  "base_policy": "privileged_reset_stance_fixed_base_expert_v1_world_weld",
+  "expert": "FixedBaseAutoPicker(official AutoPicker REACH/GRASP/PULL/TRANSPORT/DROP backend)",
+  "stance_planner": "fixed_base_stance_planner_v2",
+  "terminal_control_frames": 2,
+  "max_sim_seconds": 20,
+  "split_rule": "every10th accepted val, centrally assigned in seed order",
+  "script_sha256": "8d1ecbe15023664aa1bd4aa05d190ab664d1ee934f5a074a03f59806e773420d",
+  "record_rgb": true,
+  "requested_accepted": 450,
+  "pilot_in_formal_cohort": false
+}
