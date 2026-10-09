@@ -8,12 +8,14 @@
     "scripts/plan_student_native_cohort.py",
     "scripts/report_student_native.py",
     "scripts/run_student_native_batch.py",
+    "scripts/run_student_native_mps.py",
     "scripts/start_student_native_collection.sh",
     "scripts/summarize_student_native.py",
     "scripts/test_orchard_command.py",
     "docs/student_native_contract.md"
   ],
   "production_controller_modified": false,
+  "mps_restart_base_commit": "95ba108a44026e83fa71eabe29d1ba4c3724dd16",
   "XR0_training_modified": false,
   "expert_config": {
     "horizon": 5,

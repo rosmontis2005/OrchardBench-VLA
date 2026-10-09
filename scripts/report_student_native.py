@@ -50,11 +50,26 @@ def main():
       '较难的枝条接触仍可能阻挡预抓或抓取，亦可能提前拉断果柄；部分机械臂姿态存在运输 IK 受限。打开夹爪时还可能出现横向释放冲量，导致果实落在桶沿。专家无搜索或恢复，失败会被保存并拒收。benchmark_assist 的双指接触/掌心体积抓持抽象继续使用，因此结果不能解释为纯摩擦抓取能力。实际运输较慢，任务通常需要数十秒。', '',
       '## 正式采集和管理', '']
     if progress:
-        lines += [f"已启动独立 tmux 会话 `orchard-native-v2`，manager PID `{progress['pid']}`，并发上限 {progress['workers']}，池容量 {progress.get('worker_capacity',progress['workers'])}，当前在途 {progress.get('in_flight','未记录')}。报告生成时实际 attempts={progress['attempts']}，accepted={progress['accepted']}，状态={progress['status']}；目标为2000条 accepted，尚未声称整批完成或全量验收通过。", '', f'输出：`{collection}`。']
+        if (collection/'pipeline_complete.json').exists():
+            summary=read(collection/'summary.json')
+            assert summary['final'] and summary['accepted']==2000 and summary['full_revalidation_requested']
+            lines += [f"正式采集及全量验收已完成：{summary['attempts']} 次尝试，{summary['accepted']} 条 accepted，{summary['usable_windows']} 个完整 H5 起点的30步窗口。全部 {summary['revalidated_trajectories']} 条已保存轨迹重新通过命令/观测/时间、图像完整解码、动作编解码及独立事件链检查；失败尝试及原因保留。", '',
+                      '失败分布：`'+json.dumps(summary['failures'],ensure_ascii=False)+'`。', '',
+                      f"其中无可行固定底座初始化 {summary.get('reset_infeasible','未分类')} 次，其他工程/worker 异常 {summary.get('infrastructure_failures','未分类')} 次；保留原始失败标签，不重抽场景掩盖失败。", '',
+                      f"最后一次 manager PID `{progress['pid']}`，并发上限 {progress['workers']}、池容量 {progress.get('worker_capacity',progress['workers'])}；这些是已完成会话的历史记录。"]
+            final_accepted=[r for r in summary['rows'] if r['accepted']]
+            final_times=[r['sim_seconds'] for r in final_accepted]
+            lines += ['',f"正式 accepted 轨迹的步数加权 IK 失败率 {rate(final_accepted,'ik_failure_rate'):.3%}，clipping {rate(final_accepted,'clipping_rate'):.3%}；仿真时长 P50/P95/max={np.percentile(final_times,50):.2f}/{np.percentile(final_times,95):.2f}/{max(final_times):.2f} s。", '',
+                      '全批阶段进入数：`'+json.dumps(summary['entered_phase'])+'`；held15='+str(summary['held15'])+'，detach='+str(summary['detach'])+'，actual release='+str(summary['actual_release'])+'。']
+            lines += ['',f"另有 {len(summary.get('sample_audit',[]))} 条跨整批分布的成功轨迹通过独立 steps.jsonl 对齐和真实 RGB policy loader 抽查。`manifest.jsonl` 保留全部尝试，`accepted_manifest.jsonl` 仅含合格候选，尚未划分 train/val。"]
+        else:
+            lines += [f"后台会话 `orchard-native-v2`，manager PID `{progress['pid']}`，并发上限 {progress['workers']}，池容量 {progress.get('worker_capacity',progress['workers'])}，当前在途 {progress.get('in_flight','未记录')}。报告生成时 attempts={progress['attempts']}，accepted={progress['accepted']}，manager 状态={progress['status']}；目标为2000条 accepted。整批完成标志为 pipeline_complete.json，生成前不声称全量验收完成。"]
+        lines += ['', f'输出：`{collection}`。']
     else:lines += ['正式2000条采集尚未启动。启动入口会拒绝不满足 Gate A/B/C 或专家版本不匹配的运行。']
-    lines += ['', '以下命令从 `/home/rosmontis/Projects/orchardbench` 执行：', '', '```bash', '# 启动 / 恢复（复用完成结果，保留中断前缀）', 'bash scripts/start_student_native_collection.sh', '# 进度', 'cat data/orchard_requested_v2_2000/progress.json', '# 日志', 'tail -f data/orchard_requested_v2_2000/manager.log', '# 平稳停止：结束已在执行的 episode 后退出', 'kill -TERM "$(cat data/orchard_requested_v2_2000/manager.pid)"', '# 结束后全量复核与新的 V2 统计', '.pixi/envs/default/bin/python scripts/summarize_student_native.py data/orchard_requested_v2_2000 --revalidate --stats', '```', '',
+    lines += ['', '以下命令从 `/home/rosmontis/Projects/orchardbench` 执行：', '', '```bash', '# 启动 / 恢复（复用完成结果，保留中断前缀）', 'bash scripts/start_student_native_collection.sh', '# 进度；全部验收结束后还会生成 pipeline_complete.json', 'cat data/orchard_requested_v2_2000/progress.json', '# 采集日志 / MPS与最终验收日志', 'tail -f data/orchard_requested_v2_2000/manager.log', 'tail -f data/orchard_requested_v2_2000/pipeline.log', '# 仅在采集运行中平稳停止：核对PID后通知manager，等待在途episode结束', 'kill -TERM "$(cat data/orchard_requested_v2_2000/manager.pid)"', '# 如需独立重新验收（后台流程正常结束时已自动执行）', 'OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .pixi/envs/default/bin/python scripts/summarize_student_native.py data/orchard_requested_v2_2000 --revalidate --stats --workers 8', '```', '',
       '归一化文件 `action_stats_requested_v2.json` 明确标记为 unsplit_candidates；后续划分 train/val 后应仅用训练集重新计算，不可把候选集统计冒充训练集统计。', '',
       '源代码入口：`treesim/student_native_expert.py`、`treesim/orchard_command.py`、`scripts/collect_student_native.py`、`scripts/run_student_native_batch.py`；契约说明见 `docs/student_native_contract.md`。本地版本、冻结配置和原始结果位于本实验目录。']
     if (EXP/'worker_scaling.md').exists(): lines += ['', '本轮并发实测与运行设置更新见 [worker_scaling.md](worker_scaling.md)。']
+    if (EXP/'mps_scaling.md').exists(): lines += ['', '后续 MPS 恢复和 12/24/32 worker 实测见 [mps_scaling.md](mps_scaling.md)，正式后续采集使用 MPS + 24 worker。']
     (EXP/'final_report.md').write_text('\n'.join(lines)+'\n')
 if __name__=='__main__':main()

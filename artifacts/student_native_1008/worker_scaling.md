@@ -1,5 +1,9 @@
 # Worker scaling measurement
 
+Historical measurements before the explicit MPS restart. The current scheduling
+choice is documented in [mps_scaling.md](mps_scaling.md); the original observations
+below are retained rather than presented as a hardware concurrency limit.
+
 | Concurrent episodes | Control steps / wall second | Measurement |
 |---:|---:|---|
 | 3 | 30.37 | Whole initial session, including startup/drain |

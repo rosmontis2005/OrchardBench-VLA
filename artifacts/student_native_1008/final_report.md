@@ -54,7 +54,19 @@ Gate C 种子为 8100000–8100029，运行前用原规划器确认 reset 可行
 
 ## 正式采集和管理
 
-已启动独立 tmux 会话 `orchard-native-v2`，manager PID `33571`，并发上限 12，池容量 24，当前在途 12。报告生成时实际 attempts=1331，accepted=1163，状态=running；目标为2000条 accepted，尚未声称整批完成或全量验收通过。
+正式采集及全量验收已完成：2280 次尝试，2000 条 accepted，483284 个完整 H5 起点的30步窗口。全部 2266 条已保存轨迹重新通过命令/观测/时间、图像完整解码、动作编解码及独立事件链检查；失败尝试及原因保留。
+
+失败分布：`{"drop_timeout": 55, "controller_quality": 35, "grasp_timeout": 62, "engineering_exception": 14, "branch_break": 18, "incidental_detach": 10, "reach_timeout": 56, "transport_timeout": 30}`。
+
+其中无可行固定底座初始化 14 次，其他工程/worker 异常 0 次；保留原始失败标签，不重抽场景掩盖失败。
+
+最后一次 manager PID `352774`，并发上限 24、池容量 32；这些是已完成会话的历史记录。
+
+正式 accepted 轨迹的步数加权 IK 失败率 0.914%，clipping 0.780%；仿真时长 P50/P95/max=41.00/46.33/51.33 s。
+
+全批阶段进入数：`{"GRASP": 2201, "PULL": 2128, "TRANSPORT": 2128, "DROP": 2090}`；held15=2128，detach=2128，actual release=2090。
+
+另有 20 条跨整批分布的成功轨迹通过独立 steps.jsonl 对齐和真实 RGB policy loader 抽查。`manifest.jsonl` 保留全部尝试，`accepted_manifest.jsonl` 仅含合格候选，尚未划分 train/val。
 
 输出：`/home/rosmontis/Projects/orchardbench/data/orchard_requested_v2_2000`。
 
@@ -63,14 +75,15 @@ Gate C 种子为 8100000–8100029，运行前用原规划器确认 reset 可行
 ```bash
 # 启动 / 恢复（复用完成结果，保留中断前缀）
 bash scripts/start_student_native_collection.sh
-# 进度
+# 进度；全部验收结束后还会生成 pipeline_complete.json
 cat data/orchard_requested_v2_2000/progress.json
-# 日志
+# 采集日志 / MPS与最终验收日志
 tail -f data/orchard_requested_v2_2000/manager.log
-# 平稳停止：结束已在执行的 episode 后退出
+tail -f data/orchard_requested_v2_2000/pipeline.log
+# 仅在采集运行中平稳停止：核对PID后通知manager，等待在途episode结束
 kill -TERM "$(cat data/orchard_requested_v2_2000/manager.pid)"
-# 结束后全量复核与新的 V2 统计
-.pixi/envs/default/bin/python scripts/summarize_student_native.py data/orchard_requested_v2_2000 --revalidate --stats
+# 如需独立重新验收（后台流程正常结束时已自动执行）
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .pixi/envs/default/bin/python scripts/summarize_student_native.py data/orchard_requested_v2_2000 --revalidate --stats --workers 8
 ```
 
 归一化文件 `action_stats_requested_v2.json` 明确标记为 unsplit_candidates；后续划分 train/val 后应仅用训练集重新计算，不可把候选集统计冒充训练集统计。
@@ -78,3 +91,5 @@ kill -TERM "$(cat data/orchard_requested_v2_2000/manager.pid)"
 源代码入口：`treesim/student_native_expert.py`、`treesim/orchard_command.py`、`scripts/collect_student_native.py`、`scripts/run_student_native_batch.py`；契约说明见 `docs/student_native_contract.md`。本地版本、冻结配置和原始结果位于本实验目录。
 
 本轮并发实测与运行设置更新见 [worker_scaling.md](worker_scaling.md)。
+
+后续 MPS 恢复和 12/24/32 worker 实测见 [mps_scaling.md](mps_scaling.md)，正式后续采集使用 MPS + 24 worker。

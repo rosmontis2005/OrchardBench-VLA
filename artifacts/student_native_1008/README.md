@@ -11,7 +11,8 @@ workers or alter the frozen expert.
 | [gate_c_seeds.json](gate_c_seeds.json) | The same 30 scenes used in both fixed-cohort acceptance runs |
 | [gate_results.csv](gate_results.csv) | Per-scene phase times, outcome, controller diagnostics and data checks |
 | [source_manifest.json](source_manifest.json) | Base repository versions, source entry points and expert configuration |
-| [worker_scaling.md](worker_scaling.md), [worker_scaling.json](worker_scaling.json) | Measured 3/12/24-worker throughput and selected concurrency |
+| [worker_scaling.md](worker_scaling.md), [worker_scaling.json](worker_scaling.json) | Historical measurements before explicit MPS configuration |
+| [mps_scaling.md](mps_scaling.md) | Safe restart, verified MPS clients and the 12/24/32-worker comparison |
 
 Code is organized under `treesim/` (expert and V2 action/loader contract) and
 `scripts/` (collection, scheduling, validation, monitoring and reports). The
@@ -21,7 +22,7 @@ The collector imports the existing strict observer from the sibling XR-0
 checkout at `../dualsys/Xiaomi-Robotics-0/xr0/test_grasp_1004/evaluation/strict_metrics.py`.
 The existing environment and fixed-base planner are required. Use the project's
 Pixi Python environment; the current launcher targets the configured local
-workspace and requires tmux and ffmpeg.
+workspace and requires tmux, ffmpeg and nvidia-cuda-mps-control.
 
 From the repository root:
 
@@ -41,8 +42,11 @@ bash scripts/start_student_native_collection.sh
 cat data/orchard_requested_v2_2000/progress.json
 ```
 
-The launcher reserves capacity for 24 workers and initially dispatches at most
-12 concurrent episodes, selected by the throughput measurements. Reports and
+The launcher starts a private CUDA MPS service, reserves capacity for 32 workers
+and dispatches at most 24 concurrent episodes. Once collection completes, it
+automatically revalidates saved trajectories and generates V2 candidate statistics
+using 8 CPU workers. `pipeline_complete.json` records completion of both stages.
+Reports and
 PIDs describe their observation time; use `progress.json` and `manager.pid` for
 current state. Raw `gate_c_cohort.json` includes approximately 3.8 MB of planner
 candidate diagnostics; the tracked seed-only file is sufficient to reproduce
@@ -51,9 +55,9 @@ the scenario list without copying that diagnostic dump.
 Ignored local material includes `dev_*`, `h1_*`, `gate_c_v*`, per-step JSONL,
 RGB videos, telemetry samples, `source_snapshot/`, intermediate expert copies,
 and the entire `data/orchard_requested_v2_2000/` collection. Do not use `git add -f`
-on those paths. Post-collection statistics are generated separately with
-`scripts/summarize_student_native.py`; this commit does not claim the batch is
-complete or fully revalidated after completion.
+on those paths. Post-collection statistics use `scripts/summarize_student_native.py`.
+The current completion verdict and actual totals are recorded in `final_report.md`
+and the dataset's `pipeline_complete.json`/`summary.json`.
 
 CSV phase boundaries are real control-step indices; divide by 30 for simulation
 seconds. Success-chain fields are populated only for strict successes; an empty
