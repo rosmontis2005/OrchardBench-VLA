@@ -1,0 +1,36 @@
+{
+  "base_commit": "fd99aeae1cbd92523d12f69e66a9b2302136a156",
+  "new_files": [
+    "treesim/student_native_expert.py",
+    "treesim/orchard_command.py",
+    "scripts/collect_student_native.py",
+    "scripts/monitor_student_native.py",
+    "scripts/plan_student_native_cohort.py",
+    "scripts/report_student_native.py",
+    "scripts/run_student_native_batch.py",
+    "scripts/start_student_native_collection.sh",
+    "scripts/summarize_student_native.py",
+    "scripts/test_orchard_command.py",
+    "docs/student_native_contract.md"
+  ],
+  "production_controller_modified": false,
+  "XR0_training_modified": false,
+  "expert_config": {
+    "horizon": 5,
+    "reach_speed": 0.2,
+    "grasp_speed": 0.04,
+    "pull_speed": 0.08,
+    "transport_speed": 0.2,
+    "rotation_speed": 0.3,
+    "pregrasp": 0.16,
+    "retract": 0.32,
+    "reach_timeout": 12.0,
+    "grasp_timeout": 12.0,
+    "pull_timeout": 8.0,
+    "transport_timeout": 45.0,
+    "drop_timeout": 8.0
+  },
+  "frozen_source_directory": "source_snapshot",
+  "xr0_commit": "17bb130919c3e282859eed22d556f9f30fea3eb6",
+  "frozen_source_note": "source_snapshot is a local development archive, ignored by Git; the committed treesim/ and scripts/ files are the canonical final source."
+}

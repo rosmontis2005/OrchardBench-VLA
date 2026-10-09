@@ -1,0 +1,66 @@
+{
+  "gate_a_pass": true,
+  "gate_a_success": 4,
+  "gate_a_total": 6,
+  "gate_a_interpretation": "Cross-scene complete chains and bounded native execution; two difficult contact scenes remain grasp failures, not hidden or replaced.",
+  "gate_b_pass": true,
+  "development": [
+    {
+      "seed": 1000074,
+      "accepted": false,
+      "reason": "grasp_timeout",
+      "validation": true
+    },
+    {
+      "seed": 1000106,
+      "accepted": true,
+      "reason": "strict_success",
+      "validation": true
+    },
+    {
+      "seed": 1000235,
+      "accepted": true,
+      "reason": "strict_success",
+      "validation": true
+    },
+    {
+      "seed": 1000268,
+      "accepted": false,
+      "reason": "grasp_timeout",
+      "validation": true
+    },
+    {
+      "seed": 1000356,
+      "accepted": true,
+      "reason": "strict_success",
+      "validation": true
+    },
+    {
+      "seed": 1000576,
+      "accepted": true,
+      "reason": "strict_success",
+      "validation": true
+    }
+  ],
+  "expert_sha256": "08716024e841fade3c8c2dbc3cce44011cb301365ddbcd8bef86034d47c42978",
+  "gate_c_total": 30,
+  "gate_c_success": 25,
+  "previous_gate_c": {
+    "total": 30,
+    "success": 13,
+    "failures": {
+      "transport_timeout": 15,
+      "reach_timeout": 2
+    }
+  },
+  "revision": "v2: transport timeout 30 -> 45 seconds only; acceptance also checks controller quality independently of strict success",
+  "gate_c_strict_success": 25,
+  "gate_c_failed": {
+    "transport_timeout": 1,
+    "premature_detach": 1,
+    "reach_timeout": 2,
+    "drop_timeout": 1
+  },
+  "gate_c_directory": "/home/rosmontis/Projects/orchardbench/artifacts/student_native_1008/gate_c_v2",
+  "all_gate_c_data_checks_pass": true
+}

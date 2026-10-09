@@ -1,0 +1,64 @@
+{
+  "time": 1791474902.2452867,
+  "manager_pid": 33571,
+  "worker_capacity": 24,
+  "selected_active_limit": 12,
+  "selection_reason": "24 stable control-step throughput was approximately 10% below 12 in the observed intervals; optimize collection time rather than process count",
+  "measurements": {
+    "12": {
+      "steady_seconds": 165.31411290168762,
+      "control_steps_per_wall_second": 34.7096802522383,
+      "engineering_errors": [],
+      "last_resource_sample": {
+        "time": 1791474354.7982404,
+        "workers": 12,
+        "manager_pid": 33571,
+        "in_flight": 12,
+        "finished": 10,
+        "accepted": 5,
+        "total_control_steps": 17122,
+        "gpu_csv": "98, 5335, 34.33",
+        "memory_kib": {
+          "MemAvailable": 34826932,
+          "SwapFree": 8388604
+        },
+        "worker_cpu_percent": 1188.2,
+        "worker_rss_kib": 11575776,
+        "child_processes": 13,
+        "engineering_errors": []
+      }
+    },
+    "24": {
+      "steady_seconds": 301.0955536365509,
+      "control_steps_per_wall_second": 31.322282531558255,
+      "engineering_errors": [],
+      "last_resource_sample": {
+        "time": 1791474753.857147,
+        "workers": 24,
+        "manager_pid": 33571,
+        "in_flight": 24,
+        "finished": 14,
+        "accepted": 9,
+        "total_control_steps": 29186,
+        "gpu_csv": "99, 10306, 34.44",
+        "memory_kib": {
+          "MemAvailable": 25518892,
+          "SwapFree": 8388604
+        },
+        "worker_cpu_percent": 2324.6,
+        "worker_rss_kib": 23965280,
+        "child_processes": 25,
+        "engineering_errors": []
+      }
+    },
+    "3": {
+      "whole_session_seconds": 337.7927144690002,
+      "control_steps_per_wall_second": 30.373656862695828,
+      "attempts": 8,
+      "accepted": 5
+    }
+  },
+  "limitations": "Short sequential measurements on different production scenes, not matched-seed statistical estimates; completed success counts lag in-flight work.",
+  "control_contract_unchanged": true,
+  "drain_inflight_without_interrupt": true
+}

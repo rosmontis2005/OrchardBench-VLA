@@ -43,6 +43,19 @@ metric*.json
 !/artifacts/**/*.md
 /artifacts/arm_retime_pilot/
 
+# Student-native V2: version the small reports, gate verdict and reproducible
+# seed/configuration metadata. Keep raw trials, telemetry and source copies local.
+/artifacts/student_native_1008/**
+!/artifacts/student_native_1008/*.md
+!/artifacts/student_native_1008/gate_status.json
+!/artifacts/student_native_1008/gate_c_seeds.json
+!/artifacts/student_native_1008/gate_results.csv
+!/artifacts/student_native_1008/source_manifest.json
+!/artifacts/student_native_1008/worker_scaling.json
+
+# Active V2 collection is never repository content, including runtime metadata.
+/data/orchard_requested_v2_2000/
+
 # Manifests from a local npm tool installation; Python dependencies use pixi.lock.
 /package.json
 /package-lock.json
