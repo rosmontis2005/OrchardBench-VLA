@@ -31,3 +31,5 @@ $PY experiments/initialization_prior_1009/audit.py round0_reference
 MPS 可由外部设置 `CUDA_MPS_PIPE_DIRECTORY` 接入本实验独立服务；不修改 GPU compute mode，不操作正式采集服务。报告记录实际吞吐和选择的并发数。
 
 `analyze.py` 输出全部尝试及共同有效场景的结果，单格成功率使用 Wilson 95% 区间；所有差异按同一基础 seed 配对，以基础场景为单位做 20,000 次 bootstrap。三种初始化平均的信息增益也先在每个 seed 内平均，再按 seed 重采样。差异区间未作多重比较校正；不能以“不显著”宣称等效。
+
+正式批次已完成。四个交付文件位于 `artifacts/initialization_prior_1009/`。已有 `scene_manifest.json` 时，运行器可直接读取其中名单，无需重新生成 cohort 文件。正式日志抽查入口：`audit.py round3 --sample-per-cell 2`；`analyze.py` 后运行 `report.py` 可再生成报告。报告中的研究解释对应本次冻结运行。报告阶段增加了精确 McNemar 敏感性检查，仅用于解释稀疏二元配对；主要差异区间仍是预先固定的场景 bootstrap。

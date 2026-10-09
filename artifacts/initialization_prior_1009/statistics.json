@@ -1,0 +1,3586 @@
+{
+  "development": {
+    "geometry": {
+      "initializations": {
+        "G0": {
+          "n": 20,
+          "xyz_mean": [
+            0.7472319677600499,
+            -1.723941457582249e-08,
+            1.0253699958324431
+          ],
+          "xyz_std": [
+            0.02014266551346963,
+            4.830808044402617e-08,
+            0.10605898748652336
+          ],
+          "xyz_min": [
+            0.7099588628886546,
+            -9.593654576542734e-08,
+            0.84343022108078
+          ],
+          "xyz_max": [
+            0.7600001228588824,
+            9.913771498332119e-08,
+            1.1534466743469238
+          ],
+          "target_tcp_distance_mean": 0.35897849276661875,
+          "target_tcp_distance_range": [
+            0.24577324092388153,
+            0.5048812031745911
+          ],
+          "invalid": 0,
+          "endpoint_ik_reachable": {
+            "pregrasp": 20,
+            "grasp": 20
+          },
+          "home_twig_contact_scenes": 0,
+          "min_chassis_clearance": 0.06418608262615305,
+          "min_home_arm_clearance": 0.05420855209687532
+        },
+        "G-": {
+          "n": 20,
+          "xyz_mean": [
+            0.7472319891382045,
+            0.0799999916461836,
+            1.0253699958324431
+          ],
+          "xyz_std": [
+            0.020142684901108238,
+            5.9023036866549576e-08,
+            0.10605898748652336
+          ],
+          "xyz_min": [
+            0.7099588146698796,
+            0.07999986045826321,
+            0.84343022108078
+          ],
+          "xyz_max": [
+            0.7600001199877728,
+            0.08000011570154603,
+            1.1534466743469238
+          ],
+          "target_tcp_distance_mean": 0.36825584173202514,
+          "target_tcp_distance_range": [
+            0.2584657073020935,
+            0.51118004322052
+          ],
+          "invalid": 0,
+          "endpoint_ik_reachable": {
+            "pregrasp": 20,
+            "grasp": 20
+          },
+          "home_twig_contact_scenes": 0,
+          "min_chassis_clearance": 0.005291344108684327,
+          "min_home_arm_clearance": 0.05668379500502034
+        },
+        "G+": {
+          "n": 20,
+          "xyz_mean": [
+            0.7472319762315326,
+            -0.08000002070408604,
+            1.0253699958324431
+          ],
+          "xyz_std": [
+            0.020142657127128916,
+            4.7149338122515503e-08,
+            0.10605898748652336
+          ],
+          "xyz_min": [
+            0.7099589111074295,
+            -0.08000010991956448,
+            0.84343022108078
+          ],
+          "xyz_max": [
+            0.7600001256942093,
+            -0.07999994975320335,
+            1.1534466743469238
+          ],
+          "target_tcp_distance_mean": 0.36825582981109617,
+          "target_tcp_distance_range": [
+            0.25846564769744873,
+            0.51118004322052
+          ],
+          "invalid": 0,
+          "endpoint_ik_reachable": {
+            "pregrasp": 20,
+            "grasp": 20
+          },
+          "home_twig_contact_scenes": 0,
+          "min_chassis_clearance": 0.030389083952903982,
+          "min_home_arm_clearance": 0.06456896447526565
+        }
+      },
+      "paired_geometry_checks": 40
+    },
+    "all_attempts": {
+      "base_scenes": 20,
+      "rollouts": 240,
+      "groups": {
+        "C0/G0": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 450.0,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008895413466843865,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "C0/G-": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 454.75,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.00889532490630579,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "C0/G+": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 450.75,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008895489280027511,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "Cz/G0": {
+          "n": 20,
+          "success": 8,
+          "success_rate": 0.4,
+          "ci95": [
+            0.21880653237281705,
+            0.6134184992377469
+          ],
+          "planned_success": 8,
+          "invalid": 0,
+          "funnel": {
+            "held15": 8,
+            "detach": 8,
+            "release": 8,
+            "valid_release": 8,
+            "stable_bucket": 8
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 8,
+            "detach": 8,
+            "valid_release": 8,
+            "stable_bucket": 8
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 8,
+              "median": 0.08645595405340555,
+              "p95": 0.08759443659585074,
+              "maximum": 0.08791216732623736
+            },
+            "fruit_speed": {
+              "count": 8,
+              "median": 0.26664571464061737,
+              "p95": 0.2668087109923363,
+              "maximum": 0.26681283116340637
+            }
+          },
+          "steps_median": 490.0,
+          "steps_mean": 742.75,
+          "success_steps_median": 1182.5,
+          "ik_failure_rate": 0.016358128576236957,
+          "clipping_rate": 0.003769774486704813,
+          "tracking_position_p95_median": 0.010347009431373967,
+          "failures": {
+            "grasp_timeout": 12
+          }
+        },
+        "Cz/G-": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 19,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 445.0,
+          "steps_mean": 450.5,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008926114116060731,
+          "failures": {
+            "grasp_timeout": 19,
+            "reach_timeout": 1
+          }
+        },
+        "Cz/G+": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 452.5,
+          "steps_mean": 458.25,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.009291868730196634,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "Cxyz0/G0": {
+          "n": 20,
+          "success": 11,
+          "success_rate": 0.55,
+          "ci95": [
+            0.34208534245034233,
+            0.7418021417443759
+          ],
+          "planned_success": 11,
+          "invalid": 0,
+          "funnel": {
+            "held15": 11,
+            "detach": 11,
+            "release": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 11,
+            "detach": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 11,
+              "median": 0.08635205871613721,
+              "p95": 0.09241707776602459,
+              "maximum": 0.09662918319627746
+            },
+            "fruit_speed": {
+              "count": 11,
+              "median": 0.2665758430957794,
+              "p95": 0.40757450461387634,
+              "maximum": 0.5483066439628601
+            }
+          },
+          "steps_median": 1080.0,
+          "steps_mean": 851.0,
+          "success_steps_median": 1180.0,
+          "ik_failure_rate": 0.01680376028202115,
+          "clipping_rate": 0.005229142185663925,
+          "tracking_position_p95_median": 0.010915546369264636,
+          "failures": {
+            "grasp_timeout": 9
+          }
+        },
+        "Cxyz0/G-": {
+          "n": 20,
+          "success": 11,
+          "success_rate": 0.55,
+          "ci95": [
+            0.34208534245034233,
+            0.7418021417443759
+          ],
+          "planned_success": 11,
+          "invalid": 0,
+          "funnel": {
+            "held15": 11,
+            "detach": 11,
+            "release": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "chain_funnel": {
+            "grasp_phase": 19,
+            "held15": 11,
+            "detach": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 11,
+              "median": 0.0874063207639703,
+              "p95": 0.08883330417521029,
+              "maximum": 0.08954714932735325
+            },
+            "fruit_speed": {
+              "count": 11,
+              "median": 0.26671451330184937,
+              "p95": 0.3475649803876877,
+              "maximum": 0.4281969666481018
+            }
+          },
+          "steps_median": 1082.5,
+          "steps_mean": 835.25,
+          "success_steps_median": 1165.0,
+          "ik_failure_rate": 0.008380724334031727,
+          "clipping_rate": 0.004070637533672553,
+          "tracking_position_p95_median": 0.011077541783433908,
+          "failures": {
+            "grasp_timeout": 8,
+            "reach_timeout": 1
+          }
+        },
+        "Cxyz0/G+": {
+          "n": 20,
+          "success": 13,
+          "success_rate": 0.65,
+          "ci95": [
+            0.43285427668523624,
+            0.818808175898918
+          ],
+          "planned_success": 13,
+          "invalid": 0,
+          "funnel": {
+            "held15": 13,
+            "detach": 13,
+            "release": 13,
+            "valid_release": 13,
+            "stable_bucket": 13
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 13,
+            "detach": 13,
+            "valid_release": 13,
+            "stable_bucket": 13
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 13,
+              "median": 0.08640788195683329,
+              "p95": 0.08868152670962441,
+              "maximum": 0.09007832028652782
+            },
+            "fruit_speed": {
+              "count": 13,
+              "median": 0.26646724343299866,
+              "p95": 0.2667985498905182,
+              "maximum": 0.26679858565330505
+            }
+          },
+          "steps_median": 1152.5,
+          "steps_mean": 934.0,
+          "success_steps_median": 1205.0,
+          "ik_failure_rate": 0.012633832976445396,
+          "clipping_rate": 0.004443254817987152,
+          "tracking_position_p95_median": 0.010893402741279319,
+          "failures": {
+            "grasp_timeout": 7
+          }
+        },
+        "Cxyz/G0": {
+          "n": 20,
+          "success": 19,
+          "success_rate": 0.95,
+          "ci95": [
+            0.763868806553258,
+            0.9911185511992047
+          ],
+          "planned_success": 19,
+          "invalid": 0,
+          "funnel": {
+            "held15": 19,
+            "detach": 19,
+            "release": 19,
+            "valid_release": 19,
+            "stable_bucket": 19
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 19,
+            "detach": 19,
+            "valid_release": 19,
+            "stable_bucket": 19
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 19,
+              "median": 0.08720296285536597,
+              "p95": 0.1054679169117097,
+              "maximum": 0.10546794650228954
+            },
+            "fruit_speed": {
+              "count": 19,
+              "median": 0.2663867473602295,
+              "p95": 0.35091746747493624,
+              "maximum": 0.8507624864578247
+            }
+          },
+          "steps_median": 1195.0,
+          "steps_mean": 1165.25,
+          "success_steps_median": 1205.0,
+          "ik_failure_rate": 0.009096760351855825,
+          "clipping_rate": 0.007938210684402489,
+          "tracking_position_p95_median": 0.011436999900115773,
+          "failures": {
+            "grasp_timeout": 1
+          }
+        },
+        "Cxyz/G-": {
+          "n": 20,
+          "success": 17,
+          "success_rate": 0.85,
+          "ci95": [
+            0.6395811352592431,
+            0.9476312541037835
+          ],
+          "planned_success": 17,
+          "invalid": 0,
+          "funnel": {
+            "held15": 19,
+            "detach": 19,
+            "release": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 19,
+            "detach": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 19,
+              "median": 0.08781362536262068,
+              "p95": 0.11036077863780204,
+              "maximum": 0.11319371584335987
+            },
+            "fruit_speed": {
+              "count": 19,
+              "median": 0.2667301595211029,
+              "p95": 1.6931435465812683,
+              "maximum": 1.6940882205963135
+            }
+          },
+          "steps_median": 1257.5,
+          "steps_mean": 1215.75,
+          "success_steps_median": 1245.0,
+          "ik_failure_rate": 0.006991568990335184,
+          "clipping_rate": 0.006991568990335184,
+          "tracking_position_p95_median": 0.012488080204071956,
+          "failures": {
+            "grasp_timeout": 1,
+            "drop_timeout": 2
+          }
+        },
+        "Cxyz/G+": {
+          "n": 20,
+          "success": 17,
+          "success_rate": 0.85,
+          "ci95": [
+            0.6395811352592431,
+            0.9476312541037835
+          ],
+          "planned_success": 17,
+          "invalid": 0,
+          "funnel": {
+            "held15": 19,
+            "detach": 19,
+            "release": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 19,
+            "detach": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 19,
+              "median": 0.08664853136605571,
+              "p95": 0.09960240766533864,
+              "maximum": 0.10437195112091147
+            },
+            "fruit_speed": {
+              "count": 19,
+              "median": 0.2663766145706177,
+              "p95": 1.8126850962638852,
+              "maximum": 1.9124897718429565
+            }
+          },
+          "steps_median": 1220.0,
+          "steps_mean": 1203.25,
+          "success_steps_median": 1215.0,
+          "ik_failure_rate": 0.007729067109910659,
+          "clipping_rate": 0.007271971743195512,
+          "tracking_position_p95_median": 0.01126435105702047,
+          "failures": {
+            "grasp_timeout": 1,
+            "drop_timeout": 2
+          }
+        }
+      },
+      "paired_contrasts": {
+        "Cz-C0/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": 0.4,
+          "ci95": [
+            0.2,
+            0.6
+          ],
+          "positive": 8,
+          "negative": 0,
+          "ties": 12
+        },
+        "Cxyz0-Cz/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.25,
+          "difference": 0.15,
+          "ci95": [
+            0.0,
+            0.3
+          ],
+          "positive": 3,
+          "negative": 0,
+          "ties": 17
+        },
+        "Cxyz-Cxyz0/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": 0.4,
+          "ci95": [
+            0.2,
+            0.6
+          ],
+          "positive": 8,
+          "negative": 0,
+          "ties": 12
+        },
+        "Cxyz-C0/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 3.814697265625e-06,
+          "difference": 0.95,
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "positive": 19,
+          "negative": 0,
+          "ties": 1
+        },
+        "Cz-C0/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cxyz0-Cz/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0009765625,
+          "difference": 0.55,
+          "ci95": [
+            0.35,
+            0.75
+          ],
+          "positive": 11,
+          "negative": 0,
+          "ties": 9
+        },
+        "Cxyz-Cxyz0/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 0.109375,
+          "difference": 0.3,
+          "ci95": [
+            0.0,
+            0.55
+          ],
+          "positive": 8,
+          "negative": 2,
+          "ties": 10
+        },
+        "Cxyz-C0/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 1.52587890625e-05,
+          "difference": 0.85,
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "positive": 17,
+          "negative": 0,
+          "ties": 3
+        },
+        "Cz-C0/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cxyz0-Cz/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 0.000244140625,
+          "difference": 0.65,
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "positive": 13,
+          "negative": 0,
+          "ties": 7
+        },
+        "Cxyz-Cxyz0/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 0.125,
+          "difference": 0.2,
+          "ci95": [
+            0.05,
+            0.4
+          ],
+          "positive": 4,
+          "negative": 0,
+          "ties": 16
+        },
+        "Cxyz-C0/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 1.52587890625e-05,
+          "difference": 0.85,
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "positive": 17,
+          "negative": 0,
+          "ties": 3
+        },
+        "C0/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cz/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": -0.4,
+          "ci95": [
+            -0.6,
+            -0.2
+          ],
+          "positive": 0,
+          "negative": 8,
+          "ties": 12
+        },
+        "Cxyz0/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            -0.15,
+            0.15
+          ],
+          "positive": 1,
+          "negative": 1,
+          "ties": 18
+        },
+        "Cxyz/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "information_gain/G--G0": {
+          "n": 20,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "C0/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cz/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": -0.4,
+          "ci95": [
+            -0.6,
+            -0.2
+          ],
+          "positive": 0,
+          "negative": 8,
+          "ties": 12
+        },
+        "Cxyz0/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.5,
+          "difference": 0.1,
+          "ci95": [
+            0.0,
+            0.25
+          ],
+          "positive": 2,
+          "negative": 0,
+          "ties": 18
+        },
+        "Cxyz/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "information_gain/G+-G0": {
+          "n": 20,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "Cxyz-C0/averaged_G_clustered": {
+          "n": 20,
+          "difference": 0.8833333333333332,
+          "ci95": [
+            0.7666666666666666,
+            0.9666666666666666
+          ],
+          "positive": 19,
+          "negative": 0,
+          "ties": 1
+        }
+      }
+    },
+    "common_valid": {
+      "base_scenes": 20,
+      "rollouts": 240,
+      "groups": {
+        "C0/G0": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 450.0,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008895413466843865,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "C0/G-": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 454.75,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.00889532490630579,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "C0/G+": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 450.75,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008895489280027511,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "Cz/G0": {
+          "n": 20,
+          "success": 8,
+          "success_rate": 0.4,
+          "ci95": [
+            0.21880653237281705,
+            0.6134184992377469
+          ],
+          "planned_success": 8,
+          "invalid": 0,
+          "funnel": {
+            "held15": 8,
+            "detach": 8,
+            "release": 8,
+            "valid_release": 8,
+            "stable_bucket": 8
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 8,
+            "detach": 8,
+            "valid_release": 8,
+            "stable_bucket": 8
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 8,
+              "median": 0.08645595405340555,
+              "p95": 0.08759443659585074,
+              "maximum": 0.08791216732623736
+            },
+            "fruit_speed": {
+              "count": 8,
+              "median": 0.26664571464061737,
+              "p95": 0.2668087109923363,
+              "maximum": 0.26681283116340637
+            }
+          },
+          "steps_median": 490.0,
+          "steps_mean": 742.75,
+          "success_steps_median": 1182.5,
+          "ik_failure_rate": 0.016358128576236957,
+          "clipping_rate": 0.003769774486704813,
+          "tracking_position_p95_median": 0.010347009431373967,
+          "failures": {
+            "grasp_timeout": 12
+          }
+        },
+        "Cz/G-": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 19,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 445.0,
+          "steps_mean": 450.5,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008926114116060731,
+          "failures": {
+            "grasp_timeout": 19,
+            "reach_timeout": 1
+          }
+        },
+        "Cz/G+": {
+          "n": 20,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            0.0,
+            0.16112515805281938
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 452.5,
+          "steps_mean": 458.25,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.009291868730196634,
+          "failures": {
+            "grasp_timeout": 20
+          }
+        },
+        "Cxyz0/G0": {
+          "n": 20,
+          "success": 11,
+          "success_rate": 0.55,
+          "ci95": [
+            0.34208534245034233,
+            0.7418021417443759
+          ],
+          "planned_success": 11,
+          "invalid": 0,
+          "funnel": {
+            "held15": 11,
+            "detach": 11,
+            "release": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 11,
+            "detach": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 11,
+              "median": 0.08635205871613721,
+              "p95": 0.09241707776602459,
+              "maximum": 0.09662918319627746
+            },
+            "fruit_speed": {
+              "count": 11,
+              "median": 0.2665758430957794,
+              "p95": 0.40757450461387634,
+              "maximum": 0.5483066439628601
+            }
+          },
+          "steps_median": 1080.0,
+          "steps_mean": 851.0,
+          "success_steps_median": 1180.0,
+          "ik_failure_rate": 0.01680376028202115,
+          "clipping_rate": 0.005229142185663925,
+          "tracking_position_p95_median": 0.010915546369264636,
+          "failures": {
+            "grasp_timeout": 9
+          }
+        },
+        "Cxyz0/G-": {
+          "n": 20,
+          "success": 11,
+          "success_rate": 0.55,
+          "ci95": [
+            0.34208534245034233,
+            0.7418021417443759
+          ],
+          "planned_success": 11,
+          "invalid": 0,
+          "funnel": {
+            "held15": 11,
+            "detach": 11,
+            "release": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "chain_funnel": {
+            "grasp_phase": 19,
+            "held15": 11,
+            "detach": 11,
+            "valid_release": 11,
+            "stable_bucket": 11
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 11,
+              "median": 0.0874063207639703,
+              "p95": 0.08883330417521029,
+              "maximum": 0.08954714932735325
+            },
+            "fruit_speed": {
+              "count": 11,
+              "median": 0.26671451330184937,
+              "p95": 0.3475649803876877,
+              "maximum": 0.4281969666481018
+            }
+          },
+          "steps_median": 1082.5,
+          "steps_mean": 835.25,
+          "success_steps_median": 1165.0,
+          "ik_failure_rate": 0.008380724334031727,
+          "clipping_rate": 0.004070637533672553,
+          "tracking_position_p95_median": 0.011077541783433908,
+          "failures": {
+            "grasp_timeout": 8,
+            "reach_timeout": 1
+          }
+        },
+        "Cxyz0/G+": {
+          "n": 20,
+          "success": 13,
+          "success_rate": 0.65,
+          "ci95": [
+            0.43285427668523624,
+            0.818808175898918
+          ],
+          "planned_success": 13,
+          "invalid": 0,
+          "funnel": {
+            "held15": 13,
+            "detach": 13,
+            "release": 13,
+            "valid_release": 13,
+            "stable_bucket": 13
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 13,
+            "detach": 13,
+            "valid_release": 13,
+            "stable_bucket": 13
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 13,
+              "median": 0.08640788195683329,
+              "p95": 0.08868152670962441,
+              "maximum": 0.09007832028652782
+            },
+            "fruit_speed": {
+              "count": 13,
+              "median": 0.26646724343299866,
+              "p95": 0.2667985498905182,
+              "maximum": 0.26679858565330505
+            }
+          },
+          "steps_median": 1152.5,
+          "steps_mean": 934.0,
+          "success_steps_median": 1205.0,
+          "ik_failure_rate": 0.012633832976445396,
+          "clipping_rate": 0.004443254817987152,
+          "tracking_position_p95_median": 0.010893402741279319,
+          "failures": {
+            "grasp_timeout": 7
+          }
+        },
+        "Cxyz/G0": {
+          "n": 20,
+          "success": 19,
+          "success_rate": 0.95,
+          "ci95": [
+            0.763868806553258,
+            0.9911185511992047
+          ],
+          "planned_success": 19,
+          "invalid": 0,
+          "funnel": {
+            "held15": 19,
+            "detach": 19,
+            "release": 19,
+            "valid_release": 19,
+            "stable_bucket": 19
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 19,
+            "detach": 19,
+            "valid_release": 19,
+            "stable_bucket": 19
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 19,
+              "median": 0.08720296285536597,
+              "p95": 0.1054679169117097,
+              "maximum": 0.10546794650228954
+            },
+            "fruit_speed": {
+              "count": 19,
+              "median": 0.2663867473602295,
+              "p95": 0.35091746747493624,
+              "maximum": 0.8507624864578247
+            }
+          },
+          "steps_median": 1195.0,
+          "steps_mean": 1165.25,
+          "success_steps_median": 1205.0,
+          "ik_failure_rate": 0.009096760351855825,
+          "clipping_rate": 0.007938210684402489,
+          "tracking_position_p95_median": 0.011436999900115773,
+          "failures": {
+            "grasp_timeout": 1
+          }
+        },
+        "Cxyz/G-": {
+          "n": 20,
+          "success": 17,
+          "success_rate": 0.85,
+          "ci95": [
+            0.6395811352592431,
+            0.9476312541037835
+          ],
+          "planned_success": 17,
+          "invalid": 0,
+          "funnel": {
+            "held15": 19,
+            "detach": 19,
+            "release": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 19,
+            "detach": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 19,
+              "median": 0.08781362536262068,
+              "p95": 0.11036077863780204,
+              "maximum": 0.11319371584335987
+            },
+            "fruit_speed": {
+              "count": 19,
+              "median": 0.2667301595211029,
+              "p95": 1.6931435465812683,
+              "maximum": 1.6940882205963135
+            }
+          },
+          "steps_median": 1257.5,
+          "steps_mean": 1215.75,
+          "success_steps_median": 1245.0,
+          "ik_failure_rate": 0.006991568990335184,
+          "clipping_rate": 0.006991568990335184,
+          "tracking_position_p95_median": 0.012488080204071956,
+          "failures": {
+            "grasp_timeout": 1,
+            "drop_timeout": 2
+          }
+        },
+        "Cxyz/G+": {
+          "n": 20,
+          "success": 17,
+          "success_rate": 0.85,
+          "ci95": [
+            0.6395811352592431,
+            0.9476312541037835
+          ],
+          "planned_success": 17,
+          "invalid": 0,
+          "funnel": {
+            "held15": 19,
+            "detach": 19,
+            "release": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "chain_funnel": {
+            "grasp_phase": 20,
+            "held15": 19,
+            "detach": 19,
+            "valid_release": 19,
+            "stable_bucket": 17
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 19,
+              "median": 0.08664853136605571,
+              "p95": 0.09960240766533864,
+              "maximum": 0.10437195112091147
+            },
+            "fruit_speed": {
+              "count": 19,
+              "median": 0.2663766145706177,
+              "p95": 1.8126850962638852,
+              "maximum": 1.9124897718429565
+            }
+          },
+          "steps_median": 1220.0,
+          "steps_mean": 1203.25,
+          "success_steps_median": 1215.0,
+          "ik_failure_rate": 0.007729067109910659,
+          "clipping_rate": 0.007271971743195512,
+          "tracking_position_p95_median": 0.01126435105702047,
+          "failures": {
+            "grasp_timeout": 1,
+            "drop_timeout": 2
+          }
+        }
+      },
+      "paired_contrasts": {
+        "Cz-C0/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": 0.4,
+          "ci95": [
+            0.2,
+            0.6
+          ],
+          "positive": 8,
+          "negative": 0,
+          "ties": 12
+        },
+        "Cxyz0-Cz/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.25,
+          "difference": 0.15,
+          "ci95": [
+            0.0,
+            0.3
+          ],
+          "positive": 3,
+          "negative": 0,
+          "ties": 17
+        },
+        "Cxyz-Cxyz0/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": 0.4,
+          "ci95": [
+            0.2,
+            0.6
+          ],
+          "positive": 8,
+          "negative": 0,
+          "ties": 12
+        },
+        "Cxyz-C0/G0": {
+          "n": 20,
+          "exact_mcnemar_p": 3.814697265625e-06,
+          "difference": 0.95,
+          "ci95": [
+            0.85,
+            1.0
+          ],
+          "positive": 19,
+          "negative": 0,
+          "ties": 1
+        },
+        "Cz-C0/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cxyz0-Cz/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0009765625,
+          "difference": 0.55,
+          "ci95": [
+            0.35,
+            0.75
+          ],
+          "positive": 11,
+          "negative": 0,
+          "ties": 9
+        },
+        "Cxyz-Cxyz0/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 0.109375,
+          "difference": 0.3,
+          "ci95": [
+            0.0,
+            0.55
+          ],
+          "positive": 8,
+          "negative": 2,
+          "ties": 10
+        },
+        "Cxyz-C0/G-": {
+          "n": 20,
+          "exact_mcnemar_p": 1.52587890625e-05,
+          "difference": 0.85,
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "positive": 17,
+          "negative": 0,
+          "ties": 3
+        },
+        "Cz-C0/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cxyz0-Cz/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 0.000244140625,
+          "difference": 0.65,
+          "ci95": [
+            0.45,
+            0.85
+          ],
+          "positive": 13,
+          "negative": 0,
+          "ties": 7
+        },
+        "Cxyz-Cxyz0/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 0.125,
+          "difference": 0.2,
+          "ci95": [
+            0.05,
+            0.4
+          ],
+          "positive": 4,
+          "negative": 0,
+          "ties": 16
+        },
+        "Cxyz-C0/G+": {
+          "n": 20,
+          "exact_mcnemar_p": 1.52587890625e-05,
+          "difference": 0.85,
+          "ci95": [
+            0.7,
+            1.0
+          ],
+          "positive": 17,
+          "negative": 0,
+          "ties": 3
+        },
+        "C0/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cz/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": -0.4,
+          "ci95": [
+            -0.6,
+            -0.2
+          ],
+          "positive": 0,
+          "negative": 8,
+          "ties": 12
+        },
+        "Cxyz0/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            -0.15,
+            0.15
+          ],
+          "positive": 1,
+          "negative": 1,
+          "ties": 18
+        },
+        "Cxyz/G--G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "information_gain/G--G0": {
+          "n": 20,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "C0/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cz/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.0078125,
+          "difference": -0.4,
+          "ci95": [
+            -0.6,
+            -0.2
+          ],
+          "positive": 0,
+          "negative": 8,
+          "ties": 12
+        },
+        "Cxyz0/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.5,
+          "difference": 0.1,
+          "ci95": [
+            0.0,
+            0.25
+          ],
+          "positive": 2,
+          "negative": 0,
+          "ties": 18
+        },
+        "Cxyz/G+-G0": {
+          "n": 20,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "information_gain/G+-G0": {
+          "n": 20,
+          "difference": -0.1,
+          "ci95": [
+            -0.25,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 18
+        },
+        "Cxyz-C0/averaged_G_clustered": {
+          "n": 20,
+          "difference": 0.8833333333333332,
+          "ci95": [
+            0.7666666666666666,
+            0.9666666666666666
+          ],
+          "positive": 19,
+          "negative": 0,
+          "ties": 1
+        }
+      }
+    },
+    "common_valid_seeds": [
+      8300000,
+      8300001,
+      8300002,
+      8300003,
+      8300004,
+      8300005,
+      8300006,
+      8300007,
+      8300008,
+      8300009,
+      8300010,
+      8300011,
+      8300012,
+      8300013,
+      8300014,
+      8300015,
+      8300016,
+      8300017,
+      8300018,
+      8300019
+    ]
+  },
+  "formal": {
+    "geometry": {
+      "initializations": {
+        "G0": {
+          "n": 50,
+          "xyz_mean": [
+            0.7483022827722604,
+            1.1117267044140918e-09,
+            1.0149462020397186
+          ],
+          "xyz_std": [
+            0.019827139195496914,
+            5.00827544189493e-08,
+            0.10773236628442409
+          ],
+          "xyz_min": [
+            0.6908735601011929,
+            -9.62406289806589e-08,
+            0.7992491722106934
+          ],
+          "xyz_max": [
+            0.760000128448065,
+            1.3064577202386535e-07,
+            1.1787521839141843
+          ],
+          "target_tcp_distance_mean": 0.3673666936159134,
+          "target_tcp_distance_range": [
+            0.2171354740858078,
+            0.5430070161819458
+          ],
+          "invalid": 0,
+          "endpoint_ik_reachable": {
+            "pregrasp": 50,
+            "grasp": 50
+          },
+          "home_twig_contact_scenes": 0,
+          "min_chassis_clearance": 0.07768995433564872,
+          "min_home_arm_clearance": 0.053537971175916105
+        },
+        "G-": {
+          "n": 50,
+          "xyz_mean": [
+            0.7483022898358362,
+            0.08000000299906442,
+            1.0149462020397186
+          ],
+          "xyz_std": [
+            0.019827144065377455,
+            4.801308765927537e-08,
+            0.10773236628442409
+          ],
+          "xyz_min": [
+            0.6908734851928838,
+            0.07999990109680115,
+            0.7992491722106934
+          ],
+          "xyz_max": [
+            0.7600001545972205,
+            0.08000009998075873,
+            1.1787521839141843
+          ],
+          "target_tcp_distance_mean": 0.37646350502967835,
+          "target_tcp_distance_range": [
+            0.23140399158000946,
+            0.5488685965538025
+          ],
+          "invalid": 0,
+          "endpoint_ik_reachable": {
+            "pregrasp": 50,
+            "grasp": 50
+          },
+          "home_twig_contact_scenes": 3,
+          "min_chassis_clearance": 0.07768995433564872,
+          "min_home_arm_clearance": 0.0471743695289879
+        },
+        "G+": {
+          "n": 50,
+          "xyz_mean": [
+            0.7483022929814406,
+            -0.07999999879583979,
+            1.0149462020397186
+          ],
+          "xyz_std": [
+            0.019827136369678408,
+            4.890893147153134e-08,
+            0.10773236628442409
+          ],
+          "xyz_min": [
+            0.6908735289298822,
+            -0.08000014292348205,
+            0.7992491722106934
+          ],
+          "xyz_max": [
+            0.7600001178834102,
+            -0.0799999083771924,
+            1.1787521839141843
+          ],
+          "target_tcp_distance_mean": 0.3764635130763054,
+          "target_tcp_distance_range": [
+            0.23140397667884827,
+            0.5488685369491577
+          ],
+          "invalid": 0,
+          "endpoint_ik_reachable": {
+            "pregrasp": 50,
+            "grasp": 50
+          },
+          "home_twig_contact_scenes": 3,
+          "min_chassis_clearance": 0.07768995433564872,
+          "min_home_arm_clearance": 0.007787605718110463
+        }
+      },
+      "paired_geometry_checks": 100
+    },
+    "all_attempts": {
+      "base_scenes": 50,
+      "rollouts": 600,
+      "groups": {
+        "C0/G0": {
+          "n": 50,
+          "success": 2,
+          "success_rate": 0.04,
+          "ci95": [
+            0.011038884327619805,
+            0.1346009068750702
+          ],
+          "planned_success": 2,
+          "invalid": 0,
+          "funnel": {
+            "held15": 2,
+            "detach": 2,
+            "release": 2,
+            "valid_release": 2,
+            "stable_bucket": 2
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 2,
+            "detach": 2,
+            "valid_release": 2,
+            "stable_bucket": 2
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 2,
+              "median": 0.09125986210009138,
+              "p95": 0.09651955896469035,
+              "maximum": 0.09710396972742356
+            },
+            "fruit_speed": {
+              "count": 2,
+              "median": 0.4030611515045166,
+              "p95": 0.5259915113449096,
+              "maximum": 0.5396504402160645
+            }
+          },
+          "steps_median": 450.0,
+          "steps_mean": 482.7,
+          "success_steps_median": 1257.5,
+          "ik_failure_rate": 0.006670810026931841,
+          "clipping_rate": 0.0005386368344727574,
+          "tracking_position_p95_median": 0.008895482911221868,
+          "failures": {
+            "grasp_timeout": 48
+          }
+        },
+        "C0/G-": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 449.0,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008895437991854289,
+          "failures": {
+            "grasp_timeout": 49,
+            "reach_timeout": 1
+          }
+        },
+        "C0/G+": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 448.7,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.00889539290437016,
+          "failures": {
+            "grasp_timeout": 49,
+            "reach_timeout": 1
+          }
+        },
+        "Cz/G0": {
+          "n": 50,
+          "success": 25,
+          "success_rate": 0.5,
+          "ci95": [
+            0.3664451431682858,
+            0.6335548568317142
+          ],
+          "planned_success": 25,
+          "invalid": 0,
+          "funnel": {
+            "held15": 27,
+            "detach": 27,
+            "release": 26,
+            "valid_release": 26,
+            "stable_bucket": 25
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 27,
+            "detach": 27,
+            "valid_release": 26,
+            "stable_bucket": 25
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 26,
+              "median": 0.08760162630033552,
+              "p95": 0.09591778286573699,
+              "maximum": 0.10176242723785671
+            },
+            "fruit_speed": {
+              "count": 26,
+              "median": 0.26690270006656647,
+              "p95": 0.631507396697998,
+              "maximum": 1.6924717426300049
+            }
+          },
+          "steps_median": 1142.5,
+          "steps_mean": 903.4,
+          "success_steps_median": 1245.0,
+          "ik_failure_rate": 0.03909674562762896,
+          "clipping_rate": 0.005756032765109586,
+          "tracking_position_p95_median": 0.011511966203665137,
+          "failures": {
+            "grasp_timeout": 23,
+            "drop_timeout": 1,
+            "transport_timeout": 1
+          }
+        },
+        "Cz/G-": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 48,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 456.5,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008920697724492617,
+          "failures": {
+            "grasp_timeout": 48,
+            "reach_timeout": 2
+          }
+        },
+        "Cz/G+": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 459.8,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008916951192008506,
+          "failures": {
+            "grasp_timeout": 49,
+            "reach_timeout": 1
+          }
+        },
+        "Cxyz0/G0": {
+          "n": 50,
+          "success": 31,
+          "success_rate": 0.62,
+          "ci95": [
+            0.4815044693099298,
+            0.7413721068980641
+          ],
+          "planned_success": 31,
+          "invalid": 0,
+          "funnel": {
+            "held15": 34,
+            "detach": 34,
+            "release": 33,
+            "valid_release": 33,
+            "stable_bucket": 31
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 34,
+            "detach": 34,
+            "valid_release": 33,
+            "stable_bucket": 31
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 33,
+              "median": 0.08725240696162566,
+              "p95": 0.09778313797345997,
+              "maximum": 0.10245883459746366
+            },
+            "fruit_speed": {
+              "count": 33,
+              "median": 0.26658183336257935,
+              "p95": 1.1324829816818225,
+              "maximum": 1.7411742210388184
+            }
+          },
+          "steps_median": 1162.5,
+          "steps_mean": 997.6,
+          "success_steps_median": 1230.0,
+          "ik_failure_rate": 0.03853247794707298,
+          "clipping_rate": 0.006535685645549318,
+          "tracking_position_p95_median": 0.011722441935221671,
+          "failures": {
+            "grasp_timeout": 16,
+            "drop_timeout": 2,
+            "transport_timeout": 1
+          }
+        },
+        "Cxyz0/G-": {
+          "n": 50,
+          "success": 30,
+          "success_rate": 0.6,
+          "ci95": [
+            0.4618143774758936,
+            0.7239161026974346
+          ],
+          "planned_success": 30,
+          "invalid": 0,
+          "funnel": {
+            "held15": 31,
+            "detach": 31,
+            "release": 30,
+            "valid_release": 30,
+            "stable_bucket": 30
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 31,
+            "detach": 31,
+            "valid_release": 30,
+            "stable_bucket": 30
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 30,
+              "median": 0.08786526335349029,
+              "p95": 0.09690843372080721,
+              "maximum": 0.09963818110638528
+            },
+            "fruit_speed": {
+              "count": 30,
+              "median": 0.2665509432554245,
+              "p95": 0.825786733627319,
+              "maximum": 0.8774190545082092
+            }
+          },
+          "steps_median": 1127.5,
+          "steps_mean": 939.1,
+          "success_steps_median": 1197.5,
+          "ik_failure_rate": 0.020019167287828772,
+          "clipping_rate": 0.00724097540198062,
+          "tracking_position_p95_median": 0.011143622530835775,
+          "failures": {
+            "grasp_timeout": 18,
+            "reach_timeout": 1,
+            "transport_timeout": 1
+          }
+        },
+        "Cxyz0/G+": {
+          "n": 50,
+          "success": 31,
+          "success_rate": 0.62,
+          "ci95": [
+            0.4815044693099298,
+            0.7413721068980641
+          ],
+          "planned_success": 31,
+          "invalid": 0,
+          "funnel": {
+            "held15": 32,
+            "detach": 32,
+            "release": 31,
+            "valid_release": 31,
+            "stable_bucket": 31
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 32,
+            "detach": 32,
+            "valid_release": 31,
+            "stable_bucket": 31
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 31,
+              "median": 0.08677034888695997,
+              "p95": 0.09960490233685104,
+              "maximum": 0.10106538312071847
+            },
+            "fruit_speed": {
+              "count": 31,
+              "median": 0.2664673626422882,
+              "p95": 0.7730064988136292,
+              "maximum": 0.9199857711791992
+            }
+          },
+          "steps_median": 1120.0,
+          "steps_mean": 953.4,
+          "success_steps_median": 1220.0,
+          "ik_failure_rate": 0.019173484371722258,
+          "clipping_rate": 0.00683868260960772,
+          "tracking_position_p95_median": 0.011071335468302796,
+          "failures": {
+            "grasp_timeout": 17,
+            "transport_timeout": 1,
+            "reach_timeout": 1
+          }
+        },
+        "Cxyz/G0": {
+          "n": 50,
+          "success": 50,
+          "success_rate": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "planned_success": 50,
+          "invalid": 0,
+          "funnel": {
+            "held15": 50,
+            "detach": 50,
+            "release": 50,
+            "valid_release": 50,
+            "stable_bucket": 50
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 50,
+            "detach": 50,
+            "valid_release": 50,
+            "stable_bucket": 50
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 50,
+              "median": 0.08791010723687032,
+              "p95": 0.11106518697819893,
+              "maximum": 0.11518028956477191
+            },
+            "fruit_speed": {
+              "count": 50,
+              "median": 0.2667126804590225,
+              "p95": 0.632709115743637,
+              "maximum": 0.8520997762680054
+            }
+          },
+          "steps_median": 1257.5,
+          "steps_mean": 1250.1,
+          "success_steps_median": 1257.5,
+          "ik_failure_rate": 0.013278937684985202,
+          "clipping_rate": 0.008271338292936565,
+          "tracking_position_p95_median": 0.01288327811280336,
+          "failures": {}
+        },
+        "Cxyz/G-": {
+          "n": 50,
+          "success": 47,
+          "success_rate": 0.94,
+          "ci95": [
+            0.8378290831116182,
+            0.979385029651026
+          ],
+          "planned_success": 47,
+          "invalid": 0,
+          "funnel": {
+            "held15": 48,
+            "detach": 48,
+            "release": 48,
+            "valid_release": 48,
+            "stable_bucket": 47
+          },
+          "chain_funnel": {
+            "grasp_phase": 48,
+            "held15": 48,
+            "detach": 48,
+            "valid_release": 48,
+            "stable_bucket": 47
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 48,
+              "median": 0.0879599332939264,
+              "p95": 0.10935010999840526,
+              "maximum": 0.11262844518020197
+            },
+            "fruit_speed": {
+              "count": 48,
+              "median": 0.26662684977054596,
+              "p95": 0.8098504483699799,
+              "maximum": 1.6920998096466064
+            }
+          },
+          "steps_median": 1262.5,
+          "steps_mean": 1234.3,
+          "success_steps_median": 1270.0,
+          "ik_failure_rate": 0.01096978044235599,
+          "clipping_rate": 0.008523049501741879,
+          "tracking_position_p95_median": 0.012907673859095923,
+          "failures": {
+            "drop_timeout": 1,
+            "reach_timeout": 2
+          }
+        },
+        "Cxyz/G+": {
+          "n": 50,
+          "success": 47,
+          "success_rate": 0.94,
+          "ci95": [
+            0.8378290831116182,
+            0.979385029651026
+          ],
+          "planned_success": 47,
+          "invalid": 0,
+          "funnel": {
+            "held15": 49,
+            "detach": 49,
+            "release": 49,
+            "valid_release": 49,
+            "stable_bucket": 47
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 49,
+            "detach": 49,
+            "valid_release": 49,
+            "stable_bucket": 47
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 49,
+              "median": 0.08838578260043074,
+              "p95": 0.10824834498283781,
+              "maximum": 0.11168544553133328
+            },
+            "fruit_speed": {
+              "count": 49,
+              "median": 0.26654818654060364,
+              "p95": 0.8549611330032343,
+              "maximum": 1.9119797945022583
+            }
+          },
+          "steps_median": 1252.5,
+          "steps_mean": 1254.4,
+          "success_steps_median": 1250.0,
+          "ik_failure_rate": 0.010076530612244897,
+          "clipping_rate": 0.008003826530612245,
+          "tracking_position_p95_median": 0.011998220954757579,
+          "failures": {
+            "drop_timeout": 2,
+            "reach_timeout": 1
+          }
+        }
+      },
+      "paired_contrasts": {
+        "Cz-C0/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 5.647540092468262e-06,
+          "difference": 0.46,
+          "ci95": [
+            0.3,
+            0.62
+          ],
+          "positive": 25,
+          "negative": 2,
+          "ties": 23
+        },
+        "Cxyz0-Cz/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.0703125,
+          "difference": 0.12,
+          "ci95": [
+            0.02,
+            0.22
+          ],
+          "positive": 7,
+          "negative": 1,
+          "ties": 42
+        },
+        "Cxyz-Cxyz0/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 3.814697265625e-06,
+          "difference": 0.38,
+          "ci95": [
+            0.24,
+            0.52
+          ],
+          "positive": 19,
+          "negative": 0,
+          "ties": 31
+        },
+        "Cxyz-C0/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 7.105427357601002e-15,
+          "difference": 0.96,
+          "ci95": [
+            0.9,
+            1.0
+          ],
+          "positive": 48,
+          "negative": 0,
+          "ties": 2
+        },
+        "Cz-C0/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 50
+        },
+        "Cxyz0-Cz/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 1.862645149230957e-09,
+          "difference": 0.6,
+          "ci95": [
+            0.46,
+            0.74
+          ],
+          "positive": 30,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cxyz-Cxyz0/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 7.62939453125e-05,
+          "difference": 0.34,
+          "ci95": [
+            0.2,
+            0.48
+          ],
+          "positive": 18,
+          "negative": 1,
+          "ties": 31
+        },
+        "Cxyz-C0/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 1.4210854715202004e-14,
+          "difference": 0.94,
+          "ci95": [
+            0.86,
+            1.0
+          ],
+          "positive": 47,
+          "negative": 0,
+          "ties": 3
+        },
+        "Cz-C0/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 50
+        },
+        "Cxyz0-Cz/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 9.313225746154785e-10,
+          "difference": 0.62,
+          "ci95": [
+            0.48,
+            0.76
+          ],
+          "positive": 31,
+          "negative": 0,
+          "ties": 19
+        },
+        "Cxyz-Cxyz0/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 0.00014495849609375,
+          "difference": 0.32,
+          "ci95": [
+            0.18,
+            0.46
+          ],
+          "positive": 17,
+          "negative": 1,
+          "ties": 32
+        },
+        "Cxyz-C0/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 1.4210854715202004e-14,
+          "difference": 0.94,
+          "ci95": [
+            0.86,
+            1.0
+          ],
+          "positive": 47,
+          "negative": 0,
+          "ties": 3
+        },
+        "C0/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.04,
+          "ci95": [
+            -0.1,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 48
+        },
+        "Cz/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 5.960464477539063e-08,
+          "difference": -0.5,
+          "ci95": [
+            -0.64,
+            -0.36
+          ],
+          "positive": 0,
+          "negative": 25,
+          "ties": 25
+        },
+        "Cxyz0/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": -0.02,
+          "ci95": [
+            -0.08,
+            0.04
+          ],
+          "positive": 1,
+          "negative": 2,
+          "ties": 47
+        },
+        "Cxyz/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.25,
+          "difference": -0.06,
+          "ci95": [
+            -0.14,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 3,
+          "ties": 47
+        },
+        "information_gain/G--G0": {
+          "n": 50,
+          "difference": -0.02,
+          "ci95": [
+            -0.1,
+            0.06
+          ],
+          "positive": 2,
+          "negative": 3,
+          "ties": 45
+        },
+        "C0/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.04,
+          "ci95": [
+            -0.1,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 48
+        },
+        "Cz/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 5.960464477539063e-08,
+          "difference": -0.5,
+          "ci95": [
+            -0.64,
+            -0.36
+          ],
+          "positive": 0,
+          "negative": 25,
+          "ties": 25
+        },
+        "Cxyz0/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            -0.08,
+            0.08
+          ],
+          "positive": 2,
+          "negative": 2,
+          "ties": 46
+        },
+        "Cxyz/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.25,
+          "difference": -0.06,
+          "ci95": [
+            -0.14,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 3,
+          "ties": 47
+        },
+        "information_gain/G+-G0": {
+          "n": 50,
+          "difference": -0.02,
+          "ci95": [
+            -0.1,
+            0.06
+          ],
+          "positive": 2,
+          "negative": 3,
+          "ties": 45
+        },
+        "Cxyz-C0/averaged_G_clustered": {
+          "n": 50,
+          "difference": 0.9466666666666665,
+          "ci95": [
+            0.9133333333333331,
+            0.98
+          ],
+          "positive": 50,
+          "negative": 0,
+          "ties": 0
+        }
+      }
+    },
+    "common_valid": {
+      "base_scenes": 50,
+      "rollouts": 600,
+      "groups": {
+        "C0/G0": {
+          "n": 50,
+          "success": 2,
+          "success_rate": 0.04,
+          "ci95": [
+            0.011038884327619805,
+            0.1346009068750702
+          ],
+          "planned_success": 2,
+          "invalid": 0,
+          "funnel": {
+            "held15": 2,
+            "detach": 2,
+            "release": 2,
+            "valid_release": 2,
+            "stable_bucket": 2
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 2,
+            "detach": 2,
+            "valid_release": 2,
+            "stable_bucket": 2
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 2,
+              "median": 0.09125986210009138,
+              "p95": 0.09651955896469035,
+              "maximum": 0.09710396972742356
+            },
+            "fruit_speed": {
+              "count": 2,
+              "median": 0.4030611515045166,
+              "p95": 0.5259915113449096,
+              "maximum": 0.5396504402160645
+            }
+          },
+          "steps_median": 450.0,
+          "steps_mean": 482.7,
+          "success_steps_median": 1257.5,
+          "ik_failure_rate": 0.006670810026931841,
+          "clipping_rate": 0.0005386368344727574,
+          "tracking_position_p95_median": 0.008895482911221868,
+          "failures": {
+            "grasp_timeout": 48
+          }
+        },
+        "C0/G-": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 449.0,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008895437991854289,
+          "failures": {
+            "grasp_timeout": 49,
+            "reach_timeout": 1
+          }
+        },
+        "C0/G+": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 448.7,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.00889539290437016,
+          "failures": {
+            "grasp_timeout": 49,
+            "reach_timeout": 1
+          }
+        },
+        "Cz/G0": {
+          "n": 50,
+          "success": 25,
+          "success_rate": 0.5,
+          "ci95": [
+            0.3664451431682858,
+            0.6335548568317142
+          ],
+          "planned_success": 25,
+          "invalid": 0,
+          "funnel": {
+            "held15": 27,
+            "detach": 27,
+            "release": 26,
+            "valid_release": 26,
+            "stable_bucket": 25
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 27,
+            "detach": 27,
+            "valid_release": 26,
+            "stable_bucket": 25
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 26,
+              "median": 0.08760162630033552,
+              "p95": 0.09591778286573699,
+              "maximum": 0.10176242723785671
+            },
+            "fruit_speed": {
+              "count": 26,
+              "median": 0.26690270006656647,
+              "p95": 0.631507396697998,
+              "maximum": 1.6924717426300049
+            }
+          },
+          "steps_median": 1142.5,
+          "steps_mean": 903.4,
+          "success_steps_median": 1245.0,
+          "ik_failure_rate": 0.03909674562762896,
+          "clipping_rate": 0.005756032765109586,
+          "tracking_position_p95_median": 0.011511966203665137,
+          "failures": {
+            "grasp_timeout": 23,
+            "drop_timeout": 1,
+            "transport_timeout": 1
+          }
+        },
+        "Cz/G-": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 48,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 456.5,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008920697724492617,
+          "failures": {
+            "grasp_timeout": 48,
+            "reach_timeout": 2
+          }
+        },
+        "Cz/G+": {
+          "n": 50,
+          "success": 0,
+          "success_rate": 0.0,
+          "ci95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "planned_success": 0,
+          "invalid": 0,
+          "funnel": {
+            "held15": 0,
+            "detach": 0,
+            "release": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 0,
+            "detach": 0,
+            "valid_release": 0,
+            "stable_bucket": 0
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": null,
+            "fruit_speed": null
+          },
+          "steps_median": 450.0,
+          "steps_mean": 459.8,
+          "success_steps_median": null,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "tracking_position_p95_median": 0.008916951192008506,
+          "failures": {
+            "grasp_timeout": 49,
+            "reach_timeout": 1
+          }
+        },
+        "Cxyz0/G0": {
+          "n": 50,
+          "success": 31,
+          "success_rate": 0.62,
+          "ci95": [
+            0.4815044693099298,
+            0.7413721068980641
+          ],
+          "planned_success": 31,
+          "invalid": 0,
+          "funnel": {
+            "held15": 34,
+            "detach": 34,
+            "release": 33,
+            "valid_release": 33,
+            "stable_bucket": 31
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 34,
+            "detach": 34,
+            "valid_release": 33,
+            "stable_bucket": 31
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 33,
+              "median": 0.08725240696162566,
+              "p95": 0.09778313797345997,
+              "maximum": 0.10245883459746366
+            },
+            "fruit_speed": {
+              "count": 33,
+              "median": 0.26658183336257935,
+              "p95": 1.1324829816818225,
+              "maximum": 1.7411742210388184
+            }
+          },
+          "steps_median": 1162.5,
+          "steps_mean": 997.6,
+          "success_steps_median": 1230.0,
+          "ik_failure_rate": 0.03853247794707298,
+          "clipping_rate": 0.006535685645549318,
+          "tracking_position_p95_median": 0.011722441935221671,
+          "failures": {
+            "grasp_timeout": 16,
+            "drop_timeout": 2,
+            "transport_timeout": 1
+          }
+        },
+        "Cxyz0/G-": {
+          "n": 50,
+          "success": 30,
+          "success_rate": 0.6,
+          "ci95": [
+            0.4618143774758936,
+            0.7239161026974346
+          ],
+          "planned_success": 30,
+          "invalid": 0,
+          "funnel": {
+            "held15": 31,
+            "detach": 31,
+            "release": 30,
+            "valid_release": 30,
+            "stable_bucket": 30
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 31,
+            "detach": 31,
+            "valid_release": 30,
+            "stable_bucket": 30
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 30,
+              "median": 0.08786526335349029,
+              "p95": 0.09690843372080721,
+              "maximum": 0.09963818110638528
+            },
+            "fruit_speed": {
+              "count": 30,
+              "median": 0.2665509432554245,
+              "p95": 0.825786733627319,
+              "maximum": 0.8774190545082092
+            }
+          },
+          "steps_median": 1127.5,
+          "steps_mean": 939.1,
+          "success_steps_median": 1197.5,
+          "ik_failure_rate": 0.020019167287828772,
+          "clipping_rate": 0.00724097540198062,
+          "tracking_position_p95_median": 0.011143622530835775,
+          "failures": {
+            "grasp_timeout": 18,
+            "reach_timeout": 1,
+            "transport_timeout": 1
+          }
+        },
+        "Cxyz0/G+": {
+          "n": 50,
+          "success": 31,
+          "success_rate": 0.62,
+          "ci95": [
+            0.4815044693099298,
+            0.7413721068980641
+          ],
+          "planned_success": 31,
+          "invalid": 0,
+          "funnel": {
+            "held15": 32,
+            "detach": 32,
+            "release": 31,
+            "valid_release": 31,
+            "stable_bucket": 31
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 32,
+            "detach": 32,
+            "valid_release": 31,
+            "stable_bucket": 31
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 31,
+              "median": 0.08677034888695997,
+              "p95": 0.09960490233685104,
+              "maximum": 0.10106538312071847
+            },
+            "fruit_speed": {
+              "count": 31,
+              "median": 0.2664673626422882,
+              "p95": 0.7730064988136292,
+              "maximum": 0.9199857711791992
+            }
+          },
+          "steps_median": 1120.0,
+          "steps_mean": 953.4,
+          "success_steps_median": 1220.0,
+          "ik_failure_rate": 0.019173484371722258,
+          "clipping_rate": 0.00683868260960772,
+          "tracking_position_p95_median": 0.011071335468302796,
+          "failures": {
+            "grasp_timeout": 17,
+            "transport_timeout": 1,
+            "reach_timeout": 1
+          }
+        },
+        "Cxyz/G0": {
+          "n": 50,
+          "success": 50,
+          "success_rate": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "planned_success": 50,
+          "invalid": 0,
+          "funnel": {
+            "held15": 50,
+            "detach": 50,
+            "release": 50,
+            "valid_release": 50,
+            "stable_bucket": 50
+          },
+          "chain_funnel": {
+            "grasp_phase": 50,
+            "held15": 50,
+            "detach": 50,
+            "valid_release": 50,
+            "stable_bucket": 50
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 50,
+              "median": 0.08791010723687032,
+              "p95": 0.11106518697819893,
+              "maximum": 0.11518028956477191
+            },
+            "fruit_speed": {
+              "count": 50,
+              "median": 0.2667126804590225,
+              "p95": 0.632709115743637,
+              "maximum": 0.8520997762680054
+            }
+          },
+          "steps_median": 1257.5,
+          "steps_mean": 1250.1,
+          "success_steps_median": 1257.5,
+          "ik_failure_rate": 0.013278937684985202,
+          "clipping_rate": 0.008271338292936565,
+          "tracking_position_p95_median": 0.01288327811280336,
+          "failures": {}
+        },
+        "Cxyz/G-": {
+          "n": 50,
+          "success": 47,
+          "success_rate": 0.94,
+          "ci95": [
+            0.8378290831116182,
+            0.979385029651026
+          ],
+          "planned_success": 47,
+          "invalid": 0,
+          "funnel": {
+            "held15": 48,
+            "detach": 48,
+            "release": 48,
+            "valid_release": 48,
+            "stable_bucket": 47
+          },
+          "chain_funnel": {
+            "grasp_phase": 48,
+            "held15": 48,
+            "detach": 48,
+            "valid_release": 48,
+            "stable_bucket": 47
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 48,
+              "median": 0.0879599332939264,
+              "p95": 0.10935010999840526,
+              "maximum": 0.11262844518020197
+            },
+            "fruit_speed": {
+              "count": 48,
+              "median": 0.26662684977054596,
+              "p95": 0.8098504483699799,
+              "maximum": 1.6920998096466064
+            }
+          },
+          "steps_median": 1262.5,
+          "steps_mean": 1234.3,
+          "success_steps_median": 1270.0,
+          "ik_failure_rate": 0.01096978044235599,
+          "clipping_rate": 0.008523049501741879,
+          "tracking_position_p95_median": 0.012907673859095923,
+          "failures": {
+            "drop_timeout": 1,
+            "reach_timeout": 2
+          }
+        },
+        "Cxyz/G+": {
+          "n": 50,
+          "success": 47,
+          "success_rate": 0.94,
+          "ci95": [
+            0.8378290831116182,
+            0.979385029651026
+          ],
+          "planned_success": 47,
+          "invalid": 0,
+          "funnel": {
+            "held15": 49,
+            "detach": 49,
+            "release": 49,
+            "valid_release": 49,
+            "stable_bucket": 47
+          },
+          "chain_funnel": {
+            "grasp_phase": 49,
+            "held15": 49,
+            "detach": 49,
+            "valid_release": 49,
+            "stable_bucket": 47
+          },
+          "release_diagnostics": {
+            "fruit_bucket_distance": {
+              "count": 49,
+              "median": 0.08838578260043074,
+              "p95": 0.10824834498283781,
+              "maximum": 0.11168544553133328
+            },
+            "fruit_speed": {
+              "count": 49,
+              "median": 0.26654818654060364,
+              "p95": 0.8549611330032343,
+              "maximum": 1.9119797945022583
+            }
+          },
+          "steps_median": 1252.5,
+          "steps_mean": 1254.4,
+          "success_steps_median": 1250.0,
+          "ik_failure_rate": 0.010076530612244897,
+          "clipping_rate": 0.008003826530612245,
+          "tracking_position_p95_median": 0.011998220954757579,
+          "failures": {
+            "drop_timeout": 2,
+            "reach_timeout": 1
+          }
+        }
+      },
+      "paired_contrasts": {
+        "Cz-C0/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 5.647540092468262e-06,
+          "difference": 0.46,
+          "ci95": [
+            0.3,
+            0.62
+          ],
+          "positive": 25,
+          "negative": 2,
+          "ties": 23
+        },
+        "Cxyz0-Cz/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.0703125,
+          "difference": 0.12,
+          "ci95": [
+            0.02,
+            0.22
+          ],
+          "positive": 7,
+          "negative": 1,
+          "ties": 42
+        },
+        "Cxyz-Cxyz0/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 3.814697265625e-06,
+          "difference": 0.38,
+          "ci95": [
+            0.24,
+            0.52
+          ],
+          "positive": 19,
+          "negative": 0,
+          "ties": 31
+        },
+        "Cxyz-C0/G0": {
+          "n": 50,
+          "exact_mcnemar_p": 7.105427357601002e-15,
+          "difference": 0.96,
+          "ci95": [
+            0.9,
+            1.0
+          ],
+          "positive": 48,
+          "negative": 0,
+          "ties": 2
+        },
+        "Cz-C0/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 50
+        },
+        "Cxyz0-Cz/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 1.862645149230957e-09,
+          "difference": 0.6,
+          "ci95": [
+            0.46,
+            0.74
+          ],
+          "positive": 30,
+          "negative": 0,
+          "ties": 20
+        },
+        "Cxyz-Cxyz0/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 7.62939453125e-05,
+          "difference": 0.34,
+          "ci95": [
+            0.2,
+            0.48
+          ],
+          "positive": 18,
+          "negative": 1,
+          "ties": 31
+        },
+        "Cxyz-C0/G-": {
+          "n": 50,
+          "exact_mcnemar_p": 1.4210854715202004e-14,
+          "difference": 0.94,
+          "ci95": [
+            0.86,
+            1.0
+          ],
+          "positive": 47,
+          "negative": 0,
+          "ties": 3
+        },
+        "Cz-C0/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 0,
+          "ties": 50
+        },
+        "Cxyz0-Cz/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 9.313225746154785e-10,
+          "difference": 0.62,
+          "ci95": [
+            0.48,
+            0.76
+          ],
+          "positive": 31,
+          "negative": 0,
+          "ties": 19
+        },
+        "Cxyz-Cxyz0/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 0.00014495849609375,
+          "difference": 0.32,
+          "ci95": [
+            0.18,
+            0.46
+          ],
+          "positive": 17,
+          "negative": 1,
+          "ties": 32
+        },
+        "Cxyz-C0/G+": {
+          "n": 50,
+          "exact_mcnemar_p": 1.4210854715202004e-14,
+          "difference": 0.94,
+          "ci95": [
+            0.86,
+            1.0
+          ],
+          "positive": 47,
+          "negative": 0,
+          "ties": 3
+        },
+        "C0/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.04,
+          "ci95": [
+            -0.1,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 48
+        },
+        "Cz/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 5.960464477539063e-08,
+          "difference": -0.5,
+          "ci95": [
+            -0.64,
+            -0.36
+          ],
+          "positive": 0,
+          "negative": 25,
+          "ties": 25
+        },
+        "Cxyz0/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": -0.02,
+          "ci95": [
+            -0.08,
+            0.04
+          ],
+          "positive": 1,
+          "negative": 2,
+          "ties": 47
+        },
+        "Cxyz/G--G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.25,
+          "difference": -0.06,
+          "ci95": [
+            -0.14,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 3,
+          "ties": 47
+        },
+        "information_gain/G--G0": {
+          "n": 50,
+          "difference": -0.02,
+          "ci95": [
+            -0.1,
+            0.06
+          ],
+          "positive": 2,
+          "negative": 3,
+          "ties": 45
+        },
+        "C0/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.5,
+          "difference": -0.04,
+          "ci95": [
+            -0.1,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 2,
+          "ties": 48
+        },
+        "Cz/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 5.960464477539063e-08,
+          "difference": -0.5,
+          "ci95": [
+            -0.64,
+            -0.36
+          ],
+          "positive": 0,
+          "negative": 25,
+          "ties": 25
+        },
+        "Cxyz0/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            -0.08,
+            0.08
+          ],
+          "positive": 2,
+          "negative": 2,
+          "ties": 46
+        },
+        "Cxyz/G+-G0": {
+          "n": 50,
+          "exact_mcnemar_p": 0.25,
+          "difference": -0.06,
+          "ci95": [
+            -0.14,
+            0.0
+          ],
+          "positive": 0,
+          "negative": 3,
+          "ties": 47
+        },
+        "information_gain/G+-G0": {
+          "n": 50,
+          "difference": -0.02,
+          "ci95": [
+            -0.1,
+            0.06
+          ],
+          "positive": 2,
+          "negative": 3,
+          "ties": 45
+        },
+        "Cxyz-C0/averaged_G_clustered": {
+          "n": 50,
+          "difference": 0.9466666666666665,
+          "ci95": [
+            0.9133333333333331,
+            0.98
+          ],
+          "positive": 50,
+          "negative": 0,
+          "ties": 0
+        }
+      }
+    },
+    "common_valid_seeds": [
+      8400000,
+      8400001,
+      8400002,
+      8400003,
+      8400004,
+      8400005,
+      8400006,
+      8400007,
+      8400008,
+      8400009,
+      8400010,
+      8400011,
+      8400012,
+      8400013,
+      8400014,
+      8400015,
+      8400016,
+      8400017,
+      8400018,
+      8400019,
+      8400020,
+      8400021,
+      8400022,
+      8400023,
+      8400024,
+      8400025,
+      8400026,
+      8400027,
+      8400028,
+      8400029,
+      8400031,
+      8400032,
+      8400033,
+      8400034,
+      8400035,
+      8400036,
+      8400037,
+      8400038,
+      8400039,
+      8400040,
+      8400041,
+      8400042,
+      8400043,
+      8400044,
+      8400045,
+      8400046,
+      8400047,
+      8400048,
+      8400049,
+      8400050
+    ]
+  }
+}

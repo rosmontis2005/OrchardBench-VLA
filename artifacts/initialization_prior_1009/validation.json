@@ -392,7 +392,137 @@
         "steps": 440,
         "passed": true
       }
+    ],
+    "round3": [
+      {
+        "folder": "round3/8400000_C0_G+",
+        "steps": 450,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_C0_G+",
+        "steps": 360,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_C0_G-",
+        "steps": 450,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_C0_G-",
+        "steps": 450,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_C0_G0",
+        "steps": 450,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_C0_G0",
+        "steps": 450,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cxyz0_G+",
+        "steps": 435,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cxyz0_G+",
+        "steps": 360,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cxyz0_G-",
+        "steps": 435,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cxyz0_G-",
+        "steps": 1280,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cxyz0_G0",
+        "steps": 430,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cxyz0_G0",
+        "steps": 1270,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cxyz_G+",
+        "steps": 1310,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cxyz_G+",
+        "steps": 360,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cxyz_G-",
+        "steps": 1270,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cxyz_G-",
+        "steps": 1305,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cxyz_G0",
+        "steps": 1295,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cxyz_G0",
+        "steps": 1245,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cz_G+",
+        "steps": 430,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cz_G+",
+        "steps": 360,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cz_G-",
+        "steps": 430,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cz_G-",
+        "steps": 430,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400000_Cz_G0",
+        "steps": 430,
+        "passed": true
+      },
+      {
+        "folder": "round3/8400050_Cz_G0",
+        "steps": 1285,
+        "passed": true
+      }
     ]
   },
-  "production_files_modified": false
+  "production_files_modified": false,
+  "formal_complete_grid": true,
+  "formal_rollouts": 600,
+  "formal_engineering_errors": 0,
+  "formal_low_information_live_updates": 0,
+  "formal_actual_configuration_matches_freeze": true,
+  "formal_controller_source_matches_frozen_commit": true,
+  "formal_paired_geometry_checks": 100,
+  "formal_common_valid_scenes": 50
 }

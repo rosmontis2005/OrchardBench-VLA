@@ -2,6 +2,7 @@
 """Scene-paired statistics. All attempts and common-valid subsets stay separate."""
 import csv
 import json
+import math
 from collections import Counter
 from pathlib import Path
 import numpy as np
@@ -31,7 +32,11 @@ def paired(values):
     if not n:return dict(n=0)
     rng=np.random.default_rng(1009)
     samples=values[rng.integers(0,n,(20000,n))].mean(axis=1)
-    return dict(n=n,difference=float(values.mean()),ci95=np.quantile(samples,[.025,.975]).tolist(),
+    positive=int((values>0).sum());negative=int((values<0).sum());discordant=positive+negative
+    # Exact paired binary test supplements percentile bootstrap for sparse pairs.
+    exact=(min(1.,2*sum(math.comb(discordant,k) for k in range(min(positive,negative)+1))/2**discordant)
+           if discordant else 1.) if np.isin(values,[-1.,0.,1.]).all() else None
+    return dict(n=n,exact_mcnemar_p=exact,difference=float(values.mean()),ci95=np.quantile(samples,[.025,.975]).tolist(),
                 positive=int((values>0).sum()),negative=int((values<0).sum()),ties=int((values==0).sum()))
 
 
@@ -76,6 +81,8 @@ def summarize(rows):
         contrasts[f'information_gain/{g}-G0']=paired([(success(s,'Cxyz',g)-success(s,'C0',g))-(success(s,'Cxyz','G0')-success(s,'C0','G0')) for s in both])
     both=[s for s in seeds if all((s,m,g) in lookup for m in ['C0','Cxyz'] for g in INITS)]
     contrasts['Cxyz-C0/averaged_G_clustered']=paired([np.mean([success(s,'Cxyz',g)-success(s,'C0',g) for g in INITS]) for s in both])
+    for key,value in contrasts.items():
+        if key.startswith('information_gain/') or 'averaged_G' in key:value.pop('exact_mcnemar_p',None)
     return dict(base_scenes=len(seeds),rollouts=len(rows),groups=groups,paired_contrasts=contrasts)
 
 
@@ -120,7 +127,7 @@ def main():
             'controller_steps','target_tcp_distance','initial_geometry','initial_pose_ik','phases','release_diagnostics',
             'planned_fruit_id','strict','branch_breaks','incidental_detached_ids','wall_seconds','planning_calls','live_position_updates','shadow_max_command_error']
     with (OUT/'results.csv').open('w') as f:
-        writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader()
+        writer=csv.DictWriter(f,fieldnames=fields,lineterminator="\n");writer.writeheader()
         for r in rows:writer.writerow({k:json.dumps(r[k],ensure_ascii=False) if isinstance(r.get(k),(dict,list)) else r.get(k) for k in fields})
     stats={}
     for label,names in [('development',['round1','round2']),('formal',['round3'])]:

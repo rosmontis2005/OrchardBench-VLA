@@ -21,9 +21,10 @@ def main():
     formal=stats['formal'];main=formal['all_attempts'];groups=main['groups'];dev=stats['development']['all_attempts']['groups']
     rows=load_rows();test=[r for r in rows if r['round']=='round3'];cal=json.loads((OUT/'calibration.json').read_text())
     geometry=formal['geometry']['initializations'];contrasts=main['paired_contrasts']
+    manifest=json.loads((OUT/'scene_manifest.json').read_text())
     text=['# OrchardBench-VLA：初始化先验与目标空间信息对照（1009）','',
         '## 1. 研究问题与结论范围','',
-        '原站位规划器先用真值选择果实，再按高度相关的 standoff band 寻找底座位置，令 yaw 正对目标，并筛选出生碰撞、抓取与回撤等可达性。因此目标基座坐标接近 `(x(z), 0, z)`：横向定位需求被初始化消除，前后距离变化也被压缩。本实验检验剩余目标空间信息的边际价值，没有训练或评测 VLA。','',
+        '原站位规划器先用真值选择果实，再按高度相关的 standoff band 寻找底座位置，令 yaw 正对目标，并筛选出生碰撞、抓取与回撤等可达性。距离候选为 `lo+f(hi−lo)`，`f∈{0.75,0.35}`；区间上界依赖目标高度、肩部位置与臂展。因此目标基座坐标接近 `(x(z), 0, z)`：横向定位需求被初始化消除，前后距离变化也被压缩。本实验检验剩余目标空间信息的边际价值，没有训练或评测 VLA。','',
         f"正式结果为 50 个新基础场景、600 条 rollout。C0/G0 为 {groups['C0/G0']['success']}/50；Cz/G0 为 {groups['Cz/G0']['success']}/50；Cxyz0/G0 为 {groups['Cxyz0/G0']['success']}/50；Cxyz/G0 为 {groups['Cxyz/G0']['success']}/50。以下主指标均为任意一颗果实的原 StrictPlacement 成功。",'',
         '主实验测量的是**共享特权阶段反馈条件下，目标空间信息的贡献**。C0 仍有机器人本体反馈、规划目标的抓持／脱果反馈、held15、完成标记和真实速率标量，不能称为完全无感知机器人。Cxyz 是持续真值几何参考，不是真实视觉策略。','',
         '## 2. 实验设计与信息隔离','',
@@ -33,20 +34,22 @@ def main():
         '| Cz | 一次高度 z₀ | 冻结 `(x̂(z₀),0,z₀)` | 同上 |',
         '| Cxyz0 | 一次完整三维坐标 | 固定初始坐标 | 同上 |',
         '| Cxyz | 初始三维坐标 | 每 5 个真实控制步更新 | 同频率更新真值 |','',
-        f"C0 模板为 `{cal['nominal_base_xyz']}` m；Cz 映射为 `x̂(z)={cal['height_to_x'][0]:.6f}z+{cal['height_to_x'][1]:.6f}` m，独立 40 场景校准的 x 残差 RMSE 为 {100*cal['residual_x_rmse']:.2f} cm。固定抓持偏移为 TCP 系 `(0,0,0)`，不根据 rollout、seed 或成功情况校准。该近似可能损失持果偏移信息，是本轮低信息实现的明确局限。",'',
+        f"C0 模板约为 `({cal['nominal_base_xyz'][0]:.6f}, 0, {cal['nominal_base_xyz'][2]:.6f})` m（完整精度见 calibration.json）；Cz 映射为 `x̂(z)={cal['height_to_x'][0]:.6f}z+{cal['height_to_x'][1]:.6f}` m，独立 40 场景校准的 x 残差 RMSE 为 {100*cal['residual_x_rmse']:.2f} cm。固定抓持偏移为 TCP 系 `(0,0,0)`，不根据 rollout、seed 或成功情况校准。该近似可能损失持果偏移信息，是本轮低信息实现的明确局限。",'',
         '`TargetInformationProvider` 不接收 env、seed 或 planner metadata。C0 的构造接口不接收测量；Cz 只接收标量高度；Cxyz0 只接收一次初始坐标。后三阶段继续使用同一受限估计，低信息组实时位置更新计数为零。`ControlledExpert` 构造白名单后直接调用生产 `StudentNativeExpert.plan()`，没有复制或另写状态机。测试覆盖所有阶段的命令一致性、非法位置输入拒绝、运输末段和坐标变换等变性。','',
-        'StageFeedback 与位置接口分离，仅包含规划目标 held / detached、held15_step、strict_success_step 和 fruit_speed 标量。规划目标身份只在评估侧用于形成共同布尔反馈；状态机收到固定合成 ID。桶位置由当前机器人底座位姿和已知安装几何计算。世界坐标仅用于刚体坐标变换，没有利用底座位置反解规划目标。完整位置、其他果实和碰撞真值只用于独立评估日志。','',
+        'StageFeedback 与位置接口分离，仅包含规划目标 held / detached、held15_step、strict_success_step 和 fruit_speed 标量。规划目标身份只在评估侧用于形成共同布尔反馈；状态机收到固定合成 ID。桶位置由当前机器人底座位姿和已知安装几何计算。世界坐标仅用于刚体坐标变换，没有利用底座位置反解规划目标。低信息组未获授权的目标位置、其他果实和碰撞真值只用于独立评估日志；Cxyz 的当前目标位置则通过专用授权入口传入。','',
         '统一契约：60 Hz 仿真，30 Hz 控制，action_repeat=2，H=5；reach/grasp/pull/transport 为 0.20/0.04/0.08/0.20 m/s，旋转 0.30 rad/s；pregrasp=0.16 m、retract=0.32 m；阶段预算 12/12/8/45/8 s，总预算 2100 控制步。所有缓存命令只执行一次 `native_command → OrchardVLAEnv.step`，无 reach-conditioned、额外 dwell。benchmark_assist 和 detach_force_scale=1.5 不变。','',
         'G−/G＋在原 stance 的局部 y 方向平移 −/+0.08 m，原 yaw 不变；先选原目标，再在 world 构造前覆盖 stance。没有再次优化、teleport 或改初始关节。每次 reset 断言所有初始果实坐标与场景清单一致、home 关节一致、仿真时钟为零。树和物理使用相同 seed 与配置；桶随机器人整体移动。','',
         'Round 0：3 个已有 Gate A 场景比较原专家和 Cxyz，均为 2/3 严格成功；另有每模式 2 条 smoke。第一次审计发现固定底座焊接约束有约 0.33 mm 顺应位移，适配层错误冻结底座坐标导致微米级运输命令差异；唯一修订改用当前机器人自身底座位姿及桶安装关系。修订后同观测命令误差约 10⁻⁸，成功轨迹相差 0/5 控制步。前后结果及工程异常保留，没有调整控制参数。','',
         'Round 1/2 使用 8300000 起的前 20 个原规划器可行场景，分别运行 80/160 次。校准使用独立 8290000 起的 40 个场景。正式名单为 8400000 起的前 50 个可行场景，配置冻结后运行全部 600 次，不根据正式结果重选或调参。所有新场景与 Gate C 和 V2 采集不重叠。具体全部扫描尝试见 scene_manifest.json。','',
         '## 3. 初始几何分布与有效性','',
-        '| 初始化 | x 均值±SD (m) | y 均值±SD (m) | z 均值±SD (m) | 果实–TCP距离均值／范围 (m) | 端点IK可达：预抓／抓取 | 出生有效 |',
+        '| 初始化 | x 均值±SD (m) | y 均值±SD (m) | z 均值±SD (m) | 果实–TCP距离均值／范围 (m) | 端点IK可达数：预抓／抓取（各50） | 出生有效 |',
         '|---|---|---|---|---|---:|---:|']
     for g in INITS:
         d=geometry[g];mu=d['xyz_mean'];sd=d['xyz_std'];dr=d['target_tcp_distance_range']
         text.append(f"| {g} | {mu[0]:.4f}±{sd[0]:.4f} | {mu[1]:.4f}±{sd[1]:.2g} | {mu[2]:.4f}±{sd[2]:.4f} | {d['target_tcp_distance_mean']:.4f} / [{dr[0]:.4f},{dr[1]:.4f}] | {d['endpoint_ik_reachable']['pregrasp']}/{d['endpoint_ik_reachable']['grasp']} | {d['n']-d['invalid']}/{d['n']} |")
     text += ['',
+        '原规划器筛选尝试：'+ '；'.join(f"{name} 扫描 {len(manifest[key]['attempts'])} 个 seed，接受 {len(manifest[key]['scenes'])} 个，名义 stance 不可行 {sum(not x['feasible'] for x in manifest[key]['attempts'])} 个" for key,name in [('calibration','校准'),('development','开发'),('test','正式')])+'。这些筛选均未查看控制器结果；未选入的候选没有构造扰动 world，也不伪装成已运行的 rollout。','',
+        '正式初始 home-arm 的软细枝代理接触场景数为 G0/G−/G＋=0/3/3；最小 home-arm 对厚木／果实净空分别为 5.35/4.72/0.78 cm。软细枝不按出生无效排除，与原规划器的定义一致；这些变化也是扰动可能改变物理难度的具体证据。','',
         '有效性使用原规划器同类 chassis、bucket、wheel 和 home-arm 代理几何检查初始重叠；软细枝接触单独记录。端点 PoseIK 使用独立求解器，求解失败不作为排除依据，也不等于证明全局不可达。该检查不保证运动中的碰撞和路径可行性。全部尝试与共同有效场景均报告；原 planner 预筛不通过的候选也保留在 manifest。', '',
         f"正式阶段共有 {sum(geometry[g]['invalid'] for g in INITS)}/150 个无效初始化；共同有效基础场景 {len(formal['common_valid_seeds'])}/50。配对几何检查 {formal['geometry']['paired_geometry_checks']} 次通过：x/z 不变，目标 y 改变为底座扰动的相反数，yaw 不变。共同有效子集与全部尝试的矩阵{'相同' if len(formal['common_valid_seeds'])==50 else '另见 statistics.json'}。",'',
         '## 4. 主要结果','',
@@ -60,7 +63,7 @@ def main():
     for m in MODES:
         for g in INITS:
             d=groups[m+'/'+g];f=d['chain_funnel'];sm=d['success_steps_median']
-            text.append(f"| {m}/{g} | {f['grasp_phase']} | {f['held15']} | {f['detach']} | {f['valid_release']} | {f['stable_bucket']} | {d['steps_median']:.0f} | {sm if sm is not None else '—'} | {pct(d['ik_failure_rate'])} | {pct(d['clipping_rate'])} | {d['tracking_position_p95_median']:.4f} |")
+            text.append(f"| {m}/{g} | {f['grasp_phase']} | {f['held15']} | {f['detach']} | {f['valid_release']} | {f['stable_bucket']} | {d['steps_median']:.1f} | {sm if sm is not None else '—'} | {pct(d['ik_failure_rate'])} | {pct(d['clipping_rate'])} | {d['tracking_position_p95_median']:.4f} |")
     text += ['', '漏斗采用原 StrictPlacement 同果链；detach 链指该果实已满足 held15 且记录 grasp 后 detach。release 原始事件与 valid_chain 分开保存。IK/clipping 为控制步加权比例；较短失败轨迹不能解释为更高执行效率。各阶段起止控制步、首次抓持／释放／成功步数均在 results.csv。','',
         '| 模式/初始化 | 失败原因（次数） | 释放距离 p50/p95 (m) | 释放速率 p50/p95 (m/s) |','|---|---|---|---|']
     for m in MODES:
@@ -79,16 +82,32 @@ def main():
     text += ['',f"信息增益 `SR(Cxyz)−SR(C0)` 相比 G0 的变化：G− 为 {contrast(contrasts['information_gain/G--G0'])}；G＋为 {contrast(contrasts['information_gain/G+-G0'])}。跨三个初始化先在每个 seed 内平均的信息增益为 {contrast(contrasts['Cxyz-C0/averaged_G_clustered'])}。",'',
         '差异使用 20,000 次固定随机种子的基础场景 bootstrap，三种初始化不被当作独立样本。区间未进行多重比较校正，属于本次成对对照的边际区间；区间覆盖零不代表等效，全零差异导致的退化 bootstrap 区间也不能证明总体等效。','',
         '## 5. 结果归因','',
-        '<!-- INTERPRETATION: fill after inspecting final results -->','',
+        '1. **固定模板没有完成大部分任务。** C0/G0 仅 2/50（4%，Wilson 95% CI 1.1–13.5%）。两个成功 seed（8400027、8400039）都在 G−/G＋失败，而 Cxyz 在其三个初始化均成功；该模式真实存在，但只占 2/50，不能推广为当前任务主要由固定模板解决。C0 不是经过优化的全部无图像策略；其失败也不证明图像是必要条件。','',
+        '2. **初始高度提供了很大收益，但依赖初始化对齐。** Cz/G0 达到 25/50，相比 C0 增加 46 pp，配对 95% CI [30,62] pp；两个横向扰动都变成 0/50，分别相对 G0 下降 50 pp，CI [−64,−36] pp。有 21/50 个基础场景同时满足“Cz 原位成功、两个扰动均失败、Cxyz 三个条件全成功”。这比 C0 的地板效应更清楚地揭示了正前方先验的贡献。收益是高度测量与冻结高度—距离关联的组合，不是单独高度控制的效果。','',
+        '3. **准确初始三维定位能完成约六成任务，尚不足以接近持续参考。** Cxyz0 在 G0/G−/G＋分别为 62%/60%/62%，跨横向条件相对稳定。G0 比 Cz 多 12 pp（bootstrap CI [2,22] pp），但仅有 7 个正向、1 个反向不一致场景；作为报告阶段的统计敏感性检查，双侧精确 McNemar p=0.0703，提示这一较小增益对推断方法敏感。不能据此宣称两组等效，也不宜将该差异包装成稳健的显著优势。两个扰动下 Cxyz0 比 Cz 多 60/62 pp，收益明确。','',
+        '4. **持续真值位置更新有明确价值。** Cxyz 比 Cxyz0 在 G0/G−/G＋分别增加 38/34/32 pp，配对 CI 分别为 [24,52]/[20,48]/[18,46] pp。G0 的 19 次 Cxyz0 失败中，16 次为 grasp_timeout、3 次在运输／落桶；两个扰动的 Cxyz0 失败也主要在接近／抓取。收益主要体现在抓持建立前，同时低信息组有少量运输或释放损失，不能说所有差距都来自初始定位。该结果证明本轮持续更新配置优于 reset 一次定位，并不证明必须每 5 步更新；初始重力松弛、接触变形、一次更晚定位和其他预测器的作用未单独分解。','',
+        '5. **扰动打破了高度组依赖的横向先验，但没有让信息差距普遍扩大。** Cxyz−C0 的差距从 G0 的 96 pp 变为两个扰动的 94 pp，变化均为 −2 pp，CI [−10,6] pp。C0 在原位就接近地板，因此不能把未扩大的差距解释为初始化无影响。更有辨别力的是 Cz 的 50 pp 配对下降，以及完整三维组仍保留 60%以上／94%的成功率。','',
+        '6. **初始化确实替代了部分定位工作，却没有替代整个采摘任务。** 原初始化消除了几乎全部横向变化，并把 x 的标准差压到约 1.98 cm；但仍有约 10.77 cm 的高度标准差。固定均值不足、高度信息可解决一半、完整初始坐标约六成、持续真值几乎全部完成，构成清晰的信息层级。本实验没有可识别的单一“任务由初始化完成百分比”；50 pp 是指定高度控制器对这一横向干预的成功率损失，不是普遍的任务分解比例。','',
+        'Cxyz 在两个扰动各失败 3/50，合计为 3 次 reach_timeout 和 3 次 drop_timeout；虽然全部出生几何及端点 IK 检查通过，扰动仍改变了部分运动难度。相对 G0 的 −6 pp 区间为 [−14,0] pp，不能以区间含零宣布扰动对控制器无影响。正式 rollout 中另记录 4 条有枝条破坏、2 条有非规划果实脱落；这些作为物理诊断保留，没有额外覆盖原 StrictPlacement。','',
         '## 6. 对后续研究的影响','',
-        '<!-- DECISIONS: fill after inspecting final results -->','',
+        '- **原初始化可以保留为控制与管线基准，但不宜继续单独承担视觉定位／一般采摘泛化的主要 benchmark。** 几何先验被明确压缩，单一原位成功率不足以证明模型定位了目标。正式测试中的 50/50 真值参考也只是有限条件分布上的观测，不等于总体必然成功。','',
+        '- **主要评测应加入独立横向位置变化并保持基础场景配对。** 本轮 ±8 cm 在 150 个初始化中均通过出生检查、预抓与抓取端点 IK，且持续参考在两侧均为 94%，因此是有实际辨别能力的起点。后续还应独立改变前后距离以打破 x(z) 关联，并报告共同可行性与完整控制参考；本轮不实施这些新改动。','',
+        '- **未来新增数据不应全部使用完全对齐站位。** 已有 V2 数据可保留用于基础抓取、运输和执行契约学习；如果目标是视觉空间泛化，后续采集应加入独立的横向／距离变化，并维持统一初始化可行性规则。本轮没有重采、修改或作废已有 2000 条数据。','',
+        '- **后续 VLA 应优先证明接近／抓取期间使用了新鲜目标信息，同时分别验证初始定位与抓持后的运输能力。** 原生控制链在本轮真值参考下能完成 94–100%，而固定初始位置明显较弱，故不能只凭训练 loss 或原位闭环成功宣称视觉跟踪已解决。真实相机是否能提供所需位置精度、时间更新和遮挡下反馈，仍需另行验证。','',
+        '- **增加匹配训练的无图像模型基线。** 与图像模型对齐数据、机器人状态输入、训练量、预算和场景清单，做图像去除／置乱等预先冻结的比较。C0 只是一种简单模板，不覆盖无图像模型可能从状态与初始化关联中学到的能力；本轮几何结果不能代替这一模型级检验。','',
         '## 7. 局限、运行与复现','',
         '只有 50 个独立基础场景，单格成功率在中间区域的 95% 区间宽度约 26 个百分点，不能把小差异解释为等效。reset 可行性本身由特权规划器筛选，因此结论只适用于该条件分布；横向变化只有统一 ±8 cm，不能代表任意站位或一般采摘。','',
         'GPU 物理、接触和并行调度可能产生非确定性；每格每场景仅一次，未估计多次重跑的方差。Round 0 比较证明框架保留执行机制，不声称长程轨迹位级一致。出生几何和端点 IK 检查也不能排除扰动改变运动中碰撞、关节姿态或动态可达性。','',
         'Cxyz 的仿真真值没有真实视觉的遮挡、误差、延迟和目标关联问题；低信息组的共享阶段反馈、真实速率和 benchmark_assist 仍有信息及物理优势。Cxyz0 抓持后的固定 TCP 偏移不能代表所有可能的无在线定位预测器。本轮也没有匹配训练的无图像模型，不能从几何控制器结果直接推断 VLA 是否使用图像。','',
         '未执行 Round 4：前三轮已能回答本轮目标空间信息与横向初始化的主要判别问题，没有根据正式集结果继续选择控制器或调参。若以后研究定位刷新频率，应使用新探索场景，并明确区分探索性与确认性证据。','',
         f"运行配置冻结记录见 config.json。原生产基线提交为 `{config['orchard_baseline_commit']}`，XR-0 observer 来源为 `{config['xr0_commit']}`。本轮不修改生产专家、native action/controller、物理、正式采集脚本、gate_status 或 V2 数据。已有 2000 条数据采集在本地开始检查时已完成，本轮未操作其进程与配置。",'',
-        '复现入口见 `experiments/initialization_prior_1009/README.md`。核心文件为 controller.py、scenes.py、run.py、analyze.py、audit.py、report.py；CPU 权限测试为 test_information.py。results.csv 包含所有完成的轮次及修订前已完成轨迹；4 条修订前审计中断记录在 engineering_errors.json，原始未完成日志仍留在本地。场景、校准、冻结配置、统计、验证与修订记录随报告保存；压缩逐步日志及运行缓存不提交。','']
+        '版本对应：config.json 保留运行前的本地冻结提交 `2405deb6b16751dd8440bf87fab410e3d6d7a525`。终端没有 GitHub HTTPS 凭据，本次使用已有授权的 GitHub 应用发布；远端等内容冻结源码为 [1ff6422](https://github.com/rosmontis2005/OrchardBench-VLA/commit/1ff6422a32f706ab7f242f04b439c72850e48e20)。两个提交的 Git tree 完全相同（`9e0ff672e95cc71bc9bb4438282bef1ac0793db2`），仅提交元数据不同，实验冻结内容未改变。','',
+        '复现入口见 `experiments/initialization_prior_1009/README.md`。核心文件为 controller.py、scenes.py、run.py、analyze.py、audit.py、report.py；CPU 权限测试为 test_information.py。results.csv 包含所有完成的轮次及修订前已完成轨迹；4 条修订前审计中断记录在 engineering_errors.json，原始未完成日志仍留在本地。4 项 CPU 信息权限测试通过；14 条 Round 0 与每个正式单元按 seed 排序取首尾的 24 条轨迹通过独立严格事件重放，共核验 28,080 个连续边界。全部正式 rollout 均有运行时固定时钟、H5 边界及初始化一致性断言，600 个组合完整，工程异常为零。场景、校准、冻结配置、统计、验证与修订记录随报告保存；压缩逐步日志及运行缓存不提交。','']
+    text += ['### 并发吞吐实测','', '| 并发环境 | 批次 | 总墙钟(s) | 全批控制步/s | 稳定窗口控制步/s |', '|---:|---|---:|---:|---:|']
+    for d in config['worker_scaling']:
+        text.append(f"| {d['workers']} | {d['batch']} | {d['wall_seconds']:.1f} | {d['whole_batch_steps_per_second']:.2f} | {d['steady_window_steps_per_second']:.2f} |")
+    formal_runtime=json.loads((OUT/'round3/summary.json').read_text())
+    text += ['', f"正式批次使用 12 个独立环境及本实验私有 MPS，完成 {formal_runtime['new_steps']} 个控制步，用时 {formal_runtime['session_wall_seconds']/60:.2f} 分钟。6/12 的比较来自不同开发工作负载，只用于选择吞吐；没有盲目增加到 24，也没有改变控制时钟、GPU compute mode 或已有采集服务。", '']
     (OUT/'final_report.md').write_text('\n'.join(text))
     print(OUT/'final_report.md')
 if __name__=='__main__':main()
