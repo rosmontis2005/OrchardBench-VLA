@@ -1,0 +1,398 @@
+{
+  "cpu_permission_checks": 4,
+  "cpu_permission_checks_passed": true,
+  "round0_reference": [
+    {
+      "seed": 1000106,
+      "comparison": {
+        "Cxyz": {
+          "strict_success_any_fruit": true,
+          "termination_reason": "strict_success",
+          "controller_steps": 1070,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.004672897196261682,
+          "phases": [
+            {
+              "phase": "RESET",
+              "start_step": 0,
+              "end_step": 0,
+              "start_time": 0.0,
+              "end_time": 0.0,
+              "reason": null
+            },
+            {
+              "phase": "REACH",
+              "start_step": 0,
+              "end_step": 165,
+              "start_time": 0.0,
+              "end_time": 5.5,
+              "reason": null
+            },
+            {
+              "phase": "GRASP",
+              "start_step": 165,
+              "end_step": 290,
+              "start_time": 5.5,
+              "end_time": 9.666666666666666,
+              "reason": null
+            },
+            {
+              "phase": "PULL",
+              "start_step": 290,
+              "end_step": 405,
+              "start_time": 9.666666666666666,
+              "end_time": 13.5,
+              "reason": null
+            },
+            {
+              "phase": "TRANSPORT",
+              "start_step": 405,
+              "end_step": 1000,
+              "start_time": 13.5,
+              "end_time": 33.333333333333336,
+              "reason": null
+            },
+            {
+              "phase": "DROP",
+              "start_step": 1000,
+              "end_step": 1070,
+              "start_time": 33.333333333333336,
+              "end_time": 35.666666666666664,
+              "reason": "strict_success"
+            }
+          ],
+          "shadow_max_command_error": 1.2614804201227514e-08
+        },
+        "original": {
+          "strict_success_any_fruit": true,
+          "termination_reason": "strict_success",
+          "controller_steps": 1070,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.004672897196261682,
+          "phases": [
+            {
+              "phase": "RESET",
+              "start_step": 0,
+              "end_step": 0,
+              "start_time": 0.0,
+              "end_time": 0.0,
+              "reason": null
+            },
+            {
+              "phase": "REACH",
+              "start_step": 0,
+              "end_step": 165,
+              "start_time": 0.0,
+              "end_time": 5.5,
+              "reason": null
+            },
+            {
+              "phase": "GRASP",
+              "start_step": 165,
+              "end_step": 290,
+              "start_time": 5.5,
+              "end_time": 9.666666666666666,
+              "reason": null
+            },
+            {
+              "phase": "PULL",
+              "start_step": 290,
+              "end_step": 405,
+              "start_time": 9.666666666666666,
+              "end_time": 13.5,
+              "reason": null
+            },
+            {
+              "phase": "TRANSPORT",
+              "start_step": 405,
+              "end_step": 1000,
+              "start_time": 13.5,
+              "end_time": 33.333333333333336,
+              "reason": null
+            },
+            {
+              "phase": "DROP",
+              "start_step": 1000,
+              "end_step": 1070,
+              "start_time": 33.333333333333336,
+              "end_time": 35.666666666666664,
+              "reason": "strict_success"
+            }
+          ],
+          "shadow_max_command_error": null
+        }
+      }
+    },
+    {
+      "seed": 1000268,
+      "comparison": {
+        "Cxyz": {
+          "strict_success_any_fruit": false,
+          "termination_reason": "grasp_timeout",
+          "controller_steps": 445,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "phases": [
+            {
+              "phase": "RESET",
+              "start_step": 0,
+              "end_step": 0,
+              "start_time": 0.0,
+              "end_time": 0.0,
+              "reason": null
+            },
+            {
+              "phase": "REACH",
+              "start_step": 0,
+              "end_step": 85,
+              "start_time": 0.0,
+              "end_time": 2.8333333333333335,
+              "reason": null
+            },
+            {
+              "phase": "GRASP",
+              "start_step": 85,
+              "end_step": 445,
+              "start_time": 2.8333333333333335,
+              "end_time": 14.833333333333334,
+              "reason": "grasp_timeout"
+            }
+          ],
+          "shadow_max_command_error": 1.8443053972916346e-08
+        },
+        "original": {
+          "strict_success_any_fruit": false,
+          "termination_reason": "grasp_timeout",
+          "controller_steps": 445,
+          "ik_failure_rate": 0.0,
+          "clipping_rate": 0.0,
+          "phases": [
+            {
+              "phase": "RESET",
+              "start_step": 0,
+              "end_step": 0,
+              "start_time": 0.0,
+              "end_time": 0.0,
+              "reason": null
+            },
+            {
+              "phase": "REACH",
+              "start_step": 0,
+              "end_step": 85,
+              "start_time": 0.0,
+              "end_time": 2.8333333333333335,
+              "reason": null
+            },
+            {
+              "phase": "GRASP",
+              "start_step": 85,
+              "end_step": 445,
+              "start_time": 2.8333333333333335,
+              "end_time": 14.833333333333334,
+              "reason": "grasp_timeout"
+            }
+          ],
+          "shadow_max_command_error": null
+        }
+      }
+    },
+    {
+      "seed": 1000576,
+      "comparison": {
+        "original": {
+          "strict_success_any_fruit": true,
+          "termination_reason": "strict_success",
+          "controller_steps": 1180,
+          "ik_failure_rate": 0.03135593220338983,
+          "clipping_rate": 0.002542372881355932,
+          "phases": [
+            {
+              "phase": "RESET",
+              "start_step": 0,
+              "end_step": 0,
+              "start_time": 0.0,
+              "end_time": 0.0,
+              "reason": null
+            },
+            {
+              "phase": "REACH",
+              "start_step": 0,
+              "end_step": 180,
+              "start_time": 0.0,
+              "end_time": 6.0,
+              "reason": null
+            },
+            {
+              "phase": "GRASP",
+              "start_step": 180,
+              "end_step": 310,
+              "start_time": 6.0,
+              "end_time": 10.333333333333334,
+              "reason": null
+            },
+            {
+              "phase": "PULL",
+              "start_step": 310,
+              "end_step": 370,
+              "start_time": 10.333333333333334,
+              "end_time": 12.333333333333334,
+              "reason": null
+            },
+            {
+              "phase": "TRANSPORT",
+              "start_step": 370,
+              "end_step": 1110,
+              "start_time": 12.333333333333334,
+              "end_time": 37.0,
+              "reason": null
+            },
+            {
+              "phase": "DROP",
+              "start_step": 1110,
+              "end_step": 1180,
+              "start_time": 37.0,
+              "end_time": 39.333333333333336,
+              "reason": "strict_success"
+            }
+          ],
+          "shadow_max_command_error": null
+        },
+        "Cxyz": {
+          "strict_success_any_fruit": true,
+          "termination_reason": "strict_success",
+          "controller_steps": 1185,
+          "ik_failure_rate": 0.03375527426160337,
+          "clipping_rate": 0.0016877637130801688,
+          "phases": [
+            {
+              "phase": "RESET",
+              "start_step": 0,
+              "end_step": 0,
+              "start_time": 0.0,
+              "end_time": 0.0,
+              "reason": null
+            },
+            {
+              "phase": "REACH",
+              "start_step": 0,
+              "end_step": 180,
+              "start_time": 0.0,
+              "end_time": 6.0,
+              "reason": null
+            },
+            {
+              "phase": "GRASP",
+              "start_step": 180,
+              "end_step": 310,
+              "start_time": 6.0,
+              "end_time": 10.333333333333334,
+              "reason": null
+            },
+            {
+              "phase": "PULL",
+              "start_step": 310,
+              "end_step": 370,
+              "start_time": 10.333333333333334,
+              "end_time": 12.333333333333334,
+              "reason": null
+            },
+            {
+              "phase": "TRANSPORT",
+              "start_step": 370,
+              "end_step": 1115,
+              "start_time": 12.333333333333334,
+              "end_time": 37.166666666666664,
+              "reason": null
+            },
+            {
+              "phase": "DROP",
+              "start_step": 1115,
+              "end_step": 1185,
+              "start_time": 37.166666666666664,
+              "end_time": 39.5,
+              "reason": "strict_success"
+            }
+          ],
+          "shadow_max_command_error": 2.061939352593356e-08
+        }
+      }
+    }
+  ],
+  "independent_strict_replay": {
+    "round0_reference": [
+      {
+        "folder": "round0_reference/1000106_Cxyz_G0",
+        "steps": 1070,
+        "passed": true
+      },
+      {
+        "folder": "round0_reference/1000106_original_G0",
+        "steps": 1070,
+        "passed": true
+      },
+      {
+        "folder": "round0_reference/1000268_Cxyz_G0",
+        "steps": 445,
+        "passed": true
+      },
+      {
+        "folder": "round0_reference/1000268_original_G0",
+        "steps": 445,
+        "passed": true
+      },
+      {
+        "folder": "round0_reference/1000576_Cxyz_G0",
+        "steps": 1185,
+        "passed": true
+      },
+      {
+        "folder": "round0_reference/1000576_original_G0",
+        "steps": 1180,
+        "passed": true
+      }
+    ],
+    "round0_smoke": [
+      {
+        "folder": "round0_smoke/1000106_C0_G0",
+        "steps": 450,
+        "passed": true
+      },
+      {
+        "folder": "round0_smoke/1000106_Cxyz0_G0",
+        "steps": 1325,
+        "passed": true
+      },
+      {
+        "folder": "round0_smoke/1000106_Cxyz_G0",
+        "steps": 1070,
+        "passed": true
+      },
+      {
+        "folder": "round0_smoke/1000106_Cz_G0",
+        "steps": 1090,
+        "passed": true
+      },
+      {
+        "folder": "round0_smoke/1000268_C0_G0",
+        "steps": 450,
+        "passed": true
+      },
+      {
+        "folder": "round0_smoke/1000268_Cxyz0_G0",
+        "steps": 445,
+        "passed": true
+      },
+      {
+        "folder": "round0_smoke/1000268_Cxyz_G0",
+        "steps": 445,
+        "passed": true
+      },
+      {
+        "folder": "round0_smoke/1000268_Cz_G0",
+        "steps": 440,
+        "passed": true
+      }
+    ]
+  },
+  "production_files_modified": false
+}

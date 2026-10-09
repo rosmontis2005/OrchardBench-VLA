@@ -160,3 +160,13 @@ checkpoints/
 *.[mM]4[vV]
 *.[mM][pP][eE][gG]
 *.[mM][pP][gG]
+
+# Initialization-prior experiment: compact reproducibility records only.
+!/artifacts/initialization_prior_1009/results.csv
+!/artifacts/initialization_prior_1009/scene_manifest.json
+!/artifacts/initialization_prior_1009/config.json
+!/artifacts/initialization_prior_1009/calibration.json
+!/artifacts/initialization_prior_1009/statistics.json
+!/artifacts/initialization_prior_1009/validation.json
+!/artifacts/initialization_prior_1009/revisions.json
+!/artifacts/initialization_prior_1009/engineering_errors.json

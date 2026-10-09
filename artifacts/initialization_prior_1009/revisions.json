@@ -1,0 +1,13 @@
+[
+  {
+    "revision": 1,
+    "stage": "Round 0",
+    "problem": "Frozen base/bucket frame differed from production measured base by about 0.33 mm vertical weld compliance; transport command shadow error 4.5\u20136.0 micrometres.",
+    "fix": "Use current robot base proprioception and known rigid bucket mounting transform for all modes. No fruit information added; no controller parameters changed.",
+    "before": [
+      "round0_reference_initial_audit",
+      "round0_reference_diagnostic"
+    ],
+    "after": "round0_reference"
+  }
+]

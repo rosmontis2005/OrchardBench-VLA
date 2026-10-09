@@ -1,0 +1,34 @@
+[
+  {
+    "batch": "round0_reference_initial_audit",
+    "seed": 1000106,
+    "mode": "Cxyz",
+    "error": "",
+    "reason": "shadow_comparison_frozen_base_frame",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rosmontis/Projects/orchardbench/experiments/initialization_prior_1009/run.py\", line 85, in run\n    assert err<2e-6 and left['width']==right['width'] and left['phase']==right['phase']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "batch": "round0_reference_initial_audit",
+    "seed": 1000576,
+    "mode": "Cxyz",
+    "error": "",
+    "reason": "shadow_comparison_frozen_base_frame",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rosmontis/Projects/orchardbench/experiments/initialization_prior_1009/run.py\", line 85, in run\n    assert err<2e-6 and left['width']==right['width'] and left['phase']==right['phase']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "batch": "round0_reference_diagnostic",
+    "seed": 1000106,
+    "mode": "Cxyz",
+    "error": "{\"step\": 405, \"error\": 5.954861869050809e-06, \"left\": {\"position\": [0.2109242493061173, 1.2284723081505575, 0.848333747417333], \"rotation\": [[0.026481123566936604, -0.9857446745574048, -0.16615109592280397], [0.15617849888761115, 0.16824804856661832, -0.9732938254395418], [0.9873738028628495, -0.0001753146913541226, 0.15840752092282084]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 405}, \"right\": {\"position\": [0.21092453657005136, 1.2284741936804773, 0.848327792555464], \"rotation\": [[0.026481112965686726, -0.9857446727459351, -0.166151108359553], [0.15617850069193967, 0.16824805916664987, -0.973293823317642], [0.9873738028617713, -0.000175327307819384, 0.1584075209155764]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 405}, \"base_live\": [0.304259330034256, 1.7876801490783691, -0.00032880998332984746, 0.0, 0.0, -0.7641295790672302, 0.6450628042221069], \"base_initial\": [0.30425703525543213, 1.7876631021499634, 0.0, 0.0, 0.0, -0.7641287446022034, 0.6450637578964233]}",
+    "reason": "shadow_comparison_frozen_base_frame",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rosmontis/Projects/orchardbench/experiments/initialization_prior_1009/run.py\", line 85, in run\n    assert err<2e-6 and left['width']==right['width'] and left['phase']==right['phase'], json.dumps(dict(step=env.control_steps,error=err,left=left,right=right,base_live=t['base_pose'],base_initial=bp),default=serial)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {\"step\": 405, \"error\": 5.954861869050809e-06, \"left\": {\"position\": [0.2109242493061173, 1.2284723081505575, 0.848333747417333], \"rotation\": [[0.026481123566936604, -0.9857446745574048, -0.16615109592280397], [0.15617849888761115, 0.16824804856661832, -0.9732938254395418], [0.9873738028628495, -0.0001753146913541226, 0.15840752092282084]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 405}, \"right\": {\"position\": [0.21092453657005136, 1.2284741936804773, 0.848327792555464], \"rotation\": [[0.026481112965686726, -0.9857446727459351, -0.166151108359553], [0.15617850069193967, 0.16824805916664987, -0.973293823317642], [0.9873738028617713, -0.000175327307819384, 0.1584075209155764]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 405}, \"base_live\": [0.304259330034256, 1.7876801490783691, -0.00032880998332984746, 0.0, 0.0, -0.7641295790672302, 0.6450628042221069], \"base_initial\": [0.30425703525543213, 1.7876631021499634, 0.0, 0.0, 0.0, -0.7641287446022034, 0.6450637578964233]}\n"
+  },
+  {
+    "batch": "round0_reference_diagnostic",
+    "seed": 1000576,
+    "mode": "Cxyz",
+    "error": "{\"step\": 370, \"error\": 4.4800125833521776e-06, \"left\": {\"position\": [1.2401234935683725, -0.28408021328127503, 0.802114602167115], \"rotation\": [[0.14403970223647333, 0.22651489999325383, -0.9632982737764427], [-0.03353599145302841, 0.9740076994912066, 0.22401861219351848], [0.9890034891024858, 3.758848030140094e-05, 0.14789218076090305]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 370}, \"right\": {\"position\": [1.2401250674916608, -0.28408065563152873, 0.8021101221545317], \"rotation\": [[0.144039695267748, 0.2265148701544908, -0.963298281834899], [-0.03353602128462606, 0.9740077064291257, 0.22401857756237778], [0.9890034891058632, 3.762403665963365e-05, 0.14789218072927474]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 370}, \"base_live\": [1.876672387123108, -0.4384036660194397, -0.00032667152117937803, 0.0, 0.0, 0.9934244155883789, 0.11449003219604492], \"base_initial\": [1.876655101776123, -0.4383977949619293, 0.0, 0.0, 0.0, 0.9934239983558655, 0.11449357867240906]}",
+    "reason": "shadow_comparison_frozen_base_frame",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rosmontis/Projects/orchardbench/experiments/initialization_prior_1009/run.py\", line 85, in run\n    assert err<2e-6 and left['width']==right['width'] and left['phase']==right['phase'], json.dumps(dict(step=env.control_steps,error=err,left=left,right=right,base_live=t['base_pose'],base_initial=bp),default=serial)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {\"step\": 370, \"error\": 4.4800125833521776e-06, \"left\": {\"position\": [1.2401234935683725, -0.28408021328127503, 0.802114602167115], \"rotation\": [[0.14403970223647333, 0.22651489999325383, -0.9632982737764427], [-0.03353599145302841, 0.9740076994912066, 0.22401861219351848], [0.9890034891024858, 3.758848030140094e-05, 0.14789218076090305]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 370}, \"right\": {\"position\": [1.2401250674916608, -0.28408065563152873, 0.8021101221545317], \"rotation\": [[0.144039695267748, 0.2265148701544908, -0.963298281834899], [-0.03353602128462606, 0.9740077064291257, 0.22401857756237778], [0.9890034891058632, 3.762403665963365e-05, 0.14789218072927474]], \"width\": 0.0, \"phase\": \"TRANSPORT\", \"planning_step\": 370}, \"base_live\": [1.876672387123108, -0.4384036660194397, -0.00032667152117937803, 0.0, 0.0, 0.9934244155883789, 0.11449003219604492], \"base_initial\": [1.876655101776123, -0.4383977949619293, 0.0, 0.0, 0.0, 0.9934239983558655, 0.11449357867240906]}\n"
+  }
+]
